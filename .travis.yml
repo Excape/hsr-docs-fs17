@@ -1,3 +1,0 @@
-before_install: sudo pip install -r requirements.txt
-script: bash ./build.sh
-sudo: required
