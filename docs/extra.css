@@ -1,0 +1,51 @@
+li {
+    margin: 0 0 7px 0;
+}
+
+hr {
+    border-top: 1px solid #ABABAB
+}
+
+div.codehilite > pre
+{
+    /* BEGIN word wrap */
+    /* Need all the following to word wrap instead of scroll box */
+    /* This will override the overflow:auto if present */
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+    /* END word wrap */
+}
+
+.md-typeset hr {
+    border-bottom: none;
+}
+
+@media print {
+    .md-main__inner {
+        margin-top: 1rem;
+    }
+    
+    /* hide links */
+    a:after {
+        display: none;
+    }
+    
+    div.codehilite {
+        /* Avoid page breaks in code blocks */
+        page-break-inside: avoid;
+        font-size: 1.1em !important;
+        background-color: white !important;
+    }
+    
+    li {
+        page-break-inside: avoid;
+    }
+    
+    h2, h3 {
+        page-break-after: avoid;
+    }
+
+}

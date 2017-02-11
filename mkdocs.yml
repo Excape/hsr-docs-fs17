@@ -1,0 +1,34 @@
+site_name: HSR Notizen FS17
+site_url: https://doc.robinsuter.ch
+repo_url: https://github.com/Excape/hsr-docs-fs17
+site_description: HSR Study Documentation FS16
+site_author: Robin Suter
+copyright: 'Copyright (c) 2017 Robin Suter'
+
+theme: 'material'
+
+# pages: # Created implicitly
+
+markdown_extensions:
+  - toc
+  - sane_lists
+  - admonition
+  - mdx_math
+  - codehilite
+  
+
+extra:
+    palette:
+        primary: 'red'
+        accent: 'amber'
+    font:
+        text: 'Roboto'
+        code: 'Roboto Mono'
+    author:
+        github: 'excape'
+        twitter: 'robin_suter'
+
+extra_javascript:
+  - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG
+
+extra_css: [extra.css]
