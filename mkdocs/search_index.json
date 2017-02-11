@@ -1,0 +1,164 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "HSR Notizen\n\n\nSpring Semester '17\n\n\n\n\nDatenbanksysteme 2\n\n\nEngineering-Projekt\n\n\nInformationssicherheit 3\n\n\nWirtschaftsinformatik 1 - IT im Business\n\n\nParallele Programmierung\n\n\nPhysik Anwendungen f\u00fcr Informatik\n\n\nSoftware-Engineering 2\n\n\nVerteilte SW-Systeme\n\n\nVolkswirtschaft und Technikgeschichte\n\n\n\n\nLinks\n\n\n\n\nSlack: \nhttps://hsr-students.slack.com\n\n\nMathJax Syntax\n\n\nMkDocs User-Guide\n\n\nMarkdown Cheatsheet", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#hsr-notizen", 
+            "text": "", 
+            "title": "HSR Notizen"
+        }, 
+        {
+            "location": "/#spring-semester-17", 
+            "text": "Datenbanksysteme 2  Engineering-Projekt  Informationssicherheit 3  Wirtschaftsinformatik 1 - IT im Business  Parallele Programmierung  Physik Anwendungen f\u00fcr Informatik  Software-Engineering 2  Verteilte SW-Systeme  Volkswirtschaft und Technikgeschichte", 
+            "title": "Spring Semester '17"
+        }, 
+        {
+            "location": "/#links", 
+            "text": "Slack:  https://hsr-students.slack.com  MathJax Syntax  MkDocs User-Guide  Markdown Cheatsheet", 
+            "title": "Links"
+        }, 
+        {
+            "location": "/playground/", 
+            "text": "Markdown Playground\n\n\nDies ist etwas normaler Text mit etwas \nkursiver\n schrift und etwas \nbold\n schrift\n\n\n\n\nDies ist Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text\nzweite Zeile\n\n\n\n\n\n  \npublic\n \nclass\n \nTestClass\n()\n \n{\n\n    \nint\n \nvar\n \n=\n \n1\n;\n\n    \npublic\n \nmethod\n()\n \n{\n\n      \nreturn\n \nvar\n;\n\n    \n}\n\n  \n}\n\n\n\n\n\n\n\n\n\n\n\n\n1\n\n\n2\n\n\n3\n\n\n\n\n\n\n\n\n\n\n1\n\n\netwas\n\n\nanderes\n\n\n\n\n\n\n2\n\n\nals\n\n\nhier\n\n\n\n\n\n\n\n\n\n\nNotiz\n\n\nTest Notiz mit etwas Text drin\n\n\n\n\n\n\nDanger\n\n\nGefahr!\n\n\n\n\n\n\nWarning\n\n\nWarnung!\n\n\n\n\nInline Math: \n x_i^2 * \\frac{(n^2 * n) - 1}{\\Omega} \n\n\n\n\nDisplay Math:\n\n\\sum_{i=0}^n i^2\n\n\n\n\nGruppen mit \n{}\n: \n{10}^5\n\n\n\n\n\n\nA \\rightarrow B \n\n\n\\lim_{x\\to \\infty} \\sin x", 
+            "title": "Playground"
+        }, 
+        {
+            "location": "/playground/#markdown-playground", 
+            "text": "Dies ist etwas normaler Text mit etwas  kursiver  schrift und etwas  bold  schrift   Dies ist Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text ein Text\nzweite Zeile     public   class   TestClass ()   { \n     int   var   =   1 ; \n     public   method ()   { \n       return   var ; \n     } \n   }      1  2  3      1  etwas  anderes    2  als  hier      Notiz  Test Notiz mit etwas Text drin    Danger  Gefahr!    Warning  Warnung!   Inline Math:   x_i^2 * \\frac{(n^2 * n) - 1}{\\Omega}    Display Math: \\sum_{i=0}^n i^2   Gruppen mit  {} :  {10}^5    A \\rightarrow B   \\lim_{x\\to \\infty} \\sin x", 
+            "title": "Markdown Playground"
+        }, 
+        {
+            "location": "/Dbs2/0_Index/", 
+            "text": "Datenbanksysteme 2\n\n\n\n\nExam Notes", 
+            "title": "0 Index"
+        }, 
+        {
+            "location": "/Dbs2/0_Index/#datenbanksysteme-2", 
+            "text": "Exam Notes", 
+            "title": "Datenbanksysteme 2"
+        }, 
+        {
+            "location": "/Dbs2/1_Exam/", 
+            "text": "Some exam notes...", 
+            "title": "1 Exam"
+        }, 
+        {
+            "location": "/EPJ/0_Index/", 
+            "text": "Engineering-Projekt", 
+            "title": "0 Index"
+        }, 
+        {
+            "location": "/EPJ/0_Index/#engineering-projekt", 
+            "text": "", 
+            "title": "Engineering-Projekt"
+        }, 
+        {
+            "location": "/ITBus/0_Index/", 
+            "text": "Wirtschaftsinformatik 1 - IT im Business\n\n\n\n\nExam Notes", 
+            "title": "0 Index"
+        }, 
+        {
+            "location": "/ITBus/0_Index/#wirtschaftsinformatik-1-it-im-business", 
+            "text": "Exam Notes", 
+            "title": "Wirtschaftsinformatik 1 - IT im Business"
+        }, 
+        {
+            "location": "/ITBus/1_Exam/", 
+            "text": "Some exam notes...", 
+            "title": "1 Exam"
+        }, 
+        {
+            "location": "/InfSi3/0_Index/", 
+            "text": "Informationssicherheit 3\n\n\n\n\nExam Notes", 
+            "title": "0 Index"
+        }, 
+        {
+            "location": "/InfSi3/0_Index/#informationssicherheit-3", 
+            "text": "Exam Notes", 
+            "title": "Informationssicherheit 3"
+        }, 
+        {
+            "location": "/InfSi3/1_Exam/", 
+            "text": "Some exam notes...", 
+            "title": "1 Exam"
+        }, 
+        {
+            "location": "/ParProg/0_Index/", 
+            "text": "Parallele Programmierung\n\n\n\n\nExam Notes", 
+            "title": "0 Index"
+        }, 
+        {
+            "location": "/ParProg/0_Index/#parallele-programmierung", 
+            "text": "Exam Notes", 
+            "title": "Parallele Programmierung"
+        }, 
+        {
+            "location": "/ParProg/1_Exam/", 
+            "text": "Some exam notes...", 
+            "title": "1 Exam"
+        }, 
+        {
+            "location": "/PhAI/0_Index/", 
+            "text": "Physik Anwendungen f\u00fcr Informatik\n\n\n\n\nExam Notes", 
+            "title": "0 Index"
+        }, 
+        {
+            "location": "/PhAI/0_Index/#physik-anwendungen-fur-informatik", 
+            "text": "Exam Notes", 
+            "title": "Physik Anwendungen f\u00fcr Informatik"
+        }, 
+        {
+            "location": "/PhAI/1_Exam/", 
+            "text": "Some exam notes...", 
+            "title": "1 Exam"
+        }, 
+        {
+            "location": "/SE2/0_Index/", 
+            "text": "Software Engineering 2\n\n\n\n\nExam Notes", 
+            "title": "0 Index"
+        }, 
+        {
+            "location": "/SE2/0_Index/#software-engineering-2", 
+            "text": "Exam Notes", 
+            "title": "Software Engineering 2"
+        }, 
+        {
+            "location": "/SE2/1_Exam/", 
+            "text": "Some exam notes...", 
+            "title": "1 Exam"
+        }, 
+        {
+            "location": "/Vss/0_Index/", 
+            "text": "Verteilte Software-Systeme\n\n\n\n\nExam Notes", 
+            "title": "0 Index"
+        }, 
+        {
+            "location": "/Vss/0_Index/#verteilte-software-systeme", 
+            "text": "Exam Notes", 
+            "title": "Verteilte Software-Systeme"
+        }, 
+        {
+            "location": "/Vss/1_Exam/", 
+            "text": "Some exam notes...", 
+            "title": "1 Exam"
+        }, 
+        {
+            "location": "/VwlTg/0_Index/", 
+            "text": "Volkswirtschaft und Technikgeschichte\n\n\n\n\nExam Notes", 
+            "title": "0 Index"
+        }, 
+        {
+            "location": "/VwlTg/0_Index/#volkswirtschaft-und-technikgeschichte", 
+            "text": "Exam Notes", 
+            "title": "Volkswirtschaft und Technikgeschichte"
+        }, 
+        {
+            "location": "/VwlTg/1_Exam/", 
+            "text": "Some exam notes...", 
+            "title": "1 Exam"
+        }
+    ]
+}
