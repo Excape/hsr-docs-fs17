@@ -9,7 +9,7 @@
         <meta name="description" content="HSR Study Documentation FS16">
       
       
-        <link rel="canonical" href="https://doc.robinsuter.ch/Dbs2/1_Exam/">
+        <link rel="canonical" href="https://doc.robinsuter.ch/ParProg/2_Multi-Threading_Grundlagen/">
       
       
         <meta name="author" content="Robin Suter">
@@ -21,7 +21,7 @@
     
     
       
-        <title>1 Exam - HSR Notizen FS17</title>
+        <title>2 Multi Threading Grundlagen - HSR Notizen FS17</title>
       
     
     
@@ -83,11 +83,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Dbs2
+                  ParProg
                 </span>
               
             
-            1 Exam
+            2 Multi Threading Grundlagen
           
         </span>
       </div>
@@ -206,7 +206,7 @@
       
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Dbs2
@@ -222,7 +222,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../0_Index/" title="0 Index" class="md-nav__link">
+      <a href="../../Dbs2/0_Index/" title="0 Index" class="md-nav__link">
         0 Index
       </a>
     
@@ -233,12 +233,9 @@
           
   <li class="md-nav__item">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-    
-    <a href="./" title="1 Exam" class="md-nav__link md-nav__link--active">
-      1 Exam
-    </a>
+      <a href="../../Dbs2/1_Exam/" title="1 Exam" class="md-nav__link">
+        1 Exam
+      </a>
     
   </li>
 
@@ -370,7 +367,7 @@
       
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
     <label class="md-nav__link" for="nav-7">
       ParProg
@@ -386,7 +383,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../../ParProg/0_Index/" title="0 Index" class="md-nav__link">
+      <a href="../0_Index/" title="0 Index" class="md-nav__link">
         0 Index
       </a>
     
@@ -397,7 +394,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../../ParProg/1_Exam/" title="1 Exam" class="md-nav__link">
+      <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
         1 Exam
       </a>
     
@@ -408,9 +405,73 @@
           
   <li class="md-nav__item">
     
-      <a href="../../ParProg/2_Multi-Threading_Grundlagen/" title="2 Multi Threading Grundlagen" class="md-nav__link">
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
         2 Multi Threading Grundlagen
-      </a>
+      </label>
+    
+    <a href="./" title="2 Multi Threading Grundlagen" class="md-nav__link md-nav__link--active">
+      2 Multi Threading Grundlagen
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" title="Motivation" class="md-nav__link">
+    Motivation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallelitat-vs-nebenlaufigkeit" title="Parallelität vs. Nebenläufigkeit" class="md-nav__link">
+    Parallelität vs. Nebenläufigkeit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-grundlagen-repetition" title="System Grundlagen Repetition" class="md-nav__link">
+    System Grundlagen Repetition
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#threads" title="Threads" class="md-nav__link">
+    Threads
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grundlagen-java-threads" title="Grundlagen Java Threads" class="md-nav__link">
+    Grundlagen Java Threads
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -617,6 +678,54 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" title="Motivation" class="md-nav__link">
+    Motivation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallelitat-vs-nebenlaufigkeit" title="Parallelität vs. Nebenläufigkeit" class="md-nav__link">
+    Parallelität vs. Nebenläufigkeit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-grundlagen-repetition" title="System Grundlagen Repetition" class="md-nav__link">
+    System Grundlagen Repetition
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#threads" title="Threads" class="md-nav__link">
+    Threads
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grundlagen-java-threads" title="Grundlagen Java Threads" class="md-nav__link">
+    Grundlagen Java Threads
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -627,13 +736,146 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Dbs2/1_Exam.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/ParProg/2_Multi-Threading_Grundlagen.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
-                  <h1>1 Exam</h1>
-                
-                <p>Some exam notes...</p>
+                <h1 id="multi-threading-grundlagen">Multi-Threading Grundlagen</h1>
+<h2 id="motivation">Motivation</h2>
+<ul>
+<li>Reale Prozesse abbilden (Druckjobs, Server-Client)</li>
+<li>Perfromance-Steigerung</li>
+<li>
+<p>Seit 2003 stagnieren Taktraten, stattdessen wird mehr auf Hyperthreading und mehrere Kerne gesetzt. Deshalb müssen Programme darauf optimiert werden</p>
+</li>
+<li>
+<p>Hyperthreading (Virtual Threading): Ein CPU-Core hat zwei Register-Sets, aber immer noch nur ein Rechenwerk (ALU)</p>
+<ul>
+<li>Ist nicht "echte" Parallelisierung</li>
+</ul>
+</li>
+</ul>
+<h2 id="parallelitat-vs-nebenlaufigkeit">Parallelität vs. Nebenläufigkeit</h2>
+<ul>
+<li><strong>Parallelität</strong>:  Zerlegung eines Ablaufs in mehrere Teilabläufe, welche gleichzeitig auf mehreren Prozessoren laufen</li>
+<li><strong>Nebenläufigkeit</strong> (Concurrency): Gleichzeitig oder verzahnt ausführbare Abläufe, welche auf gemeinsame Ressourcen zugreifen.<ul>
+<li>Älteres Prinzip, z.B. Drucker</li>
+<li>Kann anschein von Parallelität haben, aber es wird immer nur etwas auf einmal ausgeführt</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="system-grundlagen-repetition">System Grundlagen Repetition</h2>
+<h3 id="threads">Threads</h3>
+<ul>
+<li>Parallele Ablaufsequenz innerhalb eines Programms, teilen den Adressraum mit dem ganzen Prozess</li>
+<li>Ist günstiger als eigener Prozess, braucht keine eigene Pagetable</li>
+<li>Jeder Thread hat eigenen Stack</li>
+<li>User-Level-Thread: Im Prozess implementiert, keine echte Parallelität durch mehrere Prozessoren</li>
+<li>Kernel-Level-Thread: Im Kernel implementiert, kann Multi-Core ausnutzen. Wechsel per SW-Interrupt, ist also nicht ganz "gratis"</li>
+<li>Scheduling: Ein CPU-Core kann immer nur ein Thread gleichzeitig ausführen. Scheduler teilt die Threads zu</li>
+<li>Wenn nur ein Prozessor Threads verarbeitet, ist es eine Quasi-Parallelisierung</li>
+<li>
+<p>Programmierung hat für "echte" oder "quasi"-Parallelität die gleichen Probleme, weil man nie weiss, wann die Kontextwechsel geschehen</p>
+</li>
+<li>
+<p>Kontextwechsel</p>
+<ul>
+<li><strong>Synchron</strong>: Thread wartet auf Bedingung, gibt den Prozessor selbst frei</li>
+<li><strong>Asynchron</strong>: Nach gewisser Zeit wird der Thread gewzungen, die CPU freizugeben</li>
+</ul>
+</li>
+<li>Multi-Tasking<ul>
+<li><strong>Kooperativ</strong>: Threads müssen explizit synchrone Kontextwechsel initiieren</li>
+<li><strong>Preemptive</strong>: Scheduler unterbricht den Thread <em>asynchron</em> in gewissen Zeitintervallen</li>
+<li>Heute in der Regel immer <em>preemptive</em>!</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Todo: Bild Folie 30</p>
+</div>
+<h2 id="grundlagen-java-threads">Grundlagen Java Threads</h2>
+<ul>
+<li>JVM ist ein Single Process System</li>
+<li>Main-Thread führt die <code>main()</code>-Methode aus (per Reflection)</li>
+<li>Programmierer kann weitere Threads starten</li>
+<li>Laufzeitsystem startet auch eigene Threads, z.B. GC</li>
+<li>Die JVM läuft solange, bis kein (nicht-Daemon-) Thread mehr läuft<ul>
+<li>Daemon-Thread ist z.B. GC, wird bei Ende der JVM unkontrolliert beendet</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">SimpleThread</span> <span class="kd">extends</span> <span class="n">Thread</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// thread behavior</span>
+
+        <span class="c1">// thread ends when run() exits </span>
+        <span class="c1">// (or unhandled exception orccurs)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="n">Thread</span> <span class="n">myThread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleThread</span><span class="o">();</span>
+<span class="n">myThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+</pre></div>
+
+
+<ul>
+<li>Wenn unbehandelte Exception in Thread auftritt, laufen andere Threads weiter (in Java, andere Umgebungen anders)</li>
+<li>Threads laufen ohne Vorkehrungen beliebig verzahnt, <strong>nicht-deterministischer Ablauf!</strong></li>
+</ul>
+<p>Runnable Implementierung statt Vererbung:</p>
+<div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">SimpleLogic</span> <span class="kd">implements</span> <span class="n">Runnable</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// thread behavior</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="c1">// Pass Runnable to Thread constructor!</span>
+<span class="n">Thread</span> <span class="n">myThread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">SimpleLogic</span><span class="o">());</span>
+<span class="n">myThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+</pre></div>
+
+
+<ul>
+<li><code>Runnable</code>-Interface hat 1 Methode -&gt; Functional Interface!<ul>
+<li>Kann mit Lambdas verwendet werden</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">Thread</span> <span class="n">myThread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="c1">// thread behavior</span>
+<span class="o">});</span>
+<span class="n">myThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+</pre></div>
+
+
+<ul>
+<li>Mit <code>Thread.sleep(t[ms])</code> kann der Thread schlafen gelegt werden</li>
+<li><code>Thread.yield()</code> gibt Thread frei, aber wird gleich wieder <em>ready</em>. Provoziert Thread-Wechsel<ul>
+<li>Sollte man nicht verwenden, weil OS das Scheduling selbst verwaltet</li>
+</ul>
+</li>
+<li><code>t.join()</code> wartet solange, bis der Thread <code>t</code> terminiert</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">Thread</span> <span class="n">myThread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="c1">// thread behavior</span>
+<span class="o">});</span>
+<span class="n">myThread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+<span class="c1">// Thread started</span>
+<span class="n">myThread</span><span class="o">.</span><span class="na">join</span><span class="o">();</span>
+<span class="c1">// Thread finished</span>
+</pre></div>
+
+
+<ul>
+<li>Threads können von Aussen unterbrochen werden mit <code>t.interrupt()</code><ul>
+<li>Löst <code>InterruptedException</code> aus</li>
+<li>Wird meist missbraucht zum Aufbrechen von Blockaden (schlecht!)</li>
+</ul>
+</li>
+</ul>
               
             </article>
           </div>
@@ -646,7 +888,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../0_Index/" title="0 Index" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../1_Exam/" title="1 Exam" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -655,13 +897,13 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                0 Index
+                1 Exam
               </span>
             </div>
           </a>
         
         
-          <a href="../../EPJ/0_Index/" title="0 Index" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../PhAI/0_Index/" title="0 Index" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">

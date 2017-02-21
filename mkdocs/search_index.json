@@ -87,18 +87,63 @@
         }, 
         {
             "location": "/ParProg/0_Index/", 
-            "text": "Parallele Programmierung\n\n\n\n\nExam Notes", 
+            "text": "Parallele Programmierung\n\n\n\n\nExam Notes\n\n\nMulti-Threading Grundlagen", 
             "title": "0 Index"
         }, 
         {
             "location": "/ParProg/0_Index/#parallele-programmierung", 
-            "text": "Exam Notes", 
+            "text": "Exam Notes  Multi-Threading Grundlagen", 
             "title": "Parallele Programmierung"
         }, 
         {
             "location": "/ParProg/1_Exam/", 
-            "text": "Some exam notes...", 
+            "text": "Exam\n\n\nHilfsmittel\n\n\n\n\n1 A4 beidseitig", 
             "title": "1 Exam"
+        }, 
+        {
+            "location": "/ParProg/1_Exam/#exam", 
+            "text": "", 
+            "title": "Exam"
+        }, 
+        {
+            "location": "/ParProg/1_Exam/#hilfsmittel", 
+            "text": "1 A4 beidseitig", 
+            "title": "Hilfsmittel"
+        }, 
+        {
+            "location": "/ParProg/2_Multi-Threading_Grundlagen/", 
+            "text": "Multi-Threading Grundlagen\n\n\nMotivation\n\n\n\n\nReale Prozesse abbilden (Druckjobs, Server-Client)\n\n\nPerfromance-Steigerung\n\n\n\n\nSeit 2003 stagnieren Taktraten, stattdessen wird mehr auf Hyperthreading und mehrere Kerne gesetzt. Deshalb m\u00fcssen Programme darauf optimiert werden\n\n\n\n\n\n\nHyperthreading (Virtual Threading): Ein CPU-Core hat zwei Register-Sets, aber immer noch nur ein Rechenwerk (ALU)\n\n\n\n\nIst nicht \"echte\" Parallelisierung\n\n\n\n\n\n\n\n\nParallelit\u00e4t vs. Nebenl\u00e4ufigkeit\n\n\n\n\nParallelit\u00e4t\n:  Zerlegung eines Ablaufs in mehrere Teilabl\u00e4ufe, welche gleichzeitig auf mehreren Prozessoren laufen\n\n\nNebenl\u00e4ufigkeit\n (Concurrency): Gleichzeitig oder verzahnt ausf\u00fchrbare Abl\u00e4ufe, welche auf gemeinsame Ressourcen zugreifen.\n\n\n\u00c4lteres Prinzip, z.B. Drucker\n\n\nKann anschein von Parallelit\u00e4t haben, aber es wird immer nur etwas auf einmal ausgef\u00fchrt\n\n\n\n\n\n\n\n\n\n\nSystem Grundlagen Repetition\n\n\nThreads\n\n\n\n\nParallele Ablaufsequenz innerhalb eines Programms, teilen den Adressraum mit dem ganzen Prozess\n\n\nIst g\u00fcnstiger als eigener Prozess, braucht keine eigene Pagetable\n\n\nJeder Thread hat eigenen Stack\n\n\nUser-Level-Thread: Im Prozess implementiert, keine echte Parallelit\u00e4t durch mehrere Prozessoren\n\n\nKernel-Level-Thread: Im Kernel implementiert, kann Multi-Core ausnutzen. Wechsel per SW-Interrupt, ist also nicht ganz \"gratis\"\n\n\nScheduling: Ein CPU-Core kann immer nur ein Thread gleichzeitig ausf\u00fchren. Scheduler teilt die Threads zu\n\n\nWenn nur ein Prozessor Threads verarbeitet, ist es eine Quasi-Parallelisierung\n\n\n\n\nProgrammierung hat f\u00fcr \"echte\" oder \"quasi\"-Parallelit\u00e4t die gleichen Probleme, weil man nie weiss, wann die Kontextwechsel geschehen\n\n\n\n\n\n\nKontextwechsel\n\n\n\n\nSynchron\n: Thread wartet auf Bedingung, gibt den Prozessor selbst frei\n\n\nAsynchron\n: Nach gewisser Zeit wird der Thread gewzungen, die CPU freizugeben\n\n\n\n\n\n\nMulti-Tasking\n\n\nKooperativ\n: Threads m\u00fcssen explizit synchrone Kontextwechsel initiieren\n\n\nPreemptive\n: Scheduler unterbricht den Thread \nasynchron\n in gewissen Zeitintervallen\n\n\nHeute in der Regel immer \npreemptive\n!\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nTodo: Bild Folie 30\n\n\n\n\nGrundlagen Java Threads\n\n\n\n\nJVM ist ein Single Process System\n\n\nMain-Thread f\u00fchrt die \nmain()\n-Methode aus (per Reflection)\n\n\nProgrammierer kann weitere Threads starten\n\n\nLaufzeitsystem startet auch eigene Threads, z.B. GC\n\n\nDie JVM l\u00e4uft solange, bis kein (nicht-Daemon-) Thread mehr l\u00e4uft\n\n\nDaemon-Thread ist z.B. GC, wird bei Ende der JVM unkontrolliert beendet\n\n\n\n\n\n\n\n\nclass\n \nSimpleThread\n \nextends\n \nThread\n \n{\n\n    \n@Override\n\n    \npublic\n \nvoid\n \nrun\n()\n \n{\n\n        \n// thread behavior\n\n\n        \n// thread ends when run() exits \n\n        \n// (or unhandled exception orccurs)\n\n    \n}\n\n\n}\n\n\nThread\n \nmyThread\n \n=\n \nnew\n \nSimpleThread\n();\n\n\nmyThread\n.\nstart\n();\n\n\n\n\n\n\n\n\nWenn unbehandelte Exception in Thread auftritt, laufen andere Threads weiter (in Java, andere Umgebungen anders)\n\n\nThreads laufen ohne Vorkehrungen beliebig verzahnt, \nnicht-deterministischer Ablauf!\n\n\n\n\nRunnable Implementierung statt Vererbung:\n\n\nclass\n \nSimpleLogic\n \nimplements\n \nRunnable\n \n{\n\n    \n@Override\n\n    \npublic\n \nvoid\n \nrun\n()\n \n{\n\n        \n// thread behavior\n\n    \n}\n\n\n}\n\n\n// Pass Runnable to Thread constructor!\n\n\nThread\n \nmyThread\n \n=\n \nnew\n \nThread\n(\nnew\n \nSimpleLogic\n());\n\n\nmyThread\n.\nstart\n();\n\n\n\n\n\n\n\n\nRunnable\n-Interface hat 1 Methode -\n Functional Interface!\n\n\nKann mit Lambdas verwendet werden\n\n\n\n\n\n\n\n\nThread\n \nmyThread\n \n=\n \nnew\n \nThread\n(()\n \n-\n \n{\n\n    \n// thread behavior\n\n\n});\n\n\nmyThread\n.\nstart\n();\n\n\n\n\n\n\n\n\nMit \nThread.sleep(t[ms])\n kann der Thread schlafen gelegt werden\n\n\nThread.yield()\n gibt Thread frei, aber wird gleich wieder \nready\n. Provoziert Thread-Wechsel\n\n\nSollte man nicht verwenden, weil OS das Scheduling selbst verwaltet\n\n\n\n\n\n\nt.join()\n wartet solange, bis der Thread \nt\n terminiert\n\n\n\n\nThread\n \nmyThread\n \n=\n \nnew\n \nThread\n(()\n \n-\n \n{\n\n    \n// thread behavior\n\n\n});\n\n\nmyThread\n.\nstart\n();\n\n\n// Thread started\n\n\nmyThread\n.\njoin\n();\n\n\n// Thread finished\n\n\n\n\n\n\n\n\nThreads k\u00f6nnen von Aussen unterbrochen werden mit \nt.interrupt()\n\n\nL\u00f6st \nInterruptedException\n aus\n\n\nWird meist missbraucht zum Aufbrechen von Blockaden (schlecht!)", 
+            "title": "2 Multi Threading Grundlagen"
+        }, 
+        {
+            "location": "/ParProg/2_Multi-Threading_Grundlagen/#multi-threading-grundlagen", 
+            "text": "", 
+            "title": "Multi-Threading Grundlagen"
+        }, 
+        {
+            "location": "/ParProg/2_Multi-Threading_Grundlagen/#motivation", 
+            "text": "Reale Prozesse abbilden (Druckjobs, Server-Client)  Perfromance-Steigerung   Seit 2003 stagnieren Taktraten, stattdessen wird mehr auf Hyperthreading und mehrere Kerne gesetzt. Deshalb m\u00fcssen Programme darauf optimiert werden    Hyperthreading (Virtual Threading): Ein CPU-Core hat zwei Register-Sets, aber immer noch nur ein Rechenwerk (ALU)   Ist nicht \"echte\" Parallelisierung", 
+            "title": "Motivation"
+        }, 
+        {
+            "location": "/ParProg/2_Multi-Threading_Grundlagen/#parallelitat-vs-nebenlaufigkeit", 
+            "text": "Parallelit\u00e4t :  Zerlegung eines Ablaufs in mehrere Teilabl\u00e4ufe, welche gleichzeitig auf mehreren Prozessoren laufen  Nebenl\u00e4ufigkeit  (Concurrency): Gleichzeitig oder verzahnt ausf\u00fchrbare Abl\u00e4ufe, welche auf gemeinsame Ressourcen zugreifen.  \u00c4lteres Prinzip, z.B. Drucker  Kann anschein von Parallelit\u00e4t haben, aber es wird immer nur etwas auf einmal ausgef\u00fchrt", 
+            "title": "Parallelit\u00e4t vs. Nebenl\u00e4ufigkeit"
+        }, 
+        {
+            "location": "/ParProg/2_Multi-Threading_Grundlagen/#system-grundlagen-repetition", 
+            "text": "", 
+            "title": "System Grundlagen Repetition"
+        }, 
+        {
+            "location": "/ParProg/2_Multi-Threading_Grundlagen/#threads", 
+            "text": "Parallele Ablaufsequenz innerhalb eines Programms, teilen den Adressraum mit dem ganzen Prozess  Ist g\u00fcnstiger als eigener Prozess, braucht keine eigene Pagetable  Jeder Thread hat eigenen Stack  User-Level-Thread: Im Prozess implementiert, keine echte Parallelit\u00e4t durch mehrere Prozessoren  Kernel-Level-Thread: Im Kernel implementiert, kann Multi-Core ausnutzen. Wechsel per SW-Interrupt, ist also nicht ganz \"gratis\"  Scheduling: Ein CPU-Core kann immer nur ein Thread gleichzeitig ausf\u00fchren. Scheduler teilt die Threads zu  Wenn nur ein Prozessor Threads verarbeitet, ist es eine Quasi-Parallelisierung   Programmierung hat f\u00fcr \"echte\" oder \"quasi\"-Parallelit\u00e4t die gleichen Probleme, weil man nie weiss, wann die Kontextwechsel geschehen    Kontextwechsel   Synchron : Thread wartet auf Bedingung, gibt den Prozessor selbst frei  Asynchron : Nach gewisser Zeit wird der Thread gewzungen, die CPU freizugeben    Multi-Tasking  Kooperativ : Threads m\u00fcssen explizit synchrone Kontextwechsel initiieren  Preemptive : Scheduler unterbricht den Thread  asynchron  in gewissen Zeitintervallen  Heute in der Regel immer  preemptive !      Note  Todo: Bild Folie 30", 
+            "title": "Threads"
+        }, 
+        {
+            "location": "/ParProg/2_Multi-Threading_Grundlagen/#grundlagen-java-threads", 
+            "text": "JVM ist ein Single Process System  Main-Thread f\u00fchrt die  main() -Methode aus (per Reflection)  Programmierer kann weitere Threads starten  Laufzeitsystem startet auch eigene Threads, z.B. GC  Die JVM l\u00e4uft solange, bis kein (nicht-Daemon-) Thread mehr l\u00e4uft  Daemon-Thread ist z.B. GC, wird bei Ende der JVM unkontrolliert beendet     class   SimpleThread   extends   Thread   { \n     @Override \n     public   void   run ()   { \n         // thread behavior \n\n         // thread ends when run() exits  \n         // (or unhandled exception orccurs) \n     }  }  Thread   myThread   =   new   SimpleThread ();  myThread . start ();    Wenn unbehandelte Exception in Thread auftritt, laufen andere Threads weiter (in Java, andere Umgebungen anders)  Threads laufen ohne Vorkehrungen beliebig verzahnt,  nicht-deterministischer Ablauf!   Runnable Implementierung statt Vererbung:  class   SimpleLogic   implements   Runnable   { \n     @Override \n     public   void   run ()   { \n         // thread behavior \n     }  }  // Pass Runnable to Thread constructor!  Thread   myThread   =   new   Thread ( new   SimpleLogic ());  myThread . start ();    Runnable -Interface hat 1 Methode -  Functional Interface!  Kann mit Lambdas verwendet werden     Thread   myThread   =   new   Thread (()   -   { \n     // thread behavior  });  myThread . start ();    Mit  Thread.sleep(t[ms])  kann der Thread schlafen gelegt werden  Thread.yield()  gibt Thread frei, aber wird gleich wieder  ready . Provoziert Thread-Wechsel  Sollte man nicht verwenden, weil OS das Scheduling selbst verwaltet    t.join()  wartet solange, bis der Thread  t  terminiert   Thread   myThread   =   new   Thread (()   -   { \n     // thread behavior  });  myThread . start ();  // Thread started  myThread . join ();  // Thread finished    Threads k\u00f6nnen von Aussen unterbrochen werden mit  t.interrupt()  L\u00f6st  InterruptedException  aus  Wird meist missbraucht zum Aufbrechen von Blockaden (schlecht!)", 
+            "title": "Grundlagen Java Threads"
         }, 
         {
             "location": "/PhAI/0_Index/", 
@@ -132,18 +177,58 @@
         }, 
         {
             "location": "/Vss/0_Index/", 
-            "text": "Verteilte Software-Systeme\n\n\n\n\nExam Notes", 
+            "text": "Verteilte Software-Systeme\n\n\n\n\nExam Notes\n\n\nIntroduction", 
             "title": "0 Index"
         }, 
         {
             "location": "/Vss/0_Index/#verteilte-software-systeme", 
-            "text": "Exam Notes", 
+            "text": "Exam Notes  Introduction", 
             "title": "Verteilte Software-Systeme"
         }, 
         {
             "location": "/Vss/1_Exam/", 
-            "text": "Some exam notes...", 
+            "text": "Exam\n\n\nHilfsmittel\n\n\n\n\n2 A4-Seiten Zusammenfassung", 
             "title": "1 Exam"
+        }, 
+        {
+            "location": "/Vss/1_Exam/#exam", 
+            "text": "", 
+            "title": "Exam"
+        }, 
+        {
+            "location": "/Vss/1_Exam/#hilfsmittel", 
+            "text": "2 A4-Seiten Zusammenfassung", 
+            "title": "Hilfsmittel"
+        }, 
+        {
+            "location": "/Vss/2_Introduction/", 
+            "text": "Introduction\n\n\n\n\nTransparency Types: Eigenschaften eines Systems transparent (= \"durchsichtig\") f\u00fcr den Benutzer machen, damit er nicht mitbekommt, dass z.B. mehrere Benutzer gleichzeitig zugreifen (Concurrency Transparency)\n\n\nVorteile von VSS\n\n\nBilden die verteilte Realit\u00e4t ab (verschiedene Arbeitspl\u00e4tze etc.)\n\n\nPerformancesteigerung (paralelle Verarbeitung)\n\n\nSkalierbarkeit\n\n\nFehlertoleranz\n\n\n\n\n\n\nHerausforderungen VSS\n\n\nKomplexe Kommunikation\n\n\nPerformanceprobleme (Latenz, Durchsatz)\n\n\nZuverl\u00e4ssigkeit (Netzzugriffe, Ausf\u00e4lle)\n\n\nTransaktionssicherheit (mehrere Benutzer)\n\n\n\n\n\n\n\n\nMiddleware\n\n\nMidleware\n ist infrastrukturelle Software, die eine Ebene unter dem Software-System liegt\n\n\n\n\nWird i.d.R. nicht selbst geschrieben\n\n\nDient zur Kommunikation zwischen den Software-Komponenten\n\n\n\n\nKommunikationsmiddleware\n\n\n\n\nInterfaces zur Netzwerkprogrammierung\n\n\nTCP/IP Sockets, RESTful HTTP, etc.\n\n\n\n\nAnwedungsorientierte Middleware\n\n\n\n\nUnterst\u00fctzung verteiler Andwendungen\n\n\nVereinfacht das Design der Applikation\n\n\nbietet Sicherheit, Zuverl\u00e4ssigkeit, verteilte Transaktionen, ...\n\n\nz.B. .NET Application Server, SQL mit Remote Queries, ...\n\n\n\n\n\n\nVSS Architectural Styles\n\n\n\n\n\n\nHub and Spoke\n: Alle kommunizieren \u00fcber zentrale Stelle (\"Hub\")\n\n\n\n\n\n\nCORBA (Centralized Object Request Broker Architecture) wird heute nicht mehr verwendet, die Prinzipien sind aber immer noch releveant", 
+            "title": "2 Introduction"
+        }, 
+        {
+            "location": "/Vss/2_Introduction/#introduction", 
+            "text": "Transparency Types: Eigenschaften eines Systems transparent (= \"durchsichtig\") f\u00fcr den Benutzer machen, damit er nicht mitbekommt, dass z.B. mehrere Benutzer gleichzeitig zugreifen (Concurrency Transparency)  Vorteile von VSS  Bilden die verteilte Realit\u00e4t ab (verschiedene Arbeitspl\u00e4tze etc.)  Performancesteigerung (paralelle Verarbeitung)  Skalierbarkeit  Fehlertoleranz    Herausforderungen VSS  Komplexe Kommunikation  Performanceprobleme (Latenz, Durchsatz)  Zuverl\u00e4ssigkeit (Netzzugriffe, Ausf\u00e4lle)  Transaktionssicherheit (mehrere Benutzer)", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/Vss/2_Introduction/#middleware", 
+            "text": "Midleware  ist infrastrukturelle Software, die eine Ebene unter dem Software-System liegt   Wird i.d.R. nicht selbst geschrieben  Dient zur Kommunikation zwischen den Software-Komponenten", 
+            "title": "Middleware"
+        }, 
+        {
+            "location": "/Vss/2_Introduction/#kommunikationsmiddleware", 
+            "text": "Interfaces zur Netzwerkprogrammierung  TCP/IP Sockets, RESTful HTTP, etc.", 
+            "title": "Kommunikationsmiddleware"
+        }, 
+        {
+            "location": "/Vss/2_Introduction/#anwedungsorientierte-middleware", 
+            "text": "Unterst\u00fctzung verteiler Andwendungen  Vereinfacht das Design der Applikation  bietet Sicherheit, Zuverl\u00e4ssigkeit, verteilte Transaktionen, ...  z.B. .NET Application Server, SQL mit Remote Queries, ...", 
+            "title": "Anwedungsorientierte Middleware"
+        }, 
+        {
+            "location": "/Vss/2_Introduction/#vss-architectural-styles", 
+            "text": "Hub and Spoke : Alle kommunizieren \u00fcber zentrale Stelle (\"Hub\")    CORBA (Centralized Object Request Broker Architecture) wird heute nicht mehr verwendet, die Prinzipien sind aber immer noch releveant", 
+            "title": "VSS Architectural Styles"
         }, 
         {
             "location": "/VwlTg/0_Index/", 
