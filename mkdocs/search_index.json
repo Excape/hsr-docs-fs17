@@ -46,6 +46,56 @@
             "title": "1 Exam"
         }, 
         {
+            "location": "/Dbs2/2_OR-Mapping/", 
+            "text": "OR Mapping\n\n\nZiel: Gap zwischen Objektmodell der Applikation und (meist) relationales Modell der Datenbanken \u00fcberwinden\n\n\nJava Persistence API (JPA)\n\n\n\n\nJPA ist ein Layer zwischen JDBC und dem Programm\n\n\nJPA ist nur eine Definition, implementiert von Providern\n\n\nHier wird die EclipseLink-Implementierung verwendet (Hibernate w\u00e4re ein anderer Provider)\n\n\n\n\nEntities\n\n\n\n\nEntities sind POJO's mit ID-Feld f\u00fcr PK mit default-Konstruktor\n\n\nD\u00fcrfen nicht final sein (wegen z.B. lazy-loading)\n\n\nAbbildung in DB \u00fcber Annotations oder sepparates XML-File\n\n\nAnnotation \n@Entity\n f\u00fcr Klasse, \n@Id\n f\u00fcr PK-Feld\n\n\n\n\nBeispiel\n\n\n@Entity\n\n\npublic\n \nclass\n \nBankCustomer\n \n{\n\n    \n@Id\n\n    \nprivate\n \nlong\n \nid\n;\n\n\n    \npublic\n \nlong\n \ngetId\n()\n \n{\n\n        \nreturn\n \nid\n;\n\n    \n}\n\n    \nprivate\n \nString\n \nname\n;\n\n    \npublic\n \nString\n \ngetName\n()\n \n{\n\n        \nreturn\n \nname\n;\n\n    \n}\n\n    \npublic\n \nvoid\n \nsetName\n(\nString\n \nname\n)\n \n{\n\n        \nthis\n.\nname\n \n=\n \nname\n;\n\n    \n}\n\n\n}\n\n\n\n\n\n\npersistence.xml\n\n\npersistence\n \nxmlns:xsi=\nhttp://www.w3.org/2001/XMLSchema-instance\n\n    \nxsi:schemaLocation=\nhttp://java.sun.com/xml/ns/persistence\n\n\n        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd\n\n    \nversion=\n2.0\n \nxmlns=\nhttp://java.sun.com/xml/ns/persistence\n\n\npersistence-unit\n \nname=\nBank\n \ntransaction-type=\nRESOURCE_LOCAL\n\n    \nprovider\norg.eclipse.persistence.jpa.PersistenceProvider\n/provider\n\n    \nexclude-unlisted-classes\nfalse\n/exclude-unlisted-classes\n\n        \nproperties\n\n            \nproperty\n \nname=\njavax.persistence.jdbc.driver\n\n                \nvalue=\norg.postgresql.Driver\n/\n\n            \nproperty\n \nname=\njavax.persistence.jdbc.url\n\n                \nvalue=\njdbc:postgresql:jpatest\n/\n\n            \nproperty\n \nname=\njavax.persistence.jdbc.user\n \nvalue=\ntest\n/\n\n            \nproperty\n \nname=\njavax.persistence.jdbc.password\n \nvalue=\ntest\n/\n\n            \nproperty\n \nname=\neclipselink.target-database\n \nvalue=\nPostgreSQL\n/\n\n        \n/properties\n\n    \n/persistence-unit\n\n\n/persistence\n\n\n\n\n\n\nEntities CRUD\n\n\n// SELECT\n\n\nEntityManagerFactory\n \nfactory\n \n=\n\n    \nPersistence\n.\ncreateEntityManagerFactory\n(\nBank\n);\n\n\nEntityManager\n \nem\n \n=\n \nfactory\n.\ncreateEntityManager\n();\n\n\nQuery\n \nquery\n \n=\n \nem\n.\ncreateQuery\n(\nSELECT a FROM BankAccount a\n);\n\n\nList\nBankAccount\n \nlist\n \n=\n \nquery\n.\ngetResultList\n();\n\n\nfor\n \n(\nBankAccount\n \naccount\n \n:\n \nlist\n)\n \n{\n\n    \nSystem\n.\nout\n.\nprintln\n(\naccount\n);\n\n\n}\n\n\nem\n.\nclose\n();\n \n// besser mit try-with-ressources\n\n\n\n// INSERT\n\n\nem\n.\ngetTransaction\n().\nbegin\n();\n\n\nBankCustomer\n \ncustomer\n \n=\n \nnew\n \nBankCustomer\n();\n\n\ncustomer\n.\nsetName\n(\nBill\n);\n\n\nem\n.\npersist\n(\ncustomer\n);\n \n// INSERT and SELECT, customer hat jetzt seine ID\n\n\nem\n.\ngetTransaction\n().\ncommit\n();\n\n\nem\n.\nclose\n();\n\n\n\n// UPDATE\n\n\nem\n.\ngetTransaction\n().\nbegin\n();\n\n\nBankAccount\n \naccount\n \n=\n \nem\n.\nfind\n(\nBankAccount\n.\nclass\n,\n \n1L\n);\n\n\naccount\n.\nincBalance\n(\n100\n);\n\n\nem\n.\ngetTransaction\n().\ncommit\n();\n\n\n\n// DELETE\n\n\n// nicht effizient, Java-Object wird erst durch GC aufger\u00e4umt\n\n\nem\n.\ngetTransaction\n().\nbegin\n();\n\n\nBankAccount\n \naccount\n \n=\n \nem\n.\nfind\n(\nBankAccount\n.\nclass\n,\n \n1L\n);\n\n\nem\n.\nremove\n(\naccount\n);\n\n\nem\n.\ngetTransaction\n().\ncommit\n();\n\n\n\n\n\n\nTable Mapping\n\n\n@Entity\n\n\n@Table\n(\nname\n \n=\n \naccount\n)\n\n\npublic\n \nclass\n \nBankAccount\n \n{\n\n    \n@Id\n\n    \n@Column\n(\nname\n \n=\n \naccountid\n)\n\n    \nprivate\n \nlong\n \nid\n;\n\n\n    \nprivate\n \ndouble\n \nbalance\n;\n \n// 1:1 Mapping\n\n\n    \n@Column\n(\nname\n \n=\n \ndescription\n)\n\n    \nprivate\n \nString\n \nexplanation\n;\n\n\n    \n@Column\n(\nname\n=\n\u201c\nssn\n\u201c\n,\n \nunique\n=\ntrue\n,\n \nnullable\n=\ntrue\n)\n\n    \nprivate\n \nlong\n \nssn\n;\n\n\n    \n@Column\n(\nname\n=\n\u201c\nl_name\n\u201c\n,\n \nlength\n=\n200\n)\n\n    \nprivate\n \nString\n \nlastName\n;\n\n\n    \n//Zusatzinfo, wird als TIMESTAMP abgelegt\n\n    \n@Temporal\n(\nTemporalType\n.\nTIMESTAMP\n)\n \n    \nprivate\n \nCalendar\n \ncreationDate\n;\n\n\n    \n@Transient\n \n// wird nicht gemapped\n\n    \nprivate\n \nString\n \ntempComments\n;\n\n    \n// getter und setter\n\n\n}\n\n\n\n\n\n\n\n\nWeitere Attribute: \nscale\n, \nprecision\n\n\n\n\nRelationen\n\n\n// 1:1 Mapping\n\n\n@Entity\n\n\n@Table\n(\nname\n \n=\n \nbankcustomer\n)\n\n\npublic\n \nclass\n \nBankCustomer\n \n{\n\n    \n@OneToOne\n(\noptional\n \n=\n \ntrue\n)\n\n    \n@JoinColumn\n(\nname\n \n=\n \naddressref\n)\n\n    \nprivate\n \nAddress\n \naddress\n;\n\n    \n// ...\n\n\n}\n\n\n\n// Bidirectional 1:1 mapping, Datenbank bleibt gleich\n\n\n@Entity\n\n\npublic\n \nclass\n \nAddress\n \n{\n\n    \n@OneToOne\n(\nmappedBy\n \n=\n \naddress\n)\n\n    \nprivate\n \nBankCustomer\n \ncustomer\n;\n\n    \n// ...\n\n\n}\n\n\n\n// N:1 Mapping\n\n\nclass\n \nBankAccount\n \n{\n\n    \n@ManyToOne\n(\noptional\n \n=\n \nfalse\n)\n\n    \n@JoinColumn\n(\nname\n \n=\n \ncustomerref\n)\n\n    \nprivate\n \nBankCustomer\n \ncustomer\n;\n\n    \n//...\n\n\n}\n\n\n\n// Bidirectional N:1 \n\n\nclass\n \nBankCustomer\n \n{\n\n    \n@OneToMany\n(\nmappedBy\n \n=\n \ncustomer\n)\n\n    \nprivate\n \nCollection\nBankAccount\n \naccounts\n;\n \n// = ...\n\n    \n// ...\n\n\n}\n\n\n// N:M maping\n\n\nclass\n \nBankManager\n \n{\n\n    \n@ManyToMany\n\n    \n@JoinTable\n(\nname\n \n=\n \ncustomer_manager\n,\n\n        \njoinColumns\n \n=\n \n{\n@JoinColumn\n(\nname\n \n=\n \nmanagerref\n)},\n\n        \ninverseJoinColumns\n \n=\n \n{\n@JoinColumn\n(\nname\n \n=\n \ncustomerref\n)})\n\n    \nprivate\n \nCollection\nBankCustomer\n \ncustomers\n;\n \n// = ...\n\n\n}\n\n\n\n\n\n\n\n\nBei bidirektionalen Beziehungen m\u00fcssen beide Seiten manuell gesetzt werden (im Gegensatz zu z.B. EF)\n\n\nIm Beispiel muss beim Hinzuf\u00fcgen eines \nBankAccount\n dieser der Liste in der \nBankCustomer\n hinzugef\u00fcgt werden\n\n\n\n\n\n\nLazy-Loading ist per default aktiviert f\u00fcr 1:n und n:m\n\n\nBsp: Wenn \nBankCustomer\n geladen werden, wird die \nBankAccounts\n-Liste lazy mit \ncustomer.getAccounts()\n geladen\n\n\n\n\n\n\nEager-Loading standard bei 1:1 und n:1\n\n\nExplizit angeben mit z.B. \n@ManyToMany(fetch = FetchType.EAGER)\n\n\n\n\nPersistence-Context\n\n\n\n\nEin Objekt ist neu erstellt erstmal \nunmanaged\n\n\nWird es in die DB eingef\u00fcgt \npersist()\n, ist es \nmanaged\n und somit im Persistence-Context\n\n\nWird die Verbindung geschlossen (\nclose()\n) oder removed, sind die Objekte wieder \nunmanaged", 
+            "title": "2 OR Mapping"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#or-mapping", 
+            "text": "Ziel: Gap zwischen Objektmodell der Applikation und (meist) relationales Modell der Datenbanken \u00fcberwinden", 
+            "title": "OR Mapping"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#java-persistence-api-jpa", 
+            "text": "JPA ist ein Layer zwischen JDBC und dem Programm  JPA ist nur eine Definition, implementiert von Providern  Hier wird die EclipseLink-Implementierung verwendet (Hibernate w\u00e4re ein anderer Provider)", 
+            "title": "Java Persistence API (JPA)"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#entities", 
+            "text": "Entities sind POJO's mit ID-Feld f\u00fcr PK mit default-Konstruktor  D\u00fcrfen nicht final sein (wegen z.B. lazy-loading)  Abbildung in DB \u00fcber Annotations oder sepparates XML-File  Annotation  @Entity  f\u00fcr Klasse,  @Id  f\u00fcr PK-Feld", 
+            "title": "Entities"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#beispiel", 
+            "text": "@Entity  public   class   BankCustomer   { \n     @Id \n     private   long   id ; \n\n     public   long   getId ()   { \n         return   id ; \n     } \n     private   String   name ; \n     public   String   getName ()   { \n         return   name ; \n     } \n     public   void   setName ( String   name )   { \n         this . name   =   name ; \n     }  }", 
+            "title": "Beispiel"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#persistencexml", 
+            "text": "persistence   xmlns:xsi= http://www.w3.org/2001/XMLSchema-instance \n     xsi:schemaLocation= http://java.sun.com/xml/ns/persistence          http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd \n     version= 2.0   xmlns= http://java.sun.com/xml/ns/persistence  persistence-unit   name= Bank   transaction-type= RESOURCE_LOCAL \n     provider org.eclipse.persistence.jpa.PersistenceProvider /provider \n     exclude-unlisted-classes false /exclude-unlisted-classes \n         properties \n             property   name= javax.persistence.jdbc.driver \n                 value= org.postgresql.Driver / \n             property   name= javax.persistence.jdbc.url \n                 value= jdbc:postgresql:jpatest / \n             property   name= javax.persistence.jdbc.user   value= test / \n             property   name= javax.persistence.jdbc.password   value= test / \n             property   name= eclipselink.target-database   value= PostgreSQL / \n         /properties \n     /persistence-unit  /persistence", 
+            "title": "persistence.xml"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#entities-crud", 
+            "text": "// SELECT  EntityManagerFactory   factory   = \n     Persistence . createEntityManagerFactory ( Bank );  EntityManager   em   =   factory . createEntityManager ();  Query   query   =   em . createQuery ( SELECT a FROM BankAccount a );  List BankAccount   list   =   query . getResultList ();  for   ( BankAccount   account   :   list )   { \n     System . out . println ( account );  }  em . close ();   // besser mit try-with-ressources  // INSERT  em . getTransaction (). begin ();  BankCustomer   customer   =   new   BankCustomer ();  customer . setName ( Bill );  em . persist ( customer );   // INSERT and SELECT, customer hat jetzt seine ID  em . getTransaction (). commit ();  em . close ();  // UPDATE  em . getTransaction (). begin ();  BankAccount   account   =   em . find ( BankAccount . class ,   1L );  account . incBalance ( 100 );  em . getTransaction (). commit ();  // DELETE  // nicht effizient, Java-Object wird erst durch GC aufger\u00e4umt  em . getTransaction (). begin ();  BankAccount   account   =   em . find ( BankAccount . class ,   1L );  em . remove ( account );  em . getTransaction (). commit ();", 
+            "title": "Entities CRUD"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#table-mapping", 
+            "text": "@Entity  @Table ( name   =   account )  public   class   BankAccount   { \n     @Id \n     @Column ( name   =   accountid ) \n     private   long   id ; \n\n     private   double   balance ;   // 1:1 Mapping \n\n     @Column ( name   =   description ) \n     private   String   explanation ; \n\n     @Column ( name = \u201c ssn \u201c ,   unique = true ,   nullable = true ) \n     private   long   ssn ; \n\n     @Column ( name = \u201c l_name \u201c ,   length = 200 ) \n     private   String   lastName ; \n\n     //Zusatzinfo, wird als TIMESTAMP abgelegt \n     @Temporal ( TemporalType . TIMESTAMP )  \n     private   Calendar   creationDate ; \n\n     @Transient   // wird nicht gemapped \n     private   String   tempComments ; \n     // getter und setter  }    Weitere Attribute:  scale ,  precision", 
+            "title": "Table Mapping"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#relationen", 
+            "text": "// 1:1 Mapping  @Entity  @Table ( name   =   bankcustomer )  public   class   BankCustomer   { \n     @OneToOne ( optional   =   true ) \n     @JoinColumn ( name   =   addressref ) \n     private   Address   address ; \n     // ...  }  // Bidirectional 1:1 mapping, Datenbank bleibt gleich  @Entity  public   class   Address   { \n     @OneToOne ( mappedBy   =   address ) \n     private   BankCustomer   customer ; \n     // ...  }  // N:1 Mapping  class   BankAccount   { \n     @ManyToOne ( optional   =   false ) \n     @JoinColumn ( name   =   customerref ) \n     private   BankCustomer   customer ; \n     //...  }  // Bidirectional N:1   class   BankCustomer   { \n     @OneToMany ( mappedBy   =   customer ) \n     private   Collection BankAccount   accounts ;   // = ... \n     // ...  }  // N:M maping  class   BankManager   { \n     @ManyToMany \n     @JoinTable ( name   =   customer_manager , \n         joinColumns   =   { @JoinColumn ( name   =   managerref )}, \n         inverseJoinColumns   =   { @JoinColumn ( name   =   customerref )}) \n     private   Collection BankCustomer   customers ;   // = ...  }    Bei bidirektionalen Beziehungen m\u00fcssen beide Seiten manuell gesetzt werden (im Gegensatz zu z.B. EF)  Im Beispiel muss beim Hinzuf\u00fcgen eines  BankAccount  dieser der Liste in der  BankCustomer  hinzugef\u00fcgt werden    Lazy-Loading ist per default aktiviert f\u00fcr 1:n und n:m  Bsp: Wenn  BankCustomer  geladen werden, wird die  BankAccounts -Liste lazy mit  customer.getAccounts()  geladen    Eager-Loading standard bei 1:1 und n:1  Explizit angeben mit z.B.  @ManyToMany(fetch = FetchType.EAGER)", 
+            "title": "Relationen"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#persistence-context", 
+            "text": "Ein Objekt ist neu erstellt erstmal  unmanaged  Wird es in die DB eingef\u00fcgt  persist() , ist es  managed  und somit im Persistence-Context  Wird die Verbindung geschlossen ( close() ) oder removed, sind die Objekte wieder  unmanaged", 
+            "title": "Persistence-Context"
+        }, 
+        {
             "location": "/EPJ/0_Index/", 
             "text": "Engineering-Projekt", 
             "title": "0 Index"
@@ -82,8 +132,23 @@
         }, 
         {
             "location": "/InfSi3/1_Exam/", 
-            "text": "Some exam notes...", 
+            "text": "Exam\n\n\n\n\nPr\u00fcfung ohne Unterlagen\n\n\nSelbststudium ist Pr\u00fcfungsstoff!", 
             "title": "1 Exam"
+        }, 
+        {
+            "location": "/InfSi3/1_Exam/#exam", 
+            "text": "Pr\u00fcfung ohne Unterlagen  Selbststudium ist Pr\u00fcfungsstoff!", 
+            "title": "Exam"
+        }, 
+        {
+            "location": "/InfSi3/2_Overview/", 
+            "text": "Overview, Legal Aspects and Global Threats", 
+            "title": "2 Overview"
+        }, 
+        {
+            "location": "/InfSi3/2_Overview/#overview-legal-aspects-and-global-threats", 
+            "text": "", 
+            "title": "Overview, Legal Aspects and Global Threats"
         }, 
         {
             "location": "/ParProg/0_Index/", 
@@ -244,6 +309,46 @@
             "location": "/VwlTg/1_Exam/", 
             "text": "Some exam notes...", 
             "title": "1 Exam"
+        }, 
+        {
+            "location": "/VwlTg/2_Wohlstand/", 
+            "text": "Wohlstand / Makro\u00f6konomisches Gleichgewicht\n\n\n\n\nMikro\u00f6konimie untersucht das Verhalten einzelner M\u00e4rkte und Branchen, Makro\u00f6konomie auf Stufe von mehreren L\u00e4ndern\n\n\n\n\nPreisniveau\n\n\n\n\nPreisniveau: Je h\u00f6her, desto h\u00f6her werden die Preise\n\n\nWird mit einem standardisierten G\u00fctekorb gemessen\n\n\nVerschiedene G\u00fctekorbe, z.B. f\u00fcr Konsumenten oder Produzenten\n\n\n\n\n\n\nProduzentenpreisindex in den letzten Jahren stark gesunken\n\n\nStarker Franken (zuerst 1.20, jetzt ca. 1.08)\n\n\nRohstoffe sind g\u00fcnstiger geworden (geringere Nachfrage)\n\n\n\n\n\n\nDagegen ist konsumentenindex nur leicht gesunken\n\n\nKonsumenteng\u00fcterkorb ist auf Luxuskonsum ausgerichtet\n\n\nWenig f\u00fcr Bildung, viel f\u00fcr Restaurant / Hotels\n\n\n\n\n\n\nF\u00fcr SNB ist sinkende Konsumentenindex gef\u00e4hrlich\n\n\nKonsumenten sparen mehr -\n Deflation\n\n\nProblem in Japan seit 20 Jahren (stark verschuldet)\n\n\n\n\n\n\nFolie 11: Schweizer Volk kann Inflation sehr gut einsch\u00e4tzen\n\n\n\n\nReales BIP\n\n\n\n\nBIP: Alle G\u00fcter und Dienstleistungen, die in einem Jahr in einem Land hergestellt werden\n\n\nReales BIP: Nominales BIP - Inflation\n\n\nheisst: Alles zu festgelegten Standardpreisen\n\n\n\n\n\n\nHier immer das reale BIP gemeint!\n\n\n2009 Finanzkriese: Platzen der Immobilienblase in den USA + Eurokrise (unabh\u00e4ngig)\n\n\n2015: BIP pro Kopf gesunken, weil starker Zuwanderung von Arbeitskr\u00e4ften\n\n\nEinwanderer gehen in Branchen, die weniger Wertsch\u00f6pfung haben, z.B. Gesundheitsbereich, Pflege, etc.\n\n\n\n\n\n\n\n\nAN-Kurve (Aggregierte Nachfrage)\n\n\n\n\nNachfrage nach G\u00fctern von Konsumenten, Unternehmen, Staat, Import/Export\n\n\nUSA hat negative Nettoexperte (mehr Importe als Exporte)\n\n\nJe tiefer das Preisniveau, desto h\u00f6her die Nachfrage\n\n\n\n\nAAL-Konstante (langfristig aggregiertes Angebot)\n\n\n\n\nDer Punkt, an dem ein Land mit allen verf\u00fcgbaren Ressourcen produzieren\n\n\nheisst: Jeder arbeitet, alle Maschinen laufen, etc.\n\n\n\"Optimale Produktionsmenge\"\n\n\nIst bei uns konstante Gr\u00f6sse\n\n\n\n\nAAk-Kurve (kurzfristig aggregiertes Angebot)\n\n\n\n\nJe h\u00f6her die Preise, desto mehr wollen die Produzenten herstellen\n\n\nKann theoretisch \u00fcber Kapazit\u00e4tsgrenze, dann arbeiten Menschen \u00fcberstunden\n\n\n\"\u00fcberhitzte\" Wirtschaft\n\n\nF\u00fchrt zu explodierenden Preisen\n\n\n\n\n\n\n\n\nProduktion links der Kapazit\u00e4tsgrenze -\n Rezession\n\n\n\n\n\n\nIdealerweise kreuzen sich AN und AAK genau auf Kapazit\u00e4tsgrenze\n\n\n\n\nOptimale Auslastung und genau soviel, wie die Nachfrage verlangt\n\n\nIn der Schweiz ist der Punkt eher rechts der Grenze, weil z.T. viele Arbeitskr\u00e4fte fehlen\n\n\nAndere Darstellung: Angebot eines Landes ist gleich der Nachfrage\n\n\n\n\nReales BIP in der Schweiz\n\n\n\n\nIn Produktionswert sind die Werte mehrmals verrechnet, wenn z.B. ein F\u00f6rster sein Holz verkauft und die S\u00e4gerei das Holz dem Schreiner, ist das Holz zwei Mal verrechnet\n\n\nVorleistungen rechnen dies raus - etwa die H\u00e4lfte in der Schweiz\n\n\nRund 2/3 des BIP geht an Arbeitnehmer, 1/6 an Arbeitgeber\n\n\nIn der Schweiz ist dieser Wert ziemlich konstant, im Gegensatz z.B. zu USA und Schweden\n\n\nGrund: GAVs, Arbeitsfrieden, (direkte Demokratie)\n\n\n\n\n\n\nExporte in der Schweiz in den letzten Jahren gesunken, aber auch Importe sind gefallen -\n BIP bleibt gleich\n\n\nGold- Import und Export ist gleich gross (70 Mia.)\n\n\nSchweiz ist Handelsplatz f\u00fcr Gold\n\n\n\n\n\n\nKaufkraftbereinigung: BIP bereinigt nach Kaufkraft, d.h. was kann man mit dem BIP kaufen?\n\n\n1975 war die Schweiz das reichste Land der Welt, danach weniger Wachstum\n\n\nAbschottung, Binnenmarkt geschlossen\n\n\nPreis von direkter Demokratie, F\u00f6deralismus, ...\n\n\n\n\n\n\nStarke Korrelation zwischen BIP pro Kopf und sozialem Fortschritt\n\n\nHoher Wohlstand ist wichtig bis zu einem gewissen Grad (dann immer weniger Fortschritt)", 
+            "title": "2 Wohlstand"
+        }, 
+        {
+            "location": "/VwlTg/2_Wohlstand/#wohlstand-makrookonomisches-gleichgewicht", 
+            "text": "Mikro\u00f6konimie untersucht das Verhalten einzelner M\u00e4rkte und Branchen, Makro\u00f6konomie auf Stufe von mehreren L\u00e4ndern", 
+            "title": "Wohlstand / Makro\u00f6konomisches Gleichgewicht"
+        }, 
+        {
+            "location": "/VwlTg/2_Wohlstand/#preisniveau", 
+            "text": "Preisniveau: Je h\u00f6her, desto h\u00f6her werden die Preise  Wird mit einem standardisierten G\u00fctekorb gemessen  Verschiedene G\u00fctekorbe, z.B. f\u00fcr Konsumenten oder Produzenten    Produzentenpreisindex in den letzten Jahren stark gesunken  Starker Franken (zuerst 1.20, jetzt ca. 1.08)  Rohstoffe sind g\u00fcnstiger geworden (geringere Nachfrage)    Dagegen ist konsumentenindex nur leicht gesunken  Konsumenteng\u00fcterkorb ist auf Luxuskonsum ausgerichtet  Wenig f\u00fcr Bildung, viel f\u00fcr Restaurant / Hotels    F\u00fcr SNB ist sinkende Konsumentenindex gef\u00e4hrlich  Konsumenten sparen mehr -  Deflation  Problem in Japan seit 20 Jahren (stark verschuldet)    Folie 11: Schweizer Volk kann Inflation sehr gut einsch\u00e4tzen", 
+            "title": "Preisniveau"
+        }, 
+        {
+            "location": "/VwlTg/2_Wohlstand/#reales-bip", 
+            "text": "BIP: Alle G\u00fcter und Dienstleistungen, die in einem Jahr in einem Land hergestellt werden  Reales BIP: Nominales BIP - Inflation  heisst: Alles zu festgelegten Standardpreisen    Hier immer das reale BIP gemeint!  2009 Finanzkriese: Platzen der Immobilienblase in den USA + Eurokrise (unabh\u00e4ngig)  2015: BIP pro Kopf gesunken, weil starker Zuwanderung von Arbeitskr\u00e4ften  Einwanderer gehen in Branchen, die weniger Wertsch\u00f6pfung haben, z.B. Gesundheitsbereich, Pflege, etc.", 
+            "title": "Reales BIP"
+        }, 
+        {
+            "location": "/VwlTg/2_Wohlstand/#an-kurve-aggregierte-nachfrage", 
+            "text": "Nachfrage nach G\u00fctern von Konsumenten, Unternehmen, Staat, Import/Export  USA hat negative Nettoexperte (mehr Importe als Exporte)  Je tiefer das Preisniveau, desto h\u00f6her die Nachfrage", 
+            "title": "AN-Kurve (Aggregierte Nachfrage)"
+        }, 
+        {
+            "location": "/VwlTg/2_Wohlstand/#aal-konstante-langfristig-aggregiertes-angebot", 
+            "text": "Der Punkt, an dem ein Land mit allen verf\u00fcgbaren Ressourcen produzieren  heisst: Jeder arbeitet, alle Maschinen laufen, etc.  \"Optimale Produktionsmenge\"  Ist bei uns konstante Gr\u00f6sse", 
+            "title": "AAL-Konstante (langfristig aggregiertes Angebot)"
+        }, 
+        {
+            "location": "/VwlTg/2_Wohlstand/#aak-kurve-kurzfristig-aggregiertes-angebot", 
+            "text": "Je h\u00f6her die Preise, desto mehr wollen die Produzenten herstellen  Kann theoretisch \u00fcber Kapazit\u00e4tsgrenze, dann arbeiten Menschen \u00fcberstunden  \"\u00fcberhitzte\" Wirtschaft  F\u00fchrt zu explodierenden Preisen     Produktion links der Kapazit\u00e4tsgrenze -  Rezession    Idealerweise kreuzen sich AN und AAK genau auf Kapazit\u00e4tsgrenze   Optimale Auslastung und genau soviel, wie die Nachfrage verlangt  In der Schweiz ist der Punkt eher rechts der Grenze, weil z.T. viele Arbeitskr\u00e4fte fehlen  Andere Darstellung: Angebot eines Landes ist gleich der Nachfrage", 
+            "title": "AAk-Kurve (kurzfristig aggregiertes Angebot)"
+        }, 
+        {
+            "location": "/VwlTg/2_Wohlstand/#reales-bip-in-der-schweiz", 
+            "text": "In Produktionswert sind die Werte mehrmals verrechnet, wenn z.B. ein F\u00f6rster sein Holz verkauft und die S\u00e4gerei das Holz dem Schreiner, ist das Holz zwei Mal verrechnet  Vorleistungen rechnen dies raus - etwa die H\u00e4lfte in der Schweiz  Rund 2/3 des BIP geht an Arbeitnehmer, 1/6 an Arbeitgeber  In der Schweiz ist dieser Wert ziemlich konstant, im Gegensatz z.B. zu USA und Schweden  Grund: GAVs, Arbeitsfrieden, (direkte Demokratie)    Exporte in der Schweiz in den letzten Jahren gesunken, aber auch Importe sind gefallen -  BIP bleibt gleich  Gold- Import und Export ist gleich gross (70 Mia.)  Schweiz ist Handelsplatz f\u00fcr Gold    Kaufkraftbereinigung: BIP bereinigt nach Kaufkraft, d.h. was kann man mit dem BIP kaufen?  1975 war die Schweiz das reichste Land der Welt, danach weniger Wachstum  Abschottung, Binnenmarkt geschlossen  Preis von direkter Demokratie, F\u00f6deralismus, ...    Starke Korrelation zwischen BIP pro Kopf und sozialem Fortschritt  Hoher Wohlstand ist wichtig bis zu einem gewissen Grad (dann immer weniger Fortschritt)", 
+            "title": "Reales BIP in der Schweiz"
         }
     ]
 }

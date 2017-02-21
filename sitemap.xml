@@ -31,6 +31,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>https://doc.robinsuter.ch/Dbs2/2_OR-Mapping/</loc>
+     <lastmod>2017-02-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
@@ -69,6 +75,12 @@
         
     <url>
      <loc>https://doc.robinsuter.ch/InfSi3/1_Exam/</loc>
+     <lastmod>2017-02-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://doc.robinsuter.ch/InfSi3/2_Overview/</loc>
      <lastmod>2017-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -161,6 +173,12 @@
         
     <url>
      <loc>https://doc.robinsuter.ch/VwlTg/1_Exam/</loc>
+     <lastmod>2017-02-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://doc.robinsuter.ch/VwlTg/2_Wohlstand/</loc>
      <lastmod>2017-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
