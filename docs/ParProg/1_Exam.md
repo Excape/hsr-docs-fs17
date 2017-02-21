@@ -1,1 +1,3 @@
-Some exam notes...
+# Exam
+## Hilfsmittel
+- 1 A4 beidseitig

@@ -1,1 +1,3 @@
-Some exam notes...
+# Exam
+## Hilfsmittel
+- 2 A4-Seiten Zusammenfassung
