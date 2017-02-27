@@ -106,6 +106,31 @@
             "title": "Engineering-Projekt"
         }, 
         {
+            "location": "/EPJ/1_Projektplan/", 
+            "text": "Projektplanung\n\n\nMilestones\n\n\n\n\n(Projektplan)\n\n\nAnalyse / Domain Model / Use Cases\n\n\nEnd of Elaboration\n\n\nServer-Logik (nach 1. Construction Iteration)\n\n\nUsability Testing beginnnen (nach 2 construction iteration)\n\n\nFeature Freeze\n\n\n(Code Freeze) - End of Construction\n\n\n\n\nProjektplan\n\n\n\n\nabgemachte Code Reviews?\n\n\nTesting Metriken?\n\n\n\n\nArbeitspakete\n\n\n\n\nMaximale Zeitaufwand festlegen (10h?)\n\n\nZeit pro Arbeitspaket sch\u00e4tzen / Prio setzen\n\n\nEinteilung in kategorien und Milestones\n\n\n\n\nN\u00e4chste Arbeitspakete \n\n- Recherche Framework\n- Auswertung Zeit von Gitlab\n- Technologie festlegen\n- Requirements definieren\n- NF-Requirements definieren\n- Use Cases brief\n- Wichtigste Use Cases casual\n- Domain Modell erstellen\n- Architektur festlegen\n\n\nWeitere f\u00fcr Elaboration-Phase:\n- Build-Toolchain einrichten (Gitlab CI)\n- Static Code analysis? \n- UI-Prototypen\n- Backend-Prototypen mit Architektur, Datenbank und minimaler Logik", 
+            "title": "1 Projektplan"
+        }, 
+        {
+            "location": "/EPJ/1_Projektplan/#projektplanung", 
+            "text": "", 
+            "title": "Projektplanung"
+        }, 
+        {
+            "location": "/EPJ/1_Projektplan/#milestones", 
+            "text": "(Projektplan)  Analyse / Domain Model / Use Cases  End of Elaboration  Server-Logik (nach 1. Construction Iteration)  Usability Testing beginnnen (nach 2 construction iteration)  Feature Freeze  (Code Freeze) - End of Construction", 
+            "title": "Milestones"
+        }, 
+        {
+            "location": "/EPJ/1_Projektplan/#projektplan", 
+            "text": "abgemachte Code Reviews?  Testing Metriken?", 
+            "title": "Projektplan"
+        }, 
+        {
+            "location": "/EPJ/1_Projektplan/#arbeitspakete", 
+            "text": "Maximale Zeitaufwand festlegen (10h?)  Zeit pro Arbeitspaket sch\u00e4tzen / Prio setzen  Einteilung in kategorien und Milestones   N\u00e4chste Arbeitspakete  \n- Recherche Framework\n- Auswertung Zeit von Gitlab\n- Technologie festlegen\n- Requirements definieren\n- NF-Requirements definieren\n- Use Cases brief\n- Wichtigste Use Cases casual\n- Domain Modell erstellen\n- Architektur festlegen  Weitere f\u00fcr Elaboration-Phase:\n- Build-Toolchain einrichten (Gitlab CI)\n- Static Code analysis? \n- UI-Prototypen\n- Backend-Prototypen mit Architektur, Datenbank und minimaler Logik", 
+            "title": "Arbeitspakete"
+        }, 
+        {
             "location": "/ITBus/0_Index/", 
             "text": "Wirtschaftsinformatik 1 - IT im Business\n\n\n\n\nExam Notes", 
             "title": "0 Index"
@@ -117,8 +142,13 @@
         }, 
         {
             "location": "/ITBus/1_Exam/", 
-            "text": "Some exam notes...", 
+            "text": "Exam\n\n\n\n\nTestatbedingungen\n\n\nAnwesenheit Gastvortr\u00e4ge 04.05 und 18.05\n\n\n\n\n\n\nGastreferate sind auch Pr\u00fcfungsstoff!", 
             "title": "1 Exam"
+        }, 
+        {
+            "location": "/ITBus/1_Exam/#exam", 
+            "text": "Testatbedingungen  Anwesenheit Gastvortr\u00e4ge 04.05 und 18.05    Gastreferate sind auch Pr\u00fcfungsstoff!", 
+            "title": "Exam"
         }, 
         {
             "location": "/InfSi3/0_Index/", 
@@ -211,6 +241,71 @@
             "title": "Grundlagen Java Threads"
         }, 
         {
+            "location": "/ParProg/3_Thread-Synchronisation/", 
+            "text": "Thread Synchronisation\n\n\n\n\nNote\n\n\nThread.currentThread().join()\n \n\n\nProgramm wartet ewig, weil es auf die Beendigung von sich selbst wartet\n\n\n\n\n\n\nSynchronisation = Einschr\u00e4nkung der Nebenl\u00e4ufigkeit\n\n\nF\u00e4lle f\u00fcr Synchronisation\n\n\nGegenseitiger Ausschluss: Eine Ressource kann nur von jemandem auf einmal benutzt werden\n\n\nWarten auf Bedingung\n\n\n\n\n\n\n\n\nGemeinsame Ressourcen\n\n\n\n\nThreads k\u00f6nnen sich gegenseitig st\u00f6ren, weil sie sich Adressraum und Heap teilen\n\n\nIn Java k\u00f6nnen lokale Variablen (closure) von Threads nur read-only zugegriffen werden\n\n\n\n\nKritische Abschnitte\n\n\n\n\nRace Condition: Fehler aufgrund von unkontrollierter Nebenl\u00e4ufigkeit\n\n\nRace Condition Szenario\n\n\nBeide Threads lesen die aktuelle Balance nacheinander in ein Register\n\n\nDer zweite Thread, der die Balance zur\u00fcck schreibt, \u00fcberschreibt den anderen Wert\n\n\n-\n Lost Update\n\n\n\n\n\n\nEin Programmst\u00fcck, dass eine Race Condition verursachen k\u00f6nnte, ist eine \"Critical Section\"\n\n\nNaiver Ansatz: \"Locked\"-Boolean einf\u00fchren und evtl. warten, bis \nlocked == false\n ist\n\n\nProblem: Pr\u00fcfung des boolean und Zuweisung nicht atomar -\n Gleiches Problem wie vorher\n\n\n\n\n\n\n\n\nGegenseitiger Ausschluss\n\n\n\n\nEigene Implementierung nicht trivial (gibt spezielle Algorithmen)\n\n\nWeitere Probleme mit CPU-Optimierungen, Reihenfolge der Instruktionen ist nicht garantiert\n\n\nBusy-Waiting (Endlosschleife) ist ineffizient\n\n\n\n\nJava Monitor Konzept\n\n\npublic\n \nsynchronized\n \nvoid\n \ndeposit\n(\nint\n \namount\n)\n \n{\n\n    \nthis\n.\nbalance\n \n+=\n \namount\n;\n \n// Kritischer Abschnitt\n\n\n}\n\n\n\n\n\n\n\n\nBody der Funktion wird unter gegenseitigem Ausschluss ausgef\u00fchrt\n\n\nNur ein Thread auf einmal kann die Methode ausf\u00fchren\n\n\nBei jedem Eintritt wird das Objekt gelockt (Monitor-Lock)\n\n\n\n\nGilt f\u00fcr das ganze Objekt, auch andere synchronized-Methoden schliessen sich gegenseitig aus\n\n\n\n\n\n\nFreigabe des Locks bei Ende, return oder unhandled Exception\n\n\n\n\n\n\nRecursive Locks: \nsynchronized\n Method ruft andere \nsynchronized\n Method auf (nested Lock)\n\n\n\n\nIst in Java kein Problem, in anderen Sprachen u.U. schon\n\n\n\n\n\n\n\n\nSynchronized Statements\n\n\n\n\nsynchronized(object) { statements }\n\n\nobject\n bezieht sich auf das Objekt, das gelockt wird\n\n\nBei \nsynchronized\n mit Static-Klassen wird \nclass\n.class\n mitgegeben, dann wird die Klasse gelockt (Singleton)\n\n\n\n\nWarten auf Bedingung\n\n\n\n\nNaiver Ansatz: in Schleife warten, bis Bedingung erf\u00fcllt\n\n\nFunktioniert nicht: Lock wird nicht aufgel\u00f6st, es kann niemand anders das Objekt bearbeiten\n\n\nIneffizent, immer zu pollen\n\n\n\n\n\n\n\n\nWait \n Signal\n\n\n\n\nMonitor: Gegenseitiger Ausschluss + Wait \n Signal Mechanismus\n\n\nNur ein Thread kann \"im Monitor\" sein\n\n\nSpezieller Wartebereich f\u00fcr Threads, die auf eine Bedingung warten\n\n\nSie werden signalisiert, sobald die Bedingung erf\u00fcllt ist\n\n\n\n\nclass\n \nBankAccount\n \n{\n\n    \nprivate\n \nint\n \nbalance\n \n=\n \n0\n;\n\n    \npublic\n \nsynchronized\n \nvoid\n \nwithdraw\n(\nint\n \namount\n)\n\n        \nthrows\n \nInterruptedException\n \n{\n\n        \nwhile\n \n(\namount\n \n \nbalance\n)\n \n{\n\n            \nwait\n();\n\n        \n}\n\n        \nbalance\n \n-=\n \namount\n;\n\n        \n}\n\n    \npublic\n \nsynchronized\n \nvoid\n \ndeposit\n(\nint\n \namount\n)\n \n{\n\n        \nbalance\n \n+=\n \namount\n;\n\n        \nnotifyAll\n();\n\n    \n}\n\n\n}\n\n\n\n\n\n\n\n\nwait()\n setzt den Thread in die Warteschlange zum Warten auf eine Bedingung\n\n\nnotifyAll()\n weckt alle im Monitor wartenden Thread auf\n\n\nBeh\u00e4lt aber den Monitor-Lock f\u00fcr weitere Instruktionen (\"Single and Continue\")\n\n\n\n\n\n\nEin aufgeweckter Thread geht wieder in den \"\u00e4usseren\" Warteraum, genau wie alle anderen eintrittswilligen Threads\n\n\n\n\n\n\n\n\nWieso funktioniert das?\n\n\nwait()\n setzt sich in den \"Warteraum\" und gibt den Monitor (den Lock auf das Objekt) frei\n\n\n\n\n\n\nnotify()\n weckt einen \nbeliebigen\n Thread im \"Warteraum\" auf\n\n\nDie Reihenfolge im \"Warteraum\" ist in Java nicht spezifiziert (in .NET FIFO)\n\n\nSpurious Wakeup: Ein wartender Thread kann \"f\u00e4lschlicherweise\" aufgeweckt werden, ohne dass \nnotify\n aufgerufen wurde\n\n\nProblem von POSIX-Threads\n\n\n\n\n\n\n\n\n\n\nFallstricke beim Java Monitor\n\n\nWait mit If\n\n\n\n\nNach dem \nwait()\n muss die Bedingung wieder \u00fcberpr\u00fcft werden\n\n\nIn der Zwischenzeit k\u00f6nnte nach dem \nnotify()\n und vor dem Eintreten die Bedingung wieder invalidiert werden\n\n\nDaher: \nwhile (!conditioin) { wait(); }\n\n\n\n\n\n\n\n\nSingle-Notify\n\n\n\n\nnotify()\n weckt ein beliebiger einzelner Thread auf\n\n\nWenn immer ein falscher Thread aufgeweckt wird, terminiert das Programm nie\n\n\nL\u00f6sung: \nnotifyAll()\n verwenden\n\n\n\n\nEffizenz-Probleme\n\n\n\n\nnotifyAll()\n weckt alle auf, bei vielen Threads ist das viel Overhead f\u00fcr die \u00dcberpr\u00fcfung der Bedingung\n\n\nKeine Fairness: Keine Warteschlange spezifiziert\n\n\nSignal-and-Continue: Informierte muss neu anstehen und k\u00f6nnen st\u00e4ndig \u00fcberholt werden\n\n\nAuch bei FIFO (.NET) nicht garantiert fair", 
+            "title": "3 Thread Synchronisation"
+        }, 
+        {
+            "location": "/ParProg/3_Thread-Synchronisation/#thread-synchronisation", 
+            "text": "Note  Thread.currentThread().join()    Programm wartet ewig, weil es auf die Beendigung von sich selbst wartet    Synchronisation = Einschr\u00e4nkung der Nebenl\u00e4ufigkeit  F\u00e4lle f\u00fcr Synchronisation  Gegenseitiger Ausschluss: Eine Ressource kann nur von jemandem auf einmal benutzt werden  Warten auf Bedingung", 
+            "title": "Thread Synchronisation"
+        }, 
+        {
+            "location": "/ParProg/3_Thread-Synchronisation/#gemeinsame-ressourcen", 
+            "text": "Threads k\u00f6nnen sich gegenseitig st\u00f6ren, weil sie sich Adressraum und Heap teilen  In Java k\u00f6nnen lokale Variablen (closure) von Threads nur read-only zugegriffen werden", 
+            "title": "Gemeinsame Ressourcen"
+        }, 
+        {
+            "location": "/ParProg/3_Thread-Synchronisation/#kritische-abschnitte", 
+            "text": "Race Condition: Fehler aufgrund von unkontrollierter Nebenl\u00e4ufigkeit  Race Condition Szenario  Beide Threads lesen die aktuelle Balance nacheinander in ein Register  Der zweite Thread, der die Balance zur\u00fcck schreibt, \u00fcberschreibt den anderen Wert  -  Lost Update    Ein Programmst\u00fcck, dass eine Race Condition verursachen k\u00f6nnte, ist eine \"Critical Section\"  Naiver Ansatz: \"Locked\"-Boolean einf\u00fchren und evtl. warten, bis  locked == false  ist  Problem: Pr\u00fcfung des boolean und Zuweisung nicht atomar -  Gleiches Problem wie vorher", 
+            "title": "Kritische Abschnitte"
+        }, 
+        {
+            "location": "/ParProg/3_Thread-Synchronisation/#gegenseitiger-ausschluss", 
+            "text": "Eigene Implementierung nicht trivial (gibt spezielle Algorithmen)  Weitere Probleme mit CPU-Optimierungen, Reihenfolge der Instruktionen ist nicht garantiert  Busy-Waiting (Endlosschleife) ist ineffizient", 
+            "title": "Gegenseitiger Ausschluss"
+        }, 
+        {
+            "location": "/ParProg/3_Thread-Synchronisation/#java-monitor-konzept", 
+            "text": "public   synchronized   void   deposit ( int   amount )   { \n     this . balance   +=   amount ;   // Kritischer Abschnitt  }    Body der Funktion wird unter gegenseitigem Ausschluss ausgef\u00fchrt  Nur ein Thread auf einmal kann die Methode ausf\u00fchren  Bei jedem Eintritt wird das Objekt gelockt (Monitor-Lock)   Gilt f\u00fcr das ganze Objekt, auch andere synchronized-Methoden schliessen sich gegenseitig aus    Freigabe des Locks bei Ende, return oder unhandled Exception    Recursive Locks:  synchronized  Method ruft andere  synchronized  Method auf (nested Lock)   Ist in Java kein Problem, in anderen Sprachen u.U. schon", 
+            "title": "Java Monitor Konzept"
+        }, 
+        {
+            "location": "/ParProg/3_Thread-Synchronisation/#synchronized-statements", 
+            "text": "synchronized(object) { statements }  object  bezieht sich auf das Objekt, das gelockt wird  Bei  synchronized  mit Static-Klassen wird  class .class  mitgegeben, dann wird die Klasse gelockt (Singleton)", 
+            "title": "Synchronized Statements"
+        }, 
+        {
+            "location": "/ParProg/3_Thread-Synchronisation/#warten-auf-bedingung", 
+            "text": "Naiver Ansatz: in Schleife warten, bis Bedingung erf\u00fcllt  Funktioniert nicht: Lock wird nicht aufgel\u00f6st, es kann niemand anders das Objekt bearbeiten  Ineffizent, immer zu pollen", 
+            "title": "Warten auf Bedingung"
+        }, 
+        {
+            "location": "/ParProg/3_Thread-Synchronisation/#wait-signal", 
+            "text": "Monitor: Gegenseitiger Ausschluss + Wait   Signal Mechanismus  Nur ein Thread kann \"im Monitor\" sein  Spezieller Wartebereich f\u00fcr Threads, die auf eine Bedingung warten  Sie werden signalisiert, sobald die Bedingung erf\u00fcllt ist   class   BankAccount   { \n     private   int   balance   =   0 ; \n     public   synchronized   void   withdraw ( int   amount ) \n         throws   InterruptedException   { \n         while   ( amount     balance )   { \n             wait (); \n         } \n         balance   -=   amount ; \n         } \n     public   synchronized   void   deposit ( int   amount )   { \n         balance   +=   amount ; \n         notifyAll (); \n     }  }    wait()  setzt den Thread in die Warteschlange zum Warten auf eine Bedingung  notifyAll()  weckt alle im Monitor wartenden Thread auf  Beh\u00e4lt aber den Monitor-Lock f\u00fcr weitere Instruktionen (\"Single and Continue\")    Ein aufgeweckter Thread geht wieder in den \"\u00e4usseren\" Warteraum, genau wie alle anderen eintrittswilligen Threads     Wieso funktioniert das?  wait()  setzt sich in den \"Warteraum\" und gibt den Monitor (den Lock auf das Objekt) frei    notify()  weckt einen  beliebigen  Thread im \"Warteraum\" auf  Die Reihenfolge im \"Warteraum\" ist in Java nicht spezifiziert (in .NET FIFO)  Spurious Wakeup: Ein wartender Thread kann \"f\u00e4lschlicherweise\" aufgeweckt werden, ohne dass  notify  aufgerufen wurde  Problem von POSIX-Threads", 
+            "title": "Wait &amp; Signal"
+        }, 
+        {
+            "location": "/ParProg/3_Thread-Synchronisation/#fallstricke-beim-java-monitor", 
+            "text": "", 
+            "title": "Fallstricke beim Java Monitor"
+        }, 
+        {
+            "location": "/ParProg/3_Thread-Synchronisation/#wait-mit-if", 
+            "text": "Nach dem  wait()  muss die Bedingung wieder \u00fcberpr\u00fcft werden  In der Zwischenzeit k\u00f6nnte nach dem  notify()  und vor dem Eintreten die Bedingung wieder invalidiert werden  Daher:  while (!conditioin) { wait(); }", 
+            "title": "Wait mit If"
+        }, 
+        {
+            "location": "/ParProg/3_Thread-Synchronisation/#single-notify", 
+            "text": "notify()  weckt ein beliebiger einzelner Thread auf  Wenn immer ein falscher Thread aufgeweckt wird, terminiert das Programm nie  L\u00f6sung:  notifyAll()  verwenden", 
+            "title": "Single-Notify"
+        }, 
+        {
+            "location": "/ParProg/3_Thread-Synchronisation/#effizenz-probleme", 
+            "text": "notifyAll()  weckt alle auf, bei vielen Threads ist das viel Overhead f\u00fcr die \u00dcberpr\u00fcfung der Bedingung  Keine Fairness: Keine Warteschlange spezifiziert  Signal-and-Continue: Informierte muss neu anstehen und k\u00f6nnen st\u00e4ndig \u00fcberholt werden  Auch bei FIFO (.NET) nicht garantiert fair", 
+            "title": "Effizenz-Probleme"
+        }, 
+        {
             "location": "/PhAI/0_Index/", 
             "text": "Physik Anwendungen f\u00fcr Informatik\n\n\n\n\nExam Notes", 
             "title": "0 Index"
@@ -267,7 +362,7 @@
         }, 
         {
             "location": "/Vss/2_Introduction/", 
-            "text": "Introduction\n\n\n\n\nTransparency Types: Eigenschaften eines Systems transparent (= \"durchsichtig\") f\u00fcr den Benutzer machen, damit er nicht mitbekommt, dass z.B. mehrere Benutzer gleichzeitig zugreifen (Concurrency Transparency)\n\n\nVorteile von VSS\n\n\nBilden die verteilte Realit\u00e4t ab (verschiedene Arbeitspl\u00e4tze etc.)\n\n\nPerformancesteigerung (paralelle Verarbeitung)\n\n\nSkalierbarkeit\n\n\nFehlertoleranz\n\n\n\n\n\n\nHerausforderungen VSS\n\n\nKomplexe Kommunikation\n\n\nPerformanceprobleme (Latenz, Durchsatz)\n\n\nZuverl\u00e4ssigkeit (Netzzugriffe, Ausf\u00e4lle)\n\n\nTransaktionssicherheit (mehrere Benutzer)\n\n\n\n\n\n\n\n\nMiddleware\n\n\nMidleware\n ist infrastrukturelle Software, die eine Ebene unter dem Software-System liegt\n\n\n\n\nWird i.d.R. nicht selbst geschrieben\n\n\nDient zur Kommunikation zwischen den Software-Komponenten\n\n\n\n\nKommunikationsmiddleware\n\n\n\n\nInterfaces zur Netzwerkprogrammierung\n\n\nTCP/IP Sockets, RESTful HTTP, etc.\n\n\n\n\nAnwedungsorientierte Middleware\n\n\n\n\nUnterst\u00fctzung verteiler Andwendungen\n\n\nVereinfacht das Design der Applikation\n\n\nbietet Sicherheit, Zuverl\u00e4ssigkeit, verteilte Transaktionen, ...\n\n\nz.B. .NET Application Server, SQL mit Remote Queries, ...\n\n\n\n\n\n\nVSS Architectural Styles\n\n\n\n\n\n\nHub and Spoke\n: Alle kommunizieren \u00fcber zentrale Stelle (\"Hub\")\n\n\n\n\n\n\nCORBA (Centralized Object Request Broker Architecture) wird heute nicht mehr verwendet, die Prinzipien sind aber immer noch releveant", 
+            "text": "Introduction\n\n\n\n\nTransparency Types: Eigenschaften eines Systems transparent (= \"durchsichtig\") f\u00fcr den Benutzer machen, damit er nicht mitbekommt, dass z.B. mehrere Benutzer gleichzeitig zugreifen (Concurrency Transparency)\n\n\nVorteile von VSS\n\n\nBilden die verteilte Realit\u00e4t ab (verschiedene Arbeitspl\u00e4tze etc.)\n\n\nPerformancesteigerung (paralelle Verarbeitung)\n\n\nSkalierbarkeit\n\n\nFehlertoleranz\n\n\n\n\n\n\nHerausforderungen VSS\n\n\nKomplexe Kommunikation\n\n\nPerformanceprobleme (Latenz, Durchsatz)\n\n\nZuverl\u00e4ssigkeit (Netzzugriffe, Ausf\u00e4lle)\n\n\nTransaktionssicherheit (mehrere Benutzer)\n\n\n\n\n\n\n\n\nMiddleware\n\n\nMidleware\n ist infrastrukturelle Software, die eine Ebene unter dem Software-System liegt\n\n\n\n\nWird i.d.R. nicht selbst geschrieben\n\n\nDient zur Kommunikation zwischen den Software-Komponenten\n\n\n\n\nKommunikationsmiddleware\n\n\n\n\nInterfaces zur Netzwerkprogrammierung\n\n\nTCP/IP Sockets, RESTful HTTP, etc.\n\n\n\n\nAnwedungsorientierte Middleware\n\n\n\n\nUnterst\u00fctzung verteiler Andwendungen\n\n\nVereinfacht das Design der Applikation\n\n\nbietet Sicherheit, Zuverl\u00e4ssigkeit, verteilte Transaktionen, ...\n\n\nz.B. .NET Application Server, SQL mit Remote Queries, ...\n\n\n\n\n\n\nVSS Architectural Styles\n\n\n\n\n\n\n\n\nHub and Spoke\n: Alle kommunizieren \u00fcber zentrale Stelle (\"Hub\")\n\n\n\n\n\n\nCORBA (Centralized Object Request Broker Architecture) wird heute nicht mehr verwendet, die Prinzipien sind aber immer noch releveant\n\n\n\n\n\n\nIdempotenz\n\n\n\n\nIdempotente Funktion: z.B. zwei Zahlen addieren, Funktion macht bei jedem gleichen Aufruf das selbe\n\n\nNicht-idempotente Funktion: Es wird ein Zustand ver\u00e4ndert, bei zweitem gleichen Aufruf ist das Verhalten anders. z.B. Lagerstand \u00e4ndern, Konto-\u00dcbertrag\n\n\nServer idempotent machen: Designfrage, z.B. jede Nachricht mit eindeutiger ID versehen, Server darf diese ID nur einmal bearbeiten", 
             "title": "2 Introduction"
         }, 
         {
@@ -294,6 +389,46 @@
             "location": "/Vss/2_Introduction/#vss-architectural-styles", 
             "text": "Hub and Spoke : Alle kommunizieren \u00fcber zentrale Stelle (\"Hub\")    CORBA (Centralized Object Request Broker Architecture) wird heute nicht mehr verwendet, die Prinzipien sind aber immer noch releveant", 
             "title": "VSS Architectural Styles"
+        }, 
+        {
+            "location": "/Vss/2_Introduction/#idempotenz", 
+            "text": "Idempotente Funktion: z.B. zwei Zahlen addieren, Funktion macht bei jedem gleichen Aufruf das selbe  Nicht-idempotente Funktion: Es wird ein Zustand ver\u00e4ndert, bei zweitem gleichen Aufruf ist das Verhalten anders. z.B. Lagerstand \u00e4ndern, Konto-\u00dcbertrag  Server idempotent machen: Designfrage, z.B. jede Nachricht mit eindeutiger ID versehen, Server darf diese ID nur einmal bearbeiten", 
+            "title": "Idempotenz"
+        }, 
+        {
+            "location": "/Vss/3_socket_programmierung/", 
+            "text": "Socket Programmierung\n\n\n\n\nMessage-Oriented Middleware (z.B. HTTP GET / POST)\n\n\nClient wartet meist asynchron auf die Antwort\n\n\n\n\n\n\nRemote Procedure Call\n\n\nz.B. JAVA RMI\n\n\nHeute Web-Services (RESTful HTTP)\n\n\nClient wartet auf die Antwort\n\n\n\n\n\n\nFallacies of Distributed Systems\n\n\nFowler's First Law\n of Distributed Object Design\n\n\nVerteilte eigene Objekte sind starke Kopplung!\n\n\nM\u00fcssen meist in gleicher Sprache sein\n\n\n\n\n\n\n\n\nSockets\n\n\n\n\nMiddleware, um \u00fcber TCP / UDP zu kommunizieren\n\n\nZwei Prozesse schreiben und lesen auf den Socket, als ob es ein File w\u00e4re\n\n\nIdentifiziert durch Tupel IP-Adresse und Port\n\n\nZuerst muss Session aufgebaut werden\n\n\nEnge Kopplung zwischen Client und Server\n\n\nIn TCP/IP-Model auf Application-Layer, in OSI-Modell auf Session-Layer\n\n\nNachteile\n\n\nReiner Bytestream - Muss geparsed werden\n\n\nMessage Exchange Patterns muss selbst implementiert werden, z.B. Reihenfolge der Messages\n\n\n\n\n\n\nMeist nicht direkt auf Sockets programmieren, sondern h\u00f6here Abstraktion verwenden\n\n\n\n\nServer\n\n\n\n\nH\u00f6rt auf einen Port (Listener)\n\n\nErstellt f\u00fcr jeden Client einen eigenen Socket\n\n\n\n\nMeist wird f\u00fcr jede Client-Connection (Socket) ein eigener Thread verwendet\n\n\n\n\n\n\nBerkeley Sockets bieten ein standardisiertes Interface\n\n\n\n\n\n\nWebSockets\n\n\n\n\nBei reinem HTTP kann der Server nur Daten senden, wenn der Client eine Anfrage sendet\n\n\nMit Websockets kann der Server Daten auf den Client \"pushen\"\n\n\nBrowser sendet Daten mit \nsend()\n und empf\u00e4ngt Daten in \nonmessage\n Event handler\n\n\nWird von modernen Browsern unterst\u00fctzt\n\n\n\n\nUDP-Sockets\n\n\n\n\nClient muss keine Verbindung vor dem Senden zum Server aufbauen, sondern kann direkt anfangen zu senden\n\n\nServer sendet keine Best\u00e4tigung\n\n\nJava Tutorial\n\n\n\n\nMessaging Patterns\n\n\n\n\nBasic Pattern\n: Analog zu einem Brief, der von einem Message Endpoint zum anderen gesendet wird\n\n\nBlocking Receiver Message Pattern\n: Synchrone \u00dcbertragung, Server und Client warten auf die Antwort\n\n\nPolling Receiver Message Pattern\n: Der Receiver macht Anfragen zum Empfangen der Nachricht (Polling)\n\n\nService Activator Message Pattern\n: Auf einen Request ruft der \"Replier\" mit dem \"Service Activator\" die richtige Service-Funktion auf (RPC-style)", 
+            "title": "3 socket programmierung"
+        }, 
+        {
+            "location": "/Vss/3_socket_programmierung/#socket-programmierung", 
+            "text": "Message-Oriented Middleware (z.B. HTTP GET / POST)  Client wartet meist asynchron auf die Antwort    Remote Procedure Call  z.B. JAVA RMI  Heute Web-Services (RESTful HTTP)  Client wartet auf die Antwort    Fallacies of Distributed Systems  Fowler's First Law  of Distributed Object Design  Verteilte eigene Objekte sind starke Kopplung!  M\u00fcssen meist in gleicher Sprache sein", 
+            "title": "Socket Programmierung"
+        }, 
+        {
+            "location": "/Vss/3_socket_programmierung/#sockets", 
+            "text": "Middleware, um \u00fcber TCP / UDP zu kommunizieren  Zwei Prozesse schreiben und lesen auf den Socket, als ob es ein File w\u00e4re  Identifiziert durch Tupel IP-Adresse und Port  Zuerst muss Session aufgebaut werden  Enge Kopplung zwischen Client und Server  In TCP/IP-Model auf Application-Layer, in OSI-Modell auf Session-Layer  Nachteile  Reiner Bytestream - Muss geparsed werden  Message Exchange Patterns muss selbst implementiert werden, z.B. Reihenfolge der Messages    Meist nicht direkt auf Sockets programmieren, sondern h\u00f6here Abstraktion verwenden", 
+            "title": "Sockets"
+        }, 
+        {
+            "location": "/Vss/3_socket_programmierung/#server", 
+            "text": "H\u00f6rt auf einen Port (Listener)  Erstellt f\u00fcr jeden Client einen eigenen Socket   Meist wird f\u00fcr jede Client-Connection (Socket) ein eigener Thread verwendet    Berkeley Sockets bieten ein standardisiertes Interface", 
+            "title": "Server"
+        }, 
+        {
+            "location": "/Vss/3_socket_programmierung/#websockets", 
+            "text": "Bei reinem HTTP kann der Server nur Daten senden, wenn der Client eine Anfrage sendet  Mit Websockets kann der Server Daten auf den Client \"pushen\"  Browser sendet Daten mit  send()  und empf\u00e4ngt Daten in  onmessage  Event handler  Wird von modernen Browsern unterst\u00fctzt", 
+            "title": "WebSockets"
+        }, 
+        {
+            "location": "/Vss/3_socket_programmierung/#udp-sockets", 
+            "text": "Client muss keine Verbindung vor dem Senden zum Server aufbauen, sondern kann direkt anfangen zu senden  Server sendet keine Best\u00e4tigung  Java Tutorial", 
+            "title": "UDP-Sockets"
+        }, 
+        {
+            "location": "/Vss/3_socket_programmierung/#messaging-patterns", 
+            "text": "Basic Pattern : Analog zu einem Brief, der von einem Message Endpoint zum anderen gesendet wird  Blocking Receiver Message Pattern : Synchrone \u00dcbertragung, Server und Client warten auf die Antwort  Polling Receiver Message Pattern : Der Receiver macht Anfragen zum Empfangen der Nachricht (Polling)  Service Activator Message Pattern : Auf einen Request ruft der \"Replier\" mit dem \"Service Activator\" die richtige Service-Funktion auf (RPC-style)", 
+            "title": "Messaging Patterns"
         }, 
         {
             "location": "/VwlTg/0_Index/", 

@@ -9,7 +9,7 @@
         <meta name="description" content="HSR Study Documentation FS16">
       
       
-        <link rel="canonical" href="https://doc.robinsuter.ch/InfSi3/0_Index/">
+        <link rel="canonical" href="https://doc.robinsuter.ch/Vss/3_socket_programmierung/">
       
       
         <meta name="author" content="Robin Suter">
@@ -21,7 +21,7 @@
     
     
       
-        <title>0 Index - HSR Notizen FS17</title>
+        <title>3 socket programmierung - HSR Notizen FS17</title>
       
     
     
@@ -84,11 +84,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  InfSi3
+                  Vss
                 </span>
               
             
-            0 Index
+            3 socket programmierung
           
         </span>
       </div>
@@ -367,12 +367,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       InfSi3
@@ -388,20 +386,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="./" title="0 Index" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../InfSi3/0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
-    
   </li>
 
         
@@ -411,7 +400,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../../InfSi3/1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -423,7 +412,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../2_Overview/" title="2 Overview" class="md-nav__link">
+    <a href="../../InfSi3/2_Overview/" title="2 Overview" class="md-nav__link">
       2 Overview
     </a>
   </li>
@@ -606,10 +595,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" checked>
     
     <label class="md-nav__link" for="nav-10">
       Vss
@@ -627,7 +618,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Vss/0_Index/" title="0 Index" class="md-nav__link">
+    <a href="../0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
   </li>
@@ -639,7 +630,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Vss/1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -651,7 +642,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Vss/2_Introduction/" title="2 Introduction" class="md-nav__link">
+    <a href="../2_Introduction/" title="2 Introduction" class="md-nav__link">
       2 Introduction
     </a>
   </li>
@@ -661,11 +652,79 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../Vss/3_socket_programmierung/" title="3 socket programmierung" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        3 socket programmierung
+      </label>
+    
+    <a href="./" title="3 socket programmierung" class="md-nav__link md-nav__link--active">
       3 socket programmierung
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sockets" title="Sockets" class="md-nav__link">
+    Sockets
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server" title="Server" class="md-nav__link">
+    Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#websockets" title="WebSockets" class="md-nav__link">
+    WebSockets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp-sockets" title="UDP-Sockets" class="md-nav__link">
+    UDP-Sockets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messaging-patterns" title="Messaging Patterns" class="md-nav__link">
+    Messaging Patterns
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -751,6 +810,52 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sockets" title="Sockets" class="md-nav__link">
+    Sockets
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server" title="Server" class="md-nav__link">
+    Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#websockets" title="WebSockets" class="md-nav__link">
+    WebSockets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp-sockets" title="UDP-Sockets" class="md-nav__link">
+    UDP-Sockets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messaging-patterns" title="Messaging Patterns" class="md-nav__link">
+    Messaging Patterns
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -760,14 +865,75 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/InfSi3/0_Index.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Vss/3_socket_programmierung.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
-                <h1 id="informationssicherheit-3">Informationssicherheit 3</h1>
-<ol>
-<li><a href="../1_Exam/">Exam Notes</a></li>
-</ol>
+                <h1 id="socket-programmierung">Socket Programmierung</h1>
+<ul>
+<li>Message-Oriented Middleware (z.B. HTTP GET / POST)<ul>
+<li>Client wartet meist asynchron auf die Antwort</li>
+</ul>
+</li>
+<li>Remote Procedure Call<ul>
+<li>z.B. JAVA RMI</li>
+<li>Heute Web-Services (RESTful HTTP)</li>
+<li>Client wartet auf die Antwort</li>
+</ul>
+</li>
+<li><a href="http://www.rgoarchitects.com/Files/fallacies.pdf">Fallacies of Distributed Systems</a></li>
+<li><a href="http://www.drdobbs.com/errant-architectures/184414966">Fowler's First Law</a> of Distributed Object Design<ul>
+<li>Verteilte eigene Objekte sind starke Kopplung!</li>
+<li>Müssen meist in gleicher Sprache sein</li>
+</ul>
+</li>
+</ul>
+<h2 id="sockets">Sockets</h2>
+<ul>
+<li>Middleware, um über TCP / UDP zu kommunizieren</li>
+<li>Zwei Prozesse schreiben und lesen auf den Socket, als ob es ein File wäre</li>
+<li>Identifiziert durch Tupel IP-Adresse und Port</li>
+<li>Zuerst muss Session aufgebaut werden</li>
+<li>Enge Kopplung zwischen Client und Server</li>
+<li>In TCP/IP-Model auf Application-Layer, in OSI-Modell auf Session-Layer</li>
+<li>Nachteile<ul>
+<li>Reiner Bytestream - Muss geparsed werden</li>
+<li>Message Exchange Patterns muss selbst implementiert werden, z.B. Reihenfolge der Messages</li>
+</ul>
+</li>
+<li>Meist nicht direkt auf Sockets programmieren, sondern höhere Abstraktion verwenden</li>
+</ul>
+<h3 id="server">Server</h3>
+<ul>
+<li>Hört auf einen Port (Listener)</li>
+<li>Erstellt für jeden Client einen eigenen Socket</li>
+<li>
+<p>Meist wird für jede Client-Connection (Socket) ein eigener Thread verwendet</p>
+</li>
+<li>
+<p>Berkeley Sockets bieten ein standardisiertes Interface</p>
+</li>
+</ul>
+<h3 id="websockets">WebSockets</h3>
+<ul>
+<li>Bei reinem HTTP kann der Server nur Daten senden, wenn der Client eine Anfrage sendet</li>
+<li>Mit Websockets kann der Server Daten auf den Client "pushen"</li>
+<li>Browser sendet Daten mit <code>send()</code> und empfängt Daten in <code>onmessage</code> Event handler</li>
+<li>Wird von modernen Browsern unterstützt</li>
+</ul>
+<h3 id="udp-sockets">UDP-Sockets</h3>
+<ul>
+<li>Client muss keine Verbindung vor dem Senden zum Server aufbauen, sondern kann direkt anfangen zu senden</li>
+<li>Server sendet keine Bestätigung</li>
+<li><a href="http://docs.oracle.com/javase/tutorial/networking/datagrams/index.html">Java Tutorial</a></li>
+</ul>
+<h2 id="messaging-patterns">Messaging Patterns</h2>
+<ul>
+<li><strong>Basic Pattern</strong>: Analog zu einem Brief, der von einem Message Endpoint zum anderen gesendet wird</li>
+<li><strong>Blocking Receiver Message Pattern</strong>: Synchrone Übertragung, Server und Client warten auf die Antwort</li>
+<li><strong>Polling Receiver Message Pattern</strong>: Der Receiver macht Anfragen zum Empfangen der Nachricht (Polling)</li>
+<li><strong>Service Activator Message Pattern</strong>: Auf einen Request ruft der "Replier" mit dem "Service Activator" die richtige Service-Funktion auf (RPC-style)</li>
+</ul>
               
               
             </article>
@@ -781,7 +947,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../ITBus/1_Exam/" title="1 Exam" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../2_Introduction/" title="2 Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -790,19 +956,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                1 Exam
+                2 Introduction
               </span>
             </div>
           </a>
         
         
-          <a href="../1_Exam/" title="1 Exam" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../VwlTg/0_Index/" title="0 Index" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                1 Exam
+                0 Index
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
