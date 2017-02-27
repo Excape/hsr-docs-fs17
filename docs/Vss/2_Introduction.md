@@ -29,6 +29,13 @@
 ![](img/middleware.png)
 
 ## VSS Architectural Styles
+![](img/architecture_styles.png)
+
 - *Hub and Spoke*: Alle kommunizieren über zentrale Stelle ("Hub")
 
 - CORBA (Centralized Object Request Broker Architecture) wird heute nicht mehr verwendet, die Prinzipien sind aber immer noch releveant
+
+## Idempotenz
+- Idempotente Funktion: z.B. zwei Zahlen addieren, Funktion macht bei jedem gleichen Aufruf das selbe
+- Nicht-idempotente Funktion: Es wird ein Zustand verändert, bei zweitem gleichen Aufruf ist das Verhalten anders. z.B. Lagerstand ändern, Konto-Übertrag
+- Server idempotent machen: Designfrage, z.B. jede Nachricht mit eindeutiger ID versehen, Server darf diese ID nur einmal bearbeiten
