@@ -47,7 +47,7 @@
         }, 
         {
             "location": "/Dbs2/2_OR-Mapping/", 
-            "text": "OR Mapping\n\n\nZiel: Gap zwischen Objektmodell der Applikation und (meist) relationales Modell der Datenbanken \u00fcberwinden\n\n\nJava Persistence API (JPA)\n\n\n\n\nJPA ist ein Layer zwischen JDBC und dem Programm\n\n\nJPA ist nur eine Definition, implementiert von Providern\n\n\nHier wird die EclipseLink-Implementierung verwendet (Hibernate w\u00e4re ein anderer Provider)\n\n\n\n\nEntities\n\n\n\n\nEntities sind POJO's mit ID-Feld f\u00fcr PK mit default-Konstruktor\n\n\nD\u00fcrfen nicht final sein (wegen z.B. lazy-loading)\n\n\nAbbildung in DB \u00fcber Annotations oder sepparates XML-File\n\n\nAnnotation \n@Entity\n f\u00fcr Klasse, \n@Id\n f\u00fcr PK-Feld\n\n\n\n\nBeispiel\n\n\n@Entity\n\n\npublic\n \nclass\n \nBankCustomer\n \n{\n\n    \n@Id\n\n    \nprivate\n \nlong\n \nid\n;\n\n\n    \npublic\n \nlong\n \ngetId\n()\n \n{\n\n        \nreturn\n \nid\n;\n\n    \n}\n\n    \nprivate\n \nString\n \nname\n;\n\n    \npublic\n \nString\n \ngetName\n()\n \n{\n\n        \nreturn\n \nname\n;\n\n    \n}\n\n    \npublic\n \nvoid\n \nsetName\n(\nString\n \nname\n)\n \n{\n\n        \nthis\n.\nname\n \n=\n \nname\n;\n\n    \n}\n\n\n}\n\n\n\n\n\n\npersistence.xml\n\n\npersistence\n \nxmlns:xsi=\nhttp://www.w3.org/2001/XMLSchema-instance\n\n    \nxsi:schemaLocation=\nhttp://java.sun.com/xml/ns/persistence\n\n\n        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd\n\n    \nversion=\n2.0\n \nxmlns=\nhttp://java.sun.com/xml/ns/persistence\n\n\npersistence-unit\n \nname=\nBank\n \ntransaction-type=\nRESOURCE_LOCAL\n\n    \nprovider\norg.eclipse.persistence.jpa.PersistenceProvider\n/provider\n\n    \nexclude-unlisted-classes\nfalse\n/exclude-unlisted-classes\n\n        \nproperties\n\n            \nproperty\n \nname=\njavax.persistence.jdbc.driver\n\n                \nvalue=\norg.postgresql.Driver\n/\n\n            \nproperty\n \nname=\njavax.persistence.jdbc.url\n\n                \nvalue=\njdbc:postgresql:jpatest\n/\n\n            \nproperty\n \nname=\njavax.persistence.jdbc.user\n \nvalue=\ntest\n/\n\n            \nproperty\n \nname=\njavax.persistence.jdbc.password\n \nvalue=\ntest\n/\n\n            \nproperty\n \nname=\neclipselink.target-database\n \nvalue=\nPostgreSQL\n/\n\n        \n/properties\n\n    \n/persistence-unit\n\n\n/persistence\n\n\n\n\n\n\nEntities CRUD\n\n\n// SELECT\n\n\nEntityManagerFactory\n \nfactory\n \n=\n\n    \nPersistence\n.\ncreateEntityManagerFactory\n(\nBank\n);\n\n\nEntityManager\n \nem\n \n=\n \nfactory\n.\ncreateEntityManager\n();\n\n\nQuery\n \nquery\n \n=\n \nem\n.\ncreateQuery\n(\nSELECT a FROM BankAccount a\n);\n\n\nList\nBankAccount\n \nlist\n \n=\n \nquery\n.\ngetResultList\n();\n\n\nfor\n \n(\nBankAccount\n \naccount\n \n:\n \nlist\n)\n \n{\n\n    \nSystem\n.\nout\n.\nprintln\n(\naccount\n);\n\n\n}\n\n\nem\n.\nclose\n();\n \n// besser mit try-with-ressources\n\n\n\n// INSERT\n\n\nem\n.\ngetTransaction\n().\nbegin\n();\n\n\nBankCustomer\n \ncustomer\n \n=\n \nnew\n \nBankCustomer\n();\n\n\ncustomer\n.\nsetName\n(\nBill\n);\n\n\nem\n.\npersist\n(\ncustomer\n);\n \n// INSERT and SELECT, customer hat jetzt seine ID\n\n\nem\n.\ngetTransaction\n().\ncommit\n();\n\n\nem\n.\nclose\n();\n\n\n\n// UPDATE\n\n\nem\n.\ngetTransaction\n().\nbegin\n();\n\n\nBankAccount\n \naccount\n \n=\n \nem\n.\nfind\n(\nBankAccount\n.\nclass\n,\n \n1L\n);\n\n\naccount\n.\nincBalance\n(\n100\n);\n\n\nem\n.\ngetTransaction\n().\ncommit\n();\n\n\n\n// DELETE\n\n\n// nicht effizient, Java-Object wird erst durch GC aufger\u00e4umt\n\n\nem\n.\ngetTransaction\n().\nbegin\n();\n\n\nBankAccount\n \naccount\n \n=\n \nem\n.\nfind\n(\nBankAccount\n.\nclass\n,\n \n1L\n);\n\n\nem\n.\nremove\n(\naccount\n);\n\n\nem\n.\ngetTransaction\n().\ncommit\n();\n\n\n\n\n\n\nTable Mapping\n\n\n@Entity\n\n\n@Table\n(\nname\n \n=\n \naccount\n)\n\n\npublic\n \nclass\n \nBankAccount\n \n{\n\n    \n@Id\n\n    \n@Column\n(\nname\n \n=\n \naccountid\n)\n\n    \nprivate\n \nlong\n \nid\n;\n\n\n    \nprivate\n \ndouble\n \nbalance\n;\n \n// 1:1 Mapping\n\n\n    \n@Column\n(\nname\n \n=\n \ndescription\n)\n\n    \nprivate\n \nString\n \nexplanation\n;\n\n\n    \n@Column\n(\nname\n=\n\u201c\nssn\n\u201c\n,\n \nunique\n=\ntrue\n,\n \nnullable\n=\ntrue\n)\n\n    \nprivate\n \nlong\n \nssn\n;\n\n\n    \n@Column\n(\nname\n=\n\u201c\nl_name\n\u201c\n,\n \nlength\n=\n200\n)\n\n    \nprivate\n \nString\n \nlastName\n;\n\n\n    \n//Zusatzinfo, wird als TIMESTAMP abgelegt\n\n    \n@Temporal\n(\nTemporalType\n.\nTIMESTAMP\n)\n \n    \nprivate\n \nCalendar\n \ncreationDate\n;\n\n\n    \n@Transient\n \n// wird nicht gemapped\n\n    \nprivate\n \nString\n \ntempComments\n;\n\n    \n// getter und setter\n\n\n}\n\n\n\n\n\n\n\n\nWeitere Attribute: \nscale\n, \nprecision\n\n\n\n\nRelationen\n\n\n// 1:1 Mapping\n\n\n@Entity\n\n\n@Table\n(\nname\n \n=\n \nbankcustomer\n)\n\n\npublic\n \nclass\n \nBankCustomer\n \n{\n\n    \n@OneToOne\n(\noptional\n \n=\n \ntrue\n)\n\n    \n@JoinColumn\n(\nname\n \n=\n \naddressref\n)\n\n    \nprivate\n \nAddress\n \naddress\n;\n\n    \n// ...\n\n\n}\n\n\n\n// Bidirectional 1:1 mapping, Datenbank bleibt gleich\n\n\n@Entity\n\n\npublic\n \nclass\n \nAddress\n \n{\n\n    \n@OneToOne\n(\nmappedBy\n \n=\n \naddress\n)\n\n    \nprivate\n \nBankCustomer\n \ncustomer\n;\n\n    \n// ...\n\n\n}\n\n\n\n// N:1 Mapping\n\n\nclass\n \nBankAccount\n \n{\n\n    \n@ManyToOne\n(\noptional\n \n=\n \nfalse\n)\n\n    \n@JoinColumn\n(\nname\n \n=\n \ncustomerref\n)\n\n    \nprivate\n \nBankCustomer\n \ncustomer\n;\n\n    \n//...\n\n\n}\n\n\n\n// Bidirectional N:1 \n\n\nclass\n \nBankCustomer\n \n{\n\n    \n@OneToMany\n(\nmappedBy\n \n=\n \ncustomer\n)\n\n    \nprivate\n \nCollection\nBankAccount\n \naccounts\n;\n \n// = ...\n\n    \n// ...\n\n\n}\n\n\n// N:M maping\n\n\nclass\n \nBankManager\n \n{\n\n    \n@ManyToMany\n\n    \n@JoinTable\n(\nname\n \n=\n \ncustomer_manager\n,\n\n        \njoinColumns\n \n=\n \n{\n@JoinColumn\n(\nname\n \n=\n \nmanagerref\n)},\n\n        \ninverseJoinColumns\n \n=\n \n{\n@JoinColumn\n(\nname\n \n=\n \ncustomerref\n)})\n\n    \nprivate\n \nCollection\nBankCustomer\n \ncustomers\n;\n \n// = ...\n\n\n}\n\n\n\n\n\n\n\n\nBei bidirektionalen Beziehungen m\u00fcssen beide Seiten manuell gesetzt werden (im Gegensatz zu z.B. EF)\n\n\nIm Beispiel muss beim Hinzuf\u00fcgen eines \nBankAccount\n dieser der Liste in der \nBankCustomer\n hinzugef\u00fcgt werden\n\n\n\n\n\n\nLazy-Loading ist per default aktiviert f\u00fcr 1:n und n:m\n\n\nBsp: Wenn \nBankCustomer\n geladen werden, wird die \nBankAccounts\n-Liste lazy mit \ncustomer.getAccounts()\n geladen\n\n\n\n\n\n\nEager-Loading standard bei 1:1 und n:1\n\n\nExplizit angeben mit z.B. \n@ManyToMany(fetch = FetchType.EAGER)\n\n\n\n\nPersistence-Context\n\n\n\n\nEin Objekt ist neu erstellt erstmal \nunmanaged\n\n\nWird es in die DB eingef\u00fcgt \npersist()\n, ist es \nmanaged\n und somit im Persistence-Context\n\n\nWird die Verbindung geschlossen (\nclose()\n) oder removed, sind die Objekte wieder \nunmanaged", 
+            "text": "OR Mapping\n\n\nZiel: Gap zwischen Objektmodell der Applikation und (meist) relationales Modell der Datenbanken \u00fcberwinden\n\n\nJava Persistence API (JPA)\n\n\n\n\nJPA ist ein Layer zwischen JDBC und dem Programm\n\n\nJPA ist nur eine Definition, implementiert von Providern\n\n\nHier wird die EclipseLink-Implementierung verwendet (Hibernate w\u00e4re ein anderer Provider)\n\n\n\n\nEntities\n\n\n\n\nEntities sind POJO's mit ID-Feld f\u00fcr PK mit default-Konstruktor\n\n\nD\u00fcrfen nicht final sein (wegen z.B. lazy-loading)\n\n\nAbbildung in DB \u00fcber Annotations oder sepparates XML-File\n\n\nAnnotation \n@Entity\n f\u00fcr Klasse, \n@Id\n f\u00fcr PK-Feld\n\n\n\n\nBeispiel\n\n\n@Entity\n\n\npublic\n \nclass\n \nBankCustomer\n \n{\n\n    \n@Id\n\n    \nprivate\n \nlong\n \nid\n;\n\n\n    \npublic\n \nlong\n \ngetId\n()\n \n{\n\n        \nreturn\n \nid\n;\n\n    \n}\n\n    \nprivate\n \nString\n \nname\n;\n\n    \npublic\n \nString\n \ngetName\n()\n \n{\n\n        \nreturn\n \nname\n;\n\n    \n}\n\n    \npublic\n \nvoid\n \nsetName\n(\nString\n \nname\n)\n \n{\n\n        \nthis\n.\nname\n \n=\n \nname\n;\n\n    \n}\n\n\n}\n\n\n\n\n\n\npersistence.xml\n\n\npersistence\n \nxmlns:xsi=\nhttp://www.w3.org/2001/XMLSchema-instance\n\n    \nxsi:schemaLocation=\nhttp://java.sun.com/xml/ns/persistence\n\n\n        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd\n\n    \nversion=\n2.0\n \nxmlns=\nhttp://java.sun.com/xml/ns/persistence\n\n\npersistence-unit\n \nname=\nBank\n \ntransaction-type=\nRESOURCE_LOCAL\n\n    \nprovider\norg.eclipse.persistence.jpa.PersistenceProvider\n/provider\n\n    \nexclude-unlisted-classes\nfalse\n/exclude-unlisted-classes\n\n        \nproperties\n\n            \nproperty\n \nname=\njavax.persistence.jdbc.driver\n\n                \nvalue=\norg.postgresql.Driver\n/\n\n            \nproperty\n \nname=\njavax.persistence.jdbc.url\n\n                \nvalue=\njdbc:postgresql:jpatest\n/\n\n            \nproperty\n \nname=\njavax.persistence.jdbc.user\n \nvalue=\ntest\n/\n\n            \nproperty\n \nname=\njavax.persistence.jdbc.password\n \nvalue=\ntest\n/\n\n            \nproperty\n \nname=\neclipselink.target-database\n \nvalue=\nPostgreSQL\n/\n\n        \n/properties\n\n    \n/persistence-unit\n\n\n/persistence\n\n\n\n\n\n\nEntities CRUD\n\n\n// SELECT\n\n\nEntityManagerFactory\n \nfactory\n \n=\n\n    \nPersistence\n.\ncreateEntityManagerFactory\n(\nBank\n);\n\n\nEntityManager\n \nem\n \n=\n \nfactory\n.\ncreateEntityManager\n();\n\n\nQuery\n \nquery\n \n=\n \nem\n.\ncreateQuery\n(\nSELECT a FROM BankAccount a\n);\n\n\nList\nBankAccount\n \nlist\n \n=\n \nquery\n.\ngetResultList\n();\n\n\nfor\n \n(\nBankAccount\n \naccount\n \n:\n \nlist\n)\n \n{\n\n    \nSystem\n.\nout\n.\nprintln\n(\naccount\n);\n\n\n}\n\n\nem\n.\nclose\n();\n \n// besser mit try-with-ressources\n\n\n\n// INSERT\n\n\nem\n.\ngetTransaction\n().\nbegin\n();\n\n\nBankCustomer\n \ncustomer\n \n=\n \nnew\n \nBankCustomer\n();\n\n\ncustomer\n.\nsetName\n(\nBill\n);\n\n\nem\n.\npersist\n(\ncustomer\n);\n \n// INSERT and SELECT, customer hat jetzt seine ID\n\n\nem\n.\ngetTransaction\n().\ncommit\n();\n\n\nem\n.\nclose\n();\n\n\n\n// UPDATE\n\n\nem\n.\ngetTransaction\n().\nbegin\n();\n\n\nBankAccount\n \naccount\n \n=\n \nem\n.\nfind\n(\nBankAccount\n.\nclass\n,\n \n1L\n);\n\n\naccount\n.\nincBalance\n(\n100\n);\n\n\nem\n.\ngetTransaction\n().\ncommit\n();\n\n\n\n// DELETE\n\n\n// nicht effizient, Java-Object wird erst durch GC aufger\u00e4umt\n\n\nem\n.\ngetTransaction\n().\nbegin\n();\n\n\nBankAccount\n \naccount\n \n=\n \nem\n.\nfind\n(\nBankAccount\n.\nclass\n,\n \n1L\n);\n\n\nem\n.\nremove\n(\naccount\n);\n\n\nem\n.\ngetTransaction\n().\ncommit\n();\n\n\n\n\n\n\nTable Mapping\n\n\n@Entity\n\n\n@Table\n(\nname\n \n=\n \naccount\n)\n\n\npublic\n \nclass\n \nBankAccount\n \n{\n\n    \n@Id\n\n    \n@Column\n(\nname\n \n=\n \naccountid\n)\n\n    \nprivate\n \nlong\n \nid\n;\n\n\n    \nprivate\n \ndouble\n \nbalance\n;\n \n// 1:1 Mapping\n\n\n    \n@Column\n(\nname\n \n=\n \ndescription\n)\n\n    \nprivate\n \nString\n \nexplanation\n;\n\n\n    \n@Column\n(\nname\n=\n\u201c\nssn\n\u201c\n,\n \nunique\n=\ntrue\n,\n \nnullable\n=\ntrue\n)\n\n    \nprivate\n \nlong\n \nssn\n;\n\n\n    \n@Column\n(\nname\n=\n\u201c\nl_name\n\u201c\n,\n \nlength\n=\n200\n)\n\n    \nprivate\n \nString\n \nlastName\n;\n\n\n    \n//Zusatzinfo, wird als TIMESTAMP abgelegt\n\n    \n@Temporal\n(\nTemporalType\n.\nTIMESTAMP\n)\n \n    \nprivate\n \nCalendar\n \ncreationDate\n;\n\n\n    \n@Transient\n \n// wird nicht gemapped\n\n    \nprivate\n \nString\n \ntempComments\n;\n\n    \n// getter und setter\n\n\n}\n\n\n\n\n\n\n\n\nWeitere Attribute: \nscale\n, \nprecision\n\n\n\n\nRelationen\n\n\n// 1:1 Mapping\n\n\n@Entity\n\n\n@Table\n(\nname\n \n=\n \nbankcustomer\n)\n\n\npublic\n \nclass\n \nBankCustomer\n \n{\n\n    \n@OneToOne\n(\noptional\n \n=\n \ntrue\n)\n\n    \n@JoinColumn\n(\nname\n \n=\n \naddressref\n)\n\n    \nprivate\n \nAddress\n \naddress\n;\n\n    \n// ...\n\n\n}\n\n\n\n// Bidirectional 1:1 mapping, Datenbank bleibt gleich\n\n\n@Entity\n\n\npublic\n \nclass\n \nAddress\n \n{\n\n    \n@OneToOne\n(\nmappedBy\n \n=\n \naddress\n)\n\n    \nprivate\n \nBankCustomer\n \ncustomer\n;\n\n    \n// ...\n\n\n}\n\n\n\n// N:1 Mapping\n\n\nclass\n \nBankAccount\n \n{\n\n    \n@ManyToOne\n(\noptional\n \n=\n \nfalse\n)\n\n    \n@JoinColumn\n(\nname\n \n=\n \ncustomerref\n)\n\n    \nprivate\n \nBankCustomer\n \ncustomer\n;\n\n    \n//...\n\n\n}\n\n\n\n// Bidirectional N:1 \n\n\nclass\n \nBankCustomer\n \n{\n\n    \n@OneToMany\n(\nmappedBy\n \n=\n \ncustomer\n)\n\n    \nprivate\n \nCollection\nBankAccount\n \naccounts\n;\n \n// = ...\n\n    \n// ...\n\n\n}\n\n\n// N:M maping\n\n\nclass\n \nBankManager\n \n{\n\n    \n@ManyToMany\n\n    \n@JoinTable\n(\nname\n \n=\n \ncustomer_manager\n,\n\n        \njoinColumns\n \n=\n \n{\n@JoinColumn\n(\nname\n \n=\n \nmanagerref\n)},\n\n        \ninverseJoinColumns\n \n=\n \n{\n@JoinColumn\n(\nname\n \n=\n \ncustomerref\n)})\n\n    \nprivate\n \nCollection\nBankCustomer\n \ncustomers\n;\n \n// = ...\n\n\n}\n\n\n\n\n\n\n\n\nBei bidirektionalen Beziehungen m\u00fcssen beide Seiten manuell gesetzt werden (im Gegensatz zu z.B. EF)\n\n\nIm Beispiel muss beim Hinzuf\u00fcgen eines \nBankAccount\n dieser der Liste in der \nBankCustomer\n hinzugef\u00fcgt werden\n\n\n\n\n\n\nLazy-Loading ist per default aktiviert f\u00fcr 1:n und n:m\n\n\nBsp: Wenn \nBankCustomer\n geladen werden, wird die \nBankAccounts\n-Liste lazy mit \ncustomer.getAccounts()\n geladen\n\n\n\n\n\n\nEager-Loading standard bei 1:1 und n:1\n\n\nExplizit angeben mit z.B. \n@ManyToMany(fetch = FetchType.EAGER)\n\n\n\n\nPersistence-Context\n\n\n\n\nEin Objekt ist neu erstellt erstmal \nunmanaged\n\n\nWird es in die DB eingef\u00fcgt mit \npersist()\n, ist es \nmanaged\n und somit im Persistence-Context (Objekt hat eine Id)\n\n\nWird die Verbindung geschlossen (\nclose()\n) oder removed, sind die Objekte wieder \nunmanaged\n\n\nPersistence-Kontext verwaltet einen Cache - Bei mehrmaliger Abfrage der gleichen Objekte werden sie aus dem Cache geladen\n\n\nWichtig, sonst k\u00f6nnte es mehrere Java-Instanzen f\u00fcr ein DB-Objekt geben \n\n\nSo gibt es in einem Kontext f\u00fcr ein DB-Objekt genau eine Java Instanz  (Identity Map Pattern)\n\n\n\n\n\n\n\n\n\n\nGe\u00e4nderte Werte im Persistence-Kontext werden beim Transaction-Commit auf der DB gespeichert (Unit of Work Pattern)\n\n\n\n\nEntityManager\n \nem\n \n=\n \nemf\n.\ncreateEntityManager\n();\n\n\nBankCustomer\n \nc1\n \n=\n \nem\n.\nfind\n(\nBankCustomer\n.\nclass\n,\n \n1L\n);\n\n\nBankCustomer\n \nc2\n \n=\n \nem\n.\nfind\n(\nBankCustomer\n.\nclass\n,\n \n1L\n);\n\n\nassert\n(\nc1\n \n==\n \nc2\n);\n \n// gleicher PC\n\n\nEntityManager\n \nem1\n \n=\n \nemf\n.\ncreateEntityManager\n();\n\n\nc2\n \n=\n \nem1\n.\nfind\n(\nBankCustomer\n.\nclass\n,\n \n1L\n);\n\n\nassert\n(\nc1\n \n!=\n \nc2\n);\n \n// unterschiedlicher PC\n\n\n\n\n\n\nEntity Identit\u00e4t\n\n\n\n\nAnnotation \n@Id\n\n\n@GeneratedValue\n - generierte ID mit 4 M\u00f6glichkeiten\n\n\n\n\nTyp Identity\n\n\n@Id\n\n\n@GeneratedValue\n(\nstrategy\n \n=\n \nGenerationType\n.\nIDENTITY\n)\n\n\nprivate\n \nlong\n \naccountId\n;\n\n\n\n\n\n\n\n\nWird abgebildet in \nSERIAL\n\n\n\n\nTyp Sequence\n\n\nId\n\n\n@GeneratedValue\n(\nstrategy\n \n=\n \nGenerationType\n.\nSEQUENCE\n,\n\n    \ngenerator\n \n=\n \nBankCustGen\n)\n\n\n@SequenceGenerator\n(\nname\n \n=\n \nBankCustGen\n,\n\n    \nsequenceName\n \n=\n \nCustomerIdSeq\n,\n\n    \nallocationSize\n=\n1\n)\n\n\nprivate\n \nlong\n \ncustomerId\n;\n\n\n\n\n\n\n\n\nNote\n\n\ntodo\n\n\n\n\nTransitive Persistenz\n\n\n\n\nVon Persistente Objekte erreichbaren Objekte sollten auch persistent sein\n\n\n\n\nInkonsistente Bidirektionalit\u00e4t\n\n\n\n\nIn JPA werden bidirektionale Relationen nicht in beide Richtungen automatisch gesetzt\n\n\nMuss von Hand gemacht werden\n\n\n\n\nTransaktionen\n\n\nEntityManager\n \nem\n \n=\n \nfactory\n.\ncreateEntityManager\n();\n\n\nem\n.\ngetTransaction\n().\nbegin\n();\n\n\n// ...\n\n\n// do something... make changes\n\n\n// ...\n\n\nem\n.\ngetTransaction\n().\ncommit\n();\n \n// or rollback()\n\n\n\n\n\n\n\n\nIsolation Level ist per default Read-Commited\n\n\nNur Daten lesen, die eine andere Transaktion commited hat\n\n\n\n\n\n\n\n\nOptimistic Concurrency\n\n\n\n\nBeim Commit einer Transaktion wird nach Konflikten gepr\u00fcft\n\n\nWenn Konflikt entstand, wird ein Rollback gemacht\n\n\n\n\nVersions-Feld\n\n\n\n\nMit jedem Update Feld hochz\u00e4hlen\n\n\nBeim Schreiben pr\u00fcfen, ob das Feld gleich ist wie der Wert, der vorher gelesen wurde\n\n\nWenn Feld anders, hat jemand in der Zwischenzeit den Record ver\u00e4ndert -\n Rollback\n\n\n\n\nUPDATE\n \nUser\n \nSET\n \n...,\n \nversion\n \n=\n \nversion\n \n+\n \n1\n\n\nWHERE\n \nid\n \n=\n \n?\n \nAND\n \nversion\n \n=\n \nreadVersion\n\n\n\n\n\n\n\n\nJPA wirft bei Verletzung eine \nConcurrencyLockException\n\n\n\n\nEntity Locking\n\n\n\n\nem.lock()\n\n\nOPTIMISTIC_FORCE_INCREMENT: Beim lock direkt direkt das Versions-Feld erh\u00f6hen, damit andere keine Commits mehr darauf machen kann, der vorher gelesen hat\n\n\n\n\nDetached Entities\n\n\n\n\nOft m\u00f6chte man DB-Objekte \"detachen\" (Db-Context schliessen), ver\u00e4ndern, und dann wieder in die DB schreiben\n\n\nMit \nentityManger.merge(object)\n wird ein wieder in den Persistenz-Kontext geladen, dass wieder commited werden kann\n\n\n\n\nInheritance Mapping\n\n\nSingle Table Mapping (Table per Hierarchy)\n\n\n@Entity\n\n\n@Inheritance\n(\nstrategy\n \n=\n \nInheritanceType\n.\nSINGLE_TABLE\n)\n\n\n@DiscriminatorColumn\n(\nname\n \n=\n \ntype\n)\n\n\npublic\n \nabstract\n \nclass\n \nBankCustomer\n \n{\n\n    \n@Id\n \nprivate\n \nString\n \nname\n;\n\n\n}\n\n\n\n@Entity\n\n\n@DiscriminatorValue\n(\nRetail\n)\n\n\npublic\n \nclass\n \nRetailBankCustomer\n \nextends\n \nBankCustomer\n \n{\n\n    \nprivate\n \nint\n \nfees\n;\n\n\n}\n\n\n@Entity\n\n\n@DiscriminatorValue\n(\nPrivate\n)\n\n\npublic\n \nclass\n \nPrivateBankCustomer\n \nextends\n \nBankCustomer\n \n{\n\n    \nprivate\n \nString\n \neliteOffer\n;\n\n\n}\n\n\n\n\n\n\n\n\nDas Feld \"type\" ist hier diskriminator und wird in der DB verwendet, um die verschiedenen \nBankCustomer\n zu unterscheiden\n\n\n\n\nJoined Table Mapping\n\n\nTable per Class Mapping\n\n\nAbfragen mit JPQL\n\n\n\n\nSprache analog zu SQL...\n\n\n, aber operiert auf Entity Model, nicht DB-Model!\n\n\nEs k\u00f6nnen z.B. \"Navigation Attributes\" verwendet werden\n\n\n\"Prepared Statements\" mit Named Parameters\n\n\n\n\nQuery\n \nquery\n \n=\n \nem\n.\ncreateQuery\n(\n\n    \nSELECT c FROM BankCustomer c WHERE c.name LIKE :customerName\n\n\n);\n\n\nquery\n.\nsetParameter\n(\ncustomerName\n,\n \nname\n);\n\n\nquery\n.\nsetMaxResults\n(\n1000\n);\n\n\nList\nBankCustomer\n \nlist\n \n=\n \nquery\n.\ngetResultList\n();\n\n\n\n\n\n\nNamed Queries\n\n\nCriteria API", 
             "title": "2 OR Mapping"
         }, 
         {
@@ -92,8 +92,93 @@
         }, 
         {
             "location": "/Dbs2/2_OR-Mapping/#persistence-context", 
-            "text": "Ein Objekt ist neu erstellt erstmal  unmanaged  Wird es in die DB eingef\u00fcgt  persist() , ist es  managed  und somit im Persistence-Context  Wird die Verbindung geschlossen ( close() ) oder removed, sind die Objekte wieder  unmanaged", 
+            "text": "Ein Objekt ist neu erstellt erstmal  unmanaged  Wird es in die DB eingef\u00fcgt mit  persist() , ist es  managed  und somit im Persistence-Context (Objekt hat eine Id)  Wird die Verbindung geschlossen ( close() ) oder removed, sind die Objekte wieder  unmanaged  Persistence-Kontext verwaltet einen Cache - Bei mehrmaliger Abfrage der gleichen Objekte werden sie aus dem Cache geladen  Wichtig, sonst k\u00f6nnte es mehrere Java-Instanzen f\u00fcr ein DB-Objekt geben   So gibt es in einem Kontext f\u00fcr ein DB-Objekt genau eine Java Instanz  (Identity Map Pattern)      Ge\u00e4nderte Werte im Persistence-Kontext werden beim Transaction-Commit auf der DB gespeichert (Unit of Work Pattern)   EntityManager   em   =   emf . createEntityManager ();  BankCustomer   c1   =   em . find ( BankCustomer . class ,   1L );  BankCustomer   c2   =   em . find ( BankCustomer . class ,   1L );  assert ( c1   ==   c2 );   // gleicher PC  EntityManager   em1   =   emf . createEntityManager ();  c2   =   em1 . find ( BankCustomer . class ,   1L );  assert ( c1   !=   c2 );   // unterschiedlicher PC", 
             "title": "Persistence-Context"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#entity-identitat", 
+            "text": "Annotation  @Id  @GeneratedValue  - generierte ID mit 4 M\u00f6glichkeiten", 
+            "title": "Entity Identit\u00e4t"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#typ-identity", 
+            "text": "@Id  @GeneratedValue ( strategy   =   GenerationType . IDENTITY )  private   long   accountId ;    Wird abgebildet in  SERIAL", 
+            "title": "Typ Identity"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#typ-sequence", 
+            "text": "Id  @GeneratedValue ( strategy   =   GenerationType . SEQUENCE , \n     generator   =   BankCustGen )  @SequenceGenerator ( name   =   BankCustGen , \n     sequenceName   =   CustomerIdSeq , \n     allocationSize = 1 )  private   long   customerId ;    Note  todo", 
+            "title": "Typ Sequence"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#transitive-persistenz", 
+            "text": "Von Persistente Objekte erreichbaren Objekte sollten auch persistent sein", 
+            "title": "Transitive Persistenz"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#inkonsistente-bidirektionalitat", 
+            "text": "In JPA werden bidirektionale Relationen nicht in beide Richtungen automatisch gesetzt  Muss von Hand gemacht werden", 
+            "title": "Inkonsistente Bidirektionalit\u00e4t"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#transaktionen", 
+            "text": "EntityManager   em   =   factory . createEntityManager ();  em . getTransaction (). begin ();  // ...  // do something... make changes  // ...  em . getTransaction (). commit ();   // or rollback()    Isolation Level ist per default Read-Commited  Nur Daten lesen, die eine andere Transaktion commited hat", 
+            "title": "Transaktionen"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#optimistic-concurrency", 
+            "text": "Beim Commit einer Transaktion wird nach Konflikten gepr\u00fcft  Wenn Konflikt entstand, wird ein Rollback gemacht", 
+            "title": "Optimistic Concurrency"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#versions-feld", 
+            "text": "Mit jedem Update Feld hochz\u00e4hlen  Beim Schreiben pr\u00fcfen, ob das Feld gleich ist wie der Wert, der vorher gelesen wurde  Wenn Feld anders, hat jemand in der Zwischenzeit den Record ver\u00e4ndert -  Rollback   UPDATE   User   SET   ...,   version   =   version   +   1  WHERE   id   =   ?   AND   version   =   readVersion    JPA wirft bei Verletzung eine  ConcurrencyLockException", 
+            "title": "Versions-Feld"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#entity-locking", 
+            "text": "em.lock()  OPTIMISTIC_FORCE_INCREMENT: Beim lock direkt direkt das Versions-Feld erh\u00f6hen, damit andere keine Commits mehr darauf machen kann, der vorher gelesen hat", 
+            "title": "Entity Locking"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#detached-entities", 
+            "text": "Oft m\u00f6chte man DB-Objekte \"detachen\" (Db-Context schliessen), ver\u00e4ndern, und dann wieder in die DB schreiben  Mit  entityManger.merge(object)  wird ein wieder in den Persistenz-Kontext geladen, dass wieder commited werden kann", 
+            "title": "Detached Entities"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#inheritance-mapping", 
+            "text": "", 
+            "title": "Inheritance Mapping"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#single-table-mapping-table-per-hierarchy", 
+            "text": "@Entity  @Inheritance ( strategy   =   InheritanceType . SINGLE_TABLE )  @DiscriminatorColumn ( name   =   type )  public   abstract   class   BankCustomer   { \n     @Id   private   String   name ;  }  @Entity  @DiscriminatorValue ( Retail )  public   class   RetailBankCustomer   extends   BankCustomer   { \n     private   int   fees ;  }  @Entity  @DiscriminatorValue ( Private )  public   class   PrivateBankCustomer   extends   BankCustomer   { \n     private   String   eliteOffer ;  }    Das Feld \"type\" ist hier diskriminator und wird in der DB verwendet, um die verschiedenen  BankCustomer  zu unterscheiden", 
+            "title": "Single Table Mapping (Table per Hierarchy)"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#joined-table-mapping", 
+            "text": "", 
+            "title": "Joined Table Mapping"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#table-per-class-mapping", 
+            "text": "", 
+            "title": "Table per Class Mapping"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#abfragen-mit-jpql", 
+            "text": "Sprache analog zu SQL...  , aber operiert auf Entity Model, nicht DB-Model!  Es k\u00f6nnen z.B. \"Navigation Attributes\" verwendet werden  \"Prepared Statements\" mit Named Parameters   Query   query   =   em . createQuery ( \n     SELECT c FROM BankCustomer c WHERE c.name LIKE :customerName  );  query . setParameter ( customerName ,   name );  query . setMaxResults ( 1000 );  List BankCustomer   list   =   query . getResultList ();", 
+            "title": "Abfragen mit JPQL"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#named-queries", 
+            "text": "", 
+            "title": "Named Queries"
+        }, 
+        {
+            "location": "/Dbs2/2_OR-Mapping/#criteria-api", 
+            "text": "", 
+            "title": "Criteria API"
         }, 
         {
             "location": "/EPJ/0_Index/", 
@@ -151,6 +236,21 @@
             "title": "Exam"
         }, 
         {
+            "location": "/ITBus/2_Informationssysteme/", 
+            "text": "Informationssysteme\n\n\nFall-Studie UPS\n\n\n\n\n\n\nMit welchen ICT-Technologien unterst\u00fctzt UPS den Distributionsprozess?\n- Statistische Auswertung\n\n\n\n\nz.B. Realtime Berechnung der Lieferungsrouten und ad-hoc \u00c4nderungen\n\n\n\n\n\n\n\n\nBetrachten Sie das Beispiel \u201eTrack \n Trace\". Noch bis im Jahre 2003 ging es auch ohne Track \n Trace. Welche Bedeutung hat diese Innovation f\u00fcr die Kleinkunden von UPS? Und f\u00fcr die Firmenkunden von UPS? Und f\u00fcr UPS selber?\n\n\n\n\n\n\n\n\nF\u00fcr Kleinkunden: Immediate Feedback; Man sieht transparent, wo das Paket ist. F\u00fchrt zu weniger Supportanfragen\n\n\nF\u00fcr Firmenkunden: Weitergabe einer Lieferzeit an Endkunden; Lieferzeit voraussehbar, z.B. f\u00fcr Just-in-time production\n\n\nF\u00fcr UPS selber: Weniger Supportanfragen von Kunden\n\n\n\n\n\n\n\n\nWorin bestehen die Eingaben, die Verarbeitung und die Ausgaben des Paketverfolgungssystems von UPS?\n\n\n\n\n\n\nWelche Arten von Dienstleistungen stellt die Website f\u00fcr Privatpersonen, f\u00fcr kleine und f\u00fcr grosse Unternehmen zur Verf\u00fcgung? F\u00fchren Sie die Serviceleistungen auf und beschreiben Sie jede in einigen Abs\u00e4tzen, z. B. UPS CampusShip oder UPS Ocean Freight. Erl\u00e4utern Sie, wie Sie bzw. Ihre Unternehmung von diesem Service profitieren k\u00f6nnten.\n\n\n\n\n\n\nWie zahlen sich die Techniken f\u00fcr das Unternehmen aus? Was gesch\u00e4he, wenn diese Techniken nicht verf\u00fcgbar w\u00e4ren?", 
+            "title": "2 Informationssysteme"
+        }, 
+        {
+            "location": "/ITBus/2_Informationssysteme/#informationssysteme", 
+            "text": "", 
+            "title": "Informationssysteme"
+        }, 
+        {
+            "location": "/ITBus/2_Informationssysteme/#fall-studie-ups", 
+            "text": "Mit welchen ICT-Technologien unterst\u00fctzt UPS den Distributionsprozess?\n- Statistische Auswertung   z.B. Realtime Berechnung der Lieferungsrouten und ad-hoc \u00c4nderungen     Betrachten Sie das Beispiel \u201eTrack   Trace\". Noch bis im Jahre 2003 ging es auch ohne Track   Trace. Welche Bedeutung hat diese Innovation f\u00fcr die Kleinkunden von UPS? Und f\u00fcr die Firmenkunden von UPS? Und f\u00fcr UPS selber?     F\u00fcr Kleinkunden: Immediate Feedback; Man sieht transparent, wo das Paket ist. F\u00fchrt zu weniger Supportanfragen  F\u00fcr Firmenkunden: Weitergabe einer Lieferzeit an Endkunden; Lieferzeit voraussehbar, z.B. f\u00fcr Just-in-time production  F\u00fcr UPS selber: Weniger Supportanfragen von Kunden     Worin bestehen die Eingaben, die Verarbeitung und die Ausgaben des Paketverfolgungssystems von UPS?    Welche Arten von Dienstleistungen stellt die Website f\u00fcr Privatpersonen, f\u00fcr kleine und f\u00fcr grosse Unternehmen zur Verf\u00fcgung? F\u00fchren Sie die Serviceleistungen auf und beschreiben Sie jede in einigen Abs\u00e4tzen, z. B. UPS CampusShip oder UPS Ocean Freight. Erl\u00e4utern Sie, wie Sie bzw. Ihre Unternehmung von diesem Service profitieren k\u00f6nnten.    Wie zahlen sich die Techniken f\u00fcr das Unternehmen aus? Was gesch\u00e4he, wenn diese Techniken nicht verf\u00fcgbar w\u00e4ren?", 
+            "title": "Fall-Studie UPS"
+        }, 
+        {
             "location": "/InfSi3/0_Index/", 
             "text": "Informationssicherheit 3\n\n\n\n\nExam Notes", 
             "title": "0 Index"
@@ -179,6 +279,31 @@
             "location": "/InfSi3/2_Overview/#overview-legal-aspects-and-global-threats", 
             "text": "", 
             "title": "Overview, Legal Aspects and Global Threats"
+        }, 
+        {
+            "location": "/InfSi3/3_Software_Security/", 
+            "text": "Software Security\n\n\nThe Trinity of Trouble\n\n\n\n\nConnectivity\n: Immer mehr verbundene Ger\u00e4te\n\n\nSoftware wird als Service publiziert, die nie daf\u00fcr gedacht war\n\n\n\n\n\n\nExtensibility\n: Viele software wird modular\n\n\nDurch Plugins erweiterbar, z.B. Browser\n\n\n\n\n\n\nComplexity\n: Moderne Software ist komplex\n\n\nz.B. Betriebssysteme, Runtimes\n\n\nAnzahl Fehler steigt etwa quadratisch zu Anzahl Codezeilen\n\n\n\n\n\n\n\n\nDefects = Bugs + Flaws\n\n\n\n\nBug\n: Implementations-Fehler, der sich relativ leicht beheben l\u00e4sst\n\n\nFlaw\n: Design-Fehler in der Software, nur schwer zu finden / zu fixen\n\n\nIn der Praxis sind solche Defects 50/50 geteilt in Bugs und Flaws\n\n\n\n\nBest Practices\n\n\n\n\nPenetration ist nicht die effizienteste Massnahme, da die Fehler erst sp\u00e4t in der Entwicklung gefunden werden und so die Kosten enorm steigen", 
+            "title": "3 Software Security"
+        }, 
+        {
+            "location": "/InfSi3/3_Software_Security/#software-security", 
+            "text": "", 
+            "title": "Software Security"
+        }, 
+        {
+            "location": "/InfSi3/3_Software_Security/#the-trinity-of-trouble", 
+            "text": "Connectivity : Immer mehr verbundene Ger\u00e4te  Software wird als Service publiziert, die nie daf\u00fcr gedacht war    Extensibility : Viele software wird modular  Durch Plugins erweiterbar, z.B. Browser    Complexity : Moderne Software ist komplex  z.B. Betriebssysteme, Runtimes  Anzahl Fehler steigt etwa quadratisch zu Anzahl Codezeilen", 
+            "title": "The Trinity of Trouble"
+        }, 
+        {
+            "location": "/InfSi3/3_Software_Security/#defects-bugs-flaws", 
+            "text": "Bug : Implementations-Fehler, der sich relativ leicht beheben l\u00e4sst  Flaw : Design-Fehler in der Software, nur schwer zu finden / zu fixen  In der Praxis sind solche Defects 50/50 geteilt in Bugs und Flaws", 
+            "title": "Defects = Bugs + Flaws"
+        }, 
+        {
+            "location": "/InfSi3/3_Software_Security/#best-practices", 
+            "text": "Penetration ist nicht die effizienteste Massnahme, da die Fehler erst sp\u00e4t in der Entwicklung gefunden werden und so die Kosten enorm steigen", 
+            "title": "Best Practices"
         }, 
         {
             "location": "/ParProg/0_Index/", 
@@ -336,6 +461,41 @@
             "title": "1 Exam"
         }, 
         {
+            "location": "/SE2/2_Project_Automation/", 
+            "text": "Note\n\n\nkontakt: mmeili\n\n\n\n\nLeitsatz: \"Automate everything you need to do more than once\"\n\n\nIdee: Build-Script\n\n\n\n\nPro\n\n\nCompile, unit test, package, integration test, deploy automatisiert\n\n\nWiederholbar\n\n\ncan automatisch scheduled werden\n\n\n\n\n\n\nCon\n\n\nnon-interactive process, man kann nicht eingreifen\n\n\nMaintenace und Erweiterung ist m\u00fchsam\n\n\nMeist platform-abh\u00e4ngig (Batch, bash)\n\n\n\n\n\n\n\n\nZiele\n\n\n\n\nCRISP\n\n\nComplete: Jeder Build wird von neu auf aufgebaut\n\n\nRepeatable: Wiederverwendbar, auch mit \u00e4lteren Versionen\n\n\nInformative: Feedback \u00fcber den Prozess, z.B. Testresultate\n\n\nSchedulable\n\n\nPortable: Nicht nur auf lokaler Maschine ausf\u00fchrbar\n\n\n\n\n\n\nFlexibilit\u00e4t: Indiviuelle Tasks ausf\u00fchren\n\n\n\n\nBuild Tools\n\n\nImperative Build Tools\n\n\n\n\nMake-Familie: Den DA-Graphen wird explizit definiert (Abh\u00e4ngigkeiten)\n\n\nPros\n\n\nSehr flexibel und m\u00e4chtig\n\n\n\n\n\n\nCons\n\n\nKomplexe Definitionen\n\n\nSchwierig wiederzuverwenden\n\n\nViel copy-paste\n\n\n\n\n\n\n\n\nDeclarative Build Tools\n\n\n\n\nz.B. Maven, Gradle\n\n\nDeklarativ: Wie soll das Ergebnis aussehen?\n\n\nConvention over Configuration (nur konfigurieren, was nicht default ist)\n\n\nProjekt-Struktur ist meist default vorgegeben\n\n\nresources-Verzeichnis ist read-only!\n\n\n\n\n\n\nPros\n\n\nK\u00fcrzere files\n\n\nWiederverwendbare Logik\n\n\nDependeny Management\n\n\n\n\n\n\nCons\n\n\nWeniger flexibel\n\n\nStrenge Projektstruktur\n\n\n\n\n\n\n\n\nContinuous Integration\n\n\n\n\nMaintain a single source repository\n\n\nAutomate the build\n\n\nMake the build self-testing\n\n\nEveryone commits to the mainline every day\n\n\nEvery commit to the mainline should be built\n\n\nKeep the build fast\n\n\nTest in a clone of the production environment\n\n\nMake it easy to get the latest deliverables\n\n\nEveryone can see what\u2019s happening\n\n\nAutomate deployment", 
+            "title": "2 Project Automation"
+        }, 
+        {
+            "location": "/SE2/2_Project_Automation/#idee-build-script", 
+            "text": "Pro  Compile, unit test, package, integration test, deploy automatisiert  Wiederholbar  can automatisch scheduled werden    Con  non-interactive process, man kann nicht eingreifen  Maintenace und Erweiterung ist m\u00fchsam  Meist platform-abh\u00e4ngig (Batch, bash)", 
+            "title": "Idee: Build-Script"
+        }, 
+        {
+            "location": "/SE2/2_Project_Automation/#ziele", 
+            "text": "CRISP  Complete: Jeder Build wird von neu auf aufgebaut  Repeatable: Wiederverwendbar, auch mit \u00e4lteren Versionen  Informative: Feedback \u00fcber den Prozess, z.B. Testresultate  Schedulable  Portable: Nicht nur auf lokaler Maschine ausf\u00fchrbar    Flexibilit\u00e4t: Indiviuelle Tasks ausf\u00fchren", 
+            "title": "Ziele"
+        }, 
+        {
+            "location": "/SE2/2_Project_Automation/#build-tools", 
+            "text": "", 
+            "title": "Build Tools"
+        }, 
+        {
+            "location": "/SE2/2_Project_Automation/#imperative-build-tools", 
+            "text": "Make-Familie: Den DA-Graphen wird explizit definiert (Abh\u00e4ngigkeiten)  Pros  Sehr flexibel und m\u00e4chtig    Cons  Komplexe Definitionen  Schwierig wiederzuverwenden  Viel copy-paste", 
+            "title": "Imperative Build Tools"
+        }, 
+        {
+            "location": "/SE2/2_Project_Automation/#declarative-build-tools", 
+            "text": "z.B. Maven, Gradle  Deklarativ: Wie soll das Ergebnis aussehen?  Convention over Configuration (nur konfigurieren, was nicht default ist)  Projekt-Struktur ist meist default vorgegeben  resources-Verzeichnis ist read-only!    Pros  K\u00fcrzere files  Wiederverwendbare Logik  Dependeny Management    Cons  Weniger flexibel  Strenge Projektstruktur", 
+            "title": "Declarative Build Tools"
+        }, 
+        {
+            "location": "/SE2/2_Project_Automation/#continuous-integration", 
+            "text": "Maintain a single source repository  Automate the build  Make the build self-testing  Everyone commits to the mainline every day  Every commit to the mainline should be built  Keep the build fast  Test in a clone of the production environment  Make it easy to get the latest deliverables  Everyone can see what\u2019s happening  Automate deployment", 
+            "title": "Continuous Integration"
+        }, 
+        {
             "location": "/Vss/0_Index/", 
             "text": "Verteilte Software-Systeme\n\n\n\n\nExam Notes\n\n\nIntroduction", 
             "title": "0 Index"
@@ -362,7 +522,7 @@
         }, 
         {
             "location": "/Vss/2_Introduction/", 
-            "text": "Introduction\n\n\n\n\nTransparency Types: Eigenschaften eines Systems transparent (= \"durchsichtig\") f\u00fcr den Benutzer machen, damit er nicht mitbekommt, dass z.B. mehrere Benutzer gleichzeitig zugreifen (Concurrency Transparency)\n\n\nVorteile von VSS\n\n\nBilden die verteilte Realit\u00e4t ab (verschiedene Arbeitspl\u00e4tze etc.)\n\n\nPerformancesteigerung (paralelle Verarbeitung)\n\n\nSkalierbarkeit\n\n\nFehlertoleranz\n\n\n\n\n\n\nHerausforderungen VSS\n\n\nKomplexe Kommunikation\n\n\nPerformanceprobleme (Latenz, Durchsatz)\n\n\nZuverl\u00e4ssigkeit (Netzzugriffe, Ausf\u00e4lle)\n\n\nTransaktionssicherheit (mehrere Benutzer)\n\n\n\n\n\n\n\n\nMiddleware\n\n\nMidleware\n ist infrastrukturelle Software, die eine Ebene unter dem Software-System liegt\n\n\n\n\nWird i.d.R. nicht selbst geschrieben\n\n\nDient zur Kommunikation zwischen den Software-Komponenten\n\n\n\n\nKommunikationsmiddleware\n\n\n\n\nInterfaces zur Netzwerkprogrammierung\n\n\nTCP/IP Sockets, RESTful HTTP, etc.\n\n\n\n\nAnwedungsorientierte Middleware\n\n\n\n\nUnterst\u00fctzung verteiler Andwendungen\n\n\nVereinfacht das Design der Applikation\n\n\nbietet Sicherheit, Zuverl\u00e4ssigkeit, verteilte Transaktionen, ...\n\n\nz.B. .NET Application Server, SQL mit Remote Queries, ...\n\n\n\n\n\n\nVSS Architectural Styles\n\n\n\n\n\n\n\n\nHub and Spoke\n: Alle kommunizieren \u00fcber zentrale Stelle (\"Hub\")\n\n\n\n\n\n\nCORBA (Centralized Object Request Broker Architecture) wird heute nicht mehr verwendet, die Prinzipien sind aber immer noch releveant\n\n\n\n\n\n\nIdempotenz\n\n\n\n\nIdempotente Funktion: z.B. zwei Zahlen addieren, Funktion macht bei jedem gleichen Aufruf das selbe\n\n\nNicht-idempotente Funktion: Es wird ein Zustand ver\u00e4ndert, bei zweitem gleichen Aufruf ist das Verhalten anders. z.B. Lagerstand \u00e4ndern, Konto-\u00dcbertrag\n\n\nServer idempotent machen: Designfrage, z.B. jede Nachricht mit eindeutiger ID versehen, Server darf diese ID nur einmal bearbeiten", 
+            "text": "Introduction\n\n\n\n\nTransparency Types: Eigenschaften eines Systems transparent (= \"durchsichtig\") f\u00fcr den Benutzer machen, damit er nicht mitbekommt, dass z.B. mehrere Benutzer gleichzeitig zugreifen (Concurrency Transparency)\n\n\nVorteile von VSS\n\n\nBilden die verteilte Realit\u00e4t ab (verschiedene Arbeitspl\u00e4tze etc.)\n\n\nPerformancesteigerung (paralelle Verarbeitung)\n\n\nSkalierbarkeit\n\n\nFehlertoleranz\n\n\n\n\n\n\nHerausforderungen VSS\n\n\nKomplexe Kommunikation\n\n\nPerformanceprobleme (Latenz, Durchsatz)\n\n\nZuverl\u00e4ssigkeit (Netzzugriffe, Ausf\u00e4lle)\n\n\nTransaktionssicherheit (mehrere Benutzer)\n\n\n\n\n\n\n\n\nMiddleware\n\n\nMidleware\n ist infrastrukturelle Software, die eine Ebene unter dem Software-System liegt\n\n\n\n\nWird i.d.R. nicht selbst geschrieben\n\n\nDient zur Kommunikation zwischen den Software-Komponenten\n\n\n\n\nKommunikationsmiddleware\n\n\n\n\nInterfaces zur Netzwerkprogrammierung\n\n\nTCP/IP Sockets, RESTful HTTP, etc.\n\n\n\n\nAnwedungsorientierte Middleware\n\n\n\n\nHigh-level Protokolle\n\n\nUnterst\u00fctzung verteiler Andwendungen\n\n\nVereinfacht das Design der Applikation\n\n\nbietet Sicherheit, Zuverl\u00e4ssigkeit, verteilte Transaktionen, ...\n\n\nz.B. .NET Application Server, SQL mit Remote Queries, ...\n\n\n\n\n\n\nVSS Architectural Styles\n\n\n\n\n\n\n\n\nHub and Spoke\n: Alle kommunizieren \u00fcber zentrale Stelle (\"Hub\")\n\n\n\n\n\n\nCORBA (Centralized Object Request Broker Architecture) wird heute nicht mehr verwendet, die Prinzipien sind aber immer noch releveant\n\n\n\n\n\n\nIdempotenz\n\n\n\n\nIdempotente Funktion: z.B. zwei Zahlen addieren, Funktion macht bei jedem gleichen Aufruf das selbe\n\n\nNicht-idempotente Funktion: Es wird ein Zustand ver\u00e4ndert, bei zweitem gleichen Aufruf ist das Verhalten anders. z.B. Lagerstand \u00e4ndern, Konto-\u00dcbertrag\n\n\nServer idempotent machen: Designfrage, z.B. jede Nachricht mit eindeutiger ID versehen, Server darf diese ID nur einmal bearbeiten", 
             "title": "2 Introduction"
         }, 
         {
@@ -382,7 +542,7 @@
         }, 
         {
             "location": "/Vss/2_Introduction/#anwedungsorientierte-middleware", 
-            "text": "Unterst\u00fctzung verteiler Andwendungen  Vereinfacht das Design der Applikation  bietet Sicherheit, Zuverl\u00e4ssigkeit, verteilte Transaktionen, ...  z.B. .NET Application Server, SQL mit Remote Queries, ...", 
+            "text": "High-level Protokolle  Unterst\u00fctzung verteiler Andwendungen  Vereinfacht das Design der Applikation  bietet Sicherheit, Zuverl\u00e4ssigkeit, verteilte Transaktionen, ...  z.B. .NET Application Server, SQL mit Remote Queries, ...", 
             "title": "Anwedungsorientierte Middleware"
         }, 
         {
@@ -484,6 +644,91 @@
             "location": "/VwlTg/2_Wohlstand/#reales-bip-in-der-schweiz", 
             "text": "In Produktionswert sind die Werte mehrmals verrechnet, wenn z.B. ein F\u00f6rster sein Holz verkauft und die S\u00e4gerei das Holz dem Schreiner, ist das Holz zwei Mal verrechnet  Vorleistungen rechnen dies raus - etwa die H\u00e4lfte in der Schweiz  Rund 2/3 des BIP geht an Arbeitnehmer, 1/6 an Arbeitgeber  In der Schweiz ist dieser Wert ziemlich konstant, im Gegensatz z.B. zu USA und Schweden  Grund: GAVs, Arbeitsfrieden, (direkte Demokratie)    Exporte in der Schweiz in den letzten Jahren gesunken, aber auch Importe sind gefallen -  BIP bleibt gleich  Gold- Import und Export ist gleich gross (70 Mia.)  Schweiz ist Handelsplatz f\u00fcr Gold    Kaufkraftbereinigung: BIP bereinigt nach Kaufkraft, d.h. was kann man mit dem BIP kaufen?  1975 war die Schweiz das reichste Land der Welt, danach weniger Wachstum  Abschottung, Binnenmarkt geschlossen  Preis von direkter Demokratie, F\u00f6deralismus, ...    Starke Korrelation zwischen BIP pro Kopf und sozialem Fortschritt  Hoher Wohlstand ist wichtig bis zu einem gewissen Grad (dann immer weniger Fortschritt)", 
             "title": "Reales BIP in der Schweiz"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/", 
+            "text": "Einkommensverteilung \n Sozialwerke\n\n\n\n\nProblem bei BIP pro Kopf: Es gibt kein \"Durschnitts-Kopf\"\n\n\n\n\nEffizienz und Veteilung\n\n\n\n\nEffizienz: Situation eines einzelnen Verbessern, ohne andere schlechter zu stellen\n\n\nauch z.b.: Reiche werden reicher, alle anderen bleiben gleich\n\n\n\n\n\n\n\"M\u00f6glichst grossen Kuchen backen\" ohne R\u00fccksicht auf Verteilung\n\n\n\n\nVerteilungsgerechtigkeit\n\n\n\n\nVerteilung ist abh\u00e4ngig von Produktivit\u00e4t der Arbeitenden\n\n\nProduktivit\u00e4t = Wertsch\u00f6pfung / Stunde\n\n\nKassierer z.B. hat wenig Wertsch\u00f6pfung -\n weniger Produktivit\u00e4t\n\n\n\n\n\n\nWenn die Gesellschaft nicht damit einverstanden ist, muss umverteilt werden (z.B. wegen k\u00f6rperlicher / geistlicher Einschr\u00e4nkung)\n\n\n\n\nHerausforderungen\n\n\n\n\nWird zu viel umverteilt, gibt es weniger Anreize zu pers\u00f6nlicher Leistung\n\n\nWird zu wenig umverteilt, wird es als ungerecht empfunden\n\n\nDies braucht eine Balance der sozialpolitischen Instrumente\n\n\nGerecht / ungerecht != gleich / ungleiche Verteilung!\n\n\n\n\nGini-Koeffizient\n\n\n\n\nDiagonale w\u00e4re perfekte Gleichverteilung\n\n\nJe gr\u00f6sser der \"Bauch\", desto gr\u00f6sser die Ungleicher die Verteilung\n\n\nGini-Koeffizient: Anteil des Bauches mit der Fl\u00e4che unter der Diagonale\n\n\nJe h\u00f6her der Koeffizient, desto h\u00f6her die Ungleichheite Verteilung\n\n\n\n\n\n\nSagt nicht aus, wie hoch der Wohlstand ist\n\n\n\n\nGini-Koeffizient gibt es f\u00fcr Einkommen und Verm\u00f6gen\n\n\n\n\n\n\nChina und USA haben hohen Koeffizient, Schweiz etwas h\u00f6her als Deutschland / \u00d6sterreich\n\n\n\n\nS\u00fcdamerika hat hohe Ungleichverteilung\n\n\nUSA hat starke Leistungs-Philosphie -\n Ungleiche Verteilung ist \"amerikanisch\"\n\n\n\n\nVerm\u00f6gens-Verteilung\n\n\n\n\nStudie der SGB\n\n\nSchweiz hat angeblich einer der h\u00f6chsten Verm\u00f6gens-Gini-Koeffizienten\n\n\nHat nur Verm\u00f6gen der Steuerabrechnung eingerechnet\n\n\nHeisst: Ohne Pensionskasse, Immobilien (nur Eigenmietwert)\n\n\n\n\n\n\n\n\nArten der Umverteilung\n\n\n\n\nBei Umverteilung nimmt man immer jemandem etwas weg!\n\n\n\n\nEinkommensquellen (Lohn, Ertr\u00e4ge aus Verm\u00f6gen)\n\n\n\n\n\n\nUmverteilung ist in Schweiz relativ niedrig, aber ist auch weniger ungerecht verteilt im internationalen Vergleich\n\n\n\n\nSchweiz: Niedriger Lohn ca. 4000, guter Lohn ca. 10000, Faktor 2.5\n\n\n\n\n\n\n\n\nEs gibt viele Arbeitsstellen f\u00fcr Umverteilung in der Schweiz\n\n\n\n\n\n\nDie drei S\u00e4ulen der Schweizer Altersvorsorge\n\n\nAHV (1. S\u00e4ule)\n\n\n\n\nPflicht f\u00fcr ganze Bev\u00f6lkerung (mit Aufenthaltsbewilligung)\n\n\nZiel: Reine Existenzsicherung\n\n\n\n\nBerufliche Vorsorge (Pensionskasse)\n\n\n\n\nHaben alle mit Arbeitsstelle in der Schweiz (Pflicht)\n\n\n70%-80% des Lebensstandards in der Pension\n\n\nZwei Optionen: Einmalig ganzes Geld bekommen oder lebenslang einen Betrag (Rente) erhalten\n\n\nJunge zahlen weniger Prozente als \u00e4ltere\n\n\nBegr\u00fcndung: \"junge brauche das Geld noch\"\n\n\nEiner der Hauptgr\u00fcnde, dass \u00e4ltere nur schwieriger einen Job finden (Unternehmen muss mind. H\u00e4lfte \u00fcbernehmen)\n\n\n\n\n\n\n\n\nSelbstvorsoge\n\n\n\n\nKann vom steuerbaren Einkommen abgezogen werden\n\n\nPrivates Verm\u00f6gen \n freiwillig\n\n\n\n\nHerausforderungen f\u00fcr die erste und zweite S\u00e4ule\n\n\n\n\nHerausforderung: Leute w\u00e4ren immer \u00e4lter\n\n\nAHV geht von einer Pyramide aus: Mehr j\u00fcngere als \u00e4ltere\n\n\nGeburtenrate ist zu tief (1.6 statt 2.1), Durschnittliches Alter steigt\n\n\nAHV ist seit 2 Jahren im defizit\n\n\nWird momentan durch Fond (28 Mia.) finanziert\n\n\nIst aufgebraucht zwischen 2027 und 2033\n\n\n\n\nL\u00f6sungsm\u00f6glichkeiten\n\n\n\n\nDirekt einflussbare Parameter\n\n\nH\u00f6here Beitr\u00e4ge\n\n\nTiefere Renten (ausgeschlossen!1!!!)\n\n\nRentenalter erh\u00f6hen\n\n\n\n\n\n\n\n\nIndirekt beeinflussbar (keine L\u00f6sungen)\n\n\n\n\nImmigration\n\n\nGeburtenrate\n\n\nWirtschaftswachstum\n\n\n\n\n\n\n\n\nGesetzliches Rentenalter != durchschnittliches Rentenalter!\n\n\n\n\nz.B in Belgien, Frankreich ist effektives Rentenalter viel tiefer\n\n\nIn Portugal, Japan sehr hohes effektives Alter\n\n\nWeil wenig Altersvorsorge, keine Wahl\n\n\n\n\n\n\nIn der Schweiz \"arbeitet man gerne\"\n\n\nMan kann die Pension um 4 Jahre verz\u00f6gern f\u00fcr h\u00f6here Rente\n\n\n\n\n\n\n\n\nProbleme BVG (Pensionskasse)\n\n\n\n\nEs gibt einen Mindestzinssatz, die die Pensionskassen bieten m\u00fcssen\n\n\n2003: 4%, heute 1.75%\n\n\nHistorisch sind Pensionskassen unterdeckt, im letzten Jahr wieder h\u00f6her\n\n\nGewerkschaften wollen h\u00f6here Zinss\u00e4tze, Pensionskassen tiefere\n\n\nEin Drittel wird auf Obligationen investiert (Negativzinsen!)\n\n\nUmwandlungssatz: Prozentsatz des angesparten Verm\u00f6ges, der als rente ausbezahlt wird\n\n\n2005: 7.2% -\n Lebenserwartung von ~79\n\n\n2014: 6.8%\n\n\n2010: Referendum gegen 6.4% vom Schweizer Volk\n\n\n\n\n\n\n\n\nArmut in der Schweiz\n\n\n\n\nArmut nimmt in der Schweiz ab\n\n\n\"absolut arm\":\n\n\nDefiniert mit u.a. \"Kein Auto, kein Farbfernseher\"\n\n\nWenn drei von neun Kategorien erf\u00fcllt\n\n\n\n\n\n\n\n\nBedinungsloses Grundeinkommen\n\n\n\n\nTheoretisch 80-90% finanzierbar\n\n\nK\u00fcrzen von vielen Sozialleistungen, weil sie jetzt durch BGE gedeckt w\u00e4ren\n\n\nMehr als die H\u00e4lfte durch R\u00fcckzahlungen von Arbeitgeber", 
+            "title": "3 Einkommensverteilung und Sozialwerke"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#einkommensverteilung-sozialwerke", 
+            "text": "Problem bei BIP pro Kopf: Es gibt kein \"Durschnitts-Kopf\"", 
+            "title": "Einkommensverteilung &amp; Sozialwerke"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#effizienz-und-veteilung", 
+            "text": "Effizienz: Situation eines einzelnen Verbessern, ohne andere schlechter zu stellen  auch z.b.: Reiche werden reicher, alle anderen bleiben gleich    \"M\u00f6glichst grossen Kuchen backen\" ohne R\u00fccksicht auf Verteilung", 
+            "title": "Effizienz und Veteilung"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#verteilungsgerechtigkeit", 
+            "text": "Verteilung ist abh\u00e4ngig von Produktivit\u00e4t der Arbeitenden  Produktivit\u00e4t = Wertsch\u00f6pfung / Stunde  Kassierer z.B. hat wenig Wertsch\u00f6pfung -  weniger Produktivit\u00e4t    Wenn die Gesellschaft nicht damit einverstanden ist, muss umverteilt werden (z.B. wegen k\u00f6rperlicher / geistlicher Einschr\u00e4nkung)", 
+            "title": "Verteilungsgerechtigkeit"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#herausforderungen", 
+            "text": "Wird zu viel umverteilt, gibt es weniger Anreize zu pers\u00f6nlicher Leistung  Wird zu wenig umverteilt, wird es als ungerecht empfunden  Dies braucht eine Balance der sozialpolitischen Instrumente  Gerecht / ungerecht != gleich / ungleiche Verteilung!", 
+            "title": "Herausforderungen"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#gini-koeffizient", 
+            "text": "Diagonale w\u00e4re perfekte Gleichverteilung  Je gr\u00f6sser der \"Bauch\", desto gr\u00f6sser die Ungleicher die Verteilung  Gini-Koeffizient: Anteil des Bauches mit der Fl\u00e4che unter der Diagonale  Je h\u00f6her der Koeffizient, desto h\u00f6her die Ungleichheite Verteilung    Sagt nicht aus, wie hoch der Wohlstand ist   Gini-Koeffizient gibt es f\u00fcr Einkommen und Verm\u00f6gen    China und USA haben hohen Koeffizient, Schweiz etwas h\u00f6her als Deutschland / \u00d6sterreich   S\u00fcdamerika hat hohe Ungleichverteilung  USA hat starke Leistungs-Philosphie -  Ungleiche Verteilung ist \"amerikanisch\"", 
+            "title": "Gini-Koeffizient"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#vermogens-verteilung", 
+            "text": "Studie der SGB  Schweiz hat angeblich einer der h\u00f6chsten Verm\u00f6gens-Gini-Koeffizienten  Hat nur Verm\u00f6gen der Steuerabrechnung eingerechnet  Heisst: Ohne Pensionskasse, Immobilien (nur Eigenmietwert)", 
+            "title": "Verm\u00f6gens-Verteilung"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#arten-der-umverteilung", 
+            "text": "Bei Umverteilung nimmt man immer jemandem etwas weg!   Einkommensquellen (Lohn, Ertr\u00e4ge aus Verm\u00f6gen)    Umverteilung ist in Schweiz relativ niedrig, aber ist auch weniger ungerecht verteilt im internationalen Vergleich   Schweiz: Niedriger Lohn ca. 4000, guter Lohn ca. 10000, Faktor 2.5     Es gibt viele Arbeitsstellen f\u00fcr Umverteilung in der Schweiz", 
+            "title": "Arten der Umverteilung"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#die-drei-saulen-der-schweizer-altersvorsorge", 
+            "text": "", 
+            "title": "Die drei S\u00e4ulen der Schweizer Altersvorsorge"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#ahv-1-saule", 
+            "text": "Pflicht f\u00fcr ganze Bev\u00f6lkerung (mit Aufenthaltsbewilligung)  Ziel: Reine Existenzsicherung", 
+            "title": "AHV (1. S\u00e4ule)"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#berufliche-vorsorge-pensionskasse", 
+            "text": "Haben alle mit Arbeitsstelle in der Schweiz (Pflicht)  70%-80% des Lebensstandards in der Pension  Zwei Optionen: Einmalig ganzes Geld bekommen oder lebenslang einen Betrag (Rente) erhalten  Junge zahlen weniger Prozente als \u00e4ltere  Begr\u00fcndung: \"junge brauche das Geld noch\"  Einer der Hauptgr\u00fcnde, dass \u00e4ltere nur schwieriger einen Job finden (Unternehmen muss mind. H\u00e4lfte \u00fcbernehmen)", 
+            "title": "Berufliche Vorsorge (Pensionskasse)"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#selbstvorsoge", 
+            "text": "Kann vom steuerbaren Einkommen abgezogen werden  Privates Verm\u00f6gen   freiwillig", 
+            "title": "Selbstvorsoge"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#herausforderungen-fur-die-erste-und-zweite-saule", 
+            "text": "Herausforderung: Leute w\u00e4ren immer \u00e4lter  AHV geht von einer Pyramide aus: Mehr j\u00fcngere als \u00e4ltere  Geburtenrate ist zu tief (1.6 statt 2.1), Durschnittliches Alter steigt  AHV ist seit 2 Jahren im defizit  Wird momentan durch Fond (28 Mia.) finanziert  Ist aufgebraucht zwischen 2027 und 2033", 
+            "title": "Herausforderungen f\u00fcr die erste und zweite S\u00e4ule"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#losungsmoglichkeiten", 
+            "text": "Direkt einflussbare Parameter  H\u00f6here Beitr\u00e4ge  Tiefere Renten (ausgeschlossen!1!!!)  Rentenalter erh\u00f6hen     Indirekt beeinflussbar (keine L\u00f6sungen)   Immigration  Geburtenrate  Wirtschaftswachstum     Gesetzliches Rentenalter != durchschnittliches Rentenalter!   z.B in Belgien, Frankreich ist effektives Rentenalter viel tiefer  In Portugal, Japan sehr hohes effektives Alter  Weil wenig Altersvorsorge, keine Wahl    In der Schweiz \"arbeitet man gerne\"  Man kann die Pension um 4 Jahre verz\u00f6gern f\u00fcr h\u00f6here Rente", 
+            "title": "L\u00f6sungsm\u00f6glichkeiten"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#probleme-bvg-pensionskasse", 
+            "text": "Es gibt einen Mindestzinssatz, die die Pensionskassen bieten m\u00fcssen  2003: 4%, heute 1.75%  Historisch sind Pensionskassen unterdeckt, im letzten Jahr wieder h\u00f6her  Gewerkschaften wollen h\u00f6here Zinss\u00e4tze, Pensionskassen tiefere  Ein Drittel wird auf Obligationen investiert (Negativzinsen!)  Umwandlungssatz: Prozentsatz des angesparten Verm\u00f6ges, der als rente ausbezahlt wird  2005: 7.2% -  Lebenserwartung von ~79  2014: 6.8%  2010: Referendum gegen 6.4% vom Schweizer Volk", 
+            "title": "Probleme BVG (Pensionskasse)"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#armut-in-der-schweiz", 
+            "text": "Armut nimmt in der Schweiz ab  \"absolut arm\":  Definiert mit u.a. \"Kein Auto, kein Farbfernseher\"  Wenn drei von neun Kategorien erf\u00fcllt", 
+            "title": "Armut in der Schweiz"
+        }, 
+        {
+            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#bedinungsloses-grundeinkommen", 
+            "text": "Theoretisch 80-90% finanzierbar  K\u00fcrzen von vielen Sozialleistungen, weil sie jetzt durch BGE gedeckt w\u00e4ren  Mehr als die H\u00e4lfte durch R\u00fcckzahlungen von Arbeitgeber", 
+            "title": "Bedinungsloses Grundeinkommen"
         }
     ]
 }

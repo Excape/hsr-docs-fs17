@@ -9,7 +9,7 @@
         <meta name="description" content="HSR Study Documentation FS16">
       
       
-        <link rel="canonical" href="https://doc.robinsuter.ch/EPJ/0_Index/">
+        <link rel="canonical" href="https://doc.robinsuter.ch/SE2/2_Project_Automation/">
       
       
         <meta name="author" content="Robin Suter">
@@ -21,7 +21,7 @@
     
     
       
-        <title>0 Index - HSR Notizen FS17</title>
+        <title>2 Project Automation - HSR Notizen FS17</title>
       
     
     
@@ -84,11 +84,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  EPJ
+                  SE2
                 </span>
               
             
-            0 Index
+            2 Project Automation
           
         </span>
       </div>
@@ -271,12 +271,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       EPJ
@@ -292,20 +290,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="./" title="0 Index" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../EPJ/0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
-    
   </li>
 
         
@@ -315,7 +304,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../1_Projektplan/" title="1 Projektplan" class="md-nav__link">
+    <a href="../../EPJ/1_Projektplan/" title="1 Projektplan" class="md-nav__link">
       1 Projektplan
     </a>
   </li>
@@ -582,10 +571,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
     
     <label class="md-nav__link" for="nav-9">
       SE2
@@ -603,7 +594,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../SE2/0_Index/" title="0 Index" class="md-nav__link">
+    <a href="../0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
   </li>
@@ -615,7 +606,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../SE2/1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -625,11 +616,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../SE2/2_Project_Automation/" title="2 Project Automation" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+    <a href="./" title="2 Project Automation" class="md-nav__link md-nav__link--active">
       2 Project Automation
     </a>
+    
   </li>
 
         
@@ -796,8 +796,59 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idee-build-script" title="Idee: Build-Script" class="md-nav__link">
+    Idee: Build-Script
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ziele" title="Ziele" class="md-nav__link">
+    Ziele
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-tools" title="Build Tools" class="md-nav__link">
+    Build Tools
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#imperative-build-tools" title="Imperative Build Tools" class="md-nav__link">
+    Imperative Build Tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declarative-build-tools" title="Declarative Build Tools" class="md-nav__link">
+    Declarative Build Tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-integration" title="Continuous Integration" class="md-nav__link">
+    Continuous Integration
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -808,11 +859,93 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/EPJ/0_Index.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/SE2/2_Project_Automation.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
-                <h1 id="engineering-projekt">Engineering-Projekt</h1>
+                  <h1>2 Project Automation</h1>
+                
+                <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>kontakt: mmeili</p>
+</div>
+<p>Leitsatz: "Automate everything you need to do more than once"</p>
+<h2 id="idee-build-script">Idee: Build-Script</h2>
+<ul>
+<li>Pro<ul>
+<li>Compile, unit test, package, integration test, deploy automatisiert</li>
+<li>Wiederholbar</li>
+<li>can automatisch scheduled werden</li>
+</ul>
+</li>
+<li>Con<ul>
+<li>non-interactive process, man kann nicht eingreifen</li>
+<li>Maintenace und Erweiterung ist mühsam</li>
+<li>Meist platform-abhängig (Batch, bash)</li>
+</ul>
+</li>
+</ul>
+<h2 id="ziele">Ziele</h2>
+<ul>
+<li><strong>CRISP</strong><ul>
+<li>Complete: Jeder Build wird von neu auf aufgebaut</li>
+<li>Repeatable: Wiederverwendbar, auch mit älteren Versionen</li>
+<li>Informative: Feedback über den Prozess, z.B. Testresultate</li>
+<li>Schedulable</li>
+<li>Portable: Nicht nur auf lokaler Maschine ausführbar</li>
+</ul>
+</li>
+<li>Flexibilität: Indiviuelle Tasks ausführen</li>
+</ul>
+<h2 id="build-tools">Build Tools</h2>
+<h3 id="imperative-build-tools">Imperative Build Tools</h3>
+<ul>
+<li>Make-Familie: Den DA-Graphen wird explizit definiert (Abhängigkeiten)</li>
+<li>Pros<ul>
+<li>Sehr flexibel und mächtig</li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>Komplexe Definitionen</li>
+<li>Schwierig wiederzuverwenden</li>
+<li>Viel copy-paste</li>
+</ul>
+</li>
+</ul>
+<h3 id="declarative-build-tools">Declarative Build Tools</h3>
+<ul>
+<li>z.B. Maven, Gradle</li>
+<li>Deklarativ: Wie soll das Ergebnis aussehen?</li>
+<li>Convention over Configuration (nur konfigurieren, was nicht default ist)</li>
+<li>Projekt-Struktur ist meist default vorgegeben<ul>
+<li>resources-Verzeichnis ist read-only!</li>
+</ul>
+</li>
+<li>Pros<ul>
+<li>Kürzere files</li>
+<li>Wiederverwendbare Logik</li>
+<li>Dependeny Management</li>
+</ul>
+</li>
+<li>Cons<ul>
+<li>Weniger flexibel</li>
+<li>Strenge Projektstruktur</li>
+</ul>
+</li>
+</ul>
+<h2 id="continuous-integration">Continuous Integration</h2>
+<ol>
+<li>Maintain a single source repository</li>
+<li>Automate the build</li>
+<li>Make the build self-testing</li>
+<li>Everyone commits to the mainline every day</li>
+<li>Every commit to the mainline should be built</li>
+<li>Keep the build fast</li>
+<li>Test in a clone of the production environment</li>
+<li>Make it easy to get the latest deliverables</li>
+<li>Everyone can see what’s happening</li>
+<li>Automate deployment</li>
+</ol>
               
               
             </article>
@@ -826,7 +959,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../Dbs2/2_OR-Mapping/" title="2 OR Mapping" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../1_Exam/" title="1 Exam" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -835,19 +968,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                2 OR Mapping
+                1 Exam
               </span>
             </div>
           </a>
         
         
-          <a href="../1_Projektplan/" title="1 Projektplan" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../Vss/0_Index/" title="0 Index" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                1 Projektplan
+                0 Index
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
