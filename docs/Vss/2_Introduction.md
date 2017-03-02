@@ -21,6 +21,7 @@
 - Interfaces zur Netzwerkprogrammierung
 - TCP/IP Sockets, RESTful HTTP, etc.
 ### Anwedungsorientierte Middleware
+- High-level Protokolle
 - Unterstützung verteiler Andwendungen
 - Vereinfacht das Design der Applikation
 - bietet Sicherheit, Zuverlässigkeit, verteilte Transaktionen, ...

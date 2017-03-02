@@ -172,5 +172,134 @@ class BankManager {
 
 ### Persistence-Context
 - Ein Objekt ist neu erstellt erstmal *unmanaged*
-- Wird es in die DB eingefügt `persist()`, ist es *managed* und somit im Persistence-Context
+- Wird es in die DB eingefügt mit `persist()`, ist es *managed* und somit im Persistence-Context (Objekt hat eine Id)
 - Wird die Verbindung geschlossen (`close()`) oder removed, sind die Objekte wieder *unmanaged*
+- Persistence-Kontext verwaltet einen Cache - Bei mehrmaliger Abfrage der gleichen Objekte werden sie aus dem Cache geladen
+    - Wichtig, sonst könnte es mehrere Java-Instanzen für ein DB-Objekt geben 
+        - So gibt es in einem Kontext für ein DB-Objekt genau eine Java Instanz  (Identity Map Pattern)
+- Geänderte Werte im Persistence-Kontext werden beim Transaction-Commit auf der DB gespeichert (Unit of Work Pattern)
+
+```java
+EntityManager em = emf.createEntityManager();
+BankCustomer c1 = em.find(BankCustomer.class, 1L);
+BankCustomer c2 = em.find(BankCustomer.class, 1L);
+assert(c1 == c2); // gleicher PC
+EntityManager em1 = emf.createEntityManager();
+c2 = em1.find(BankCustomer.class, 1L);
+assert(c1 != c2); // unterschiedlicher PC
+```
+
+### Entity Identität
+- Annotation `@Id`
+- `@GeneratedValue` - generierte ID mit 4 Möglichkeiten
+
+#### Typ Identity
+```java
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private long accountId;
+```
+- Wird abgebildet in `SERIAL`
+
+### Typ Sequence
+```java
+Id
+@GeneratedValue(strategy = GenerationType.SEQUENCE,
+    generator = "BankCustGen")
+@SequenceGenerator(name = "BankCustGen",
+    sequenceName = "CustomerIdSeq",
+    allocationSize=1)
+private long customerId;
+```
+
+#### Typ Table
+!!! note
+    todo
+    
+### Transitive Persistenz
+- Von Persistente Objekte erreichbaren Objekte sollten auch persistent sein
+
+### Inkonsistente Bidirektionalität
+- In JPA werden bidirektionale Relationen nicht in beide Richtungen automatisch gesetzt
+- Muss von Hand gemacht werden
+
+### Transaktionen
+```java
+EntityManager em = factory.createEntityManager();
+em.getTransaction().begin();
+// ...
+// do something... make changes
+// ...
+em.getTransaction().commit(); // or rollback()
+```
+- Isolation Level ist per default Read-Commited
+    - Nur Daten lesen, die eine andere Transaktion commited hat
+
+### Optimistic Concurrency
+- Beim Commit einer Transaktion wird nach Konflikten geprüft
+- Wenn Konflikt entstand, wird ein Rollback gemacht
+
+#### Versions-Feld
+- Mit jedem Update Feld hochzählen
+- Beim Schreiben prüfen, ob das Feld gleich ist wie der Wert, der vorher gelesen wurde
+- Wenn Feld anders, hat jemand in der Zwischenzeit den Record verändert -> Rollback
+
+``` sql
+UPDATE User SET ..., version = version + 1
+WHERE id = ? AND version = readVersion
+```
+- JPA wirft bei Verletzung eine `ConcurrencyLockException`
+
+### Entity Locking
+- `em.lock()`
+- OPTIMISTIC_FORCE_INCREMENT: Beim lock direkt direkt das Versions-Feld erhöhen, damit andere keine Commits mehr darauf machen kann, der vorher gelesen hat
+
+### Detached Entities
+- Oft möchte man DB-Objekte "detachen" (Db-Context schliessen), verändern, und dann wieder in die DB schreiben
+- Mit `entityManger.merge(object)` wird ein wieder in den Persistenz-Kontext geladen, dass wieder commited werden kann
+
+### Inheritance Mapping
+#### Single Table Mapping (Table per Hierarchy)
+```java
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type")
+public abstract class BankCustomer {
+    @Id private String name;
+}
+
+@Entity
+@DiscriminatorValue("Retail")
+public class RetailBankCustomer extends BankCustomer {
+    private int fees;
+}
+@Entity
+@DiscriminatorValue("Private")
+public class PrivateBankCustomer extends BankCustomer {
+    private String eliteOffer;
+}
+```
+- Das Feld "type" ist hier diskriminator und wird in der DB verwendet, um die verschiedenen `BankCustomer` zu unterscheiden
+
+#### Joined Table Mapping
+
+#### Table per Class Mapping
+
+### Abfragen mit JPQL
+- Sprache analog zu SQL...
+- , aber operiert auf Entity Model, nicht DB-Model!
+- Es können z.B. "Navigation Attributes" verwendet werden
+- "Prepared Statements" mit Named Parameters
+
+```java
+Query query = em.createQuery(
+    "SELECT c FROM BankCustomer c WHERE c.name LIKE :customerName"
+);
+query.setParameter("customerName", name);
+query.setMaxResults(1000);
+List<BankCustomer> list = query.getResultList();
+```
+
+#### Named Queries
+
+#### Criteria API
