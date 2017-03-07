@@ -15,3 +15,27 @@
 
 ## Best Practices
 - Penetration ist nicht die effizienteste Massnahme, da die Fehler erst spät in der Entwicklung gefunden werden und so die Kosten enorm steigen
+- Statische Code Analyse
+    - z.B. mit Coverity (für Github projekte kostenlos)
+
+### Architectural Risk Analysis
+- Architektur auf einer Seite zusammen fassen ("Flipchart")
+
+#### Attack Resistance Analysis
+- Ansatz mit Checklisten
+- Gut für bekannte Schwachstellen und Angriffe
+- Schlecht für neue Attacken / 0-days
+
+#### Ambiguity Analysis
+- Von dritter Seite wird die Software und Architektur studiert
+- Gut, um Widersprüche und Fehler im Design zu finden
+
+#### Weakness Analysis
+- Verwendete Libraries und Frameworks analysieren
+
+## Microsoft Security Development Lifecycle
+- [SDL - Simplified Version](www.microsoft.com/sdl/) lesen!
+- Best Practises des SDL kennen
+- Threat Modeling = Risk Analysis
+
+- Fuzzing: Zufällige Input-Daten für Testfälle, dafür sehr viele verschiedene Inputs
