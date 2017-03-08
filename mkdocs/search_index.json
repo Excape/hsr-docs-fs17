@@ -181,6 +181,51 @@
             "title": "Criteria API"
         }, 
         {
+            "location": "/Dbs2/3_Stored_Procedures/", 
+            "text": "Stored Procedures / pgSQL\n\n\nStored Procedures\n\n\n\n\nFunktionen, die auf dem DBMS \"nahe den Daten\" ausgef\u00fchrt werden\n\n\nK\u00f6nnen wiederum von anderen SP, Trigger oder PL/SQL ausgef\u00fchrt werden\n\n\nSind Datenbankobjekte\n\n\nHaben eigenes Recht zur Ausf\u00fchrung\n\n\nPL: Prozedurale Sprache f\u00fcr Datenbanken\n\n\n\n\nCREATE\n \nOR\n \nREPLACE\n \nFUNCTION\n \nincrement\n(\ni\n \nINT\n)\n\n\nRETURNS\n \nINT\n \nAS\n \n$$\n\n\nBEGIN\n\n\nRETURN\n \ni\n \n+\n \n1\n;\n\n\nEND\n;\n\n\n$$\n \nLANGUAGE\n \nplpgsql\n;\n\n\n\n-- use\n\n\nSELECT\n \nincrement\n(\n10\n);\n \n-- 11\n\n\n\n\n\n\n\n\nVariablen deklarieren in \nDECLARE\n Block\n\n\nGefolgt von Logik zwischen \nBEGIN\n und \nEND\n\n\nSQL kann direkt eingebettet werden\n\n\nIF: \nIF expression THEN statements ELSIF cond THEN ... END IF;\n\n\nExceptions:\n\n\n\n\nEXCEPTION\n\n\nWHEN\n \ntype\n \nTHEN\n \nstatement\n;\n\n\nWHEN\n \nother_type\n \nTHEN\n \nstatement\n;\n\n\n\n\n\n\nSelect .. Into\n\n\nDECLARE\n\n    \nAngNr\n \nAngestellter\n.\nPersNr\n%\nTYPE\n;\n\n    \n-- Typ von Angestellter.PersNr\n\n\nBEGIN\n \n/*lokaler, anonymer Block */\n\n    \nSELECT\n \nAngestellter\n.\nPersNr\n \nINTO\n \nSTRICT\n \nAngNr\n\n    \nFROM\n \nAngestellter\n\n    \nWHERE\n \nAngestellter\n.\nName\n \n=\n \nMarxer, Markus\n;\n\n\nEND\n\n\n\n\n\n\nInsert ... into\n\n\nDECLARE\n\n    \nPNr\n \nProjekt\n.\nProjNr\n%\nTYPE\n;\n\n    \nAngNr\n \nAngestellter\n.\nPersNr\n%\nTYPE\n;\n\n    \nProzAnt\n \nDECIMAL\n;\n\n\nBEGIN\n\n\n--....\n\n    \nINSERT\n \nINTO\n \nProjektZuteilung\n\n    \nVALUES\n \n(\nAngNr\n,\n \nPNr\n,\n \nProzAnt\n,\n \nNULL\n,\n \nNULL\n);\n\n\nEXCEPTION\n\n    \nWHEN\n \nunique_violation\n \nTHEN\n\n    \n/*Projektzuteilung existiert bereits*/\n\n\nEND\n;\n\n\n\n\n\n\n\n\nFOUND\n wird \ntrue\n, wenn Row gefunden wurde\n\n\nIn PostgreSQL Terminologie\n\n\n\"Stored Procedure\" = \"Function\" mit Returnwert void\n\n\n\n\n\n\n\n\nReturn Table\n\n\nCREATE\n \nOR\n \nREPLACE\n \nFUNCTION\n \nget_AbtMA\n \n(\nnr\n \ninteger\n)\n\n    \nRETURNS\n \nTABLE\n \n(\n\n        \nabtname\n \nVARCHAR\n,\n\n        \nabtMA\n \nVARCHAR\n\n    \n)\n\n\nAS\n \n$$\n\n\nBEGIN\n\n    \nRETURN\n \nQUERY\n\n    \nSELECT\n \nabt\n.\nname\n,\n \nang\n.\nname\n \nFROM\n \nabteilung\n \nabt\n\n    \njoin\n \nangestellter\n \nang\n \non\n \nang\n.\nabtnr\n=\nabt\n.\nabtnr\n\n    \nwhere\n \nabt\n.\nabtnr\n=\nnr\n\n    \norder\n \nby\n \nabt\n.\nname\n,\n \nang\n.\nname\n;\n\n\nEND\n;\n\n\n$$\n \nLANGUAGE\n \nplpgsql\n;\n\n\n\n\n\n\nReturn a Set\n\n\n\n\nReturn a set of rows\n\n\n\n\nCREATE\n \nOR\n \nREPLACE\n \nFUNCTION\n \ngetAllFoo\n()\n\n\nRETURNS\n \nSETOF\n \nfoo\n \nAS\n \n$$\n\n\nDECLARE\n\n    \nr\n \nfoo\n%\nrowtype\n;\n \n-- foo ist tabelle\n\n\nBEGIN\n\n    \nFOR\n \nr\n \nIN\n \nSELECT\n \n*\n \nFROM\n \nfoo\n \nWHERE\n \nfooid\n \n \n0\n\n    \nLOOP\n\n        \n-- do something...\n\n        \nRETURN\n \nNEXT\n \nr\n;\n \n-- return current row of SELECT\n\n    \nEND\n \nLOOP\n;\n\n    \nRETURN\n;\n\n\nEND\n\n\n$$\n \nLANGUAGE\n \nplpgsql\n;\n\n\n\n\n\n\nCursor\n\n\n\n\nEin Cursor zeigt auf ein Tupel in einem ResultSet\n\n\n\n\n\n\nCursor deklarieren in \nDECLARE\n\n\n\n\nAngCursor\n \n(\nabtNr\n \ninteger\n)\n \nCURSOR\n \nFOR\n\n    \nSELECT\n \nSalaer\n,\n \nPersNr\n \nFROM\n \nAngestellter\n\n    \nWHERE\n \nAngestellter\n.\nAbtNr\n \n=\n \nabtNr\n;\n\n\n\n\n\n\n\n\nCursor \u00f6ffnen: \nOPEN AngCursor(2)\n\n\nFetch records\n\n\n\n\nLOOP\n \n/*Iteration ueber Resulatmenge*/\n\n    \nFETCH\n \nAngCursor\n \nINTO\n \nAngSalaer\n,\n \nAngPersNr\n;\n\n    \nEXIT\n \nWHEN\n \nNOT\n \nFOUND\n\n    \nSalSumme\n \n:\n=\n \nSalSumme\n \n+\n \nAngSalaer\n;\n\n    \nRAISE\n \nnotice\n \nAngstellter PersNr: % Salaer %\n,\n\n    \nAngPersNr\n,\n \nAngSalaer\n;\n\n\nEND\n \nLOOP\n;\n\n\n\n\n\n\n\n\nCursor schliessen: \nCLOSE AngCursor\n\n\n\n\nCursor f\u00fcr UPDATE\n\n\nAngCursor\n \nCURSOR\n \nFOR\n\n    \nSELECT\n \nSalaer\n,\n \nChef\n,\n \nPersNr\n \nFROM\n \nAngestellter\n\n    \nWHERE\n \nAngestellter\n.\nAbtNr\n=\nCurrAbtNr\n\n    \nFOR\n \nUPDATE\n;\n\n\nOPEN\n \nAngCursor\n;\n\n\nLOOP\n\n    \nFETCH\n \nAngCursor\n \nINTO\n \nAngRec\n;\n\n    \nEXIT\n \nWHEN\n \nNOT\n \nFOUND\n;\n\n    \nUPDATE\n \nAngestellter\n \nSET\n \nSalaer\n \n=\n \nMinSalaer\n\n    \nWHERE\n \nCURRENT\n \nOF\n \nAngCursor\n;\n \n-- \n---\n\n\nEND\n \nLOOP\n;\n\n\nCLOSE\n \nAngCursor\n;", 
+            "title": "3 Stored Procedures"
+        }, 
+        {
+            "location": "/Dbs2/3_Stored_Procedures/#stored-procedures-pgsql", 
+            "text": "", 
+            "title": "Stored Procedures / pgSQL"
+        }, 
+        {
+            "location": "/Dbs2/3_Stored_Procedures/#stored-procedures", 
+            "text": "Funktionen, die auf dem DBMS \"nahe den Daten\" ausgef\u00fchrt werden  K\u00f6nnen wiederum von anderen SP, Trigger oder PL/SQL ausgef\u00fchrt werden  Sind Datenbankobjekte  Haben eigenes Recht zur Ausf\u00fchrung  PL: Prozedurale Sprache f\u00fcr Datenbanken   CREATE   OR   REPLACE   FUNCTION   increment ( i   INT )  RETURNS   INT   AS   $$  BEGIN  RETURN   i   +   1 ;  END ;  $$   LANGUAGE   plpgsql ;  -- use  SELECT   increment ( 10 );   -- 11    Variablen deklarieren in  DECLARE  Block  Gefolgt von Logik zwischen  BEGIN  und  END  SQL kann direkt eingebettet werden  IF:  IF expression THEN statements ELSIF cond THEN ... END IF;  Exceptions:   EXCEPTION  WHEN   type   THEN   statement ;  WHEN   other_type   THEN   statement ;", 
+            "title": "Stored Procedures"
+        }, 
+        {
+            "location": "/Dbs2/3_Stored_Procedures/#select-into", 
+            "text": "DECLARE \n     AngNr   Angestellter . PersNr % TYPE ; \n     -- Typ von Angestellter.PersNr  BEGIN   /*lokaler, anonymer Block */ \n     SELECT   Angestellter . PersNr   INTO   STRICT   AngNr \n     FROM   Angestellter \n     WHERE   Angestellter . Name   =   Marxer, Markus ;  END", 
+            "title": "Select .. Into"
+        }, 
+        {
+            "location": "/Dbs2/3_Stored_Procedures/#insert-into", 
+            "text": "DECLARE \n     PNr   Projekt . ProjNr % TYPE ; \n     AngNr   Angestellter . PersNr % TYPE ; \n     ProzAnt   DECIMAL ;  BEGIN  --.... \n     INSERT   INTO   ProjektZuteilung \n     VALUES   ( AngNr ,   PNr ,   ProzAnt ,   NULL ,   NULL );  EXCEPTION \n     WHEN   unique_violation   THEN \n     /*Projektzuteilung existiert bereits*/  END ;    FOUND  wird  true , wenn Row gefunden wurde  In PostgreSQL Terminologie  \"Stored Procedure\" = \"Function\" mit Returnwert void", 
+            "title": "Insert ... into"
+        }, 
+        {
+            "location": "/Dbs2/3_Stored_Procedures/#return-table", 
+            "text": "CREATE   OR   REPLACE   FUNCTION   get_AbtMA   ( nr   integer ) \n     RETURNS   TABLE   ( \n         abtname   VARCHAR , \n         abtMA   VARCHAR \n     )  AS   $$  BEGIN \n     RETURN   QUERY \n     SELECT   abt . name ,   ang . name   FROM   abteilung   abt \n     join   angestellter   ang   on   ang . abtnr = abt . abtnr \n     where   abt . abtnr = nr \n     order   by   abt . name ,   ang . name ;  END ;  $$   LANGUAGE   plpgsql ;", 
+            "title": "Return Table"
+        }, 
+        {
+            "location": "/Dbs2/3_Stored_Procedures/#return-a-set", 
+            "text": "Return a set of rows   CREATE   OR   REPLACE   FUNCTION   getAllFoo ()  RETURNS   SETOF   foo   AS   $$  DECLARE \n     r   foo % rowtype ;   -- foo ist tabelle  BEGIN \n     FOR   r   IN   SELECT   *   FROM   foo   WHERE   fooid     0 \n     LOOP \n         -- do something... \n         RETURN   NEXT   r ;   -- return current row of SELECT \n     END   LOOP ; \n     RETURN ;  END  $$   LANGUAGE   plpgsql ;", 
+            "title": "Return a Set"
+        }, 
+        {
+            "location": "/Dbs2/3_Stored_Procedures/#cursor", 
+            "text": "Ein Cursor zeigt auf ein Tupel in einem ResultSet    Cursor deklarieren in  DECLARE   AngCursor   ( abtNr   integer )   CURSOR   FOR \n     SELECT   Salaer ,   PersNr   FROM   Angestellter \n     WHERE   Angestellter . AbtNr   =   abtNr ;    Cursor \u00f6ffnen:  OPEN AngCursor(2)  Fetch records   LOOP   /*Iteration ueber Resulatmenge*/ \n     FETCH   AngCursor   INTO   AngSalaer ,   AngPersNr ; \n     EXIT   WHEN   NOT   FOUND \n     SalSumme   : =   SalSumme   +   AngSalaer ; \n     RAISE   notice   Angstellter PersNr: % Salaer % , \n     AngPersNr ,   AngSalaer ;  END   LOOP ;    Cursor schliessen:  CLOSE AngCursor", 
+            "title": "Cursor"
+        }, 
+        {
+            "location": "/Dbs2/3_Stored_Procedures/#cursor-fur-update", 
+            "text": "AngCursor   CURSOR   FOR \n     SELECT   Salaer ,   Chef ,   PersNr   FROM   Angestellter \n     WHERE   Angestellter . AbtNr = CurrAbtNr \n     FOR   UPDATE ;  OPEN   AngCursor ;  LOOP \n     FETCH   AngCursor   INTO   AngRec ; \n     EXIT   WHEN   NOT   FOUND ; \n     UPDATE   Angestellter   SET   Salaer   =   MinSalaer \n     WHERE   CURRENT   OF   AngCursor ;   --  ---  END   LOOP ;  CLOSE   AngCursor ;", 
+            "title": "Cursor f\u00fcr UPDATE"
+        }, 
+        {
             "location": "/EPJ/0_Index/", 
             "text": "Engineering-Projekt", 
             "title": "0 Index"
@@ -282,7 +327,7 @@
         }, 
         {
             "location": "/InfSi3/3_Software_Security/", 
-            "text": "Software Security\n\n\nThe Trinity of Trouble\n\n\n\n\nConnectivity\n: Immer mehr verbundene Ger\u00e4te\n\n\nSoftware wird als Service publiziert, die nie daf\u00fcr gedacht war\n\n\n\n\n\n\nExtensibility\n: Viele software wird modular\n\n\nDurch Plugins erweiterbar, z.B. Browser\n\n\n\n\n\n\nComplexity\n: Moderne Software ist komplex\n\n\nz.B. Betriebssysteme, Runtimes\n\n\nAnzahl Fehler steigt etwa quadratisch zu Anzahl Codezeilen\n\n\n\n\n\n\n\n\nDefects = Bugs + Flaws\n\n\n\n\nBug\n: Implementations-Fehler, der sich relativ leicht beheben l\u00e4sst\n\n\nFlaw\n: Design-Fehler in der Software, nur schwer zu finden / zu fixen\n\n\nIn der Praxis sind solche Defects 50/50 geteilt in Bugs und Flaws\n\n\n\n\nBest Practices\n\n\n\n\nPenetration ist nicht die effizienteste Massnahme, da die Fehler erst sp\u00e4t in der Entwicklung gefunden werden und so die Kosten enorm steigen", 
+            "text": "Software Security\n\n\nThe Trinity of Trouble\n\n\n\n\nConnectivity\n: Immer mehr verbundene Ger\u00e4te\n\n\nSoftware wird als Service publiziert, die nie daf\u00fcr gedacht war\n\n\n\n\n\n\nExtensibility\n: Viele software wird modular\n\n\nDurch Plugins erweiterbar, z.B. Browser\n\n\n\n\n\n\nComplexity\n: Moderne Software ist komplex\n\n\nz.B. Betriebssysteme, Runtimes\n\n\nAnzahl Fehler steigt etwa quadratisch zu Anzahl Codezeilen\n\n\n\n\n\n\n\n\nDefects = Bugs + Flaws\n\n\n\n\nBug\n: Implementations-Fehler, der sich relativ leicht beheben l\u00e4sst\n\n\nFlaw\n: Design-Fehler in der Software, nur schwer zu finden / zu fixen\n\n\nIn der Praxis sind solche Defects 50/50 geteilt in Bugs und Flaws\n\n\n\n\nBest Practices\n\n\n\n\nPenetration ist nicht die effizienteste Massnahme, da die Fehler erst sp\u00e4t in der Entwicklung gefunden werden und so die Kosten enorm steigen\n\n\nStatische Code Analyse\n\n\nz.B. mit Coverity (f\u00fcr Github projekte kostenlos)\n\n\n\n\n\n\n\n\nArchitectural Risk Analysis\n\n\n\n\nArchitektur auf einer Seite zusammen fassen (\"Flipchart\")\n\n\n\n\nAttack Resistance Analysis\n\n\n\n\nAnsatz mit Checklisten\n\n\nGut f\u00fcr bekannte Schwachstellen und Angriffe\n\n\nSchlecht f\u00fcr neue Attacken / 0-days\n\n\n\n\nAmbiguity Analysis\n\n\n\n\nVon dritter Seite wird die Software und Architektur studiert\n\n\nGut, um Widerspr\u00fcche und Fehler im Design zu finden\n\n\n\n\nWeakness Analysis\n\n\n\n\nVerwendete Libraries und Frameworks analysieren\n\n\n\n\nMicrosoft Security Development Lifecycle\n\n\n\n\nSDL - Simplified Version\n lesen!\n\n\nBest Practises des SDL kennen\n\n\n\n\nThreat Modeling = Risk Analysis\n\n\n\n\n\n\nFuzzing: Zuf\u00e4llige Input-Daten f\u00fcr Testf\u00e4lle, daf\u00fcr sehr viele verschiedene Inputs", 
             "title": "3 Software Security"
         }, 
         {
@@ -302,8 +347,33 @@
         }, 
         {
             "location": "/InfSi3/3_Software_Security/#best-practices", 
-            "text": "Penetration ist nicht die effizienteste Massnahme, da die Fehler erst sp\u00e4t in der Entwicklung gefunden werden und so die Kosten enorm steigen", 
+            "text": "Penetration ist nicht die effizienteste Massnahme, da die Fehler erst sp\u00e4t in der Entwicklung gefunden werden und so die Kosten enorm steigen  Statische Code Analyse  z.B. mit Coverity (f\u00fcr Github projekte kostenlos)", 
             "title": "Best Practices"
+        }, 
+        {
+            "location": "/InfSi3/3_Software_Security/#architectural-risk-analysis", 
+            "text": "Architektur auf einer Seite zusammen fassen (\"Flipchart\")", 
+            "title": "Architectural Risk Analysis"
+        }, 
+        {
+            "location": "/InfSi3/3_Software_Security/#attack-resistance-analysis", 
+            "text": "Ansatz mit Checklisten  Gut f\u00fcr bekannte Schwachstellen und Angriffe  Schlecht f\u00fcr neue Attacken / 0-days", 
+            "title": "Attack Resistance Analysis"
+        }, 
+        {
+            "location": "/InfSi3/3_Software_Security/#ambiguity-analysis", 
+            "text": "Von dritter Seite wird die Software und Architektur studiert  Gut, um Widerspr\u00fcche und Fehler im Design zu finden", 
+            "title": "Ambiguity Analysis"
+        }, 
+        {
+            "location": "/InfSi3/3_Software_Security/#weakness-analysis", 
+            "text": "Verwendete Libraries und Frameworks analysieren", 
+            "title": "Weakness Analysis"
+        }, 
+        {
+            "location": "/InfSi3/3_Software_Security/#microsoft-security-development-lifecycle", 
+            "text": "SDL - Simplified Version  lesen!  Best Practises des SDL kennen   Threat Modeling = Risk Analysis    Fuzzing: Zuf\u00e4llige Input-Daten f\u00fcr Testf\u00e4lle, daf\u00fcr sehr viele verschiedene Inputs", 
+            "title": "Microsoft Security Development Lifecycle"
         }, 
         {
             "location": "/ParProg/0_Index/", 
@@ -431,6 +501,46 @@
             "title": "Effizenz-Probleme"
         }, 
         {
+            "location": "/ParProg/4_Synchronisationsprimitiven/", 
+            "text": "Note\n\n\nQuiz letzte Vorlesung: \nnotify()\n reicht, da nur auf eine Bedingung gewartet wird, und nur ein einziger Thread darf weiter machen (One-In/One-Out)\n\n\n\n\nSymaphor\n\n\n\n\nVon Dijkstra, kommt von Eisenbahn-Signalen\n\n\nIst ein Z\u00e4hler mit der Anzahl noch freier Ressourcen\n\n\nacquire()\n: Beziehe freie Ressource oder warte, Z\u00e4hler dekrementieren\n\n\nrelease()\n: Ressource freigeben, Z\u00e4hler inkrementieren\n\n\nMonitor-Nachbau ist nicht garantiert fair, weil \nnotify()\n ein beliebiger Thread weckt\n\n\nBin\u00e4re Sempahore: \n\u01f9ew Semaphore(1)\n, gegenseitiger Ausschluss\n\n\nKann in Java auch negativ initialisiert werden (nicht bei .NET)\n\n\nFaire Semaphore: \nnew Sempahore(N, true)\n\n\nBenutzt FIFO-Warteschlange\n\n\nAllerdings langsamer als \"unfaire\" Variante\n\n\n\n\n\n\nAnwendung BoundedBuffer:\n\n\nMit Semaphoren deutlich schneller als mit Monitor (ca. 3x)\n\n\nGrund: \nnotifyAll()\n fallen weg, es m\u00fcssen nicht immer alle Threads aufgeweckt werden\n\n\n\"Faire\" Variante ist etwa gleich schnell\n\n\n\n\n\n\n\n\nLock \n Condition\n\n\n\n\nSpezialfall des Monitors\n\n\nVerschiedene Wartelisten f\u00fcr mehrere Bedingungen\n\n\nNotify geht auf eine der \"Warter\u00e4ume\"\n\n\nIn Java unabh\u00e4ngig vom Java Monitor, muss selbst nachgebaut werden\n\n\nAuf einen Lock (analog \nsynchronized\n) k\u00f6nnen mehrer Conditions definiert werden\n\n\nLock kann \"fair\" sein\n\n\n\n\nprivate\n \nLock\n \nmonitor\n \n=\n \nnew\n \nReentrantLock\n(\ntrue\n);\n\n\nprivate\n \nCondition\n \nnonFull\n \n=\n \nmonitor\n.\nnewCondition\n();\n\n\nprivate\n \nCondition\n \nnonEmpty\n \n=\n \nmonitor\n.\nnewCondition\n();\n\n\n\n\n\n\npublic\n \nvoid\n \nput\n(\nT\n \nitem\n)\n \nthrows\n \nInterruptedException\n \n{\n\n    \nmonitor\n.\nlock\n();\n\n    \ntry\n \n{\n\n        \nwhile\n \n(\nqueue\n.\nsize\n()\n \n==\n \nCapacity\n)\n \n{\n \n            \nnonFull\n.\nawait\n();\n\n        \n}\n\n        \nqueue\n.\nadd\n(\nitem\n);\n\n        \nnonEmpty\n.\nsignal\n();\n\n    \n}\n \nfinally\n \n{\n \nmonitor\n.\nunlock\n();\n \n}\n\n\n}\n\n\n// Analog f\u00fcr get()\n\n\n\n\n\n\n\n\nsignal()\n notifiziert ein beliebiger Thread f\u00fcr diese Condition, \nsignalAll()\n alle\n\n\n\u00dcberholen ist weiterhin ein Problem, da die aufgeweckten Threads wieder in den \"normalen\" Warteraum kommen\n\n\n\n\nRead-Write Lock\n\n\n\n\nErlaube parallele Lese-Zugriffe\n\n\nSchreibzugriffe mit gegenseitigem Ausschluss\n\n\n\n\nReadWriteLock\n \nrwLock\n \n=\n \nnew\n \nReentrantReadWriteLock\n(\ntrue\n);\n\n\nrwLock\n.\nreadLock\n().\nlock\n();\n\n\n// read-only accesses\n\n\nrwLock\n.\nreadLock\n().\nunlock\n();\n\n\n\nrwLock\n.\nwriteLock\n().\nlock\n();\n\n\n// write (and read) accesses\n\n\nrwLock\n.\nwriteLock\n().\nunlock\n();\n\n\n\n\n\n\n\n\nDer WriteLock ist gleich wie der Lock bei Lock \n Condition\n\n\n\n\nCount Down Latch\n\n\n\n\nZeitlicher Synchronisationspunkt von mehreren Threads\n\n\n\n\nN Threads warten auf Control-Thread, Control-Thread wartet auf N Threads und gibt \"Startsignal\"\n\n\n\n\n\n\nCount Down Latch hat Z\u00e4hler und wartet, bis er 0 wird\n\n\n\n\nThreads k\u00f6nnen Z\u00e4hler dekrementieren mit \ncountDown()\n\n\n\n\nCountDownLatch\n \ncarsReady\n \n=\n \nnew\n \nCountDownLatch\n(\nN\n);\n\n\nCountDownLatch\n \nstartSignal\n \n=\n \nnew\n \nCountDownLatch\n(\n1\n);\n\n\n\n// N Cars\n\n\ncarsReady\n.\ncountDown\n();\n\n\nstartSignal\n.\nawait\n();\n\n\n\n// 1 RaceControl\n\n\ncarsReady\n.\nawait\n();\n\n\nstartSignal\n.\ncountDown\n();\n\n\n\n\n\n\n\n\nGeht auch mit Multi-Release/-Aquire Semaphore\n\n\nCountDown l\u00e4sst sich nicht wieder hochsetzen\n\n\n\n\nCyclic Barrier\n\n\n\n\nN Threads warten aufeinander\n\n\nawait()\n blockiert, bis N Threads \nawait()\n aufgerufen haben\n\n\nKann wiederverwendet werden\n\n\n\n\nCyclicBarrier\n \ngameRound\n \n=\n \nnew\n \nCyclicBarrier\n(\nN\n);\n\n\n\n// Bei N Players:               \n\n\nwhile\n \n(\ntrue\n)\n \n{\n\n    \ngameRound\n.\nawait\n();\n\n    \n// play concurrently with others\n\n\n}\n\n\n// Mehrere Runden\n\n\n\n\n\n\n\n\nWenn ein Thread im \nawait()\n eine Exception wirft, ist die Barriere kaputt\n\n\nPhaser\n: Kann zus\u00e4tzlich Teilnehmer im nachhinein an- und abmelden\n\n\n\n\nExchanger\n\n\n\n\n\"Rende-vouz\": Barriere mit zwei Parteien und tauschen etwas aus\n\n\n`exchange(v) Blockiert, bis anderer Thread auch exchange() aufruft\n\n\nLiefert Argument x des jeweils anderen Threads", 
+            "title": "4 Synchronisationsprimitiven"
+        }, 
+        {
+            "location": "/ParProg/4_Synchronisationsprimitiven/#symaphor", 
+            "text": "Von Dijkstra, kommt von Eisenbahn-Signalen  Ist ein Z\u00e4hler mit der Anzahl noch freier Ressourcen  acquire() : Beziehe freie Ressource oder warte, Z\u00e4hler dekrementieren  release() : Ressource freigeben, Z\u00e4hler inkrementieren  Monitor-Nachbau ist nicht garantiert fair, weil  notify()  ein beliebiger Thread weckt  Bin\u00e4re Sempahore:  \u01f9ew Semaphore(1) , gegenseitiger Ausschluss  Kann in Java auch negativ initialisiert werden (nicht bei .NET)  Faire Semaphore:  new Sempahore(N, true)  Benutzt FIFO-Warteschlange  Allerdings langsamer als \"unfaire\" Variante    Anwendung BoundedBuffer:  Mit Semaphoren deutlich schneller als mit Monitor (ca. 3x)  Grund:  notifyAll()  fallen weg, es m\u00fcssen nicht immer alle Threads aufgeweckt werden  \"Faire\" Variante ist etwa gleich schnell", 
+            "title": "Symaphor"
+        }, 
+        {
+            "location": "/ParProg/4_Synchronisationsprimitiven/#lock-condition", 
+            "text": "Spezialfall des Monitors  Verschiedene Wartelisten f\u00fcr mehrere Bedingungen  Notify geht auf eine der \"Warter\u00e4ume\"  In Java unabh\u00e4ngig vom Java Monitor, muss selbst nachgebaut werden  Auf einen Lock (analog  synchronized ) k\u00f6nnen mehrer Conditions definiert werden  Lock kann \"fair\" sein   private   Lock   monitor   =   new   ReentrantLock ( true );  private   Condition   nonFull   =   monitor . newCondition ();  private   Condition   nonEmpty   =   monitor . newCondition ();   public   void   put ( T   item )   throws   InterruptedException   { \n     monitor . lock (); \n     try   { \n         while   ( queue . size ()   ==   Capacity )   {  \n             nonFull . await (); \n         } \n         queue . add ( item ); \n         nonEmpty . signal (); \n     }   finally   {   monitor . unlock ();   }  }  // Analog f\u00fcr get()    signal()  notifiziert ein beliebiger Thread f\u00fcr diese Condition,  signalAll()  alle  \u00dcberholen ist weiterhin ein Problem, da die aufgeweckten Threads wieder in den \"normalen\" Warteraum kommen", 
+            "title": "Lock &amp; Condition"
+        }, 
+        {
+            "location": "/ParProg/4_Synchronisationsprimitiven/#read-write-lock", 
+            "text": "Erlaube parallele Lese-Zugriffe  Schreibzugriffe mit gegenseitigem Ausschluss   ReadWriteLock   rwLock   =   new   ReentrantReadWriteLock ( true );  rwLock . readLock (). lock ();  // read-only accesses  rwLock . readLock (). unlock ();  rwLock . writeLock (). lock ();  // write (and read) accesses  rwLock . writeLock (). unlock ();    Der WriteLock ist gleich wie der Lock bei Lock   Condition", 
+            "title": "Read-Write Lock"
+        }, 
+        {
+            "location": "/ParProg/4_Synchronisationsprimitiven/#count-down-latch", 
+            "text": "Zeitlicher Synchronisationspunkt von mehreren Threads   N Threads warten auf Control-Thread, Control-Thread wartet auf N Threads und gibt \"Startsignal\"    Count Down Latch hat Z\u00e4hler und wartet, bis er 0 wird   Threads k\u00f6nnen Z\u00e4hler dekrementieren mit  countDown()   CountDownLatch   carsReady   =   new   CountDownLatch ( N );  CountDownLatch   startSignal   =   new   CountDownLatch ( 1 );  // N Cars  carsReady . countDown ();  startSignal . await ();  // 1 RaceControl  carsReady . await ();  startSignal . countDown ();    Geht auch mit Multi-Release/-Aquire Semaphore  CountDown l\u00e4sst sich nicht wieder hochsetzen", 
+            "title": "Count Down Latch"
+        }, 
+        {
+            "location": "/ParProg/4_Synchronisationsprimitiven/#cyclic-barrier", 
+            "text": "N Threads warten aufeinander  await()  blockiert, bis N Threads  await()  aufgerufen haben  Kann wiederverwendet werden   CyclicBarrier   gameRound   =   new   CyclicBarrier ( N );  // Bei N Players:                 while   ( true )   { \n     gameRound . await (); \n     // play concurrently with others  }  // Mehrere Runden    Wenn ein Thread im  await()  eine Exception wirft, ist die Barriere kaputt  Phaser : Kann zus\u00e4tzlich Teilnehmer im nachhinein an- und abmelden", 
+            "title": "Cyclic Barrier"
+        }, 
+        {
+            "location": "/ParProg/4_Synchronisationsprimitiven/#exchanger", 
+            "text": "\"Rende-vouz\": Barriere mit zwei Parteien und tauschen etwas aus  `exchange(v) Blockiert, bis anderer Thread auch exchange() aufruft  Liefert Argument x des jeweils anderen Threads", 
+            "title": "Exchanger"
+        }, 
+        {
+            "location": "/ParProg/4_Weitere_Synchronisationsprimitiven/", 
+            "text": "", 
+            "title": "4 Weitere Synchronisationsprimitiven"
+        }, 
+        {
             "location": "/PhAI/0_Index/", 
             "text": "Physik Anwendungen f\u00fcr Informatik\n\n\n\n\nExam Notes", 
             "title": "0 Index"
@@ -494,6 +604,91 @@
             "location": "/SE2/2_Project_Automation/#continuous-integration", 
             "text": "Maintain a single source repository  Automate the build  Make the build self-testing  Everyone commits to the mainline every day  Every commit to the mainline should be built  Keep the build fast  Test in a clone of the production environment  Make it easy to get the latest deliverables  Everyone can see what\u2019s happening  Automate deployment", 
             "title": "Continuous Integration"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/", 
+            "text": "Software Engineering Practices\n\n\nRequirements Practises\n\n\nDig for Requirements\n\n\n\n\nMit dem Kunden zusammen arbeiten\n\n\nDenken aus Benutzersicht\n\n\n\"W\u00fcnsche\" von echten Anforderungen trennen\n\n\nGr\u00fcnde hinterfragen\n\n\n\n\n\n\nGen\u00fcgend abstrakt definieren, Details k\u00f6nnen schnell \u00e4ndern\n\n\nWenn zu genau spezifiziert, werden sie genau so implementiert und sind nicht erweiterbar\n\n\n\n\n\n\n\n\nMake Quality a Requirement\n\n\n\n\nQualit\u00e4t als NF-Anforderungen\n\n\nM\u00f6glichst testbar machen\n\n\nBasierend auf echten Anforderungen von Benuzter-Bed\u00fcrfnissen\n\n\nSind schwieriger zu ermitteln, oft unter-/un- bewusst\n\n\nErmittlungstechniken\n\n\nChecklisten (Brainstorming)\n\n\nBefragen, Beobachten\n\n\n\n\n\n\nGrosser Einfluss auf Architekturentscheidungen\n\n\nevtl. Referenzsystem festlegen f\u00fcr Performance-Tests\n\n\n\n\nDeal with Changes\n\n\n\n\nEs gibt keine \"stabilen\" Requirements\n\n\nM\u00f6glichst flexibles Design\n\n\n\n\nDesign Practises\n\n\nDRY\n\n\n\n\nCode-Redundanz ist schlecht, nicht wartbar\n\n\nAuch in Code-Doku redundante Beschreibungen vermeiden\n\n\n\n\nAchieve Orthogonality\n\n\n\n\n\"Eliminate effects between unrelated things\"\n\n\nKeine Kopplung zwischen konzeptionell unabh\u00e4ngiger Konzepte\n\n\nLow Coupling / High Cohesion\n\n\nArchitektur sollte keine Zyklen haben (DAG)\n\n\nSonst schwer auszutauschen\n\n\nKeine Wiederverwendbarkeit\n\n\nNicht sauber testbar\n\n\n\n\n\n\n\n\nDesign to Test\n\n\n\n\nVor Entwicklungszeit betrachten, da es Architetktur beeinflusst\n\n\n\n\nImplementation Practises\n\n\nFix broken Windows\n\n\n\n\n\"Broken Window Syndrom\": Wenn Probleme nicht behoben werden, bleiben sie bestehen\n\n\nProbleme beheben, wenn sie entstehen\n\n\nRefactoring / Code Reviews\n\n\n\n\nRefactor early and often\n\n\n\n\nRefactoring als Prozess definieren\n\n\nGute Tests for Refactoring haben, um nicht Fehler einzubauen\n\n\n\n\nProgram Deliberately\n\n\n\n\nNicht auf \"gut Gl\u00fcck\" programmieren\n\n\nSpezifikation lesen (vor allem bei Paral. Progr.)\n\n\n\n\nVerification Practises\n\n\nTest rigorously\n\n\n\n\nfr\u00fch, h\u00e4ufig, automatisch testen\n\n\n\"Find Issues Once\": F\u00fcr gefundene Fehler Tests schreiben\n\n\nIntegration Tests genauso wichtig wie Unit Tests\n\n\n\n\nPerform Reviews", 
+            "title": "3 SE Practises"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/#software-engineering-practices", 
+            "text": "", 
+            "title": "Software Engineering Practices"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/#requirements-practises", 
+            "text": "", 
+            "title": "Requirements Practises"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/#dig-for-requirements", 
+            "text": "Mit dem Kunden zusammen arbeiten  Denken aus Benutzersicht  \"W\u00fcnsche\" von echten Anforderungen trennen  Gr\u00fcnde hinterfragen    Gen\u00fcgend abstrakt definieren, Details k\u00f6nnen schnell \u00e4ndern  Wenn zu genau spezifiziert, werden sie genau so implementiert und sind nicht erweiterbar", 
+            "title": "Dig for Requirements"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/#make-quality-a-requirement", 
+            "text": "Qualit\u00e4t als NF-Anforderungen  M\u00f6glichst testbar machen  Basierend auf echten Anforderungen von Benuzter-Bed\u00fcrfnissen  Sind schwieriger zu ermitteln, oft unter-/un- bewusst  Ermittlungstechniken  Checklisten (Brainstorming)  Befragen, Beobachten    Grosser Einfluss auf Architekturentscheidungen  evtl. Referenzsystem festlegen f\u00fcr Performance-Tests", 
+            "title": "Make Quality a Requirement"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/#deal-with-changes", 
+            "text": "Es gibt keine \"stabilen\" Requirements  M\u00f6glichst flexibles Design", 
+            "title": "Deal with Changes"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/#design-practises", 
+            "text": "", 
+            "title": "Design Practises"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/#dry", 
+            "text": "Code-Redundanz ist schlecht, nicht wartbar  Auch in Code-Doku redundante Beschreibungen vermeiden", 
+            "title": "DRY"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/#achieve-orthogonality", 
+            "text": "\"Eliminate effects between unrelated things\"  Keine Kopplung zwischen konzeptionell unabh\u00e4ngiger Konzepte  Low Coupling / High Cohesion  Architektur sollte keine Zyklen haben (DAG)  Sonst schwer auszutauschen  Keine Wiederverwendbarkeit  Nicht sauber testbar", 
+            "title": "Achieve Orthogonality"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/#design-to-test", 
+            "text": "Vor Entwicklungszeit betrachten, da es Architetktur beeinflusst", 
+            "title": "Design to Test"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/#implementation-practises", 
+            "text": "", 
+            "title": "Implementation Practises"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/#fix-broken-windows", 
+            "text": "\"Broken Window Syndrom\": Wenn Probleme nicht behoben werden, bleiben sie bestehen  Probleme beheben, wenn sie entstehen  Refactoring / Code Reviews", 
+            "title": "Fix broken Windows"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/#refactor-early-and-often", 
+            "text": "Refactoring als Prozess definieren  Gute Tests for Refactoring haben, um nicht Fehler einzubauen", 
+            "title": "Refactor early and often"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/#program-deliberately", 
+            "text": "Nicht auf \"gut Gl\u00fcck\" programmieren  Spezifikation lesen (vor allem bei Paral. Progr.)", 
+            "title": "Program Deliberately"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/#verification-practises", 
+            "text": "", 
+            "title": "Verification Practises"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/#test-rigorously", 
+            "text": "fr\u00fch, h\u00e4ufig, automatisch testen  \"Find Issues Once\": F\u00fcr gefundene Fehler Tests schreiben  Integration Tests genauso wichtig wie Unit Tests", 
+            "title": "Test rigorously"
+        }, 
+        {
+            "location": "/SE2/3_SE_Practises/#perform-reviews", 
+            "text": "", 
+            "title": "Perform Reviews"
         }, 
         {
             "location": "/Vss/0_Index/", 
@@ -589,6 +784,71 @@
             "location": "/Vss/3_socket_programmierung/#messaging-patterns", 
             "text": "Basic Pattern : Analog zu einem Brief, der von einem Message Endpoint zum anderen gesendet wird  Blocking Receiver Message Pattern : Synchrone \u00dcbertragung, Server und Client warten auf die Antwort  Polling Receiver Message Pattern : Der Receiver macht Anfragen zum Empfangen der Nachricht (Polling)  Service Activator Message Pattern : Auf einen Request ruft der \"Replier\" mit dem \"Service Activator\" die richtige Service-Funktion auf (RPC-style)", 
             "title": "Messaging Patterns"
+        }, 
+        {
+            "location": "/Vss/4_Asynchronous_Messaging/", 
+            "text": "Asynchronous Messaging\n\n\nZiel\n\n\n\n\nLose Kopplung zum Austausch von Nachrichten auf unterschiedlichen Plattformen in unterschiedlichen Formaten\n\n\nSkalierbarkeit, Fehlertoleranz, Erweiterbarkeit\n\n\nViele Design-Entscheidungen, z.B. QoS Eigenschaften\n\n\n\n\nEinf\u00fchrung Messaging\n\n\n\n\nEine Message besteht aus Message Descriptor und Message Data\n\n\nDer Queue Manager ist verantwortlich f\u00fcr das Versenden und Empfangen von Nachrichten\n\n\nBei Asynchronous RPC antwortet der Server zwei Mal\n\n\nDas erste Mal als Best\u00e4tigung der Ausf\u00fchrung (Accept Request)\n\n\nDas zweite Mal mit dem Resultat\n\n\n\n\n\n\n\n\nMessaging Middleware\n\n\n\n\nz.B. IBM MQ, Microsoft MQ, ActiveMQ (Apache)\n\n\n\n\nJava Message Service (JMS) API\n\n\n\n\nGrundlegende MOM API\n\n\nPut\n: Append a message to the queue\n\n\nGet\n: Block until queue ist not empty, then remove first message\n\n\nPoll\n: Remove first entry if queue is not empty, never block\n\n\nNotify\n: Install a handler to be notified when a message is put into the queue\n\n\n\n\n\n\nMessage Reliability Levels\n\n\nEine JMS Message besteht aus Header, Properties und Body\n\n\nProperties sind Erweiterungen des Standard-headers und optional\n\n\n\n\n\n\n\n\nBeispiel Queue Sender (Message Producer)\n\n\nConnection\n \nconnection\n \n=\n \nconnectionFactory\n.\ncreateConnection\n();\n\n\nconnection\n.\nstart\n();\n\n\nSession\n \nsession\n \n=\n \nconnection\n.\ncreateSession\n(\nmp\n.\ntransacted\n,\n\n    \nSession\n.\nAUTO_ACKNOWLEDGE\n);\n\n\nDestination\n \ndestination\n \n=\n \nsession\n.\ncreateQueue\n(\ntestQueue\n);\n\n\nMessageProducer\n \nproducer\n \n=\n \nsession\n.\ncreateProducer\n(\ndestination\n);\n\n\nproducer\n.\nsetDeliveryMode\n(\nDeliveryMode\n.\nPERSISTENT\n);\n\n\nTextMessage\n \nmessage\n \n=\n \nsession\n.\ncreateTextMessage\n(\nhello\n);\n\n\nproducer\n.\nsend\n(\nmessage\n);\n\n\nproducer\n.\nclose\n();\n\n\nsession\n.\nclose\n();\n\n\nconnection\n.\nclose\n();\n\n\n\n\n\n\nBeispiel Queue Receiver (Message Consumer)\n\n\nConnection\n \nconnection\n \n=\n \nconnectionFactory\n.\ncreateConnection\n();\n\n\nconnection\n.\nstart\n();\n\n\nSession\n \nsession\n \n=\n \nconnection\n.\ncreateSession\n(\nmc\n.\ntransacted\n,\n\n    \nSession\n.\nAUTO_ACKNOWLEDGE\n);\n\n\nDestination\n \ndestination\n \n=\n \nsession\n.\ncreateQueue\n(\ntestQueue\n);\n\n\nMessageConsumer\n \nconsumer\n \n=\n \nsession\n.\ncreateConsumer\n(\ndestination\n);\n\n\nTextMessage\n \ntext\n=(\nTextMessage\n)\n \nconsumer\n.\nreceive\n();\n\n\nconsumer\n.\nclose\n();\n \n\nsession\n.\nclose\n();\n\n\nconnection\n.\nclose\n();\n\n\n\n\n\n\nEnterprise Integration Patterns\n\n\nPoint-to-Point Messaging Pattern\n\n\n\n\nSimpelste Form, ein Sender schickt einem Receiver \u00fcber einen beliebigen Channel eine Message\n\n\nMeist wird eine \nMessage Expiration\n gesetzt. Ist diese abgelaufen, wenn der Receiver die Message erh\u00e4lt, wird sie verworfen oder an einen \"Dead Letter Channel\" geschickt\n\n\nCommand Message Pattern\n: Message, die dem Receiver mitteilt, etwas auszuf\u00fchren\n\n\nDocument Message Pattern\n: Reine Daten-\u00dcbertragung\n\n\n\n\nPublic-Subscribe Pattern\n\n\n\n\nDer Publisher (Sender) schickt die Messages an einen \nPublish-Subscribe-Channel\n\n\nDer Channel schickt eine Kopie der Message an einen Output Channel\n\n\nJeder Output-Channel hat genau 1 Subscriber\n\n\n\n\nJeder Subscriber erh\u00e4lt die Nachricht 1 Mal\n\n\n\n\n\n\nTopic-based\n: Subscriber melden sich an verschiedenen \"topics\" an (logische Channels) und erhalten nur die Nachrichten, die zu diesen Topics geschickt werden\n\n\n\n\n\n\nContent-based\n: Der Subscriber definiert Eigenschaften der Messages, die er bekommen m\u00f6chte. Er erh\u00e4lt dann nur die Nachrichten, die dem entspechen\n\n\n\n\n\n\nMeistens gibt es zwischen Publisher und Subscriber einen Message Broker, der die Messages entgegennimmt und Subscribers verwaltet\n\n\n\n\n\n\nReceiving Message Endpoint Pattern\n\n\n\n\nCompeting Customers\n: Mehrere Receiver verarbeiten messages gleichzeitig\n\n\nSelective Customer\n: Der Receiver entscheided beim Ankommen der Message anhand von Kriterien, ob die Message verarbeitet werden soll\n\n\n\n\nRabbitMQ\n\n\n\n\nRouting: Messages werden Anhand von Eigenschaften an den entsprechenden Receiver zugestellt\n\n\nRPC: Beim Request gibt der Client eine Callback Queue an (\nreply_to\n) und eine eindeutige ID. So wird beim Callback die Response dem Request zugeordnet", 
+            "title": "4 Asynchronous Messaging"
+        }, 
+        {
+            "location": "/Vss/4_Asynchronous_Messaging/#asynchronous-messaging", 
+            "text": "", 
+            "title": "Asynchronous Messaging"
+        }, 
+        {
+            "location": "/Vss/4_Asynchronous_Messaging/#ziel", 
+            "text": "Lose Kopplung zum Austausch von Nachrichten auf unterschiedlichen Plattformen in unterschiedlichen Formaten  Skalierbarkeit, Fehlertoleranz, Erweiterbarkeit  Viele Design-Entscheidungen, z.B. QoS Eigenschaften", 
+            "title": "Ziel"
+        }, 
+        {
+            "location": "/Vss/4_Asynchronous_Messaging/#einfuhrung-messaging", 
+            "text": "Eine Message besteht aus Message Descriptor und Message Data  Der Queue Manager ist verantwortlich f\u00fcr das Versenden und Empfangen von Nachrichten  Bei Asynchronous RPC antwortet der Server zwei Mal  Das erste Mal als Best\u00e4tigung der Ausf\u00fchrung (Accept Request)  Das zweite Mal mit dem Resultat", 
+            "title": "Einf\u00fchrung Messaging"
+        }, 
+        {
+            "location": "/Vss/4_Asynchronous_Messaging/#messaging-middleware", 
+            "text": "z.B. IBM MQ, Microsoft MQ, ActiveMQ (Apache)", 
+            "title": "Messaging Middleware"
+        }, 
+        {
+            "location": "/Vss/4_Asynchronous_Messaging/#java-message-service-jms-api", 
+            "text": "Grundlegende MOM API  Put : Append a message to the queue  Get : Block until queue ist not empty, then remove first message  Poll : Remove first entry if queue is not empty, never block  Notify : Install a handler to be notified when a message is put into the queue    Message Reliability Levels  Eine JMS Message besteht aus Header, Properties und Body  Properties sind Erweiterungen des Standard-headers und optional", 
+            "title": "Java Message Service (JMS) API"
+        }, 
+        {
+            "location": "/Vss/4_Asynchronous_Messaging/#beispiel-queue-sender-message-producer", 
+            "text": "Connection   connection   =   connectionFactory . createConnection ();  connection . start ();  Session   session   =   connection . createSession ( mp . transacted , \n     Session . AUTO_ACKNOWLEDGE );  Destination   destination   =   session . createQueue ( testQueue );  MessageProducer   producer   =   session . createProducer ( destination );  producer . setDeliveryMode ( DeliveryMode . PERSISTENT );  TextMessage   message   =   session . createTextMessage ( hello );  producer . send ( message );  producer . close ();  session . close ();  connection . close ();", 
+            "title": "Beispiel Queue Sender (Message Producer)"
+        }, 
+        {
+            "location": "/Vss/4_Asynchronous_Messaging/#beispiel-queue-receiver-message-consumer", 
+            "text": "Connection   connection   =   connectionFactory . createConnection ();  connection . start ();  Session   session   =   connection . createSession ( mc . transacted , \n     Session . AUTO_ACKNOWLEDGE );  Destination   destination   =   session . createQueue ( testQueue );  MessageConsumer   consumer   =   session . createConsumer ( destination );  TextMessage   text =( TextMessage )   consumer . receive ();  consumer . close ();   session . close ();  connection . close ();", 
+            "title": "Beispiel Queue Receiver (Message Consumer)"
+        }, 
+        {
+            "location": "/Vss/4_Asynchronous_Messaging/#enterprise-integration-patterns", 
+            "text": "", 
+            "title": "Enterprise Integration Patterns"
+        }, 
+        {
+            "location": "/Vss/4_Asynchronous_Messaging/#point-to-point-messaging-pattern", 
+            "text": "Simpelste Form, ein Sender schickt einem Receiver \u00fcber einen beliebigen Channel eine Message  Meist wird eine  Message Expiration  gesetzt. Ist diese abgelaufen, wenn der Receiver die Message erh\u00e4lt, wird sie verworfen oder an einen \"Dead Letter Channel\" geschickt  Command Message Pattern : Message, die dem Receiver mitteilt, etwas auszuf\u00fchren  Document Message Pattern : Reine Daten-\u00dcbertragung", 
+            "title": "Point-to-Point Messaging Pattern"
+        }, 
+        {
+            "location": "/Vss/4_Asynchronous_Messaging/#public-subscribe-pattern", 
+            "text": "Der Publisher (Sender) schickt die Messages an einen  Publish-Subscribe-Channel  Der Channel schickt eine Kopie der Message an einen Output Channel  Jeder Output-Channel hat genau 1 Subscriber   Jeder Subscriber erh\u00e4lt die Nachricht 1 Mal    Topic-based : Subscriber melden sich an verschiedenen \"topics\" an (logische Channels) und erhalten nur die Nachrichten, die zu diesen Topics geschickt werden    Content-based : Der Subscriber definiert Eigenschaften der Messages, die er bekommen m\u00f6chte. Er erh\u00e4lt dann nur die Nachrichten, die dem entspechen    Meistens gibt es zwischen Publisher und Subscriber einen Message Broker, der die Messages entgegennimmt und Subscribers verwaltet", 
+            "title": "Public-Subscribe Pattern"
+        }, 
+        {
+            "location": "/Vss/4_Asynchronous_Messaging/#receiving-message-endpoint-pattern", 
+            "text": "Competing Customers : Mehrere Receiver verarbeiten messages gleichzeitig  Selective Customer : Der Receiver entscheided beim Ankommen der Message anhand von Kriterien, ob die Message verarbeitet werden soll", 
+            "title": "Receiving Message Endpoint Pattern"
+        }, 
+        {
+            "location": "/Vss/4_Asynchronous_Messaging/#rabbitmq", 
+            "text": "Routing: Messages werden Anhand von Eigenschaften an den entsprechenden Receiver zugestellt  RPC: Beim Request gibt der Client eine Callback Queue an ( reply_to ) und eine eindeutige ID. So wird beim Callback die Response dem Request zugeordnet", 
+            "title": "RabbitMQ"
         }, 
         {
             "location": "/VwlTg/0_Index/", 
@@ -729,6 +989,56 @@
             "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#bedinungsloses-grundeinkommen", 
             "text": "Theoretisch 80-90% finanzierbar  K\u00fcrzen von vielen Sozialleistungen, weil sie jetzt durch BGE gedeckt w\u00e4ren  Mehr als die H\u00e4lfte durch R\u00fcckzahlungen von Arbeitgeber", 
             "title": "Bedinungsloses Grundeinkommen"
+        }, 
+        {
+            "location": "/VwlTg/4_Arbeitsmarkt/", 
+            "text": "Langfristiges Wachstum\n\n\nBedeutung des langfristigen Wirtschaftswachstums\n\n\n\n\nZweiter WK hatte langfristig keinen Effekt auf das Wachstum, weder in Japan noch USA\n\n\n1960 - 1980: Japan hat USA aufgeholt, seit 1990 ist l\u00fccke wieder gr\u00f6sser\n\n\n\n\nLangfristiger Wachstumstrend\n\n\n\n\nKonjukturverlauf ist genauer Verlauf, der schwankt\n\n\nWachstumstrend ist durchschnitt \u00fcber einen l\u00e4ngeren Zeitraum\n\n\n\n\nErfolgsfaktoren\n\n\n\n\nProduktivit\u00e4t wird gemessen in BIP / Arbeitsstunden\n\n\nDamit BIP / Kopf w\u00e4chst, muss mehr oder effizienter gearbeitet werden\n\n\nUm Produktivit\u00e4t zu erh\u00f6hen, kann Kapital aufgewendet oder in Technologie investiert werden (technischer Fortschritt)\n\n\nInnovation ist einzige \"unendliche\" Ressource\n\n\nDadurch k\u00f6nnte das Wachstum immer weiter gehen\n\n\n\n\n\n\nWeitere externe Faktoren der Wirtschaftspolitik\n\n\n\n\nWachstum im Vergleich\n\n\n\n\nWachstum in der Schweiz nahm 1970-2000 stark ab\n\n\nSeit 2000 wieder leicht besser\n\n\nAber insgesamt sinkendes Wachstum\n\n\n\n\nGr\u00fcnde\n\n\n\n\nExogene Faktoren\n\n\nKein Seezugang ist ein Nachteil\n\n\nSozialkapital, Klima, Rohstoffe hier kein Problem\n\n\n\n\n\n\nWirtschaftspolitik\n\n\n??\n\n\n\n\n\n\nMehr Arbeitsstunden\n\n\nTiefe Arbeitslosenquote in der Schweiz\n\n\nGrund: Arbeitsmoral, vern\u00fcnftige L\u00f6hne\n\n\nH\u00f6here Quote durch Immigranten\n\n\n\n\n\n\nTechnischer Fortschritt\n\n\nSchweiz einer der innovativsten Standorte weltweit\n\n\nPatentschutz (20 J.) f\u00f6rdert Innovation\n\n\n\n\n\n\nArbeitsproduktivit\u00e4t\n\n\nSchweiz international schlecht aufgestellt, hinter FR, DE, USA\n\n\n1970 war Schweiz das produktivste Land\n\n\n\n\n\n\n\n\nProduktivit\u00e4tsschw\u00e4che der Schweiz\n\n\n\n\nWachstum der Staatsquote\n\n\nStarke Sozialisierung\n\n\n\n\n\n\nImmigration\n\n\nSch\u00e4dlich, wenn nur geringqualifizierte\n\n\nnicht das grosse Problem\n\n\n\n\n\n\n\n\nAbschottung des Binnenmarkts\n\n\n\n\nz.B. Online-Gl\u00fccksspielgesetz\n\n\nRestriktiver Import von z.B. Wein, Fleisch\n\n\n-\n \"Hochpreisinsel\"\n\n\n\n\n\n\n\n\nStaatsquote: Anteil des BIP am \u00f6ffentlichen Konsum und \u00f6ffentliche Bruttoinvestitionen\n\n\n\n\nStaatsquote ist in der Schweiz noch klein im Vergleich, aber w\u00e4chst am schnellsten\n\n\n\n\nEind\u00e4mmung der Staatsquote\n\n\n\n\n2004-2008: Nicht funktioniert\n\n\n2008-2011: 2. Paket mit sehr \u00e4hnlichen Massnahmen, kein Erfolg\n\n\n2012-2015: 3. Plan, wieder die gleichen Massnahmen\n\n\n\n\n2016-2019: 4. Plan\n\n\n\n\n\n\nGrund: Schweizer wollen Unabh\u00e4ngigkeit behalten", 
+            "title": "4 Arbeitsmarkt"
+        }, 
+        {
+            "location": "/VwlTg/4_Arbeitsmarkt/#langfristiges-wachstum", 
+            "text": "", 
+            "title": "Langfristiges Wachstum"
+        }, 
+        {
+            "location": "/VwlTg/4_Arbeitsmarkt/#bedeutung-des-langfristigen-wirtschaftswachstums", 
+            "text": "Zweiter WK hatte langfristig keinen Effekt auf das Wachstum, weder in Japan noch USA  1960 - 1980: Japan hat USA aufgeholt, seit 1990 ist l\u00fccke wieder gr\u00f6sser", 
+            "title": "Bedeutung des langfristigen Wirtschaftswachstums"
+        }, 
+        {
+            "location": "/VwlTg/4_Arbeitsmarkt/#langfristiger-wachstumstrend", 
+            "text": "Konjukturverlauf ist genauer Verlauf, der schwankt  Wachstumstrend ist durchschnitt \u00fcber einen l\u00e4ngeren Zeitraum", 
+            "title": "Langfristiger Wachstumstrend"
+        }, 
+        {
+            "location": "/VwlTg/4_Arbeitsmarkt/#erfolgsfaktoren", 
+            "text": "Produktivit\u00e4t wird gemessen in BIP / Arbeitsstunden  Damit BIP / Kopf w\u00e4chst, muss mehr oder effizienter gearbeitet werden  Um Produktivit\u00e4t zu erh\u00f6hen, kann Kapital aufgewendet oder in Technologie investiert werden (technischer Fortschritt)  Innovation ist einzige \"unendliche\" Ressource  Dadurch k\u00f6nnte das Wachstum immer weiter gehen    Weitere externe Faktoren der Wirtschaftspolitik", 
+            "title": "Erfolgsfaktoren"
+        }, 
+        {
+            "location": "/VwlTg/4_Arbeitsmarkt/#wachstum-im-vergleich", 
+            "text": "Wachstum in der Schweiz nahm 1970-2000 stark ab  Seit 2000 wieder leicht besser  Aber insgesamt sinkendes Wachstum", 
+            "title": "Wachstum im Vergleich"
+        }, 
+        {
+            "location": "/VwlTg/4_Arbeitsmarkt/#grunde", 
+            "text": "Exogene Faktoren  Kein Seezugang ist ein Nachteil  Sozialkapital, Klima, Rohstoffe hier kein Problem    Wirtschaftspolitik  ??    Mehr Arbeitsstunden  Tiefe Arbeitslosenquote in der Schweiz  Grund: Arbeitsmoral, vern\u00fcnftige L\u00f6hne  H\u00f6here Quote durch Immigranten    Technischer Fortschritt  Schweiz einer der innovativsten Standorte weltweit  Patentschutz (20 J.) f\u00f6rdert Innovation    Arbeitsproduktivit\u00e4t  Schweiz international schlecht aufgestellt, hinter FR, DE, USA  1970 war Schweiz das produktivste Land", 
+            "title": "Gr\u00fcnde"
+        }, 
+        {
+            "location": "/VwlTg/4_Arbeitsmarkt/#produktivitatsschwache-der-schweiz", 
+            "text": "Wachstum der Staatsquote  Starke Sozialisierung    Immigration  Sch\u00e4dlich, wenn nur geringqualifizierte  nicht das grosse Problem     Abschottung des Binnenmarkts   z.B. Online-Gl\u00fccksspielgesetz  Restriktiver Import von z.B. Wein, Fleisch  -  \"Hochpreisinsel\"     Staatsquote: Anteil des BIP am \u00f6ffentlichen Konsum und \u00f6ffentliche Bruttoinvestitionen   Staatsquote ist in der Schweiz noch klein im Vergleich, aber w\u00e4chst am schnellsten", 
+            "title": "Produktivit\u00e4tsschw\u00e4che der Schweiz"
+        }, 
+        {
+            "location": "/VwlTg/4_Arbeitsmarkt/#eindammung-der-staatsquote", 
+            "text": "2004-2008: Nicht funktioniert  2008-2011: 2. Paket mit sehr \u00e4hnlichen Massnahmen, kein Erfolg  2012-2015: 3. Plan, wieder die gleichen Massnahmen   2016-2019: 4. Plan    Grund: Schweizer wollen Unabh\u00e4ngigkeit behalten", 
+            "title": "Eind\u00e4mmung der Staatsquote"
+        }, 
+        {
+            "location": "/VwlTg/4_Wachstum/", 
+            "text": "", 
+            "title": "4 Wachstum"
         }
     ]
 }
