@@ -68,7 +68,7 @@ rwLock.writeLock().unlock();
 
 - Count Down Latch hat Zähler und wartet, bis er 0 wird
 - Threads können Zähler dekrementieren mit `countDown()`
-
+- Fairness spielt keine Rolle, da alle wartenden Threads "auf einmal" durchkommen
 ```java
 CountDownLatch carsReady = new CountDownLatch(N);
 CountDownLatch startSignal = new CountDownLatch(1);
@@ -82,12 +82,13 @@ carsReady.await();
 startSignal.countDown();
 ```
 - Geht auch mit Multi-Release/-Aquire Semaphore
-- CountDown lässt sich nicht wieder hochsetzen
+- CountDown lässt sich nicht wieder hochsetzen, weil man nicht weiss, wieviele Threads auf die "Barriere" warten werden. Sobald man also auf 0 ist und ein Thread den Count wieder erhöht, weiss man nicht, ob jemals ein weiterer Thread zu `await()` kommen würde
 
 ## Cyclic Barrier
 - N Threads warten aufeinander
 - `await()` blockiert, bis N Threads `await()` aufgerufen haben
 - Kann wiederverwendet werden
+- Im Unterschied zum CountDownLatch weiss man genau, wieviele Threads warten werden
 
 ```java
 CyclicBarrier gameRound = new CyclicBarrier(N);
@@ -106,3 +107,65 @@ while (true) {
 - "Rende-vouz": Barriere mit zwei Parteien und tauschen etwas aus
 - `exchange(v) Blockiert, bis anderer Thread auch exchange() aufruft
 - Liefert Argument x des jeweils anderen Threads
+
+## Übung
+- Semaphore sind schneller als Lock & Condition
+- Lock & condition lohnt sich nicht wegen Overhead der Implementierung
+
+```
+TEST SERIES: 1 producers 1 consumers (capacity 5)
+Test WarehouseWithMonitor unfair
+Total time: 1394 ms
+Test WarehouseWithSemaphore unfair
+Total time: 1262 ms
+Test WarehouseWithSemaphore fair
+Total time: 1103 ms
+Test WarehouseWithLockCondition unfair
+Total time: 1119 ms
+Test WarehouseWithLockCondition fair
+Total time: 3392 ms
+TEST SERIES: 5 producers 5 consumers (capacity 5)
+Test WarehouseWithMonitor unfair
+Total time: 2913 ms
+Test WarehouseWithSemaphore unfair
+Total time: 1524 ms
+Test WarehouseWithSemaphore fair
+Total time: 2362 ms
+Test WarehouseWithLockCondition unfair
+Total time: 4983 ms
+Test WarehouseWithLockCondition fair
+Total time: 5368 ms
+TEST SERIES: 1 producers 10 consumers (capacity 5)
+Test WarehouseWithMonitor unfair
+Total time: 4602 ms
+Test WarehouseWithSemaphore unfair
+Total time: 1449 ms
+Test WarehouseWithSemaphore fair
+Total time: 2014 ms
+Test WarehouseWithLockCondition unfair
+Total time: 5603 ms
+Test WarehouseWithLockCondition fair
+Total time: 19024 ms
+TEST SERIES: 100 producers 100 consumers (capacity 5)
+Test WarehouseWithMonitor unfair
+Total time: 9808 ms
+Test WarehouseWithSemaphore unfair
+Total time: 1732 ms
+Test WarehouseWithSemaphore fair
+Total time: 2621 ms
+Test WarehouseWithLockCondition unfair
+Total time: 15325 ms
+Test WarehouseWithLockCondition fair
+Total time: 78283 ms
+TEST SERIES: 1 producers 10 consumers (capacity 1000000)
+Test WarehouseWithMonitor unfair
+Total time: 1 ms
+Test WarehouseWithSemaphore unfair
+Total time: 0 ms
+Test WarehouseWithSemaphore fair
+Total time: 2 ms
+Test WarehouseWithLockCondition unfair
+Total time: 0 ms
+Test WarehouseWithLockCondition fair
+Total time: 0 ms
+```

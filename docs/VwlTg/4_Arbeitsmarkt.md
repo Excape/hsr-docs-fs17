@@ -59,3 +59,5 @@
 - 2016-2019: 4. Plan
 
 - Grund: Schweizer wollen Unabhängigkeit behalten
+
+- Die Produktivität des Privatsektors steigt, während die Produktivität des Staatssektors stark sinkt. Gleichzeitig steigt die Beschäftigung des Staates
