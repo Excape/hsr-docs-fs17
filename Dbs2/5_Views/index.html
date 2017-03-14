@@ -9,7 +9,7 @@
         <meta name="description" content="HSR Study Documentation FS16">
       
       
-        <link rel="canonical" href="https://doc.robinsuter.ch/InfSi3/2_Overview/">
+        <link rel="canonical" href="https://doc.robinsuter.ch/Dbs2/5_Views/">
       
       
         <meta name="author" content="Robin Suter">
@@ -21,7 +21,7 @@
     
     
       
-        <title>2 Overview - HSR Notizen FS17</title>
+        <title>5 Views - HSR Notizen FS17</title>
       
     
     
@@ -84,11 +84,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  InfSi3
+                  Dbs2
                 </span>
               
             
-            2 Overview
+            5 Views
           
         </span>
       </div>
@@ -211,10 +211,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Dbs2
@@ -232,7 +234,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Dbs2/0_Index/" title="0 Index" class="md-nav__link">
+    <a href="../0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
   </li>
@@ -244,7 +246,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Dbs2/1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -256,7 +258,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Dbs2/2_OR-Mapping/" title="2 OR Mapping" class="md-nav__link">
+    <a href="../2_OR-Mapping/" title="2 OR Mapping" class="md-nav__link">
       2 OR Mapping
     </a>
   </li>
@@ -268,7 +270,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Dbs2/3_Stored_Procedures/" title="3 Stored Procedures" class="md-nav__link">
+    <a href="../3_Stored_Procedures/" title="3 Stored Procedures" class="md-nav__link">
       3 Stored Procedures
     </a>
   </li>
@@ -280,7 +282,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Dbs2/4_Triggers/" title="4 Triggers" class="md-nav__link">
+    <a href="../4_Triggers/" title="4 Triggers" class="md-nav__link">
       4 Triggers
     </a>
   </li>
@@ -290,11 +292,108 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../Dbs2/5_Views/" title="5 Views" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        5 Views
+      </label>
+    
+    <a href="./" title="5 Views" class="md-nav__link md-nav__link--active">
       5 Views
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#views" title="Views" class="md-nav__link">
+    Views
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-updatable" title="Beispiel Updatable" class="md-nav__link">
+    Beispiel Updatable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-nicht-updatable" title="Beispiel NICHT updatable" class="md-nav__link">
+    Beispiel NICHT updatable
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instead-of-triggers" title="Instead-of-Triggers" class="md-nav__link">
+    Instead-of-Triggers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beispiel" title="Beispiel" class="md-nav__link">
+    Beispiel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materialized-view" title="Materialized View" class="md-nav__link">
+    Materialized View
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zugriffsschutz-mit-views" title="Zugriffsschutz mit Views" class="md-nav__link">
+    Zugriffsschutz mit Views
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temporare-tabellen" title="Temporäre Tabellen" class="md-nav__link">
+    Temporäre Tabellen
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -415,12 +514,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       InfSi3
@@ -438,7 +535,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../0_Index/" title="0 Index" class="md-nav__link">
+    <a href="../../InfSi3/0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
   </li>
@@ -450,7 +547,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../../InfSi3/1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -460,20 +557,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="./" title="2 Overview" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../InfSi3/2_Overview/" title="2 Overview" class="md-nav__link">
       2 Overview
     </a>
-    
   </li>
 
         
@@ -483,7 +571,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../3_Software_Security/" title="3 Software Security" class="md-nav__link">
+    <a href="../../InfSi3/3_Software_Security/" title="3 Software Security" class="md-nav__link">
       3 Software Security
     </a>
   </li>
@@ -919,6 +1007,81 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#views" title="Views" class="md-nav__link">
+    Views
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-updatable" title="Beispiel Updatable" class="md-nav__link">
+    Beispiel Updatable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-nicht-updatable" title="Beispiel NICHT updatable" class="md-nav__link">
+    Beispiel NICHT updatable
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instead-of-triggers" title="Instead-of-Triggers" class="md-nav__link">
+    Instead-of-Triggers
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beispiel" title="Beispiel" class="md-nav__link">
+    Beispiel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materialized-view" title="Materialized View" class="md-nav__link">
+    Materialized View
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zugriffsschutz-mit-views" title="Zugriffsschutz mit Views" class="md-nav__link">
+    Zugriffsschutz mit Views
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temporare-tabellen" title="Temporäre Tabellen" class="md-nav__link">
+    Temporäre Tabellen
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -929,11 +1092,142 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/InfSi3/2_Overview.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Dbs2/5_Views.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <h1 id="overview-legal-aspects-and-global-threats">Overview, Legal Aspects and Global Threats</h1>
-<p><img alt="" src="../img/security_threats.png" /></p>
+                <h1 id="updatable-materialized-views">Updatable / Materialized Views</h1>
+<h2 id="views">Views</h2>
+<ul>
+<li>Externe Sichten für Applikationen</li>
+<li>Verringern die Komplexität von Queries</li>
+<li>Sind "updatable", wenn gewisse Einschränkungen erfüllt sind<ul>
+<li>Einen Eintrag in der FROM Klausel</li>
+<li>Keine WITH, GROUP BY, LIMIT, OFFSET, etc</li>
+<li>keine UNION, INTERSECT, EXCEPT</li>
+<li>Keine Aggregation oder Window-Funktion</li>
+</ul>
+</li>
+<li>Es müssen nicht alle Felder updatable sein, die View kann dann immer noch mit UPDATE bearbeitt werden, aber logischwerweise nicht die "nicht-updatable" Felder</li>
+</ul>
+<h3 id="beispiel-updatable">Beispiel Updatable</h3>
+<div class="codehilite"><pre><span></span><span class="k">create</span> <span class="k">view</span> <span class="n">ourview1</span> <span class="k">as</span>
+    <span class="k">select</span> <span class="n">name</span><span class="p">,</span> <span class="n">abtnr</span><span class="p">,</span> <span class="n">salaer</span>
+    <span class="k">from</span> <span class="n">angestellter</span>
+    <span class="k">order</span> <span class="k">by</span> <span class="n">abtnr</span><span class="p">,</span> <span class="n">salaer</span> <span class="k">desc</span><span class="p">;</span>
+
+<span class="k">update</span> <span class="n">ourview1</span> <span class="k">set</span> <span class="n">salaer</span><span class="o">=</span><span class="n">salaer</span><span class="o">+</span><span class="mi">10</span><span class="p">;</span>
+</pre></div>
+
+
+<h3 id="beispiel-nicht-updatable">Beispiel NICHT updatable</h3>
+<div class="codehilite"><pre><span></span><span class="k">create</span> <span class="k">view</span> <span class="n">ourview2</span> <span class="k">as</span>
+    <span class="k">select</span> <span class="n">abtnr</span><span class="p">,</span> <span class="k">avg</span><span class="p">(</span><span class="n">salaer</span><span class="p">)</span> <span class="k">as</span> <span class="n">salaer</span>
+    <span class="k">from</span> <span class="n">angestellter</span>
+    <span class="k">group</span> <span class="k">by</span> <span class="n">abtnr</span><span class="p">;</span>
+<span class="k">update</span> <span class="n">ourview2</span> <span class="k">set</span> <span class="n">salaer</span><span class="o">=</span><span class="n">salaer</span><span class="o">+</span><span class="mi">10</span><span class="p">;</span>
+<span class="c1">-- Fehler, view enthält groupby</span>
+</pre></div>
+
+
+<h2 id="instead-of-triggers">Instead-of-Triggers</h2>
+<ul>
+<li>Werden anstelle der ursprünglichen SQL-Operation ausgeführt</li>
+<li>Können für Modifikationen auf Tables und Views ausgeführt werden</li>
+<li>Leiten insert, update, delete auf Views auf die darunterliegenden Tabellen weiter</li>
+</ul>
+<h3 id="beispiel">Beispiel</h3>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">VIEW</span> <span class="n">abtleiterinfo</span> <span class="p">(</span><span class="n">abtnr</span><span class="p">,</span> <span class="n">abtname</span><span class="p">,</span> <span class="n">abtchef</span><span class="p">)</span>
+<span class="k">AS</span>
+    <span class="k">SELECT</span> <span class="n">abt</span><span class="p">.</span><span class="n">abtnr</span><span class="p">,</span> <span class="n">abt</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">al</span><span class="p">.</span><span class="n">abtchef</span>
+    <span class="k">FROM</span> <span class="n">abteilung</span> <span class="n">abt</span>
+    <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">abtleitung</span> <span class="n">al</span>
+        <span class="k">ON</span> <span class="n">abt</span><span class="p">.</span><span class="n">abtnr</span><span class="o">=</span><span class="n">al</span><span class="p">.</span><span class="n">abtnr</span>
+    <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">angestellter</span> <span class="n">ang</span>
+        <span class="k">ON</span> <span class="n">ang</span><span class="p">.</span><span class="n">persnr</span><span class="o">=</span><span class="n">al</span><span class="p">.</span><span class="n">abtchef</span><span class="p">;</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">abtleiterinfo_update_abtchef_fn</span><span class="p">()</span>
+<span class="k">RETURNS</span> <span class="k">TRIGGER</span> <span class="k">AS</span> <span class="err">$$</span>
+<span class="k">BEGIN</span>
+    <span class="k">IF</span> <span class="n">TG_OP</span> <span class="o">=</span> <span class="s1">&#39;UPDATE&#39;</span> <span class="k">THEN</span>
+        <span class="k">UPDATE</span> <span class="n">abtleitung</span> <span class="k">SET</span> <span class="n">abtchef</span><span class="o">=</span><span class="k">NEW</span><span class="p">.</span><span class="n">abtchef</span>
+            <span class="k">WHERE</span> <span class="n">abtnr</span><span class="o">=</span><span class="k">OLD</span><span class="p">.</span><span class="n">abtnr</span><span class="p">;</span>
+        <span class="k">RETURN</span> <span class="k">NEW</span><span class="p">;</span>
+    <span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
+<span class="k">END</span><span class="p">;</span>
+<span class="err">$$</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="n">abtleiterinfo_update_abtchef</span>
+<span class="k">INSTEAD</span> <span class="k">OF</span> <span class="k">UPDATE</span> <span class="k">ON</span> <span class="n">abtleiterinfo</span>
+<span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span>
+<span class="k">EXECUTE</span> <span class="k">PROCEDURE</span> <span class="n">abtleiterinfo_update_abtchef_fn</span><span class="p">();</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">UPDATE</span> <span class="n">abtleiterinfo</span> <span class="k">SET</span> <span class="n">abtchef</span><span class="o">=</span><span class="mi">1019</span> <span class="k">WHERE</span> <span class="n">abtnr</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+</pre></div>
+
+
+<h2 id="materialized-view">Materialized View</h2>
+<ul>
+<li>Eine normale View wird bei jedem Aufruf (Query) neu berechnet</li>
+<li>Eine <em>Materialized View</em> wird gecached und nur periodisch neu berechnet</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="n">MATERIALIZED</span> <span class="k">VIEW</span> <span class="n">view_name</span>
+<span class="k">AS</span>
+<span class="o">&lt;</span><span class="n">query</span><span class="o">&gt;</span>
+<span class="k">WITH</span> <span class="p">[</span><span class="k">NO</span><span class="p">]</span> <span class="k">DATA</span><span class="p">;</span>
+</pre></div>
+
+
+<ul>
+<li>Mit <code>NO DATA</code> wird die View initial nicht geladen und kann erst gelesen werden, wenn sie das erste Mal refreshed wird</li>
+<li>View neu laden:</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">REFRESH</span> <span class="n">MATERIALIZED</span> <span class="k">VIEW</span> <span class="n">view_name</span><span class="p">;</span>
+</pre></div>
+
+
+<h2 id="zugriffsschutz-mit-views">Zugriffsschutz mit Views</h2>
+<ul>
+<li>Auf Views können eigene Berechtigungen vergeben werden</li>
+<li>Somit kann z.B. einem user Zugriff auf eine unterliegende Tabelle verwehrt bleiben, er kann aber über eine View bestimmte Attribute der Tabelle sehen</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">VIEW</span> <span class="n">AngPublic</span> <span class="p">(</span><span class="n">Persnr</span><span class="p">,</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Tel</span><span class="p">,</span> <span class="n">Wohnort</span><span class="p">)</span>
+<span class="k">AS</span>
+<span class="k">SELECT</span> <span class="n">Persnr</span><span class="p">,</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Tel</span><span class="p">,</span> <span class="n">Wohnort</span>
+<span class="k">FROM</span> <span class="n">Angestellter</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">SELECT</span> <span class="k">ON</span> <span class="n">AngPublic</span> <span class="k">TO</span> <span class="k">PUBLIC</span><span class="p">;</span>
+</pre></div>
+
+
+<ul>
+<li>In der View kann z.B. <code>user</code> verwendet werden, um Daten spezifisch für den angemeldeten Db-User anzuzeigen</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">VIEW</span> <span class="n">Angestellter_V</span> <span class="k">AS</span>
+<span class="k">SELECT</span> <span class="n">a</span><span class="p">.</span><span class="o">*</span>
+<span class="k">FROM</span> <span class="n">Angestellter</span> <span class="n">a</span>
+<span class="k">WHERE</span> <span class="n">a</span><span class="p">.</span><span class="n">login</span> <span class="o">=</span> <span class="k">user</span>
+</pre></div>
+
+
+<ul>
+<li>Zugrifsschutz einer Tabelle kann auch über Stored Procedure realisiert werden. Dazu wird vom Table-Owner eine Stored Procedure erstellt, die eine Tabelle verändert, und anschliessend Ausführungsrechte an andere User erteilt. Die Stored Procedure werden immer mit den Rechten des Erstellers ausgeführt</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="k">GRANT</span> <span class="k">EXEC</span> <span class="k">ON</span> <span class="n">SalaerErhoehung</span> <span class="k">TO</span> <span class="n">PersonalChef_R</span><span class="p">;</span>
+</pre></div>
+
+
+<h2 id="temporare-tabellen">Temporäre Tabellen</h2>
+<ul>
+<li>Erstellt eine Tabelle, die am Ende der Session oder der Transaktion gelöscht wird</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TEMPORARY</span> <span class="k">TABLE</span> <span class="n">tmp</span> <span class="k">AS</span>
+    <span class="k">SELECT</span> <span class="n">generate_series</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100000</span><span class="p">)</span> <span class="k">AS</span> <span class="n">a</span><span class="p">;</span>
+</pre></div>
                 
                   
                 
@@ -952,7 +1246,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../1_Exam/" title="1 Exam" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../4_Triggers/" title="4 Triggers" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -961,19 +1255,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                1 Exam
+                4 Triggers
               </span>
             </div>
           </a>
         
         
-          <a href="../3_Software_Security/" title="3 Software Security" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../EPJ/0_Index/" title="0 Index" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                3 Software Security
+                0 Index
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

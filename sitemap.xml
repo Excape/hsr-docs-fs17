@@ -4,7 +4,7 @@
     
     <url>
      <loc>https://doc.robinsuter.ch/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>https://doc.robinsuter.ch/playground/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -21,25 +21,37 @@
         
     <url>
      <loc>https://doc.robinsuter.ch/Dbs2/0_Index/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/Dbs2/1_Exam/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/Dbs2/2_OR-Mapping/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/Dbs2/3_Stored_Procedures/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://doc.robinsuter.ch/Dbs2/4_Triggers/</loc>
+     <lastmod>2017-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://doc.robinsuter.ch/Dbs2/5_Views/</loc>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -49,13 +61,13 @@
         
     <url>
      <loc>https://doc.robinsuter.ch/EPJ/0_Index/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/EPJ/1_Projektplan/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -65,19 +77,19 @@
         
     <url>
      <loc>https://doc.robinsuter.ch/ITBus/0_Index/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/ITBus/1_Exam/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/ITBus/2_Informationssysteme/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -87,25 +99,25 @@
         
     <url>
      <loc>https://doc.robinsuter.ch/InfSi3/0_Index/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/InfSi3/1_Exam/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/InfSi3/2_Overview/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/InfSi3/3_Software_Security/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -115,37 +127,37 @@
         
     <url>
      <loc>https://doc.robinsuter.ch/ParProg/0_Index/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/ParProg/1_Exam/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/ParProg/2_Multi-Threading_Grundlagen/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/ParProg/3_Thread-Synchronisation/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/ParProg/4_Synchronisationsprimitiven/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>https://doc.robinsuter.ch/ParProg/4_Weitere_Synchronisationsprimitiven/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <loc>https://doc.robinsuter.ch/ParProg/5_Gefahren/</loc>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -155,13 +167,13 @@
         
     <url>
      <loc>https://doc.robinsuter.ch/PhAI/0_Index/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/PhAI/1_Exam/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -171,25 +183,25 @@
         
     <url>
      <loc>https://doc.robinsuter.ch/SE2/0_Index/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/SE2/1_Exam/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/SE2/2_Project_Automation/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/SE2/3_SE_Practises/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -199,31 +211,37 @@
         
     <url>
      <loc>https://doc.robinsuter.ch/Vss/0_Index/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/Vss/1_Exam/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/Vss/2_Introduction/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/Vss/3_socket_programmierung/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/Vss/4_Asynchronous_Messaging/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://doc.robinsuter.ch/Vss/5_RMI_Web-Services/</loc>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -233,37 +251,37 @@
         
     <url>
      <loc>https://doc.robinsuter.ch/VwlTg/0_Index/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/VwlTg/1_Exam/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/VwlTg/2_Wohlstand/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/VwlTg/3_Einkommensverteilung_und_Sozialwerke/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/VwlTg/4_Arbeitsmarkt/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://doc.robinsuter.ch/VwlTg/4_Wachstum/</loc>
-     <lastmod>2017-03-08</lastmod>
+     <lastmod>2017-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
