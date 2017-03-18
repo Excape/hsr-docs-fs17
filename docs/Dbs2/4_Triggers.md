@@ -21,7 +21,7 @@
 ## Syntax
 - Allgemein (Beispiel)
 ``` sql
-CREATE | ALTER TRIGGER BEFORE | AFTER INSERT [OR UPDATE [OF attribute] [OR ...]]
+CREATE | ALTER TRIGGER name BEFORE | AFTER INSERT [OR UPDATE [OF attribute] [OR ...]]
 ON table
 FOR EACH ROW | STATEMENT
 EXECUTE PROCEDURE mytriggerfunc();
