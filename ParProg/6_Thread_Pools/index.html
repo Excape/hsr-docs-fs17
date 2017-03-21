@@ -9,7 +9,7 @@
         <meta name="description" content="HSR Study Documentation FS16">
       
       
-        <link rel="canonical" href="https://doc.robinsuter.ch/Dbs2/4_Triggers/">
+        <link rel="canonical" href="https://doc.robinsuter.ch/ParProg/6_Thread_Pools/">
       
       
         <meta name="author" content="Robin Suter">
@@ -21,7 +21,7 @@
     
     
       
-        <title>4 Triggers - HSR Notizen FS17</title>
+        <title>6 Thread Pools - HSR Notizen FS17</title>
       
     
     
@@ -84,11 +84,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Dbs2
+                  ParProg
                 </span>
               
             
-            4 Triggers
+            6 Thread Pools
           
         </span>
       </div>
@@ -216,12 +216,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Dbs2
@@ -239,7 +237,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../0_Index/" title="0 Index" class="md-nav__link">
+    <a href="../../Dbs2/0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
   </li>
@@ -251,7 +249,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../../Dbs2/1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -263,7 +261,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../2_OR-Mapping/" title="2 OR Mapping" class="md-nav__link">
+    <a href="../../Dbs2/2_OR-Mapping/" title="2 OR Mapping" class="md-nav__link">
       2 OR Mapping
     </a>
   </li>
@@ -275,7 +273,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../3_Stored_Procedures/" title="3 Stored Procedures" class="md-nav__link">
+    <a href="../../Dbs2/3_Stored_Procedures/" title="3 Stored Procedures" class="md-nav__link">
       3 Stored Procedures
     </a>
   </li>
@@ -285,102 +283,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        4 Triggers
-      </label>
-    
-    <a href="./" title="4 Triggers" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../Dbs2/4_Triggers/" title="4 Triggers" class="md-nav__link">
       4 Triggers
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#anwedungen" title="Anwedungen" class="md-nav__link">
-    Anwedungen
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#eigenschaften" title="Eigenschaften" class="md-nav__link">
-    Eigenschaften
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ausfuhrung" title="Ausführung" class="md-nav__link">
-    Ausführung
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#syntax" title="Syntax" class="md-nav__link">
-    Syntax
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#beispiele" title="Beispiele" class="md-nav__link">
-    Beispiele
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#before-delete" title="Before Delete" class="md-nav__link">
-    Before Delete
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#abgeleitete-attribute" title="Abgeleitete Attribute" class="md-nav__link">
-    Abgeleitete Attribute
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auditing" title="Auditing" class="md-nav__link">
-    Auditing
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -390,7 +297,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../5_Views/" title="5 Views" class="md-nav__link">
+    <a href="../../Dbs2/5_Views/" title="5 Views" class="md-nav__link">
       5 Views
     </a>
   </li>
@@ -402,7 +309,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../6_Datenstrukturen/" title="6 Datenstrukturen" class="md-nav__link">
+    <a href="../../Dbs2/6_Datenstrukturen/" title="6 Datenstrukturen" class="md-nav__link">
       6 Datenstrukturen
     </a>
   </li>
@@ -609,10 +516,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
     <label class="md-nav__link" for="nav-7">
       ParProg
@@ -630,7 +539,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/0_Index/" title="0 Index" class="md-nav__link">
+    <a href="../0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
   </li>
@@ -642,7 +551,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -654,7 +563,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/2_Multi-Threading_Grundlagen/" title="2 Multi Threading Grundlagen" class="md-nav__link">
+    <a href="../2_Multi-Threading_Grundlagen/" title="2 Multi Threading Grundlagen" class="md-nav__link">
       2 Multi Threading Grundlagen
     </a>
   </li>
@@ -666,7 +575,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/3_Thread-Synchronisation/" title="3 Thread Synchronisation" class="md-nav__link">
+    <a href="../3_Thread-Synchronisation/" title="3 Thread Synchronisation" class="md-nav__link">
       3 Thread Synchronisation
     </a>
   </li>
@@ -678,7 +587,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/4_Synchronisationsprimitiven/" title="4 Synchronisationsprimitiven" class="md-nav__link">
+    <a href="../4_Synchronisationsprimitiven/" title="4 Synchronisationsprimitiven" class="md-nav__link">
       4 Synchronisationsprimitiven
     </a>
   </li>
@@ -690,7 +599,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/5_Gefahren/" title="5 Gefahren" class="md-nav__link">
+    <a href="../5_Gefahren/" title="5 Gefahren" class="md-nav__link">
       5 Gefahren
     </a>
   </li>
@@ -700,11 +609,95 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../ParProg/6_Thread_Pools/" title="6 Thread Pools" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        6 Thread Pools
+      </label>
+    
+    <a href="./" title="6 Thread Pools" class="md-nav__link md-nav__link--active">
       6 Thread Pools
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#konzept" title="Konzept" class="md-nav__link">
+    Konzept
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funktionsweise" title="Funktionsweise" class="md-nav__link">
+    Funktionsweise
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-lancierung" title="Task Lancierung" class="md-nav__link">
+    Task Lancierung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-konzept" title="Future Konzept" class="md-nav__link">
+    Future Konzept
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rekursive-tasks" title="Rekursive Tasks" class="md-nav__link">
+    Rekursive Tasks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fork-join-pool" title="Fork &amp; Join Pool" class="md-nav__link">
+    Fork &amp; Join Pool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#completeablefutures" title="CompleteableFutures" class="md-nav__link">
+    CompleteableFutures
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1070,64 +1063,57 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#anwedungen" title="Anwedungen" class="md-nav__link">
-    Anwedungen
+  <a href="#konzept" title="Konzept" class="md-nav__link">
+    Konzept
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#eigenschaften" title="Eigenschaften" class="md-nav__link">
-    Eigenschaften
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ausfuhrung" title="Ausführung" class="md-nav__link">
-    Ausführung
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#syntax" title="Syntax" class="md-nav__link">
-    Syntax
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#beispiele" title="Beispiele" class="md-nav__link">
-    Beispiele
+  <a href="#funktionsweise" title="Funktionsweise" class="md-nav__link">
+    Funktionsweise
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#before-delete" title="Before Delete" class="md-nav__link">
-    Before Delete
+  <a href="#task-lancierung" title="Task Lancierung" class="md-nav__link">
+    Task Lancierung
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#abgeleitete-attribute" title="Abgeleitete Attribute" class="md-nav__link">
-    Abgeleitete Attribute
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auditing" title="Auditing" class="md-nav__link">
-    Auditing
+  <a href="#future-konzept" title="Future Konzept" class="md-nav__link">
+    Future Konzept
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rekursive-tasks" title="Rekursive Tasks" class="md-nav__link">
+    Rekursive Tasks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fork-join-pool" title="Fork &amp; Join Pool" class="md-nav__link">
+    Fork &amp; Join Pool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#completeablefutures" title="CompleteableFutures" class="md-nav__link">
+    CompleteableFutures
+  </a>
   
 </li>
       
@@ -1145,139 +1131,140 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Dbs2/4_Triggers.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/ParProg/6_Thread_Pools.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <h1 id="triggers">Triggers</h1>
-<h2 id="anwedungen">Anwedungen</h2>
+                <h1 id="thread-pools">Thread Pools</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Quiz letzte Woche: Keine Garantie, dass Lock jemals erfolgreich ist -&gt; Starvation. </p>
+</div>
+<h2 id="konzept">Konzept</h2>
 <ul>
-<li>Berechnen von komplexen Konsistenzbedingungen</li>
-<li>Sicherheiten, z.B. das Änderungen an Tabelle X nur an Wochentagen ausgeführt werden können</li>
-<li>Sammeln von Statistik und Log-Daten</li>
-<li>Berechnen von abgeleiteten Attributen</li>
+<li><em>Tasks Queue</em> mit Tasks von potentiell parallele Arbeitspakete<ul>
+<li>Queue weiss nicht, wieviele Threads im Pool arbeiten, Tasks müssen also beliebig parallelisierbar sein</li>
 </ul>
-<h2 id="eigenschaften">Eigenschaften</h2>
+</li>
+<li>
+<p><em>Thread Pool</em> ist eine beschränkte Anzahl von Worker-Threads, die die Tasks aus der Queue holen und ausführen</p>
+</li>
+<li>
+<p>Vorteile</p>
 <ul>
-<li>Sind DB-Objekte und immer einer Tabelle zugeordnet</li>
-<li>Werden in Stored Procedures programmiert</li>
-<li>Sind parameterlos</li>
-<li>Werden beim Eintreten eines Events vom DBMS ausgeführt, nicht manuell</li>
+<li>Beschränkte Anzahl Threads (konfigurierbar, normalerweise Anzahl logische CPU-Cores)</li>
+<li>Threads werden recycled, weniger Overhead für Thread-Erzeugung und -Freigabe</li>
+<li>Höhere Abstraktion: Task-Beschreibung wird von Task-Ausführung getrennt (muss z.B. nicht zwinged nebenläufig sein)</li>
 </ul>
-<h2 id="ausfuhrung">Ausführung</h2>
+</li>
+<li>
+<p>Einschränkungen</p>
 <ul>
-<li>"Before" Triggers können Änderungen an einer Row vornehmen</li>
-<li>"After" Triggers können nur reagieren, der Returnwert wird ignoriert</li>
-<li>Triggers werden in alphabetischer Reihenfolge ausgeführt</li>
-<li>Wenn "Before"-Trigger als Rückgabewert NULL liefert, wird die Operation abgebrochen!</li>
+<li>Tasks dürfen nicht auf andere warten, sie müssen unabhängig voneinander sein<ul>
+<li>Sonst könnte es zu Deadlocks kommen, wenn alle Threads auf andere Tasks in der Queue warten</li>
 </ul>
-<h2 id="syntax">Syntax</h2>
-<ul>
-<li>Allgemein (Beispiel)</li>
+</li>
+<li>Tasks müssen komplett fertig laufen, bevor der Worker Thread ein anderer Task beginnt (<em>Run to Completion</em>)<ul>
+<li>Ausser bei geschachtelten Tasks (Sub-Tasks)</li>
+<li>Grund: Thread führt einen Stack. Weitere Tasks würden den Stack füllen und könnten nur wieder in umgekehrter Reihenfolge "gepoppt" werden. Bei geschachtelten Tasks weiss man, dass der "obere" Task auf dem Stack zuerst fertig laufen muss</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="o">|</span> <span class="k">ALTER</span> <span class="k">TRIGGER</span> <span class="n">name</span> <span class="k">BEFORE</span> <span class="o">|</span> <span class="k">AFTER</span> <span class="k">INSERT</span> <span class="p">[</span><span class="k">OR</span> <span class="k">UPDATE</span> <span class="p">[</span><span class="k">OF</span> <span class="n">attribute</span><span class="p">]</span> <span class="p">[</span><span class="k">OR</span> <span class="p">...]]</span>
-<span class="k">ON</span> <span class="k">table</span>
-<span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span> <span class="o">|</span> <span class="k">STATEMENT</span>
-<span class="k">EXECUTE</span> <span class="k">PROCEDURE</span> <span class="n">mytriggerfunc</span><span class="p">();</span>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="funktionsweise">Funktionsweise</h2>
+<h3 id="task-lancierung">Task Lancierung</h3>
+<div class="codehilite"><pre><span></span><span class="n">ForkJoinPool</span> <span class="n">threadPool</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ForkJoinPool</span><span class="o">();</span>
 </pre></div>
 
 
 <ul>
-<li>Trigger-Funktion (Procedure)</li>
+<li>Bietet Task Queue und Threads (default: Anzahl Cores)</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">FUNCTION</span> <span class="n">mytrigger_func</span><span class="p">()</span>
-<span class="k">RETURNS</span> <span class="k">TRIGGER</span> <span class="c1">-- special meaning</span>
-<span class="k">AS</span> <span class="err">$$</span>
-<span class="o">&lt;&lt;</span><span class="n">body</span><span class="o">&gt;&gt;</span>
-<span class="err">$$</span> <span class="k">language</span> <span class="n">plpgsql</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><span class="n">Future</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">future</span> <span class="o">=</span> <span class="n">threadPool</span><span class="o">.</span><span class="na">submit</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="err">…</span><span class="o">;</span>
+    <span class="c1">// long calculation</span>
+    <span class="k">return</span> <span class="n">value</span><span class="o">;</span>
+<span class="o">});</span>
 </pre></div>
 
 
 <ul>
-<li>Die Eigenschaften eines Triggers, z.B. ob <code>BEFORE</code> oder <code>AFTER</code>, auf welche Operation getriggert wird, Name der Tabelle, etc. wird in Variablen der Funktion übergeben, alle mit dem Prefix <code>TG_</code></li>
-<li>Mit der Variable <code>NEW</code> kann eine neue, leere Row gefüllt werden (nur bei INSERT UND UPDATE)</li>
-<li>Mit der <code>OLD</code>-Variable wird die "alte" Row angesprochen (nur bei UPDATE und DELETE)</li>
+<li>Task wird eingereiht in die Task-Queue</li>
+<li>Generic Type von <code>Future&lt;T&gt;</code> ist Typ des Rückgabewert</li>
 </ul>
-<h2 id="beispiele">Beispiele</h2>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">dt_trigger_func</span><span class="p">()</span>
-<span class="k">RETURNS</span> <span class="k">TRIGGER</span> <span class="k">AS</span> <span class="err">$$</span>
-<span class="k">BEGIN</span>
-    <span class="k">IF</span> <span class="p">(</span><span class="n">TG_OP</span> <span class="o">=</span> <span class="s1">&#39;INSERT&#39;</span><span class="p">)</span> <span class="k">THEN</span>
-        <span class="k">NEW</span><span class="p">.</span><span class="n">creation_date</span> <span class="p">:</span><span class="o">=</span> <span class="n">now</span><span class="p">();</span>
-    <span class="k">ELSIF</span> <span class="p">(</span><span class="n">TG_OP</span> <span class="o">=</span> <span class="s1">&#39;UPDATE&#39;</span><span class="p">)</span> <span class="k">THEN</span>
-        <span class="k">NEW</span><span class="p">.</span><span class="n">modification_date</span> <span class="p">:</span><span class="o">=</span> <span class="n">now</span><span class="p">();</span>
-    <span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
-    <span class="k">RETURN</span> <span class="k">NEW</span><span class="p">;</span>
-<span class="k">END</span>
-<span class="err">$$</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
+<h3 id="future-konzept">Future Konzept</h3>
+<ul>
+<li>Das <code>Future</code>-Objekt wird benötigt, um asynchron Tasks zu submitten. Das Ergebnis wird erst später rein geschrieben</li>
+<li><code>T result = future.get()</code> blockiert, bis Task beendet ist und ruft das Ergebnis ab (analog <code>join</code>)</li>
+<li>Wenn Tasks mit unbehandelter Exception abbricht, wirft die <code>get()</code> Methode eine <code>ExcecutionException</code> mit ursprünglicher Exception als <code>Cause</code></li>
+<li>Mit <code>future.cancel()</code> wird Task aus Warteschlange entfernt, und falls <code>true</code> als argument mitgegeben wird, auch ein laufender Tasks unterbrochen (<code>InterruptedException</code>, wird nicht einfach gekillt!)</li>
+<li>Wenn <code>Future</code>-Objekt beim submit ignoriert wird (Fire and Forget), werden unbehandelte Exceptions ignoriert!</li>
+</ul>
+<h2 id="rekursive-tasks">Rekursive Tasks</h2>
+<ul>
+<li>Tasks ineinander verschachteln</li>
+<li>Tasks muss explizit implementiert werden und von <code>RecursiveTasks&lt;T&gt;</code> ableiten</li>
+<li>Statt <code>submit</code> auf Tasks <code>fork()</code> aufrufen</li>
+<li>Statt <code>get()</code> auf Tasks <code>join()</code> aufrufen</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">CountTask</span> <span class="kd">extends</span> <span class="n">RecursiveTask</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">lower</span><span class="o">,</span> <span class="n">upper</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">CountTask</span><span class="o">(</span><span class="kt">int</span> <span class="n">lower</span><span class="o">,</span> <span class="kt">int</span> <span class="n">upper</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">lower</span> <span class="o">=</span> <span class="n">lower</span><span class="o">;</span> <span class="k">this</span><span class="o">.</span><span class="na">upper</span> <span class="o">=</span> <span class="n">upper</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">protected</span> <span class="n">Integer</span> <span class="nf">compute</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">upper</span> <span class="o">-</span> <span class="n">lower</span> <span class="o">&gt;</span> <span class="n">THRESHOLD</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// parallel count</span>
+            <span class="kt">int</span> <span class="n">middle</span> <span class="o">=</span> <span class="o">(</span><span class="n">lower</span> <span class="o">+</span> <span class="n">upper</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+            <span class="n">CountTask</span> <span class="n">left</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CountTask</span><span class="o">(</span><span class="n">lower</span><span class="o">,</span> <span class="n">middle</span><span class="o">);</span>
+            <span class="n">CountTask</span> <span class="n">right</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CountTask</span><span class="o">(</span><span class="n">middle</span><span class="o">,</span> <span class="n">upper</span><span class="o">);</span>
+            <span class="n">left</span><span class="o">.</span><span class="na">fork</span><span class="o">();</span> <span class="n">right</span><span class="o">.</span><span class="na">fork</span><span class="o">();</span>
+            <span class="k">return</span> <span class="n">right</span><span class="o">.</span><span class="na">join</span><span class="o">()</span> <span class="o">+</span> <span class="n">left</span><span class="o">.</span><span class="na">join</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="c1">// sequential count</span>
+            <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="n">lower</span><span class="o">;</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="n">upper</span><span class="o">;</span> <span class="n">number</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">isPrime</span><span class="o">(</span><span class="n">number</span><span class="o">))</span> <span class="o">{</span> <span class="n">count</span><span class="o">++;</span> <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 
 
-<h3 id="before-delete">Before Delete</h3>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">delete_tbl_trigger_fn</span><span class="p">()</span>
-<span class="k">RETURNS</span> <span class="k">trigger</span> <span class="k">AS</span> <span class="err">$$</span>
-<span class="k">BEGIN</span>
-    <span class="k">UPDATE</span> <span class="n">tbl</span> <span class="k">SET</span> <span class="n">deleted</span><span class="o">=</span><span class="k">true</span> <span class="k">WHERE</span> <span class="n">id</span><span class="o">=</span><span class="k">OLD</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
-    <span class="k">RETURN</span> <span class="k">NULL</span><span class="p">;</span> <span class="c1">-- Note RETURN NULL, not RETURN OLD!</span>
-<span class="k">END</span><span class="p">;</span>
-<span class="err">$$</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
-
-<span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="n">delete_tbl_trigger</span>
-<span class="k">BEFORE</span> <span class="k">DELETE</span>
-<span class="k">ON</span> <span class="n">tbl</span>
-<span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span>
-<span class="k">EXECUTE</span> <span class="k">PROCEDURE</span> <span class="n">delete_tbl_trigger_fn</span><span class="p">();</span>
-</pre></div>
-
-
-<h3 id="abgeleitete-attribute">Abgeleitete Attribute</h3>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">function</span> <span class="n">increment_salaer</span>
-<span class="p">(</span> <span class="n">v_salaer</span> <span class="k">IN</span> <span class="n">Firma</span><span class="p">.</span><span class="n">SalaerSumme</span><span class="o">%</span><span class="k">TYPE</span><span class="p">)</span>
-<span class="k">RETURNS</span> <span class="k">null</span>
-<span class="k">AS</span> <span class="err">$$</span>
-<span class="k">BEGIN</span>
-    <span class="k">UPDATE</span> <span class="n">Firma</span>
-    <span class="k">SET</span> <span class="n">SalaerSumme</span> <span class="o">=</span> <span class="n">coalesce</span> <span class="p">(</span><span class="n">SalaerSumme</span> <span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">v_salaer</span><span class="p">;</span>
-<span class="k">END</span> <span class="p">;</span>
-<span class="err">$$</span> <span class="k">language</span> <span class="n">plpgsql</span><span class="p">;</span>
-
-<span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">berechne_SalSumme_trigger_fn</span><span class="p">()</span>
-<span class="k">RETURNS</span> <span class="k">trigger</span> <span class="k">AS</span> <span class="err">$$</span>
-<span class="k">BEGIN</span>
-    <span class="k">IF</span> <span class="n">TG_OP</span><span class="o">=</span><span class="s1">&#39;DELETE&#39;</span> <span class="k">THEN</span> <span class="n">PERFORM</span> <span class="n">increment_salaer</span><span class="p">(</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="k">OLD</span><span class="p">.</span><span class="n">salaer</span><span class="p">);</span>
-    <span class="k">ELSIF</span> <span class="n">TG_OP</span><span class="o">=</span><span class="s1">&#39;UPDATE&#39;</span> <span class="k">THEN</span>
-        <span class="n">PERFORM</span> <span class="n">increment_salaer</span><span class="p">(</span><span class="k">NEW</span><span class="p">.</span><span class="n">Salaer</span><span class="o">-</span><span class="k">OLD</span><span class="p">.</span><span class="n">Salaer</span><span class="p">);</span>
-    <span class="k">ELSE</span> <span class="cm">/*inserting*/</span> <span class="n">PERFORM</span> <span class="n">increment_salaer</span><span class="p">(</span><span class="k">NEW</span><span class="p">.</span><span class="n">salaer</span><span class="p">);</span>
-    <span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
-    <span class="k">RETURN</span> <span class="k">null</span><span class="p">;</span>
-<span class="k">END</span><span class="p">;</span>
-<span class="err">$$</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
-
-<span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="n">berechne_Salaersumme</span>
-<span class="k">AFTER</span> <span class="k">INSERT</span> <span class="k">OR</span> <span class="k">UPDATE</span> <span class="k">OF</span> <span class="n">Salaer</span> <span class="k">OR</span> <span class="k">DELETE</span> <span class="k">ON</span> <span class="n">Angestellter</span>
-<span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span>
-<span class="k">EXECUTE</span> <span class="k">PROCEDURE</span> <span class="n">berechne_SalSumme_trigger_fn</span><span class="p">();</span>
-</pre></div>
-
-
-<h3 id="auditing">Auditing</h3>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">process_ang_audit</span><span class="p">()</span> <span class="k">RETURNS</span>
-<span class="k">TRIGGER</span> <span class="k">AS</span> <span class="err">$$</span>
-<span class="k">BEGIN</span>
-    <span class="k">IF</span> <span class="p">(</span><span class="n">TG_OP</span> <span class="o">=</span> <span class="s1">&#39;DELETE&#39;</span><span class="p">)</span> <span class="k">THEN</span>
-        <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">ang_audit</span>
-            <span class="k">SELECT</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">now</span><span class="p">(),</span> <span class="k">user</span><span class="p">,</span> <span class="k">OLD</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="k">OLD</span><span class="p">.</span><span class="n">salaer</span><span class="p">;</span>
-        <span class="k">RETURN</span> <span class="k">OLD</span><span class="p">;</span>
-    <span class="k">ELSIF</span> <span class="p">(</span><span class="n">TG_OP</span> <span class="o">=</span> <span class="s1">&#39;UPDATE&#39;</span><span class="p">)</span> <span class="k">THEN</span>
-        <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">ang_audit</span>
-            <span class="k">SELECT</span> <span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="n">now</span><span class="p">(),</span> <span class="k">user</span><span class="p">,</span> <span class="k">NEW</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="k">NEW</span><span class="p">.</span><span class="n">salaer</span><span class="p">;</span>
-    <span class="k">ELSIF</span> <span class="p">(</span><span class="n">TG_OP</span> <span class="o">=</span> <span class="s1">&#39;INSERT&#39;</span><span class="p">)</span> <span class="k">THEN</span>
-        <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">ang_audit</span>
-            <span class="k">SELECT</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">now</span><span class="p">(),</span> <span class="k">user</span><span class="p">,</span> <span class="k">NEW</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="k">NEW</span><span class="p">.</span><span class="n">salaer</span><span class="p">;</span>
-    <span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
-    <span class="k">RETURN</span> <span class="k">NULL</span><span class="p">;</span>
-    <span class="c1">-- result is ignored since this is an AFTER trigger</span>
-<span class="k">END</span><span class="p">;</span>
-<span class="err">$$</span> <span class="k">language</span> <span class="n">plpgsql</span><span class="p">;</span>
+<ul>
+<li>Aufruf (Java 8): <code>int result = threadPool.invoke(new CountTask())</code></li>
+<li>Achtung vor Über-Parallelisierung! Nicht zuviel aufsplitten, sonst ist der Overhead der Rekursion zu gross</li>
+</ul>
+<h2 id="fork-join-pool">Fork &amp; Join Pool</h2>
+<ul>
+<li><code>Fork()</code> und dann <code>Join()</code> ist schneller, wenn <code>Join()</code> in umgekehrter Reihenfolge ausgeführt wird<ul>
+<li>Grund: Neue Sub-Tasks werden zuoberst in lokale Queue eingefügt</li>
+</ul>
+</li>
+<li>Worker-Threads laufen als Daemon-Threads</li>
+<li>Anzahl Threads werden dynamisch verändert</li>
+<li>Common Pool (sinleton) hat immer #Prozessoren - 1 Threads (also langsamer)</li>
+<li>Moderne Thread-Pool-Implementationen haben mehrere Queues<ul>
+<li>Jeder Thread hat eigene Queue (Lokale Queue)</li>
+<li>Wenn Loake Queue leer ist, wird von einer anderen lokalen Queue Tasks abgenommen ("Work Stealing")</li>
+</ul>
+</li>
+</ul>
+<h2 id="completeablefutures">CompleteableFutures</h2>
+<ul>
+<li>Feature von Java 8</li>
+<li>Caller-zentrisch (Pull): Caller wartet auf Ende und holt sich das Resultat über das Future-Objekt</li>
+<li>Callee-zentrisch: Completion-Callback, das ausgeführt wird, wenn der Task fertig ist</li>
+<li><code>CompletableFuture</code> ist <em>Callee-zentrisch</em></li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">CompletableFuture</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span> <span class="n">future</span> <span class="o">=</span>
+    <span class="n">CompletableFuture</span><span class="o">.</span><span class="na">supplyAsync</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">longOperation</span><span class="o">());</span>
+<span class="c1">//other work</span>
+<span class="n">future</span><span class="o">.</span><span class="na">thenAccept</span><span class="o">(</span><span class="n">result</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">));</span>
 </pre></div>
                 
                   
@@ -1297,7 +1284,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../3_Stored_Procedures/" title="3 Stored Procedures" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../5_Gefahren/" title="5 Gefahren" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1306,19 +1293,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                3 Stored Procedures
+                5 Gefahren
               </span>
             </div>
           </a>
         
         
-          <a href="../5_Views/" title="5 Views" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../PhAI/0_Index/" title="0 Index" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                5 Views
+                0 Index
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

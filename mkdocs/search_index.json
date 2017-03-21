@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "HSR Notizen\n\n\nSpring Semester '17\n\n\n\n\nDatenbanksysteme 2\n\n\nEngineering-Projekt\n\n\nInformationssicherheit 3\n\n\nWirtschaftsinformatik 1 - IT im Business\n\n\nParallele Programmierung\n\n\nPhysik Anwendungen f\u00fcr Informatik\n\n\nSoftware-Engineering 2\n\n\nVerteilte SW-Systeme\n\n\nVolkswirtschaft und Technikgeschichte\n\n\n\n\nLinks\n\n\n\n\nSlack: \nhttps://hsr-students.slack.com\n\n\nMathJax Syntax\n\n\nMkDocs User-Guide\n\n\nMarkdown Cheatsheet", 
+            "text": "HSR Notizen\n\n\nSpring Semester '17\n\n\n\n\nDatenbanksysteme 2\n\n\nEngineering-Projekt\n\n\nInformationssicherheit 3\n\n\nWirtschaftsinformatik 1 - IT im Business\n\n\nParallele Programmierung\n\n\nPhysik Anwendungen f\u00fcr Informatik\n\n\nSoftware-Engineering 2\n\n\nVerteilte SW-Systeme\n\n\nVolkswirtschaft\n\n\n\n\nLinks\n\n\n\n\nSlack: \nhttps://hsr-students.slack.com\n\n\nMathJax Syntax\n\n\nMkDocs User-Guide\n\n\nMarkdown Cheatsheet", 
             "title": "Home"
         }, 
         {
@@ -12,7 +12,7 @@
         }, 
         {
             "location": "/#spring-semester-17", 
-            "text": "Datenbanksysteme 2  Engineering-Projekt  Informationssicherheit 3  Wirtschaftsinformatik 1 - IT im Business  Parallele Programmierung  Physik Anwendungen f\u00fcr Informatik  Software-Engineering 2  Verteilte SW-Systeme  Volkswirtschaft und Technikgeschichte", 
+            "text": "Datenbanksysteme 2  Engineering-Projekt  Informationssicherheit 3  Wirtschaftsinformatik 1 - IT im Business  Parallele Programmierung  Physik Anwendungen f\u00fcr Informatik  Software-Engineering 2  Verteilte SW-Systeme  Volkswirtschaft", 
             "title": "Spring Semester '17"
         }, 
         {
@@ -32,12 +32,12 @@
         }, 
         {
             "location": "/Dbs2/0_Index/", 
-            "text": "Datenbanksysteme 2\n\n\n\n\nExam Notes", 
+            "text": "Datenbanksysteme 2\n\n\n\n\nExam Notes\n\n\nOR-Mapping\n\n\nStored Procedures\n\n\nTriggers\n\n\nViews\n\n\nDatenstrukturen", 
             "title": "0 Index"
         }, 
         {
             "location": "/Dbs2/0_Index/#datenbanksysteme-2", 
-            "text": "Exam Notes", 
+            "text": "Exam Notes  OR-Mapping  Stored Procedures  Triggers  Views  Datenstrukturen", 
             "title": "Datenbanksysteme 2"
         }, 
         {
@@ -326,13 +326,58 @@
             "title": "Tempor\u00e4re Tabellen"
         }, 
         {
+            "location": "/Dbs2/6_Datenstrukturen/", 
+            "text": "Datenstrukturen\n\n\nArrays\n\n\n\n\nIn Postgres 1-indexiert!\n\n\nDoku: \nhttps://www.postgresql.org/docs/current/static/arrays.html\n\n\n\n\nCREATE\n \nTABLE\n \nsal_emp\n \n(\n\n    \nname\n \ntext\n,\n\n    \npay_by_quarter\n \ninteger\n[],\n\n    \nschedule\n \ntext\n[][]\n\n\n);\n\n\n\n\n\n\nINSERT\n \nINTO\n \nsal_emp\n \nVALUES\n \n(\n\n\nBill\n,\n\n\nARRAY\n[\n10000\n,\n \n10000\n,\n \n10000\n,\n \n10000\n],\n\n\nARRAY\n[[\nmeeting\n,\n \nlunch\n],\n \n[\ntraining\n,\n \npresentation\n]]\n\n\n);\n\n\n\n\n\n\nAccessoren\n\n\nSELECT\n \nARRAY\n[\n1\n,\n2\n,\n3\n+\n4\n];\n\n\n-- returns: {1,2,7}\n\n\n\n\n\n\nSlicing\n\n\nSELECT\n \nschedule\n[\n1\n:\n2\n]\n\n\n-- first two elements\n\n\n\n\n\n\n\n\narray[from:to]\n\n\nfrom\n und \nto\n sind inclusive!\n\n\n\n\nOperatoren\n\n\n\n\nEquality mit \n=\n\n\n\"Is contained by\" mit \n@\n\n\n\n\nARRAY\n[\n2\n,\n7\n]\n \n@\n \nARRAY\n[\n1\n,\n7\n,\n4\n,\n2\n,\n6\n];\n\n\n\n\n\n\n\n\nOverlap: \n\n\n\n\nSELECT\n \nARRAY\n[\n1\n,\n4\n,\n3\n]\n \n \nARRAY\n[\n2\n,\n1\n]\n\n\n\n\n\n\nDictionaries\n\n\n\n\nCollection aus Key-Value-Pairs, auch \"Entitiy Attribute Value\" - EAV\n\n\nNur in ausnamef\u00e4llen in RDBS verwenden!\n\n\n\n\n\n\nNote\n\n\nTODO!\n\n\n\n\nTrees\n\n\n\n\nAdjazenzliste: Jeder Record hat einen Fremdschl\u00fcssel zu seinem Parent\n\n\nNested Set-Modell: Die Knoten werden in Preorder-Reihenfolge durchnummeriert. Beim traversieren in die tiefe wird \"left\" gesetzt, beim backtracking wird \"right\" gesetzt (immer aufsteigend gez\u00e4hlt)\n\n\n\n\nMaterialized Path (ltree)\n\n\n\n\nDoku: \nhttps://www.postgresql.org/docs/current/static/ltree.html\n\n\nKnoten auf einer Ebene werden von links nach rechts mit 1,2,3,... nummeriert\n\n\nJeder Knoten hat einen Pfad zu sich von der Root aus gespeichert, in der Form \n1.2.1.\n...\n (\"lineage\")\n\n\nIm Postgres-Datentyp \nltree\n k\u00f6nnen die Knoten beschriftet werden\n\n\nDann ist ein Pfad z.B. \ntop.countries.europe.switzerland", 
+            "title": "6 Datenstrukturen"
+        }, 
+        {
+            "location": "/Dbs2/6_Datenstrukturen/#datenstrukturen", 
+            "text": "", 
+            "title": "Datenstrukturen"
+        }, 
+        {
+            "location": "/Dbs2/6_Datenstrukturen/#arrays", 
+            "text": "In Postgres 1-indexiert!  Doku:  https://www.postgresql.org/docs/current/static/arrays.html   CREATE   TABLE   sal_emp   ( \n     name   text , \n     pay_by_quarter   integer [], \n     schedule   text [][]  );   INSERT   INTO   sal_emp   VALUES   (  Bill ,  ARRAY [ 10000 ,   10000 ,   10000 ,   10000 ],  ARRAY [[ meeting ,   lunch ],   [ training ,   presentation ]]  );", 
+            "title": "Arrays"
+        }, 
+        {
+            "location": "/Dbs2/6_Datenstrukturen/#accessoren", 
+            "text": "SELECT   ARRAY [ 1 , 2 , 3 + 4 ];  -- returns: {1,2,7}", 
+            "title": "Accessoren"
+        }, 
+        {
+            "location": "/Dbs2/6_Datenstrukturen/#slicing", 
+            "text": "SELECT   schedule [ 1 : 2 ]  -- first two elements    array[from:to]  from  und  to  sind inclusive!", 
+            "title": "Slicing"
+        }, 
+        {
+            "location": "/Dbs2/6_Datenstrukturen/#operatoren", 
+            "text": "Equality mit  =  \"Is contained by\" mit  @   ARRAY [ 2 , 7 ]   @   ARRAY [ 1 , 7 , 4 , 2 , 6 ];    Overlap:    SELECT   ARRAY [ 1 , 4 , 3 ]     ARRAY [ 2 , 1 ]", 
+            "title": "Operatoren"
+        }, 
+        {
+            "location": "/Dbs2/6_Datenstrukturen/#dictionaries", 
+            "text": "Collection aus Key-Value-Pairs, auch \"Entitiy Attribute Value\" - EAV  Nur in ausnamef\u00e4llen in RDBS verwenden!    Note  TODO!", 
+            "title": "Dictionaries"
+        }, 
+        {
+            "location": "/Dbs2/6_Datenstrukturen/#trees", 
+            "text": "Adjazenzliste: Jeder Record hat einen Fremdschl\u00fcssel zu seinem Parent  Nested Set-Modell: Die Knoten werden in Preorder-Reihenfolge durchnummeriert. Beim traversieren in die tiefe wird \"left\" gesetzt, beim backtracking wird \"right\" gesetzt (immer aufsteigend gez\u00e4hlt)", 
+            "title": "Trees"
+        }, 
+        {
+            "location": "/Dbs2/6_Datenstrukturen/#materialized-path-ltree", 
+            "text": "Doku:  https://www.postgresql.org/docs/current/static/ltree.html  Knoten auf einer Ebene werden von links nach rechts mit 1,2,3,... nummeriert  Jeder Knoten hat einen Pfad zu sich von der Root aus gespeichert, in der Form  1.2.1. ...  (\"lineage\")  Im Postgres-Datentyp  ltree  k\u00f6nnen die Knoten beschriftet werden  Dann ist ein Pfad z.B.  top.countries.europe.switzerland", 
+            "title": "Materialized Path (ltree)"
+        }, 
+        {
             "location": "/EPJ/0_Index/", 
-            "text": "Engineering-Projekt", 
+            "text": "Engineering-Projekt\n\n\n\n\nProjektplan", 
             "title": "0 Index"
         }, 
         {
             "location": "/EPJ/0_Index/#engineering-projekt", 
-            "text": "", 
+            "text": "Projektplan", 
             "title": "Engineering-Projekt"
         }, 
         {
@@ -362,12 +407,12 @@
         }, 
         {
             "location": "/ITBus/0_Index/", 
-            "text": "Wirtschaftsinformatik 1 - IT im Business\n\n\n\n\nExam Notes", 
+            "text": "Wirtschaftsinformatik 1 - IT im Business\n\n\n\n\nExam Notes\n\n\nInformationssysteme", 
             "title": "0 Index"
         }, 
         {
             "location": "/ITBus/0_Index/#wirtschaftsinformatik-1-it-im-business", 
-            "text": "Exam Notes", 
+            "text": "Exam Notes  Informationssysteme", 
             "title": "Wirtschaftsinformatik 1 - IT im Business"
         }, 
         {
@@ -412,12 +457,12 @@
         }, 
         {
             "location": "/InfSi3/0_Index/", 
-            "text": "Informationssicherheit 3\n\n\n\n\nExam Notes", 
+            "text": "Informationssicherheit 3\n\n\n\n\nExam Notes\n\n\nOverview\n\n\nSoftware Security\n\n\nApplication Security Basics", 
             "title": "0 Index"
         }, 
         {
             "location": "/InfSi3/0_Index/#informationssicherheit-3", 
-            "text": "Exam Notes", 
+            "text": "Exam Notes  Overview  Software Security  Application Security Basics", 
             "title": "Informationssicherheit 3"
         }, 
         {
@@ -507,12 +552,12 @@
         }, 
         {
             "location": "/ParProg/0_Index/", 
-            "text": "Parallele Programmierung\n\n\n\n\nExam Notes\n\n\nMulti-Threading Grundlagen", 
+            "text": "Parallele Programmierung\n\n\n\n\nExam Notes\n\n\nMulti-Threading Grundlagen\n\n\nThread Synchronisation\n\n\nSynchronisationsprimitiven\n\n\nGefahren der Nebenl\u00e4ufigket\n\n\nThread Pools", 
             "title": "0 Index"
         }, 
         {
             "location": "/ParProg/0_Index/#parallele-programmierung", 
-            "text": "Exam Notes  Multi-Threading Grundlagen", 
+            "text": "Exam Notes  Multi-Threading Grundlagen  Thread Synchronisation  Synchronisationsprimitiven  Gefahren der Nebenl\u00e4ufigket  Thread Pools", 
             "title": "Parallele Programmierung"
         }, 
         {
@@ -751,6 +796,51 @@
             "title": "Design Aspekte"
         }, 
         {
+            "location": "/ParProg/6_Thread_Pools/", 
+            "text": "Thread Pools\n\n\n\n\nNote\n\n\nQuiz letzte Woche: Keine Garantie, dass Lock jemals erfolgreich ist -\n Starvation. \n\n\n\n\nKonzept\n\n\n\n\nTasks Queue\n mit Tasks von potentiell parallele Arbeitspakete\n\n\nQueue weiss nicht, wieviele Threads im Pool arbeiten, Tasks m\u00fcssen also beliebig parallelisierbar sein\n\n\n\n\n\n\n\n\nThread Pool\n ist eine beschr\u00e4nkte Anzahl von Worker-Threads, die die Tasks aus der Queue holen und ausf\u00fchren\n\n\n\n\n\n\nVorteile\n\n\n\n\nBeschr\u00e4nkte Anzahl Threads (konfigurierbar, normalerweise Anzahl logische CPU-Cores)\n\n\nThreads werden recycled, weniger Overhead f\u00fcr Thread-Erzeugung und -Freigabe\n\n\nH\u00f6here Abstraktion: Task-Beschreibung wird von Task-Ausf\u00fchrung getrennt (muss z.B. nicht zwinged nebenl\u00e4ufig sein)\n\n\n\n\n\n\n\n\nEinschr\u00e4nkungen\n\n\n\n\nTasks d\u00fcrfen nicht auf andere warten, sie m\u00fcssen unabh\u00e4ngig voneinander sein\n\n\nSonst k\u00f6nnte es zu Deadlocks kommen, wenn alle Threads auf andere Tasks in der Queue warten\n\n\n\n\n\n\nTasks m\u00fcssen komplett fertig laufen, bevor der Worker Thread ein anderer Task beginnt (\nRun to Completion\n)\n\n\nAusser bei geschachtelten Tasks (Sub-Tasks)\n\n\nGrund: Thread f\u00fchrt einen Stack. Weitere Tasks w\u00fcrden den Stack f\u00fcllen und k\u00f6nnten nur wieder in umgekehrter Reihenfolge \"gepoppt\" werden. Bei geschachtelten Tasks weiss man, dass der \"obere\" Task auf dem Stack zuerst fertig laufen muss\n\n\n\n\n\n\n\n\n\n\n\n\nFunktionsweise\n\n\nTask Lancierung\n\n\nForkJoinPool\n \nthreadPool\n \n=\n \nnew\n \nForkJoinPool\n();\n\n\n\n\n\n\n\n\nBietet Task Queue und Threads (default: Anzahl Cores)\n\n\n\n\nFuture\nInteger\n \nfuture\n \n=\n \nthreadPool\n.\nsubmit\n(()\n \n-\n \n{\n\n    \nint\n \nvalue\n \n=\n \n\u2026\n;\n\n    \n// long calculation\n\n    \nreturn\n \nvalue\n;\n\n\n});\n\n\n\n\n\n\n\n\nTask wird eingereiht in die Task-Queue\n\n\nGeneric Type von \nFuture\nT\n ist Typ des R\u00fcckgabewert\n\n\n\n\nFuture Konzept\n\n\n\n\nDas \nFuture\n-Objekt wird ben\u00f6tigt, um asynchron Tasks zu submitten. Das Ergebnis wird erst sp\u00e4ter rein geschrieben\n\n\nT result = future.get()\n blockiert, bis Task beendet ist und ruft das Ergebnis ab (analog \njoin\n)\n\n\nWenn Tasks mit unbehandelter Exception abbricht, wirft die \nget()\n Methode eine \nExcecutionException\n mit urspr\u00fcnglicher Exception als \nCause\n\n\nMit \nfuture.cancel()\n wird Task aus Warteschlange entfernt, und falls \ntrue\n als argument mitgegeben wird, auch ein laufender Tasks unterbrochen (\nInterruptedException\n, wird nicht einfach gekillt!)\n\n\nWenn \nFuture\n-Objekt beim submit ignoriert wird (Fire and Forget), werden unbehandelte Exceptions ignoriert!\n\n\n\n\nRekursive Tasks\n\n\n\n\nTasks ineinander verschachteln\n\n\nTasks muss explizit implementiert werden und von \nRecursiveTasks\nT\n ableiten\n\n\nStatt \nsubmit\n auf Tasks \nfork()\n aufrufen\n\n\nStatt \nget()\n auf Tasks \njoin()\n aufrufen\n\n\n\n\nclass\n \nCountTask\n \nextends\n \nRecursiveTask\nInteger\n \n{\n\n    \nprivate\n \nfinal\n \nint\n \nlower\n,\n \nupper\n;\n\n\n    \npublic\n \nCountTask\n(\nint\n \nlower\n,\n \nint\n \nupper\n)\n \n{\n\n        \nthis\n.\nlower\n \n=\n \nlower\n;\n \nthis\n.\nupper\n \n=\n \nupper\n;\n\n    \n}\n\n\n    \nprotected\n \nInteger\n \ncompute\n()\n \n{\n\n        \nif\n \n(\nupper\n \n-\n \nlower\n \n \nTHRESHOLD\n)\n \n{\n\n            \n// parallel count\n\n            \nint\n \nmiddle\n \n=\n \n(\nlower\n \n+\n \nupper\n)\n \n/\n \n2\n;\n\n            \nCountTask\n \nleft\n \n=\n \nnew\n \nCountTask\n(\nlower\n,\n \nmiddle\n);\n\n            \nCountTask\n \nright\n \n=\n \nnew\n \nCountTask\n(\nmiddle\n,\n \nupper\n);\n\n            \nleft\n.\nfork\n();\n \nright\n.\nfork\n();\n\n            \nreturn\n \nright\n.\njoin\n()\n \n+\n \nleft\n.\njoin\n();\n\n        \n}\n \nelse\n \n{\n\n            \n// sequential count\n\n            \nint\n \ncount\n \n=\n \n0\n;\n\n            \nfor\n \n(\nint\n \nnumber\n \n=\n \nlower\n;\n \nnumber\n \n \nupper\n;\n \nnumber\n++)\n \n{\n\n            \nif\n \n(\nisPrime\n(\nnumber\n))\n \n{\n \ncount\n++;\n \n}\n\n        \n}\n\n        \nreturn\n \ncount\n;\n\n        \n}\n\n    \n}\n\n\n}\n\n\n\n\n\n\n\n\nAufruf (Java 8): \nint result = threadPool.invoke(new CountTask())\n\n\nAchtung vor \u00dcber-Parallelisierung! Nicht zuviel aufsplitten, sonst ist der Overhead der Rekursion zu gross\n\n\n\n\nFork \n Join Pool\n\n\n\n\nFork()\n und dann \nJoin()\n ist schneller, wenn \nJoin()\n in umgekehrter Reihenfolge ausgef\u00fchrt wird\n\n\nGrund: Neue Sub-Tasks werden zuoberst in lokale Queue eingef\u00fcgt\n\n\n\n\n\n\nWorker-Threads laufen als Daemon-Threads\n\n\nAnzahl Threads werden dynamisch ver\u00e4ndert\n\n\nCommon Pool (sinleton) hat immer #Prozessoren - 1 Threads (also langsamer)\n\n\nModerne Thread-Pool-Implementationen haben mehrere Queues\n\n\nJeder Thread hat eigene Queue (Lokale Queue)\n\n\nWenn Loake Queue leer ist, wird von einer anderen lokalen Queue Tasks abgenommen (\"Work Stealing\")\n\n\n\n\n\n\n\n\nCompleteableFutures\n\n\n\n\nFeature von Java 8\n\n\nCaller-zentrisch (Pull): Caller wartet auf Ende und holt sich das Resultat \u00fcber das Future-Objekt\n\n\nCallee-zentrisch: Completion-Callback, das ausgef\u00fchrt wird, wenn der Task fertig ist\n\n\nCompletableFuture\n ist \nCallee-zentrisch\n\n\n\n\nCompletableFuture\nLong\n \nfuture\n \n=\n\n    \nCompletableFuture\n.\nsupplyAsync\n(()\n \n-\n \nlongOperation\n());\n\n\n//other work\n\n\nfuture\n.\nthenAccept\n(\nresult\n \n-\n \nSystem\n.\nout\n.\nprintln\n(\nresult\n));", 
+            "title": "6 Thread Pools"
+        }, 
+        {
+            "location": "/ParProg/6_Thread_Pools/#thread-pools", 
+            "text": "Note  Quiz letzte Woche: Keine Garantie, dass Lock jemals erfolgreich ist -  Starvation.", 
+            "title": "Thread Pools"
+        }, 
+        {
+            "location": "/ParProg/6_Thread_Pools/#konzept", 
+            "text": "Tasks Queue  mit Tasks von potentiell parallele Arbeitspakete  Queue weiss nicht, wieviele Threads im Pool arbeiten, Tasks m\u00fcssen also beliebig parallelisierbar sein     Thread Pool  ist eine beschr\u00e4nkte Anzahl von Worker-Threads, die die Tasks aus der Queue holen und ausf\u00fchren    Vorteile   Beschr\u00e4nkte Anzahl Threads (konfigurierbar, normalerweise Anzahl logische CPU-Cores)  Threads werden recycled, weniger Overhead f\u00fcr Thread-Erzeugung und -Freigabe  H\u00f6here Abstraktion: Task-Beschreibung wird von Task-Ausf\u00fchrung getrennt (muss z.B. nicht zwinged nebenl\u00e4ufig sein)     Einschr\u00e4nkungen   Tasks d\u00fcrfen nicht auf andere warten, sie m\u00fcssen unabh\u00e4ngig voneinander sein  Sonst k\u00f6nnte es zu Deadlocks kommen, wenn alle Threads auf andere Tasks in der Queue warten    Tasks m\u00fcssen komplett fertig laufen, bevor der Worker Thread ein anderer Task beginnt ( Run to Completion )  Ausser bei geschachtelten Tasks (Sub-Tasks)  Grund: Thread f\u00fchrt einen Stack. Weitere Tasks w\u00fcrden den Stack f\u00fcllen und k\u00f6nnten nur wieder in umgekehrter Reihenfolge \"gepoppt\" werden. Bei geschachtelten Tasks weiss man, dass der \"obere\" Task auf dem Stack zuerst fertig laufen muss", 
+            "title": "Konzept"
+        }, 
+        {
+            "location": "/ParProg/6_Thread_Pools/#funktionsweise", 
+            "text": "", 
+            "title": "Funktionsweise"
+        }, 
+        {
+            "location": "/ParProg/6_Thread_Pools/#task-lancierung", 
+            "text": "ForkJoinPool   threadPool   =   new   ForkJoinPool ();    Bietet Task Queue und Threads (default: Anzahl Cores)   Future Integer   future   =   threadPool . submit (()   -   { \n     int   value   =   \u2026 ; \n     // long calculation \n     return   value ;  });    Task wird eingereiht in die Task-Queue  Generic Type von  Future T  ist Typ des R\u00fcckgabewert", 
+            "title": "Task Lancierung"
+        }, 
+        {
+            "location": "/ParProg/6_Thread_Pools/#future-konzept", 
+            "text": "Das  Future -Objekt wird ben\u00f6tigt, um asynchron Tasks zu submitten. Das Ergebnis wird erst sp\u00e4ter rein geschrieben  T result = future.get()  blockiert, bis Task beendet ist und ruft das Ergebnis ab (analog  join )  Wenn Tasks mit unbehandelter Exception abbricht, wirft die  get()  Methode eine  ExcecutionException  mit urspr\u00fcnglicher Exception als  Cause  Mit  future.cancel()  wird Task aus Warteschlange entfernt, und falls  true  als argument mitgegeben wird, auch ein laufender Tasks unterbrochen ( InterruptedException , wird nicht einfach gekillt!)  Wenn  Future -Objekt beim submit ignoriert wird (Fire and Forget), werden unbehandelte Exceptions ignoriert!", 
+            "title": "Future Konzept"
+        }, 
+        {
+            "location": "/ParProg/6_Thread_Pools/#rekursive-tasks", 
+            "text": "Tasks ineinander verschachteln  Tasks muss explizit implementiert werden und von  RecursiveTasks T  ableiten  Statt  submit  auf Tasks  fork()  aufrufen  Statt  get()  auf Tasks  join()  aufrufen   class   CountTask   extends   RecursiveTask Integer   { \n     private   final   int   lower ,   upper ; \n\n     public   CountTask ( int   lower ,   int   upper )   { \n         this . lower   =   lower ;   this . upper   =   upper ; \n     } \n\n     protected   Integer   compute ()   { \n         if   ( upper   -   lower     THRESHOLD )   { \n             // parallel count \n             int   middle   =   ( lower   +   upper )   /   2 ; \n             CountTask   left   =   new   CountTask ( lower ,   middle ); \n             CountTask   right   =   new   CountTask ( middle ,   upper ); \n             left . fork ();   right . fork (); \n             return   right . join ()   +   left . join (); \n         }   else   { \n             // sequential count \n             int   count   =   0 ; \n             for   ( int   number   =   lower ;   number     upper ;   number ++)   { \n             if   ( isPrime ( number ))   {   count ++;   } \n         } \n         return   count ; \n         } \n     }  }    Aufruf (Java 8):  int result = threadPool.invoke(new CountTask())  Achtung vor \u00dcber-Parallelisierung! Nicht zuviel aufsplitten, sonst ist der Overhead der Rekursion zu gross", 
+            "title": "Rekursive Tasks"
+        }, 
+        {
+            "location": "/ParProg/6_Thread_Pools/#fork-join-pool", 
+            "text": "Fork()  und dann  Join()  ist schneller, wenn  Join()  in umgekehrter Reihenfolge ausgef\u00fchrt wird  Grund: Neue Sub-Tasks werden zuoberst in lokale Queue eingef\u00fcgt    Worker-Threads laufen als Daemon-Threads  Anzahl Threads werden dynamisch ver\u00e4ndert  Common Pool (sinleton) hat immer #Prozessoren - 1 Threads (also langsamer)  Moderne Thread-Pool-Implementationen haben mehrere Queues  Jeder Thread hat eigene Queue (Lokale Queue)  Wenn Loake Queue leer ist, wird von einer anderen lokalen Queue Tasks abgenommen (\"Work Stealing\")", 
+            "title": "Fork &amp; Join Pool"
+        }, 
+        {
+            "location": "/ParProg/6_Thread_Pools/#completeablefutures", 
+            "text": "Feature von Java 8  Caller-zentrisch (Pull): Caller wartet auf Ende und holt sich das Resultat \u00fcber das Future-Objekt  Callee-zentrisch: Completion-Callback, das ausgef\u00fchrt wird, wenn der Task fertig ist  CompletableFuture  ist  Callee-zentrisch   CompletableFuture Long   future   = \n     CompletableFuture . supplyAsync (()   -   longOperation ());  //other work  future . thenAccept ( result   -   System . out . println ( result ));", 
+            "title": "CompleteableFutures"
+        }, 
+        {
             "location": "/PhAI/0_Index/", 
             "text": "Physik Anwendungen f\u00fcr Informatik\n\n\n\n\nExam Notes", 
             "title": "0 Index"
@@ -767,12 +857,12 @@
         }, 
         {
             "location": "/SE2/0_Index/", 
-            "text": "Software Engineering 2\n\n\n\n\nExam Notes", 
+            "text": "Software Engineering 2\n\n\n\n\nExam Notes\n\n\nProject Automation\n\n\nSoftware Engineering Practises\n\n\nError Handling Design", 
             "title": "0 Index"
         }, 
         {
             "location": "/SE2/0_Index/#software-engineering-2", 
-            "text": "Exam Notes", 
+            "text": "Exam Notes  Project Automation  Software Engineering Practises  Error Handling Design", 
             "title": "Software Engineering 2"
         }, 
         {
@@ -942,12 +1032,12 @@
         }, 
         {
             "location": "/Vss/0_Index/", 
-            "text": "Verteilte Software-Systeme\n\n\n\n\nExam Notes\n\n\nIntroduction", 
+            "text": "Verteilte Software-Systeme\n\n\n\n\nExam Notes\n\n\nIntroduction\n\n\nSocket Programmierung\n\n\nAsynchronous Messaging\n\n\nRMI and Web-Services\n\n\nDesign for Performance", 
             "title": "0 Index"
         }, 
         {
             "location": "/Vss/0_Index/#verteilte-software-systeme", 
-            "text": "Exam Notes  Introduction", 
+            "text": "Exam Notes  Introduction  Socket Programmierung  Asynchronous Messaging  RMI and Web-Services  Design for Performance", 
             "title": "Verteilte Software-Systeme"
         }, 
         {
@@ -1151,237 +1241,262 @@
             "title": "WSDL"
         }, 
         {
-            "location": "/VwlTg/0_Index/", 
-            "text": "Volkswirtschaft und Technikgeschichte\n\n\n\n\nExam Notes", 
+            "location": "/Vss/6_Design_for_Performance/", 
+            "text": "Operationale Modelle, Design for Performance\n\n\nNon-Functional Requiremenets\n\n\n\n\nConstraints\n: Limitationen, \u00e4ussere Einfl\u00fcsse und das Umfeld des Kunden, z.B. auch Standards und Regulierungen\n\n\n\n\nQualities\n: \"Service Level Requirements\", sind messbar, z.B. Performance, Security, Portability, Reliability, etc. etc.\n\n\n\n\n\n\nWie\n bringt ein System seine Funktionalit\u00e4t? (Nicht \"was macht es\")\n\n\n\n\nQOS ist eine Abw\u00e4gung zwischen Risiko und Kosten\n\n\nWerden Anforderungen nicht erf\u00fcllt, gibt es Business Risiken\n\n\nWird over-engineered, gibt es unn\u00f6tige Kosten\n\n\n\n\n\n\n\n\nPerformance\n\n\n\n\n\"The degree to which a system or component accomplishes its designated functions within given constraints, such as speed, accuracy, or memory usage.\"\n\n\n\n\n\n\nHauptziele von Performance sind schnelle Antwortzeiten und \nPredictability\n\n\n\n\nNicht immer ist schneller besser, manche Systeme brauchen auch eine sehr konsistente Performance (z.B. real-time)\n\n\n\n\n\n\nF\u00fcr schnelle Antwortzeiten braucht es gen\u00fcged Durchsatz (z.B. Transaktionen pro Sekunde)\n\n\n\n\nF\u00fcr gen\u00fcgend Durchsatz braucht es gen\u00fcged Kapazit\u00e4t (Scalability)\n\n\n\n\nFunctional / Operational Model\n\n\n\n\nFunctional Model: Die funktionalen Komponenten eines Systems\n\n\nOperational Model: Das System, auf das die Komponenten deployed werden (Infrastruktur)", 
+            "title": "6 Design for Performance"
+        }, 
+        {
+            "location": "/Vss/6_Design_for_Performance/#operationale-modelle-design-for-performance", 
+            "text": "", 
+            "title": "Operationale Modelle, Design for Performance"
+        }, 
+        {
+            "location": "/Vss/6_Design_for_Performance/#non-functional-requiremenets", 
+            "text": "Constraints : Limitationen, \u00e4ussere Einfl\u00fcsse und das Umfeld des Kunden, z.B. auch Standards und Regulierungen   Qualities : \"Service Level Requirements\", sind messbar, z.B. Performance, Security, Portability, Reliability, etc. etc.    Wie  bringt ein System seine Funktionalit\u00e4t? (Nicht \"was macht es\")   QOS ist eine Abw\u00e4gung zwischen Risiko und Kosten  Werden Anforderungen nicht erf\u00fcllt, gibt es Business Risiken  Wird over-engineered, gibt es unn\u00f6tige Kosten", 
+            "title": "Non-Functional Requiremenets"
+        }, 
+        {
+            "location": "/Vss/6_Design_for_Performance/#performance", 
+            "text": "\"The degree to which a system or component accomplishes its designated functions within given constraints, such as speed, accuracy, or memory usage.\"    Hauptziele von Performance sind schnelle Antwortzeiten und  Predictability   Nicht immer ist schneller besser, manche Systeme brauchen auch eine sehr konsistente Performance (z.B. real-time)    F\u00fcr schnelle Antwortzeiten braucht es gen\u00fcged Durchsatz (z.B. Transaktionen pro Sekunde)   F\u00fcr gen\u00fcgend Durchsatz braucht es gen\u00fcged Kapazit\u00e4t (Scalability)", 
+            "title": "Performance"
+        }, 
+        {
+            "location": "/Vss/6_Design_for_Performance/#functional-operational-model", 
+            "text": "Functional Model: Die funktionalen Komponenten eines Systems  Operational Model: Das System, auf das die Komponenten deployed werden (Infrastruktur)", 
+            "title": "Functional / Operational Model"
+        }, 
+        {
+            "location": "/Vwl/0_Index/", 
+            "text": "Volkswirtschaft\n\n\n\n\nExam Notes\n\n\nWohlstand\n\n\nEinkommensverteilung und Sozialwerke\n\n\nWachstum\n\n\nArbeitsmarkt", 
             "title": "0 Index"
         }, 
         {
-            "location": "/VwlTg/0_Index/#volkswirtschaft-und-technikgeschichte", 
-            "text": "Exam Notes", 
-            "title": "Volkswirtschaft und Technikgeschichte"
+            "location": "/Vwl/0_Index/#volkswirtschaft", 
+            "text": "Exam Notes  Wohlstand  Einkommensverteilung und Sozialwerke  Wachstum  Arbeitsmarkt", 
+            "title": "Volkswirtschaft"
         }, 
         {
-            "location": "/VwlTg/1_Exam/", 
+            "location": "/Vwl/1_Exam/", 
             "text": "Some exam notes...", 
             "title": "1 Exam"
         }, 
         {
-            "location": "/VwlTg/2_Wohlstand/", 
+            "location": "/Vwl/2_Wohlstand/", 
             "text": "Wohlstand / Makro\u00f6konomisches Gleichgewicht\n\n\n\n\nMikro\u00f6konimie untersucht das Verhalten einzelner M\u00e4rkte und Branchen, Makro\u00f6konomie auf Stufe von mehreren L\u00e4ndern\n\n\n\n\nPreisniveau\n\n\n\n\nPreisniveau: Je h\u00f6her, desto h\u00f6her werden die Preise\n\n\nWird mit einem standardisierten G\u00fctekorb gemessen\n\n\nVerschiedene G\u00fctekorbe, z.B. f\u00fcr Konsumenten oder Produzenten\n\n\n\n\n\n\nProduzentenpreisindex in den letzten Jahren stark gesunken\n\n\nStarker Franken (zuerst 1.20, jetzt ca. 1.08)\n\n\nRohstoffe sind g\u00fcnstiger geworden (geringere Nachfrage)\n\n\n\n\n\n\nDagegen ist konsumentenindex nur leicht gesunken\n\n\nKonsumenteng\u00fcterkorb ist auf Luxuskonsum ausgerichtet\n\n\nWenig f\u00fcr Bildung, viel f\u00fcr Restaurant / Hotels\n\n\n\n\n\n\nF\u00fcr SNB ist sinkende Konsumentenindex gef\u00e4hrlich\n\n\nKonsumenten sparen mehr -\n Deflation\n\n\nProblem in Japan seit 20 Jahren (stark verschuldet)\n\n\n\n\n\n\nFolie 11: Schweizer Volk kann Inflation sehr gut einsch\u00e4tzen\n\n\n\n\nReales BIP\n\n\n\n\nBIP: Alle G\u00fcter und Dienstleistungen, die in einem Jahr in einem Land hergestellt werden\n\n\nReales BIP: Nominales BIP - Inflation\n\n\nheisst: Alles zu festgelegten Standardpreisen\n\n\n\n\n\n\nHier immer das reale BIP gemeint!\n\n\n2009 Finanzkriese: Platzen der Immobilienblase in den USA + Eurokrise (unabh\u00e4ngig)\n\n\n2015: BIP pro Kopf gesunken, weil starker Zuwanderung von Arbeitskr\u00e4ften\n\n\nEinwanderer gehen in Branchen, die weniger Wertsch\u00f6pfung haben, z.B. Gesundheitsbereich, Pflege, etc.\n\n\n\n\n\n\n\n\nAN-Kurve (Aggregierte Nachfrage)\n\n\n\n\nNachfrage nach G\u00fctern von Konsumenten, Unternehmen, Staat, Import/Export\n\n\nUSA hat negative Nettoexperte (mehr Importe als Exporte)\n\n\nJe tiefer das Preisniveau, desto h\u00f6her die Nachfrage\n\n\n\n\nAAL-Konstante (langfristig aggregiertes Angebot)\n\n\n\n\nDer Punkt, an dem ein Land mit allen verf\u00fcgbaren Ressourcen produzieren\n\n\nheisst: Jeder arbeitet, alle Maschinen laufen, etc.\n\n\n\"Optimale Produktionsmenge\"\n\n\nIst bei uns konstante Gr\u00f6sse\n\n\n\n\nAAk-Kurve (kurzfristig aggregiertes Angebot)\n\n\n\n\nJe h\u00f6her die Preise, desto mehr wollen die Produzenten herstellen\n\n\nKann theoretisch \u00fcber Kapazit\u00e4tsgrenze, dann arbeiten Menschen \u00fcberstunden\n\n\n\"\u00fcberhitzte\" Wirtschaft\n\n\nF\u00fchrt zu explodierenden Preisen\n\n\n\n\n\n\n\n\nProduktion links der Kapazit\u00e4tsgrenze -\n Rezession\n\n\n\n\n\n\nIdealerweise kreuzen sich AN und AAK genau auf Kapazit\u00e4tsgrenze\n\n\n\n\nOptimale Auslastung und genau soviel, wie die Nachfrage verlangt\n\n\nIn der Schweiz ist der Punkt eher rechts der Grenze, weil z.T. viele Arbeitskr\u00e4fte fehlen\n\n\nAndere Darstellung: Angebot eines Landes ist gleich der Nachfrage\n\n\n\n\nReales BIP in der Schweiz\n\n\n\n\nIn Produktionswert sind die Werte mehrmals verrechnet, wenn z.B. ein F\u00f6rster sein Holz verkauft und die S\u00e4gerei das Holz dem Schreiner, ist das Holz zwei Mal verrechnet\n\n\nVorleistungen rechnen dies raus - etwa die H\u00e4lfte in der Schweiz\n\n\nRund 2/3 des BIP geht an Arbeitnehmer, 1/6 an Arbeitgeber\n\n\nIn der Schweiz ist dieser Wert ziemlich konstant, im Gegensatz z.B. zu USA und Schweden\n\n\nGrund: GAVs, Arbeitsfrieden, (direkte Demokratie)\n\n\n\n\n\n\nExporte in der Schweiz in den letzten Jahren gesunken, aber auch Importe sind gefallen -\n BIP bleibt gleich\n\n\nGold- Import und Export ist gleich gross (70 Mia.)\n\n\nSchweiz ist Handelsplatz f\u00fcr Gold\n\n\n\n\n\n\nKaufkraftbereinigung: BIP bereinigt nach Kaufkraft, d.h. was kann man mit dem BIP kaufen?\n\n\n1975 war die Schweiz das reichste Land der Welt, danach weniger Wachstum\n\n\nAbschottung, Binnenmarkt geschlossen\n\n\nPreis von direkter Demokratie, F\u00f6deralismus, ...\n\n\n\n\n\n\nStarke Korrelation zwischen BIP pro Kopf und sozialem Fortschritt\n\n\nHoher Wohlstand ist wichtig bis zu einem gewissen Grad (dann immer weniger Fortschritt)", 
             "title": "2 Wohlstand"
         }, 
         {
-            "location": "/VwlTg/2_Wohlstand/#wohlstand-makrookonomisches-gleichgewicht", 
+            "location": "/Vwl/2_Wohlstand/#wohlstand-makrookonomisches-gleichgewicht", 
             "text": "Mikro\u00f6konimie untersucht das Verhalten einzelner M\u00e4rkte und Branchen, Makro\u00f6konomie auf Stufe von mehreren L\u00e4ndern", 
             "title": "Wohlstand / Makro\u00f6konomisches Gleichgewicht"
         }, 
         {
-            "location": "/VwlTg/2_Wohlstand/#preisniveau", 
+            "location": "/Vwl/2_Wohlstand/#preisniveau", 
             "text": "Preisniveau: Je h\u00f6her, desto h\u00f6her werden die Preise  Wird mit einem standardisierten G\u00fctekorb gemessen  Verschiedene G\u00fctekorbe, z.B. f\u00fcr Konsumenten oder Produzenten    Produzentenpreisindex in den letzten Jahren stark gesunken  Starker Franken (zuerst 1.20, jetzt ca. 1.08)  Rohstoffe sind g\u00fcnstiger geworden (geringere Nachfrage)    Dagegen ist konsumentenindex nur leicht gesunken  Konsumenteng\u00fcterkorb ist auf Luxuskonsum ausgerichtet  Wenig f\u00fcr Bildung, viel f\u00fcr Restaurant / Hotels    F\u00fcr SNB ist sinkende Konsumentenindex gef\u00e4hrlich  Konsumenten sparen mehr -  Deflation  Problem in Japan seit 20 Jahren (stark verschuldet)    Folie 11: Schweizer Volk kann Inflation sehr gut einsch\u00e4tzen", 
             "title": "Preisniveau"
         }, 
         {
-            "location": "/VwlTg/2_Wohlstand/#reales-bip", 
+            "location": "/Vwl/2_Wohlstand/#reales-bip", 
             "text": "BIP: Alle G\u00fcter und Dienstleistungen, die in einem Jahr in einem Land hergestellt werden  Reales BIP: Nominales BIP - Inflation  heisst: Alles zu festgelegten Standardpreisen    Hier immer das reale BIP gemeint!  2009 Finanzkriese: Platzen der Immobilienblase in den USA + Eurokrise (unabh\u00e4ngig)  2015: BIP pro Kopf gesunken, weil starker Zuwanderung von Arbeitskr\u00e4ften  Einwanderer gehen in Branchen, die weniger Wertsch\u00f6pfung haben, z.B. Gesundheitsbereich, Pflege, etc.", 
             "title": "Reales BIP"
         }, 
         {
-            "location": "/VwlTg/2_Wohlstand/#an-kurve-aggregierte-nachfrage", 
+            "location": "/Vwl/2_Wohlstand/#an-kurve-aggregierte-nachfrage", 
             "text": "Nachfrage nach G\u00fctern von Konsumenten, Unternehmen, Staat, Import/Export  USA hat negative Nettoexperte (mehr Importe als Exporte)  Je tiefer das Preisniveau, desto h\u00f6her die Nachfrage", 
             "title": "AN-Kurve (Aggregierte Nachfrage)"
         }, 
         {
-            "location": "/VwlTg/2_Wohlstand/#aal-konstante-langfristig-aggregiertes-angebot", 
+            "location": "/Vwl/2_Wohlstand/#aal-konstante-langfristig-aggregiertes-angebot", 
             "text": "Der Punkt, an dem ein Land mit allen verf\u00fcgbaren Ressourcen produzieren  heisst: Jeder arbeitet, alle Maschinen laufen, etc.  \"Optimale Produktionsmenge\"  Ist bei uns konstante Gr\u00f6sse", 
             "title": "AAL-Konstante (langfristig aggregiertes Angebot)"
         }, 
         {
-            "location": "/VwlTg/2_Wohlstand/#aak-kurve-kurzfristig-aggregiertes-angebot", 
+            "location": "/Vwl/2_Wohlstand/#aak-kurve-kurzfristig-aggregiertes-angebot", 
             "text": "Je h\u00f6her die Preise, desto mehr wollen die Produzenten herstellen  Kann theoretisch \u00fcber Kapazit\u00e4tsgrenze, dann arbeiten Menschen \u00fcberstunden  \"\u00fcberhitzte\" Wirtschaft  F\u00fchrt zu explodierenden Preisen     Produktion links der Kapazit\u00e4tsgrenze -  Rezession    Idealerweise kreuzen sich AN und AAK genau auf Kapazit\u00e4tsgrenze   Optimale Auslastung und genau soviel, wie die Nachfrage verlangt  In der Schweiz ist der Punkt eher rechts der Grenze, weil z.T. viele Arbeitskr\u00e4fte fehlen  Andere Darstellung: Angebot eines Landes ist gleich der Nachfrage", 
             "title": "AAk-Kurve (kurzfristig aggregiertes Angebot)"
         }, 
         {
-            "location": "/VwlTg/2_Wohlstand/#reales-bip-in-der-schweiz", 
+            "location": "/Vwl/2_Wohlstand/#reales-bip-in-der-schweiz", 
             "text": "In Produktionswert sind die Werte mehrmals verrechnet, wenn z.B. ein F\u00f6rster sein Holz verkauft und die S\u00e4gerei das Holz dem Schreiner, ist das Holz zwei Mal verrechnet  Vorleistungen rechnen dies raus - etwa die H\u00e4lfte in der Schweiz  Rund 2/3 des BIP geht an Arbeitnehmer, 1/6 an Arbeitgeber  In der Schweiz ist dieser Wert ziemlich konstant, im Gegensatz z.B. zu USA und Schweden  Grund: GAVs, Arbeitsfrieden, (direkte Demokratie)    Exporte in der Schweiz in den letzten Jahren gesunken, aber auch Importe sind gefallen -  BIP bleibt gleich  Gold- Import und Export ist gleich gross (70 Mia.)  Schweiz ist Handelsplatz f\u00fcr Gold    Kaufkraftbereinigung: BIP bereinigt nach Kaufkraft, d.h. was kann man mit dem BIP kaufen?  1975 war die Schweiz das reichste Land der Welt, danach weniger Wachstum  Abschottung, Binnenmarkt geschlossen  Preis von direkter Demokratie, F\u00f6deralismus, ...    Starke Korrelation zwischen BIP pro Kopf und sozialem Fortschritt  Hoher Wohlstand ist wichtig bis zu einem gewissen Grad (dann immer weniger Fortschritt)", 
             "title": "Reales BIP in der Schweiz"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/", 
             "text": "Einkommensverteilung \n Sozialwerke\n\n\n\n\nProblem bei BIP pro Kopf: Es gibt kein \"Durschnitts-Kopf\"\n\n\n\n\nEffizienz und Veteilung\n\n\n\n\nEffizienz: Situation eines einzelnen Verbessern, ohne andere schlechter zu stellen\n\n\nauch z.b.: Reiche werden reicher, alle anderen bleiben gleich\n\n\n\n\n\n\n\"M\u00f6glichst grossen Kuchen backen\" ohne R\u00fccksicht auf Verteilung\n\n\n\n\nVerteilungsgerechtigkeit\n\n\n\n\nVerteilung ist abh\u00e4ngig von Produktivit\u00e4t der Arbeitenden\n\n\nProduktivit\u00e4t = Wertsch\u00f6pfung / Stunde\n\n\nKassierer z.B. hat wenig Wertsch\u00f6pfung -\n weniger Produktivit\u00e4t\n\n\n\n\n\n\nWenn die Gesellschaft nicht damit einverstanden ist, muss umverteilt werden (z.B. wegen k\u00f6rperlicher / geistlicher Einschr\u00e4nkung)\n\n\n\n\nHerausforderungen\n\n\n\n\nWird zu viel umverteilt, gibt es weniger Anreize zu pers\u00f6nlicher Leistung\n\n\nWird zu wenig umverteilt, wird es als ungerecht empfunden\n\n\nDies braucht eine Balance der sozialpolitischen Instrumente\n\n\nGerecht / ungerecht != gleich / ungleiche Verteilung!\n\n\n\n\nGini-Koeffizient\n\n\n\n\nDiagonale w\u00e4re perfekte Gleichverteilung\n\n\nJe gr\u00f6sser der \"Bauch\", desto gr\u00f6sser die Ungleicher die Verteilung\n\n\nGini-Koeffizient: Anteil des Bauches mit der Fl\u00e4che unter der Diagonale\n\n\nJe h\u00f6her der Koeffizient, desto h\u00f6her die Ungleichheite Verteilung\n\n\n\n\n\n\nSagt nicht aus, wie hoch der Wohlstand ist\n\n\n\n\nGini-Koeffizient gibt es f\u00fcr Einkommen und Verm\u00f6gen\n\n\n\n\n\n\nChina und USA haben hohen Koeffizient, Schweiz etwas h\u00f6her als Deutschland / \u00d6sterreich\n\n\n\n\nS\u00fcdamerika hat hohe Ungleichverteilung\n\n\nUSA hat starke Leistungs-Philosphie -\n Ungleiche Verteilung ist \"amerikanisch\"\n\n\n\n\nVerm\u00f6gens-Verteilung\n\n\n\n\nStudie der SGB\n\n\nSchweiz hat angeblich einer der h\u00f6chsten Verm\u00f6gens-Gini-Koeffizienten\n\n\nHat nur Verm\u00f6gen der Steuerabrechnung eingerechnet\n\n\nHeisst: Ohne Pensionskasse, Immobilien (nur Eigenmietwert)\n\n\n\n\n\n\n\n\nArten der Umverteilung\n\n\n\n\nBei Umverteilung nimmt man immer jemandem etwas weg!\n\n\n\n\nEinkommensquellen (Lohn, Ertr\u00e4ge aus Verm\u00f6gen)\n\n\n\n\n\n\nUmverteilung ist in Schweiz relativ niedrig, aber ist auch weniger ungerecht verteilt im internationalen Vergleich\n\n\n\n\nSchweiz: Niedriger Lohn ca. 4000, guter Lohn ca. 10000, Faktor 2.5\n\n\n\n\n\n\n\n\nEs gibt viele Arbeitsstellen f\u00fcr Umverteilung in der Schweiz\n\n\n\n\n\n\nDie drei S\u00e4ulen der Schweizer Altersvorsorge\n\n\nAHV (1. S\u00e4ule)\n\n\n\n\nPflicht f\u00fcr ganze Bev\u00f6lkerung (mit Aufenthaltsbewilligung)\n\n\nZiel: Reine Existenzsicherung\n\n\n\n\nBerufliche Vorsorge (Pensionskasse)\n\n\n\n\nHaben alle mit Arbeitsstelle in der Schweiz (Pflicht)\n\n\n70%-80% des Lebensstandards in der Pension\n\n\nZwei Optionen: Einmalig ganzes Geld bekommen oder lebenslang einen Betrag (Rente) erhalten\n\n\nJunge zahlen weniger Prozente als \u00e4ltere\n\n\nBegr\u00fcndung: \"junge brauche das Geld noch\"\n\n\nEiner der Hauptgr\u00fcnde, dass \u00e4ltere nur schwieriger einen Job finden (Unternehmen muss mind. H\u00e4lfte \u00fcbernehmen)\n\n\n\n\n\n\n\n\nSelbstvorsoge\n\n\n\n\nKann vom steuerbaren Einkommen abgezogen werden\n\n\nPrivates Verm\u00f6gen \n freiwillig\n\n\n\n\nHerausforderungen f\u00fcr die erste und zweite S\u00e4ule\n\n\n\n\nHerausforderung: Leute w\u00e4ren immer \u00e4lter\n\n\nAHV geht von einer Pyramide aus: Mehr j\u00fcngere als \u00e4ltere\n\n\nGeburtenrate ist zu tief (1.6 statt 2.1), Durschnittliches Alter steigt\n\n\nAHV ist seit 2 Jahren im defizit\n\n\nWird momentan durch Fond (28 Mia.) finanziert\n\n\nIst aufgebraucht zwischen 2027 und 2033\n\n\n\n\nL\u00f6sungsm\u00f6glichkeiten\n\n\n\n\nDirekt einflussbare Parameter\n\n\nH\u00f6here Beitr\u00e4ge\n\n\nTiefere Renten (ausgeschlossen!1!!!)\n\n\nRentenalter erh\u00f6hen\n\n\n\n\n\n\n\n\nIndirekt beeinflussbar (keine L\u00f6sungen)\n\n\n\n\nImmigration\n\n\nGeburtenrate\n\n\nWirtschaftswachstum\n\n\n\n\n\n\n\n\nGesetzliches Rentenalter != durchschnittliches Rentenalter!\n\n\n\n\nz.B in Belgien, Frankreich ist effektives Rentenalter viel tiefer\n\n\nIn Portugal, Japan sehr hohes effektives Alter\n\n\nWeil wenig Altersvorsorge, keine Wahl\n\n\n\n\n\n\nIn der Schweiz \"arbeitet man gerne\"\n\n\nMan kann die Pension um 4 Jahre verz\u00f6gern f\u00fcr h\u00f6here Rente\n\n\n\n\n\n\n\n\nProbleme BVG (Pensionskasse)\n\n\n\n\nEs gibt einen Mindestzinssatz, die die Pensionskassen bieten m\u00fcssen\n\n\n2003: 4%, heute 1.75%\n\n\nHistorisch sind Pensionskassen unterdeckt, im letzten Jahr wieder h\u00f6her\n\n\nGewerkschaften wollen h\u00f6here Zinss\u00e4tze, Pensionskassen tiefere\n\n\nEin Drittel wird auf Obligationen investiert (Negativzinsen!)\n\n\nUmwandlungssatz: Prozentsatz des angesparten Verm\u00f6ges, der als rente ausbezahlt wird\n\n\n2005: 7.2% -\n Lebenserwartung von ~79\n\n\n2014: 6.8%\n\n\n2010: Referendum gegen 6.4% vom Schweizer Volk\n\n\n\n\n\n\n\n\nArmut in der Schweiz\n\n\n\n\nArmut nimmt in der Schweiz ab\n\n\n\"absolut arm\":\n\n\nDefiniert mit u.a. \"Kein Auto, kein Farbfernseher\"\n\n\nWenn drei von neun Kategorien erf\u00fcllt\n\n\n\n\n\n\n\n\nBedinungsloses Grundeinkommen\n\n\n\n\nTheoretisch 80-90% finanzierbar\n\n\nK\u00fcrzen von vielen Sozialleistungen, weil sie jetzt durch BGE gedeckt w\u00e4ren\n\n\nMehr als die H\u00e4lfte durch R\u00fcckzahlungen von Arbeitgeber", 
             "title": "3 Einkommensverteilung und Sozialwerke"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#einkommensverteilung-sozialwerke", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/#einkommensverteilung-sozialwerke", 
             "text": "Problem bei BIP pro Kopf: Es gibt kein \"Durschnitts-Kopf\"", 
             "title": "Einkommensverteilung &amp; Sozialwerke"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#effizienz-und-veteilung", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/#effizienz-und-veteilung", 
             "text": "Effizienz: Situation eines einzelnen Verbessern, ohne andere schlechter zu stellen  auch z.b.: Reiche werden reicher, alle anderen bleiben gleich    \"M\u00f6glichst grossen Kuchen backen\" ohne R\u00fccksicht auf Verteilung", 
             "title": "Effizienz und Veteilung"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#verteilungsgerechtigkeit", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/#verteilungsgerechtigkeit", 
             "text": "Verteilung ist abh\u00e4ngig von Produktivit\u00e4t der Arbeitenden  Produktivit\u00e4t = Wertsch\u00f6pfung / Stunde  Kassierer z.B. hat wenig Wertsch\u00f6pfung -  weniger Produktivit\u00e4t    Wenn die Gesellschaft nicht damit einverstanden ist, muss umverteilt werden (z.B. wegen k\u00f6rperlicher / geistlicher Einschr\u00e4nkung)", 
             "title": "Verteilungsgerechtigkeit"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#herausforderungen", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/#herausforderungen", 
             "text": "Wird zu viel umverteilt, gibt es weniger Anreize zu pers\u00f6nlicher Leistung  Wird zu wenig umverteilt, wird es als ungerecht empfunden  Dies braucht eine Balance der sozialpolitischen Instrumente  Gerecht / ungerecht != gleich / ungleiche Verteilung!", 
             "title": "Herausforderungen"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#gini-koeffizient", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/#gini-koeffizient", 
             "text": "Diagonale w\u00e4re perfekte Gleichverteilung  Je gr\u00f6sser der \"Bauch\", desto gr\u00f6sser die Ungleicher die Verteilung  Gini-Koeffizient: Anteil des Bauches mit der Fl\u00e4che unter der Diagonale  Je h\u00f6her der Koeffizient, desto h\u00f6her die Ungleichheite Verteilung    Sagt nicht aus, wie hoch der Wohlstand ist   Gini-Koeffizient gibt es f\u00fcr Einkommen und Verm\u00f6gen    China und USA haben hohen Koeffizient, Schweiz etwas h\u00f6her als Deutschland / \u00d6sterreich   S\u00fcdamerika hat hohe Ungleichverteilung  USA hat starke Leistungs-Philosphie -  Ungleiche Verteilung ist \"amerikanisch\"", 
             "title": "Gini-Koeffizient"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#vermogens-verteilung", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/#vermogens-verteilung", 
             "text": "Studie der SGB  Schweiz hat angeblich einer der h\u00f6chsten Verm\u00f6gens-Gini-Koeffizienten  Hat nur Verm\u00f6gen der Steuerabrechnung eingerechnet  Heisst: Ohne Pensionskasse, Immobilien (nur Eigenmietwert)", 
             "title": "Verm\u00f6gens-Verteilung"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#arten-der-umverteilung", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/#arten-der-umverteilung", 
             "text": "Bei Umverteilung nimmt man immer jemandem etwas weg!   Einkommensquellen (Lohn, Ertr\u00e4ge aus Verm\u00f6gen)    Umverteilung ist in Schweiz relativ niedrig, aber ist auch weniger ungerecht verteilt im internationalen Vergleich   Schweiz: Niedriger Lohn ca. 4000, guter Lohn ca. 10000, Faktor 2.5     Es gibt viele Arbeitsstellen f\u00fcr Umverteilung in der Schweiz", 
             "title": "Arten der Umverteilung"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#die-drei-saulen-der-schweizer-altersvorsorge", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/#die-drei-saulen-der-schweizer-altersvorsorge", 
             "text": "", 
             "title": "Die drei S\u00e4ulen der Schweizer Altersvorsorge"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#ahv-1-saule", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/#ahv-1-saule", 
             "text": "Pflicht f\u00fcr ganze Bev\u00f6lkerung (mit Aufenthaltsbewilligung)  Ziel: Reine Existenzsicherung", 
             "title": "AHV (1. S\u00e4ule)"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#berufliche-vorsorge-pensionskasse", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/#berufliche-vorsorge-pensionskasse", 
             "text": "Haben alle mit Arbeitsstelle in der Schweiz (Pflicht)  70%-80% des Lebensstandards in der Pension  Zwei Optionen: Einmalig ganzes Geld bekommen oder lebenslang einen Betrag (Rente) erhalten  Junge zahlen weniger Prozente als \u00e4ltere  Begr\u00fcndung: \"junge brauche das Geld noch\"  Einer der Hauptgr\u00fcnde, dass \u00e4ltere nur schwieriger einen Job finden (Unternehmen muss mind. H\u00e4lfte \u00fcbernehmen)", 
             "title": "Berufliche Vorsorge (Pensionskasse)"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#selbstvorsoge", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/#selbstvorsoge", 
             "text": "Kann vom steuerbaren Einkommen abgezogen werden  Privates Verm\u00f6gen   freiwillig", 
             "title": "Selbstvorsoge"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#herausforderungen-fur-die-erste-und-zweite-saule", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/#herausforderungen-fur-die-erste-und-zweite-saule", 
             "text": "Herausforderung: Leute w\u00e4ren immer \u00e4lter  AHV geht von einer Pyramide aus: Mehr j\u00fcngere als \u00e4ltere  Geburtenrate ist zu tief (1.6 statt 2.1), Durschnittliches Alter steigt  AHV ist seit 2 Jahren im defizit  Wird momentan durch Fond (28 Mia.) finanziert  Ist aufgebraucht zwischen 2027 und 2033", 
             "title": "Herausforderungen f\u00fcr die erste und zweite S\u00e4ule"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#losungsmoglichkeiten", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/#losungsmoglichkeiten", 
             "text": "Direkt einflussbare Parameter  H\u00f6here Beitr\u00e4ge  Tiefere Renten (ausgeschlossen!1!!!)  Rentenalter erh\u00f6hen     Indirekt beeinflussbar (keine L\u00f6sungen)   Immigration  Geburtenrate  Wirtschaftswachstum     Gesetzliches Rentenalter != durchschnittliches Rentenalter!   z.B in Belgien, Frankreich ist effektives Rentenalter viel tiefer  In Portugal, Japan sehr hohes effektives Alter  Weil wenig Altersvorsorge, keine Wahl    In der Schweiz \"arbeitet man gerne\"  Man kann die Pension um 4 Jahre verz\u00f6gern f\u00fcr h\u00f6here Rente", 
             "title": "L\u00f6sungsm\u00f6glichkeiten"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#probleme-bvg-pensionskasse", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/#probleme-bvg-pensionskasse", 
             "text": "Es gibt einen Mindestzinssatz, die die Pensionskassen bieten m\u00fcssen  2003: 4%, heute 1.75%  Historisch sind Pensionskassen unterdeckt, im letzten Jahr wieder h\u00f6her  Gewerkschaften wollen h\u00f6here Zinss\u00e4tze, Pensionskassen tiefere  Ein Drittel wird auf Obligationen investiert (Negativzinsen!)  Umwandlungssatz: Prozentsatz des angesparten Verm\u00f6ges, der als rente ausbezahlt wird  2005: 7.2% -  Lebenserwartung von ~79  2014: 6.8%  2010: Referendum gegen 6.4% vom Schweizer Volk", 
             "title": "Probleme BVG (Pensionskasse)"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#armut-in-der-schweiz", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/#armut-in-der-schweiz", 
             "text": "Armut nimmt in der Schweiz ab  \"absolut arm\":  Definiert mit u.a. \"Kein Auto, kein Farbfernseher\"  Wenn drei von neun Kategorien erf\u00fcllt", 
             "title": "Armut in der Schweiz"
         }, 
         {
-            "location": "/VwlTg/3_Einkommensverteilung_und_Sozialwerke/#bedinungsloses-grundeinkommen", 
+            "location": "/Vwl/3_Einkommensverteilung_und_Sozialwerke/#bedinungsloses-grundeinkommen", 
             "text": "Theoretisch 80-90% finanzierbar  K\u00fcrzen von vielen Sozialleistungen, weil sie jetzt durch BGE gedeckt w\u00e4ren  Mehr als die H\u00e4lfte durch R\u00fcckzahlungen von Arbeitgeber", 
             "title": "Bedinungsloses Grundeinkommen"
         }, 
         {
-            "location": "/VwlTg/4_Wachstum/", 
+            "location": "/Vwl/4_Wachstum/", 
             "text": "Langfristiges Wachstum\n\n\nBedeutung des langfristigen Wirtschaftswachstums\n\n\n\n\nZweiter WK hatte langfristig keinen Effekt auf das Wachstum, weder in Japan noch USA\n\n\n1960 - 1980: Japan hat USA aufgeholt, seit 1990 ist l\u00fccke wieder gr\u00f6sser\n\n\n\n\nLangfristiger Wachstumstrend\n\n\n\n\nKonjukturverlauf ist genauer Verlauf, der schwankt\n\n\nWachstumstrend ist durchschnitt \u00fcber einen l\u00e4ngeren Zeitraum\n\n\n\n\nErfolgsfaktoren\n\n\n\n\nProduktivit\u00e4t wird gemessen in BIP / Arbeitsstunden\n\n\nDamit BIP / Kopf w\u00e4chst, muss mehr oder effizienter gearbeitet werden\n\n\nUm Produktivit\u00e4t zu erh\u00f6hen, kann Kapital aufgewendet oder in Technologie investiert werden (technischer Fortschritt)\n\n\nInnovation ist einzige \"unendliche\" Ressource\n\n\nDadurch k\u00f6nnte das Wachstum immer weiter gehen\n\n\n\n\n\n\nWeitere externe Faktoren der Wirtschaftspolitik\n\n\n\n\nWachstum im Vergleich\n\n\n\n\nWachstum in der Schweiz nahm 1970-2000 stark ab\n\n\nSeit 2000 wieder leicht besser\n\n\nAber insgesamt sinkendes Wachstum\n\n\n\n\nGr\u00fcnde\n\n\n\n\nExogene Faktoren\n\n\nKein Seezugang ist ein Nachteil\n\n\nSozialkapital, Klima, Rohstoffe hier kein Problem\n\n\n\n\n\n\nWirtschaftspolitik\n\n\n??\n\n\n\n\n\n\nMehr Arbeitsstunden\n\n\nTiefe Arbeitslosenquote in der Schweiz\n\n\nGrund: Arbeitsmoral, vern\u00fcnftige L\u00f6hne\n\n\nH\u00f6here Quote durch Immigranten\n\n\n\n\n\n\nTechnischer Fortschritt\n\n\nSchweiz einer der innovativsten Standorte weltweit\n\n\nPatentschutz (20 J.) f\u00f6rdert Innovation\n\n\n\n\n\n\nArbeitsproduktivit\u00e4t\n\n\nSchweiz international schlecht aufgestellt, hinter FR, DE, USA\n\n\n1970 war Schweiz das produktivste Land\n\n\n\n\n\n\n\n\nProduktivit\u00e4tsschw\u00e4che der Schweiz\n\n\n\n\nWachstum der Staatsquote\n\n\nStarke Sozialisierung\n\n\n\n\n\n\nImmigration\n\n\nSch\u00e4dlich, wenn nur geringqualifizierte\n\n\nnicht das grosse Problem\n\n\n\n\n\n\n\n\nAbschottung des Binnenmarkts\n\n\n\n\nz.B. Online-Gl\u00fccksspielgesetz\n\n\nRestriktiver Import von z.B. Wein, Fleisch\n\n\n-\n \"Hochpreisinsel\"\n\n\n\n\n\n\n\n\nStaatsquote: Anteil des BIP am \u00f6ffentlichen Konsum und \u00f6ffentliche Bruttoinvestitionen\n\n\n\n\nStaatsquote ist in der Schweiz noch klein im Vergleich, aber w\u00e4chst am schnellsten\n\n\n\n\nEind\u00e4mmung der Staatsquote\n\n\n\n\n2004-2008: Nicht funktioniert\n\n\n2008-2011: 2. Paket mit sehr \u00e4hnlichen Massnahmen, kein Erfolg\n\n\n2012-2015: 3. Plan, wieder die gleichen Massnahmen\n\n\n\n\n2016-2019: 4. Plan\n\n\n\n\n\n\nGrund: Schweizer wollen Unabh\u00e4ngigkeit behalten\n\n\n\n\n\n\nDie Produktivit\u00e4t des Privatsektors steigt, w\u00e4hrend die Produktivit\u00e4t des Staatssektors stark sinkt. Gleichzeitig steigt die Besch\u00e4ftigung des Staates", 
             "title": "4 Wachstum"
         }, 
         {
-            "location": "/VwlTg/4_Wachstum/#langfristiges-wachstum", 
+            "location": "/Vwl/4_Wachstum/#langfristiges-wachstum", 
             "text": "", 
             "title": "Langfristiges Wachstum"
         }, 
         {
-            "location": "/VwlTg/4_Wachstum/#bedeutung-des-langfristigen-wirtschaftswachstums", 
+            "location": "/Vwl/4_Wachstum/#bedeutung-des-langfristigen-wirtschaftswachstums", 
             "text": "Zweiter WK hatte langfristig keinen Effekt auf das Wachstum, weder in Japan noch USA  1960 - 1980: Japan hat USA aufgeholt, seit 1990 ist l\u00fccke wieder gr\u00f6sser", 
             "title": "Bedeutung des langfristigen Wirtschaftswachstums"
         }, 
         {
-            "location": "/VwlTg/4_Wachstum/#langfristiger-wachstumstrend", 
+            "location": "/Vwl/4_Wachstum/#langfristiger-wachstumstrend", 
             "text": "Konjukturverlauf ist genauer Verlauf, der schwankt  Wachstumstrend ist durchschnitt \u00fcber einen l\u00e4ngeren Zeitraum", 
             "title": "Langfristiger Wachstumstrend"
         }, 
         {
-            "location": "/VwlTg/4_Wachstum/#erfolgsfaktoren", 
+            "location": "/Vwl/4_Wachstum/#erfolgsfaktoren", 
             "text": "Produktivit\u00e4t wird gemessen in BIP / Arbeitsstunden  Damit BIP / Kopf w\u00e4chst, muss mehr oder effizienter gearbeitet werden  Um Produktivit\u00e4t zu erh\u00f6hen, kann Kapital aufgewendet oder in Technologie investiert werden (technischer Fortschritt)  Innovation ist einzige \"unendliche\" Ressource  Dadurch k\u00f6nnte das Wachstum immer weiter gehen    Weitere externe Faktoren der Wirtschaftspolitik", 
             "title": "Erfolgsfaktoren"
         }, 
         {
-            "location": "/VwlTg/4_Wachstum/#wachstum-im-vergleich", 
+            "location": "/Vwl/4_Wachstum/#wachstum-im-vergleich", 
             "text": "Wachstum in der Schweiz nahm 1970-2000 stark ab  Seit 2000 wieder leicht besser  Aber insgesamt sinkendes Wachstum", 
             "title": "Wachstum im Vergleich"
         }, 
         {
-            "location": "/VwlTg/4_Wachstum/#grunde", 
+            "location": "/Vwl/4_Wachstum/#grunde", 
             "text": "Exogene Faktoren  Kein Seezugang ist ein Nachteil  Sozialkapital, Klima, Rohstoffe hier kein Problem    Wirtschaftspolitik  ??    Mehr Arbeitsstunden  Tiefe Arbeitslosenquote in der Schweiz  Grund: Arbeitsmoral, vern\u00fcnftige L\u00f6hne  H\u00f6here Quote durch Immigranten    Technischer Fortschritt  Schweiz einer der innovativsten Standorte weltweit  Patentschutz (20 J.) f\u00f6rdert Innovation    Arbeitsproduktivit\u00e4t  Schweiz international schlecht aufgestellt, hinter FR, DE, USA  1970 war Schweiz das produktivste Land", 
             "title": "Gr\u00fcnde"
         }, 
         {
-            "location": "/VwlTg/4_Wachstum/#produktivitatsschwache-der-schweiz", 
+            "location": "/Vwl/4_Wachstum/#produktivitatsschwache-der-schweiz", 
             "text": "Wachstum der Staatsquote  Starke Sozialisierung    Immigration  Sch\u00e4dlich, wenn nur geringqualifizierte  nicht das grosse Problem     Abschottung des Binnenmarkts   z.B. Online-Gl\u00fccksspielgesetz  Restriktiver Import von z.B. Wein, Fleisch  -  \"Hochpreisinsel\"     Staatsquote: Anteil des BIP am \u00f6ffentlichen Konsum und \u00f6ffentliche Bruttoinvestitionen   Staatsquote ist in der Schweiz noch klein im Vergleich, aber w\u00e4chst am schnellsten", 
             "title": "Produktivit\u00e4tsschw\u00e4che der Schweiz"
         }, 
         {
-            "location": "/VwlTg/4_Wachstum/#eindammung-der-staatsquote", 
+            "location": "/Vwl/4_Wachstum/#eindammung-der-staatsquote", 
             "text": "2004-2008: Nicht funktioniert  2008-2011: 2. Paket mit sehr \u00e4hnlichen Massnahmen, kein Erfolg  2012-2015: 3. Plan, wieder die gleichen Massnahmen   2016-2019: 4. Plan    Grund: Schweizer wollen Unabh\u00e4ngigkeit behalten    Die Produktivit\u00e4t des Privatsektors steigt, w\u00e4hrend die Produktivit\u00e4t des Staatssektors stark sinkt. Gleichzeitig steigt die Besch\u00e4ftigung des Staates", 
             "title": "Eind\u00e4mmung der Staatsquote"
         }, 
         {
-            "location": "/VwlTg/5_Arbeitsmarkt/", 
+            "location": "/Vwl/5_Arbeitsmarkt/", 
             "text": "Arbeitsmarkt\n\n\nArbeitslosigkeit\n\n\nArbeitslosenquoten\n\n\n\n\nIn der Schweiz konstant tief seit 20 Jahren (heute 3.6%)\n\n\n\n\nDeutschland und USA sind heute deutlich tiefer (ca. 4.6%)\n\n\n\n\n\n\n1970 gab es in der Schweiz fast keine Arbeitslosigkeit\n\n\n\n\nAuch durch \u00d6lpreiskrisen nur kurze Anstiege\n\n\nInner einem Jahr 1991 auf 5% gestiegen\n\n\n\"Sorge\": Trend seit 2001 ist steigend\n\n\n\n\nTypen der Arbeitslosigkeit\n\n\n\n\nSockerarbeitslosigkeit\n: Es h\u00e4tte genug offene Stellen f\u00fcr Arbeitslose (um das geht es hier)\n\n\nKonjukturelle Arbeitslosigkeit\n: Anzahl der Arbeitslosen ist gr\u00f6sser als Anzahl der offenen Stellen\n\n\n\n\nErh\u00f6hung der Sockelarbeitslosigkeit\n\n\n\n\nZwischen 1980 und 1990 hat sich die Sockelarbeitslosigkeit erh\u00f6ht\n\n\nKonjukturelle Arbeitslosigkeit ist vor\u00fcbergehend, Sockelarbeitslosigkeit ist kontinuierlich (nicht einfach wegzubringen)\n\n\n\n\nKenngr\u00f6ssen\n\n\n\n\nErbwerbsbev\u00f6lkerung: Anteil der 15- bis 64-J\u00e4hrige, die arbeiten m\u00f6chten\n\n\nDie \nArbeitslosenquote\n ist der Anteil der Arbeitslosen der Erwerbsbev\u00f6lkerung\n\n\nDie \nErwerbsquote\n ist der Anteil der Erwerbsbev\u00f6lkerung der 15- bis 64- J\u00e4hrige\n\n\nErwerbst\u00e4tigenquote\n ist der Anteil der Besch\u00e4ftigten der 15- bis 64-j\u00e4hrigen\n\n\n\n\nArbeitslosenquote allein ist nicht vergleichbar mit anderen L\u00e4ndern, weil Erwerbst\u00e4tigenquote variiert\n\n\n\n\n\n\nErwerbst\u00e4tigkeit in der Schweiz ist stetig am steigen\n\n\n\n\nImmigration hat einen positiven Einfluss\n\n\n\n\n\n\nErwerbst\u00e4tigenquote ist in der Schweiz im Vergleich sehr hoch\n\n\nz.B. in Italien \"lohnt es sich\" weniger, zu arbeiten\n\n\n\n\n\n\n\n\nDer Arbeitsmarkt als mikro\u00f6konomisches Modell\n\n\n\n\nA-Kurve: Angebot an Arbeit durch die \nHaushalte\n (nicht durch die Unternehmer!)\n\n\nN-Kurve: Nachfrage an Arbeit \ndurch Unternehmen\n\n\nDort, wo sich die Kurven schneiden: Marktgleichgewicht\n\n\nDefiniert den Preis f\u00fcr Arbeit und die Besch\u00e4ftigten-Anzahl\n\n\n\n\n\n\nAlles rechts oben des Punktes f\u00fcr A: Verzichten freiwillig auf eine Stelle, weil sie zu hohe Lohnerwartungen haben\n\n\nAst rechts Unten der N-Kurve repr\u00e4sentieren Unternehmen, die Leute einstellen m\u00f6chten zu einem zu tiefen Lohn, und finden somit niemanden\n\n\nAlle links vom Schnittpunkt haben Stellen\n\n\nWenn weniger Arbeitskr\u00e4fte ben\u00f6tigt werden, verschiebt sich N-Kurve nach links -\n Marktlohn und Anzahl Besch\u00e4ftigte werden geringer\n\n\nAlle, die zu tieferem Lohn arbeiten wollen, haben eine Stelle. Andere verzichten freiwillig -\n Arbeitslosenquote \u00e4ndert sich nicht\n\n\n\n\n\n\nWenn Lohn fixiert wird (Mindestlohn) gibt es q1, die eine Stelle suchen, aber das Angebot bleibt gleich -\n F\u00fchrt zu Arbeitslosigkeit\n\n\nMindestlohn \u00fcber dem Marktlohn f\u00fchrt immer zu (Sockel-)Arbeitslosigkeit. Nur wie viel? -\n Diskussion um Mindestlohn\n\n\nMindestlohn \u00fcber ganze Wirtschaft ist gef\u00e4hrlich\n\n\nIn der Schweiz gibt es in spezifischen Branchen Mindestl\u00f6hne\n\n\nIn GAVs festgelegt\n\n\nOptionale Abmachung zwischen Arbeitnehmer und Arbeitgeber\n\n\nWin-Win f\u00fcr beide\n\n\n\n\n\n\n\n\nArbeitsmarkt in der Schweiz\n\n\n\n\nEs ist im weltweiten Vergleich sehr einfach, jemanden zu entlassen\n\n\nF\u00fchrt zu unbefristeten Stellen\n\n\n\n\n\n\nSchweiz hat einer der liberalsten Arbeitsm\u00e4rkte der Welt\n\n\n\"Hiring and Firing\" ist weniger reguliert als in der USA\n\n\n\n\n\n\nAber: Sockelarbeitslosigkeit nimmt seit 2000 zu\n\n\n\n\nGrund Anstieg Arbeitslosenquote 1990er\n\n\n\n\nVerst\u00e4rkte Einbindung von Frauen\n\n\nMehr Ausl\u00e4nder mit langfristigen Aufenthaltsbewilligung\n\n\nAttraktivere Arbeitslosenversicherung\n\n\nGleichzeitig sank die Nachfrage nach Arbeitnehmer\n\n\nRezession der Wirtschaft", 
             "title": "5 Arbeitsmarkt"
         }, 
         {
-            "location": "/VwlTg/5_Arbeitsmarkt/#arbeitsmarkt", 
+            "location": "/Vwl/5_Arbeitsmarkt/#arbeitsmarkt", 
             "text": "", 
             "title": "Arbeitsmarkt"
         }, 
         {
-            "location": "/VwlTg/5_Arbeitsmarkt/#arbeitslosigkeit", 
+            "location": "/Vwl/5_Arbeitsmarkt/#arbeitslosigkeit", 
             "text": "", 
             "title": "Arbeitslosigkeit"
         }, 
         {
-            "location": "/VwlTg/5_Arbeitsmarkt/#arbeitslosenquoten", 
+            "location": "/Vwl/5_Arbeitsmarkt/#arbeitslosenquoten", 
             "text": "In der Schweiz konstant tief seit 20 Jahren (heute 3.6%)   Deutschland und USA sind heute deutlich tiefer (ca. 4.6%)    1970 gab es in der Schweiz fast keine Arbeitslosigkeit   Auch durch \u00d6lpreiskrisen nur kurze Anstiege  Inner einem Jahr 1991 auf 5% gestiegen  \"Sorge\": Trend seit 2001 ist steigend", 
             "title": "Arbeitslosenquoten"
         }, 
         {
-            "location": "/VwlTg/5_Arbeitsmarkt/#typen-der-arbeitslosigkeit", 
+            "location": "/Vwl/5_Arbeitsmarkt/#typen-der-arbeitslosigkeit", 
             "text": "Sockerarbeitslosigkeit : Es h\u00e4tte genug offene Stellen f\u00fcr Arbeitslose (um das geht es hier)  Konjukturelle Arbeitslosigkeit : Anzahl der Arbeitslosen ist gr\u00f6sser als Anzahl der offenen Stellen", 
             "title": "Typen der Arbeitslosigkeit"
         }, 
         {
-            "location": "/VwlTg/5_Arbeitsmarkt/#erhohung-der-sockelarbeitslosigkeit", 
+            "location": "/Vwl/5_Arbeitsmarkt/#erhohung-der-sockelarbeitslosigkeit", 
             "text": "Zwischen 1980 und 1990 hat sich die Sockelarbeitslosigkeit erh\u00f6ht  Konjukturelle Arbeitslosigkeit ist vor\u00fcbergehend, Sockelarbeitslosigkeit ist kontinuierlich (nicht einfach wegzubringen)", 
             "title": "Erh\u00f6hung der Sockelarbeitslosigkeit"
         }, 
         {
-            "location": "/VwlTg/5_Arbeitsmarkt/#kenngrossen", 
+            "location": "/Vwl/5_Arbeitsmarkt/#kenngrossen", 
             "text": "Erbwerbsbev\u00f6lkerung: Anteil der 15- bis 64-J\u00e4hrige, die arbeiten m\u00f6chten  Die  Arbeitslosenquote  ist der Anteil der Arbeitslosen der Erwerbsbev\u00f6lkerung  Die  Erwerbsquote  ist der Anteil der Erwerbsbev\u00f6lkerung der 15- bis 64- J\u00e4hrige  Erwerbst\u00e4tigenquote  ist der Anteil der Besch\u00e4ftigten der 15- bis 64-j\u00e4hrigen   Arbeitslosenquote allein ist nicht vergleichbar mit anderen L\u00e4ndern, weil Erwerbst\u00e4tigenquote variiert    Erwerbst\u00e4tigkeit in der Schweiz ist stetig am steigen   Immigration hat einen positiven Einfluss    Erwerbst\u00e4tigenquote ist in der Schweiz im Vergleich sehr hoch  z.B. in Italien \"lohnt es sich\" weniger, zu arbeiten", 
             "title": "Kenngr\u00f6ssen"
         }, 
         {
-            "location": "/VwlTg/5_Arbeitsmarkt/#der-arbeitsmarkt-als-mikrookonomisches-modell", 
+            "location": "/Vwl/5_Arbeitsmarkt/#der-arbeitsmarkt-als-mikrookonomisches-modell", 
             "text": "A-Kurve: Angebot an Arbeit durch die  Haushalte  (nicht durch die Unternehmer!)  N-Kurve: Nachfrage an Arbeit  durch Unternehmen  Dort, wo sich die Kurven schneiden: Marktgleichgewicht  Definiert den Preis f\u00fcr Arbeit und die Besch\u00e4ftigten-Anzahl    Alles rechts oben des Punktes f\u00fcr A: Verzichten freiwillig auf eine Stelle, weil sie zu hohe Lohnerwartungen haben  Ast rechts Unten der N-Kurve repr\u00e4sentieren Unternehmen, die Leute einstellen m\u00f6chten zu einem zu tiefen Lohn, und finden somit niemanden  Alle links vom Schnittpunkt haben Stellen  Wenn weniger Arbeitskr\u00e4fte ben\u00f6tigt werden, verschiebt sich N-Kurve nach links -  Marktlohn und Anzahl Besch\u00e4ftigte werden geringer  Alle, die zu tieferem Lohn arbeiten wollen, haben eine Stelle. Andere verzichten freiwillig -  Arbeitslosenquote \u00e4ndert sich nicht    Wenn Lohn fixiert wird (Mindestlohn) gibt es q1, die eine Stelle suchen, aber das Angebot bleibt gleich -  F\u00fchrt zu Arbeitslosigkeit  Mindestlohn \u00fcber dem Marktlohn f\u00fchrt immer zu (Sockel-)Arbeitslosigkeit. Nur wie viel? -  Diskussion um Mindestlohn  Mindestlohn \u00fcber ganze Wirtschaft ist gef\u00e4hrlich  In der Schweiz gibt es in spezifischen Branchen Mindestl\u00f6hne  In GAVs festgelegt  Optionale Abmachung zwischen Arbeitnehmer und Arbeitgeber  Win-Win f\u00fcr beide", 
             "title": "Der Arbeitsmarkt als mikro\u00f6konomisches Modell"
         }, 
         {
-            "location": "/VwlTg/5_Arbeitsmarkt/#arbeitsmarkt-in-der-schweiz", 
+            "location": "/Vwl/5_Arbeitsmarkt/#arbeitsmarkt-in-der-schweiz", 
             "text": "Es ist im weltweiten Vergleich sehr einfach, jemanden zu entlassen  F\u00fchrt zu unbefristeten Stellen    Schweiz hat einer der liberalsten Arbeitsm\u00e4rkte der Welt  \"Hiring and Firing\" ist weniger reguliert als in der USA    Aber: Sockelarbeitslosigkeit nimmt seit 2000 zu", 
             "title": "Arbeitsmarkt in der Schweiz"
         }, 
         {
-            "location": "/VwlTg/5_Arbeitsmarkt/#grund-anstieg-arbeitslosenquote-1990er", 
+            "location": "/Vwl/5_Arbeitsmarkt/#grund-anstieg-arbeitslosenquote-1990er", 
             "text": "Verst\u00e4rkte Einbindung von Frauen  Mehr Ausl\u00e4nder mit langfristigen Aufenthaltsbewilligung  Attraktivere Arbeitslosenversicherung  Gleichzeitig sank die Nachfrage nach Arbeitnehmer  Rezession der Wirtschaft", 
             "title": "Grund Anstieg Arbeitslosenquote 1990er"
         }

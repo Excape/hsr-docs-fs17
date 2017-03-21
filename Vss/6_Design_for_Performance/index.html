@@ -9,7 +9,7 @@
         <meta name="description" content="HSR Study Documentation FS16">
       
       
-        <link rel="canonical" href="https://doc.robinsuter.ch/Dbs2/4_Triggers/">
+        <link rel="canonical" href="https://doc.robinsuter.ch/Vss/6_Design_for_Performance/">
       
       
         <meta name="author" content="Robin Suter">
@@ -21,7 +21,7 @@
     
     
       
-        <title>4 Triggers - HSR Notizen FS17</title>
+        <title>6 Design for Performance - HSR Notizen FS17</title>
       
     
     
@@ -84,11 +84,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Dbs2
+                  Vss
                 </span>
               
             
-            4 Triggers
+            6 Design for Performance
           
         </span>
       </div>
@@ -216,12 +216,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Dbs2
@@ -239,7 +237,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../0_Index/" title="0 Index" class="md-nav__link">
+    <a href="../../Dbs2/0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
   </li>
@@ -251,7 +249,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../../Dbs2/1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -263,7 +261,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../2_OR-Mapping/" title="2 OR Mapping" class="md-nav__link">
+    <a href="../../Dbs2/2_OR-Mapping/" title="2 OR Mapping" class="md-nav__link">
       2 OR Mapping
     </a>
   </li>
@@ -275,7 +273,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../3_Stored_Procedures/" title="3 Stored Procedures" class="md-nav__link">
+    <a href="../../Dbs2/3_Stored_Procedures/" title="3 Stored Procedures" class="md-nav__link">
       3 Stored Procedures
     </a>
   </li>
@@ -285,102 +283,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        4 Triggers
-      </label>
-    
-    <a href="./" title="4 Triggers" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../Dbs2/4_Triggers/" title="4 Triggers" class="md-nav__link">
       4 Triggers
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#anwedungen" title="Anwedungen" class="md-nav__link">
-    Anwedungen
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#eigenschaften" title="Eigenschaften" class="md-nav__link">
-    Eigenschaften
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ausfuhrung" title="Ausführung" class="md-nav__link">
-    Ausführung
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#syntax" title="Syntax" class="md-nav__link">
-    Syntax
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#beispiele" title="Beispiele" class="md-nav__link">
-    Beispiele
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#before-delete" title="Before Delete" class="md-nav__link">
-    Before Delete
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#abgeleitete-attribute" title="Abgeleitete Attribute" class="md-nav__link">
-    Abgeleitete Attribute
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auditing" title="Auditing" class="md-nav__link">
-    Auditing
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -390,7 +297,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../5_Views/" title="5 Views" class="md-nav__link">
+    <a href="../../Dbs2/5_Views/" title="5 Views" class="md-nav__link">
       5 Views
     </a>
   </li>
@@ -402,7 +309,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../6_Datenstrukturen/" title="6 Datenstrukturen" class="md-nav__link">
+    <a href="../../Dbs2/6_Datenstrukturen/" title="6 Datenstrukturen" class="md-nav__link">
       6 Datenstrukturen
     </a>
   </li>
@@ -849,10 +756,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" checked>
     
     <label class="md-nav__link" for="nav-10">
       Vss
@@ -870,7 +779,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Vss/0_Index/" title="0 Index" class="md-nav__link">
+    <a href="../0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
   </li>
@@ -882,7 +791,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Vss/1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -894,7 +803,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Vss/2_Introduction/" title="2 Introduction" class="md-nav__link">
+    <a href="../2_Introduction/" title="2 Introduction" class="md-nav__link">
       2 Introduction
     </a>
   </li>
@@ -906,7 +815,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Vss/3_socket_programmierung/" title="3 socket programmierung" class="md-nav__link">
+    <a href="../3_socket_programmierung/" title="3 socket programmierung" class="md-nav__link">
       3 socket programmierung
     </a>
   </li>
@@ -918,7 +827,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Vss/4_Asynchronous_Messaging/" title="4 Asynchronous Messaging" class="md-nav__link">
+    <a href="../4_Asynchronous_Messaging/" title="4 Asynchronous Messaging" class="md-nav__link">
       4 Asynchronous Messaging
     </a>
   </li>
@@ -930,7 +839,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Vss/5_RMI_Web-Services/" title="5 RMI Web Services" class="md-nav__link">
+    <a href="../5_RMI_Web-Services/" title="5 RMI Web Services" class="md-nav__link">
       5 RMI Web Services
     </a>
   </li>
@@ -940,11 +849,61 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../Vss/6_Design_for_Performance/" title="6 Design for Performance" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        6 Design for Performance
+      </label>
+    
+    <a href="./" title="6 Design for Performance" class="md-nav__link md-nav__link--active">
       6 Design for Performance
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#non-functional-requiremenets" title="Non-Functional Requiremenets" class="md-nav__link">
+    Non-Functional Requiremenets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" title="Performance" class="md-nav__link">
+    Performance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functional-operational-model" title="Functional / Operational Model" class="md-nav__link">
+    Functional / Operational Model
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1070,64 +1029,23 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#anwedungen" title="Anwedungen" class="md-nav__link">
-    Anwedungen
+  <a href="#non-functional-requiremenets" title="Non-Functional Requiremenets" class="md-nav__link">
+    Non-Functional Requiremenets
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#eigenschaften" title="Eigenschaften" class="md-nav__link">
-    Eigenschaften
+  <a href="#performance" title="Performance" class="md-nav__link">
+    Performance
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ausfuhrung" title="Ausführung" class="md-nav__link">
-    Ausführung
+  <a href="#functional-operational-model" title="Functional / Operational Model" class="md-nav__link">
+    Functional / Operational Model
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#syntax" title="Syntax" class="md-nav__link">
-    Syntax
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#beispiele" title="Beispiele" class="md-nav__link">
-    Beispiele
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#before-delete" title="Before Delete" class="md-nav__link">
-    Before Delete
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#abgeleitete-attribute" title="Abgeleitete Attribute" class="md-nav__link">
-    Abgeleitete Attribute
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auditing" title="Auditing" class="md-nav__link">
-    Auditing
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1145,140 +1063,45 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Dbs2/4_Triggers.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Vss/6_Design_for_Performance.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <h1 id="triggers">Triggers</h1>
-<h2 id="anwedungen">Anwedungen</h2>
+                <h1 id="operationale-modelle-design-for-performance">Operationale Modelle, Design for Performance</h1>
+<h2 id="non-functional-requiremenets">Non-Functional Requiremenets</h2>
 <ul>
-<li>Berechnen von komplexen Konsistenzbedingungen</li>
-<li>Sicherheiten, z.B. das Änderungen an Tabelle X nur an Wochentagen ausgeführt werden können</li>
-<li>Sammeln von Statistik und Log-Daten</li>
-<li>Berechnen von abgeleiteten Attributen</li>
+<li><strong>Constraints</strong>: Limitationen, äussere Einflüsse und das Umfeld des Kunden, z.B. auch Standards und Regulierungen</li>
+<li>
+<p><strong>Qualities</strong>: "Service Level Requirements", sind messbar, z.B. Performance, Security, Portability, Reliability, etc. etc.</p>
+</li>
+<li>
+<p><em>Wie</em> bringt ein System seine Funktionalität? (Nicht "was macht es")</p>
+</li>
+<li>QOS ist eine Abwägung zwischen Risiko und Kosten<ul>
+<li>Werden Anforderungen nicht erfüllt, gibt es Business Risiken</li>
+<li>Wird over-engineered, gibt es unnötige Kosten</li>
 </ul>
-<h2 id="eigenschaften">Eigenschaften</h2>
+</li>
+</ul>
+<h2 id="performance">Performance</h2>
+<blockquote>
+<p>"The degree to which a system or component accomplishes its designated functions within given constraints, such as speed, accuracy, or memory usage."</p>
+</blockquote>
 <ul>
-<li>Sind DB-Objekte und immer einer Tabelle zugeordnet</li>
-<li>Werden in Stored Procedures programmiert</li>
-<li>Sind parameterlos</li>
-<li>Werden beim Eintreten eines Events vom DBMS ausgeführt, nicht manuell</li>
+<li>Hauptziele von Performance sind schnelle Antwortzeiten und <em>Predictability</em></li>
+<li>
+<p>Nicht immer ist schneller besser, manche Systeme brauchen auch eine sehr konsistente Performance (z.B. real-time)</p>
+</li>
+<li>
+<p>Für schnelle Antwortzeiten braucht es genüged Durchsatz (z.B. Transaktionen pro Sekunde)</p>
+</li>
+<li>Für genügend Durchsatz braucht es genüged Kapazität (Scalability)</li>
 </ul>
-<h2 id="ausfuhrung">Ausführung</h2>
+<h2 id="functional-operational-model">Functional / Operational Model</h2>
 <ul>
-<li>"Before" Triggers können Änderungen an einer Row vornehmen</li>
-<li>"After" Triggers können nur reagieren, der Returnwert wird ignoriert</li>
-<li>Triggers werden in alphabetischer Reihenfolge ausgeführt</li>
-<li>Wenn "Before"-Trigger als Rückgabewert NULL liefert, wird die Operation abgebrochen!</li>
+<li>Functional Model: Die funktionalen Komponenten eines Systems</li>
+<li>Operational Model: Das System, auf das die Komponenten deployed werden (Infrastruktur)</li>
+<li></li>
 </ul>
-<h2 id="syntax">Syntax</h2>
-<ul>
-<li>Allgemein (Beispiel)</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="o">|</span> <span class="k">ALTER</span> <span class="k">TRIGGER</span> <span class="n">name</span> <span class="k">BEFORE</span> <span class="o">|</span> <span class="k">AFTER</span> <span class="k">INSERT</span> <span class="p">[</span><span class="k">OR</span> <span class="k">UPDATE</span> <span class="p">[</span><span class="k">OF</span> <span class="n">attribute</span><span class="p">]</span> <span class="p">[</span><span class="k">OR</span> <span class="p">...]]</span>
-<span class="k">ON</span> <span class="k">table</span>
-<span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span> <span class="o">|</span> <span class="k">STATEMENT</span>
-<span class="k">EXECUTE</span> <span class="k">PROCEDURE</span> <span class="n">mytriggerfunc</span><span class="p">();</span>
-</pre></div>
-
-
-<ul>
-<li>Trigger-Funktion (Procedure)</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">FUNCTION</span> <span class="n">mytrigger_func</span><span class="p">()</span>
-<span class="k">RETURNS</span> <span class="k">TRIGGER</span> <span class="c1">-- special meaning</span>
-<span class="k">AS</span> <span class="err">$$</span>
-<span class="o">&lt;&lt;</span><span class="n">body</span><span class="o">&gt;&gt;</span>
-<span class="err">$$</span> <span class="k">language</span> <span class="n">plpgsql</span><span class="p">;</span>
-</pre></div>
-
-
-<ul>
-<li>Die Eigenschaften eines Triggers, z.B. ob <code>BEFORE</code> oder <code>AFTER</code>, auf welche Operation getriggert wird, Name der Tabelle, etc. wird in Variablen der Funktion übergeben, alle mit dem Prefix <code>TG_</code></li>
-<li>Mit der Variable <code>NEW</code> kann eine neue, leere Row gefüllt werden (nur bei INSERT UND UPDATE)</li>
-<li>Mit der <code>OLD</code>-Variable wird die "alte" Row angesprochen (nur bei UPDATE und DELETE)</li>
-</ul>
-<h2 id="beispiele">Beispiele</h2>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">dt_trigger_func</span><span class="p">()</span>
-<span class="k">RETURNS</span> <span class="k">TRIGGER</span> <span class="k">AS</span> <span class="err">$$</span>
-<span class="k">BEGIN</span>
-    <span class="k">IF</span> <span class="p">(</span><span class="n">TG_OP</span> <span class="o">=</span> <span class="s1">&#39;INSERT&#39;</span><span class="p">)</span> <span class="k">THEN</span>
-        <span class="k">NEW</span><span class="p">.</span><span class="n">creation_date</span> <span class="p">:</span><span class="o">=</span> <span class="n">now</span><span class="p">();</span>
-    <span class="k">ELSIF</span> <span class="p">(</span><span class="n">TG_OP</span> <span class="o">=</span> <span class="s1">&#39;UPDATE&#39;</span><span class="p">)</span> <span class="k">THEN</span>
-        <span class="k">NEW</span><span class="p">.</span><span class="n">modification_date</span> <span class="p">:</span><span class="o">=</span> <span class="n">now</span><span class="p">();</span>
-    <span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
-    <span class="k">RETURN</span> <span class="k">NEW</span><span class="p">;</span>
-<span class="k">END</span>
-<span class="err">$$</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
-</pre></div>
-
-
-<h3 id="before-delete">Before Delete</h3>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">delete_tbl_trigger_fn</span><span class="p">()</span>
-<span class="k">RETURNS</span> <span class="k">trigger</span> <span class="k">AS</span> <span class="err">$$</span>
-<span class="k">BEGIN</span>
-    <span class="k">UPDATE</span> <span class="n">tbl</span> <span class="k">SET</span> <span class="n">deleted</span><span class="o">=</span><span class="k">true</span> <span class="k">WHERE</span> <span class="n">id</span><span class="o">=</span><span class="k">OLD</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
-    <span class="k">RETURN</span> <span class="k">NULL</span><span class="p">;</span> <span class="c1">-- Note RETURN NULL, not RETURN OLD!</span>
-<span class="k">END</span><span class="p">;</span>
-<span class="err">$$</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
-
-<span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="n">delete_tbl_trigger</span>
-<span class="k">BEFORE</span> <span class="k">DELETE</span>
-<span class="k">ON</span> <span class="n">tbl</span>
-<span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span>
-<span class="k">EXECUTE</span> <span class="k">PROCEDURE</span> <span class="n">delete_tbl_trigger_fn</span><span class="p">();</span>
-</pre></div>
-
-
-<h3 id="abgeleitete-attribute">Abgeleitete Attribute</h3>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">function</span> <span class="n">increment_salaer</span>
-<span class="p">(</span> <span class="n">v_salaer</span> <span class="k">IN</span> <span class="n">Firma</span><span class="p">.</span><span class="n">SalaerSumme</span><span class="o">%</span><span class="k">TYPE</span><span class="p">)</span>
-<span class="k">RETURNS</span> <span class="k">null</span>
-<span class="k">AS</span> <span class="err">$$</span>
-<span class="k">BEGIN</span>
-    <span class="k">UPDATE</span> <span class="n">Firma</span>
-    <span class="k">SET</span> <span class="n">SalaerSumme</span> <span class="o">=</span> <span class="n">coalesce</span> <span class="p">(</span><span class="n">SalaerSumme</span> <span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">v_salaer</span><span class="p">;</span>
-<span class="k">END</span> <span class="p">;</span>
-<span class="err">$$</span> <span class="k">language</span> <span class="n">plpgsql</span><span class="p">;</span>
-
-<span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">berechne_SalSumme_trigger_fn</span><span class="p">()</span>
-<span class="k">RETURNS</span> <span class="k">trigger</span> <span class="k">AS</span> <span class="err">$$</span>
-<span class="k">BEGIN</span>
-    <span class="k">IF</span> <span class="n">TG_OP</span><span class="o">=</span><span class="s1">&#39;DELETE&#39;</span> <span class="k">THEN</span> <span class="n">PERFORM</span> <span class="n">increment_salaer</span><span class="p">(</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="k">OLD</span><span class="p">.</span><span class="n">salaer</span><span class="p">);</span>
-    <span class="k">ELSIF</span> <span class="n">TG_OP</span><span class="o">=</span><span class="s1">&#39;UPDATE&#39;</span> <span class="k">THEN</span>
-        <span class="n">PERFORM</span> <span class="n">increment_salaer</span><span class="p">(</span><span class="k">NEW</span><span class="p">.</span><span class="n">Salaer</span><span class="o">-</span><span class="k">OLD</span><span class="p">.</span><span class="n">Salaer</span><span class="p">);</span>
-    <span class="k">ELSE</span> <span class="cm">/*inserting*/</span> <span class="n">PERFORM</span> <span class="n">increment_salaer</span><span class="p">(</span><span class="k">NEW</span><span class="p">.</span><span class="n">salaer</span><span class="p">);</span>
-    <span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
-    <span class="k">RETURN</span> <span class="k">null</span><span class="p">;</span>
-<span class="k">END</span><span class="p">;</span>
-<span class="err">$$</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
-
-<span class="k">CREATE</span> <span class="k">TRIGGER</span> <span class="n">berechne_Salaersumme</span>
-<span class="k">AFTER</span> <span class="k">INSERT</span> <span class="k">OR</span> <span class="k">UPDATE</span> <span class="k">OF</span> <span class="n">Salaer</span> <span class="k">OR</span> <span class="k">DELETE</span> <span class="k">ON</span> <span class="n">Angestellter</span>
-<span class="k">FOR</span> <span class="k">EACH</span> <span class="k">ROW</span>
-<span class="k">EXECUTE</span> <span class="k">PROCEDURE</span> <span class="n">berechne_SalSumme_trigger_fn</span><span class="p">();</span>
-</pre></div>
-
-
-<h3 id="auditing">Auditing</h3>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">process_ang_audit</span><span class="p">()</span> <span class="k">RETURNS</span>
-<span class="k">TRIGGER</span> <span class="k">AS</span> <span class="err">$$</span>
-<span class="k">BEGIN</span>
-    <span class="k">IF</span> <span class="p">(</span><span class="n">TG_OP</span> <span class="o">=</span> <span class="s1">&#39;DELETE&#39;</span><span class="p">)</span> <span class="k">THEN</span>
-        <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">ang_audit</span>
-            <span class="k">SELECT</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">now</span><span class="p">(),</span> <span class="k">user</span><span class="p">,</span> <span class="k">OLD</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="k">OLD</span><span class="p">.</span><span class="n">salaer</span><span class="p">;</span>
-        <span class="k">RETURN</span> <span class="k">OLD</span><span class="p">;</span>
-    <span class="k">ELSIF</span> <span class="p">(</span><span class="n">TG_OP</span> <span class="o">=</span> <span class="s1">&#39;UPDATE&#39;</span><span class="p">)</span> <span class="k">THEN</span>
-        <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">ang_audit</span>
-            <span class="k">SELECT</span> <span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="n">now</span><span class="p">(),</span> <span class="k">user</span><span class="p">,</span> <span class="k">NEW</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="k">NEW</span><span class="p">.</span><span class="n">salaer</span><span class="p">;</span>
-    <span class="k">ELSIF</span> <span class="p">(</span><span class="n">TG_OP</span> <span class="o">=</span> <span class="s1">&#39;INSERT&#39;</span><span class="p">)</span> <span class="k">THEN</span>
-        <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">ang_audit</span>
-            <span class="k">SELECT</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">now</span><span class="p">(),</span> <span class="k">user</span><span class="p">,</span> <span class="k">NEW</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="k">NEW</span><span class="p">.</span><span class="n">salaer</span><span class="p">;</span>
-    <span class="k">END</span> <span class="k">IF</span><span class="p">;</span>
-    <span class="k">RETURN</span> <span class="k">NULL</span><span class="p">;</span>
-    <span class="c1">-- result is ignored since this is an AFTER trigger</span>
-<span class="k">END</span><span class="p">;</span>
-<span class="err">$$</span> <span class="k">language</span> <span class="n">plpgsql</span><span class="p">;</span>
-</pre></div>
                 
                   
                 
@@ -1297,7 +1120,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../3_Stored_Procedures/" title="3 Stored Procedures" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../5_RMI_Web-Services/" title="5 RMI Web Services" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1306,19 +1129,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                3 Stored Procedures
+                5 RMI Web Services
               </span>
             </div>
           </a>
         
         
-          <a href="../5_Views/" title="5 Views" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../Vwl/0_Index/" title="0 Index" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                5 Views
+                0 Index
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
