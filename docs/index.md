@@ -10,7 +10,7 @@
 * [Physik Anwendungen für Informatik](PhAI/0_Index)
 * [Software-Engineering 2](SE2/0_Index)
 * [Verteilte SW-Systeme](Vss/0_Index)
-* [Volkswirtschaft und Technikgeschichte](VwlTg/0_Index)
+* [Volkswirtschaft](Vwl/0_Index)
 
 ## Links
 
