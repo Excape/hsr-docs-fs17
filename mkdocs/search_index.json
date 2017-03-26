@@ -537,7 +537,7 @@
         }, 
         {
             "location": "/InfSi3/4_Application_Security_Basics/", 
-            "text": "Application Security Basics\n\n\nWeb Basics\n\n\n\n\nInterception Proxy\n\n\nProxy zum Abfangen und Analysieren von Traffic\n\n\nz.B. ZAP und Burp (auf LiveCD)\n\n\n\n\n\n\nHTTP ist zustandslos\n\n\n\n\n\n\n\n\nZust\u00e4nde werden mit Cookies ausgetauscht\n\n\nServer erzeugt ID (=Referenz auf serverseitigen Speicher), die er dem Client im Response-Header \u00fcbertr\u00e4gt\n\n\n\n\n\n\nStatt mit einem Cookie kann eine ID auch im Body als hidden field \u00fcbertragen werden\n\n\nClient schickt Session-ID an Server zur\u00fcck\n\n\nGeht im Request als Query-parameter\n\n\nOder im Header (z.B. Cookie)\n\n\nOder im Body (POST)\n\n\n\n\n\n\nAustausch \u00fcber Cookies im Header ist die sicherste Variante!\n\n\nRequest-Queries werden im Access Log und History Cache (lokal) gespeichert -\n Anf\u00e4llig auf Session Hijacking!\n\n\nBody: Wird lokal im Filecache gespeichert, ebenfalls anf\u00e4llig\n\n\n\n\n\n\nOb Cookie Session-Cookie ist (nicht persistent), wird mit \n\u00ecsSession\n gesteuert (default true)\n\n\nPath\n und \nDomain\n geben an, zu welcher Domain und Pfad das Cookie vom Browser gesendet wird\n\n\nHPKP: HTTP Public Key Pinning\n\n\nBeim ersten Response des Servers wird ein Hash des Public Keys (=Pin) des Certs im HPKP-Header mitgesendet\n\n\nDer Client rechnet ebenfalls einen Hash des Public-Keys\n\n\nBei zuk\u00fcnftigen Verbindungen pr\u00fcft der Client, ob der Hash noch derselbe ist wie der gespeicherte. Wenn nicht, wird die Verbindung rejected\n\n\nProblem, wenn Certs ausgetauscht werden\n\n\nL\u00f6sung: Mehr als einen PIN angeben\n\n\nZertifikate werden auf Vorrat erstellt\n\n\nEs werden mehrere PINS mitgeschickt, auch solche von zuk\u00fcnftigen Certs\n\n\nOder: Eigenes Intermediate CA Pinnen und von diesem aus die richtigen Server-Certs ausstellen", 
+            "text": "Application Security Basics\n\n\nWeb Basics\n\n\n\n\nInterception Proxy\n\n\nProxy zum Abfangen und Analysieren von Traffic\n\n\nz.B. ZAP und Burp (auf LiveCD)\n\n\n\n\n\n\nHTTP ist zustandslos\n\n\n\n\n\n\n\n\nZust\u00e4nde werden mit Cookies ausgetauscht\n\n\nServer erzeugt ID (=Referenz auf serverseitigen Speicher), die er dem Client im Response-Header \u00fcbertr\u00e4gt\n\n\n\n\n\n\nStatt mit einem Cookie kann eine ID auch im Body als hidden field \u00fcbertragen werden\n\n\nClient schickt Session-ID an Server zur\u00fcck\n\n\nGeht im Request als Query-parameter\n\n\nOder im Header (z.B. Cookie)\n\n\nOder im Body (POST)\n\n\n\n\n\n\nAustausch \u00fcber Cookies im Header ist die sicherste Variante!\n\n\nRequest-Queries werden im Access Log und History Cache (lokal) gespeichert -\n Anf\u00e4llig auf Session Hijacking!\n\n\nBody: Wird lokal im Filecache gespeichert, ebenfalls anf\u00e4llig\n\n\n\n\n\n\nOb Cookie Session-Cookie ist (nicht persistent), wird mit \n\u00ecsSession\n gesteuert (default true)\n\n\nPath\n und \nDomain\n geben an, zu welcher Domain und Pfad das Cookie vom Browser gesendet wird\n\n\nHPKP: HTTP Public Key Pinning\n\n\nBeim ersten Response des Servers wird ein Hash des Public Keys (=Pin) des Certs im HPKP-Header mitgesendet\n\n\nDer Client rechnet ebenfalls einen Hash des Public-Keys\n\n\nBei zuk\u00fcnftigen Verbindungen pr\u00fcft der Client, ob der Hash noch derselbe ist wie der gespeicherte. Wenn nicht, wird die Verbindung rejected\n\n\nProblem, wenn Certs ausgetauscht werden\n\n\nL\u00f6sung: Mehr als einen PIN angeben\n\n\nZertifikate werden auf Vorrat erstellt\n\n\nEs werden mehrere PINS mitgeschickt, auch solche von zuk\u00fcnftigen Certs\n\n\nOder: Eigenes Intermediate CA Pinnen und von diesem aus die richtigen Server-Certs ausstellen\n\n\n\n\n\n\n\n\n\n\n\n\n302 Redirect nach Login\n\n\n\n\nWenn der Server vertrauliche Daten per POST erh\u00e4lt (Login), sollte er mit 302 Redirect antworten\n\n\nBei 200 Returncode w\u00fcrde der Browser die gesendeten Daten cachen (und k\u00f6nnen erneut gesendet werden bei back-button)\n\n\nBei 302 Redirect cached der Browser die Daten nicht\n\n\n\n\nSession Fixation Attack\n\n\n\n\nAngreifer erstellt Session auf Webapp (noch ohne Login)\n\n\nAngreifer schickt seine Session zum Opfer und bringt es dazu, diese Session zu verwenden\n\n\nOpfer loggt sich ein, Session ist nun authentifiziert\n\n\n\n\nAngreifer kann diese Session verwenden\n\n\n\n\n\n\nDas \"unterjubeln\" von Sessions geht nur schwer \u00fcber Cookies, betroffen sind prim\u00e4r Server, die Session-Handling \u00fcber URL-Requests machen\n\n\n\n\n\n\nRemedies\n\n\n\n\nBeim Login soll der Server eine neue Session erstellen (mit Kopie des Inhalts der alten Session) und die alte invalidieren\n\n\n\n\nSame Origin Policy\n\n\n\n\nSame Origin wird definiert auf Protokoll, Host und Port\n\n\nVerboten also auch von HTTP zu HTTPS und umgekehrt!\n\n\nSOP kann umgehen werden, indem JS auf Third-party-seite liegt und mit \nscript src=\"..\"\n eingebunden wird\n\n\nSauber geht es \u00fcber CORS (sp\u00e4ter)", 
             "title": "4 Application Security Basics"
         }, 
         {
@@ -549,6 +549,81 @@
             "location": "/InfSi3/4_Application_Security_Basics/#web-basics", 
             "text": "Interception Proxy  Proxy zum Abfangen und Analysieren von Traffic  z.B. ZAP und Burp (auf LiveCD)    HTTP ist zustandslos     Zust\u00e4nde werden mit Cookies ausgetauscht  Server erzeugt ID (=Referenz auf serverseitigen Speicher), die er dem Client im Response-Header \u00fcbertr\u00e4gt    Statt mit einem Cookie kann eine ID auch im Body als hidden field \u00fcbertragen werden  Client schickt Session-ID an Server zur\u00fcck  Geht im Request als Query-parameter  Oder im Header (z.B. Cookie)  Oder im Body (POST)    Austausch \u00fcber Cookies im Header ist die sicherste Variante!  Request-Queries werden im Access Log und History Cache (lokal) gespeichert -  Anf\u00e4llig auf Session Hijacking!  Body: Wird lokal im Filecache gespeichert, ebenfalls anf\u00e4llig    Ob Cookie Session-Cookie ist (nicht persistent), wird mit  \u00ecsSession  gesteuert (default true)  Path  und  Domain  geben an, zu welcher Domain und Pfad das Cookie vom Browser gesendet wird  HPKP: HTTP Public Key Pinning  Beim ersten Response des Servers wird ein Hash des Public Keys (=Pin) des Certs im HPKP-Header mitgesendet  Der Client rechnet ebenfalls einen Hash des Public-Keys  Bei zuk\u00fcnftigen Verbindungen pr\u00fcft der Client, ob der Hash noch derselbe ist wie der gespeicherte. Wenn nicht, wird die Verbindung rejected  Problem, wenn Certs ausgetauscht werden  L\u00f6sung: Mehr als einen PIN angeben  Zertifikate werden auf Vorrat erstellt  Es werden mehrere PINS mitgeschickt, auch solche von zuk\u00fcnftigen Certs  Oder: Eigenes Intermediate CA Pinnen und von diesem aus die richtigen Server-Certs ausstellen", 
             "title": "Web Basics"
+        }, 
+        {
+            "location": "/InfSi3/4_Application_Security_Basics/#302-redirect-nach-login", 
+            "text": "Wenn der Server vertrauliche Daten per POST erh\u00e4lt (Login), sollte er mit 302 Redirect antworten  Bei 200 Returncode w\u00fcrde der Browser die gesendeten Daten cachen (und k\u00f6nnen erneut gesendet werden bei back-button)  Bei 302 Redirect cached der Browser die Daten nicht", 
+            "title": "302 Redirect nach Login"
+        }, 
+        {
+            "location": "/InfSi3/4_Application_Security_Basics/#session-fixation-attack", 
+            "text": "Angreifer erstellt Session auf Webapp (noch ohne Login)  Angreifer schickt seine Session zum Opfer und bringt es dazu, diese Session zu verwenden  Opfer loggt sich ein, Session ist nun authentifiziert   Angreifer kann diese Session verwenden    Das \"unterjubeln\" von Sessions geht nur schwer \u00fcber Cookies, betroffen sind prim\u00e4r Server, die Session-Handling \u00fcber URL-Requests machen", 
+            "title": "Session Fixation Attack"
+        }, 
+        {
+            "location": "/InfSi3/4_Application_Security_Basics/#remedies", 
+            "text": "Beim Login soll der Server eine neue Session erstellen (mit Kopie des Inhalts der alten Session) und die alte invalidieren", 
+            "title": "Remedies"
+        }, 
+        {
+            "location": "/InfSi3/4_Application_Security_Basics/#same-origin-policy", 
+            "text": "Same Origin wird definiert auf Protokoll, Host und Port  Verboten also auch von HTTP zu HTTPS und umgekehrt!  SOP kann umgehen werden, indem JS auf Third-party-seite liegt und mit  script src=\"..\"  eingebunden wird  Sauber geht es \u00fcber CORS (sp\u00e4ter)", 
+            "title": "Same Origin Policy"
+        }, 
+        {
+            "location": "/InfSi3/5_SQL_Injection/", 
+            "text": "SQL Injection\n\n\nBlind SQL-Injection\n\n\n\n\nDer Server liefert auf einen SQL-Injection-Angriff keine Fehlermeldung\n\n\nAngreifer kann aber z.B. \"Benchmarks\" probieren auszuf\u00fchren, die lange zum Berechnen haben. Wenn die Antwort l\u00e4nger als erwartet dauert, hat die Injection wahrscheinlich funktioniert (\"Time based SQL Injection\")\n\n\n\n\nMitigation\n\n\n\n\nPrio 1\n: \n\n\nPrepared Statements\n\n\nProper Error Handling\n\n\n\n\n\n\nPrio 2:\n\n\nWeb Application Firewall (filtert Inputs)\n\n\nDB-Privilegien (nicht mit root!!)", 
+            "title": "5 SQL Injection"
+        }, 
+        {
+            "location": "/InfSi3/5_SQL_Injection/#sql-injection", 
+            "text": "", 
+            "title": "SQL Injection"
+        }, 
+        {
+            "location": "/InfSi3/5_SQL_Injection/#blind-sql-injection", 
+            "text": "Der Server liefert auf einen SQL-Injection-Angriff keine Fehlermeldung  Angreifer kann aber z.B. \"Benchmarks\" probieren auszuf\u00fchren, die lange zum Berechnen haben. Wenn die Antwort l\u00e4nger als erwartet dauert, hat die Injection wahrscheinlich funktioniert (\"Time based SQL Injection\")", 
+            "title": "Blind SQL-Injection"
+        }, 
+        {
+            "location": "/InfSi3/5_SQL_Injection/#mitigation", 
+            "text": "Prio 1 :   Prepared Statements  Proper Error Handling    Prio 2:  Web Application Firewall (filtert Inputs)  DB-Privilegien (nicht mit root!!)", 
+            "title": "Mitigation"
+        }, 
+        {
+            "location": "/InfSi3/6_XSS/", 
+            "text": "Cross-Site Scripting (XSS)\n\n\nStored XSS\n\n\n\n\nAngreifer kann auf Website Code platzieren, dass vom Victim bei Besuch ausgef\u00fchrt wird\n\n\nMit dem JS wird das Victim dazu gebracht, dem Angreifer die Session zu schicken\n\n\nSOP verhindert das Senden per JS aber\n\n\nEs wird aber z.B. ein Bild eingebunden mit dem Cookie im Parameter\n\n\nDas Cookie landet im Access-Log des Angreifers\n\n\n\n\n\n\nAngreifer braucht Session selber (Session-Hijacking)\n\n\n\n\nReflected XSS\n\n\n\n\nAngreifer schickt GET-Request mit JS in Query-Parameter\n\n\nServer sendet 404 mit Fehlermeldung, dass es die Seite nicht gibt, und reflektiert das JS zur\u00fcck\n\n\n\n\nWenn diese Anfrage vom Opfer ausgef\u00fchrt wird, kann so beliebigs JS zur Ausf\u00fchrung gebracht werden\n\n\n\n\n\n\nModerne Browser merken das JS in der URL und verhindern das Ausf\u00fchren beim Reply (XSS-Filter)\n\n\n\n\nServer kann XSS-Filter auch enforcen (bei neuen Browsern) mit Header \nX-XSS-Protection\n\n\n\n\nDOM-Based XSS\n\n\n\n\nXSS im lokalen DOM ohne Server-Request\n\n\nJS-code wird im Anchor nach dem \n#\n angeh\u00e4ngt, so wird sie nie dem Server \u00fcbermittelt\n\n\n\n\nXSS Shell\n\n\n\n\nAngreifer injected \nscript src=\"attacker-site/script.js\"/\n auf Webapp\n\n\nOpfer f\u00fchrt Attacker-JS aus und pollt regelm\u00e4ssig den Attacker-Server\n\n\nSo kann die Shell Befehle schicken, die vom Opfer abgeholt werden\n\n\n\n\nMitigation\n\n\n\n\nHTML-Characters escapen\n\n\n in \nlt;\n usw. umwandeln\n\n\nIn Praxis schwierig, das nicht g\u00fcltige Zeichen wie \n'\n escaped werden", 
+            "title": "6 XSS"
+        }, 
+        {
+            "location": "/InfSi3/6_XSS/#cross-site-scripting-xss", 
+            "text": "", 
+            "title": "Cross-Site Scripting (XSS)"
+        }, 
+        {
+            "location": "/InfSi3/6_XSS/#stored-xss", 
+            "text": "Angreifer kann auf Website Code platzieren, dass vom Victim bei Besuch ausgef\u00fchrt wird  Mit dem JS wird das Victim dazu gebracht, dem Angreifer die Session zu schicken  SOP verhindert das Senden per JS aber  Es wird aber z.B. ein Bild eingebunden mit dem Cookie im Parameter  Das Cookie landet im Access-Log des Angreifers    Angreifer braucht Session selber (Session-Hijacking)", 
+            "title": "Stored XSS"
+        }, 
+        {
+            "location": "/InfSi3/6_XSS/#reflected-xss", 
+            "text": "Angreifer schickt GET-Request mit JS in Query-Parameter  Server sendet 404 mit Fehlermeldung, dass es die Seite nicht gibt, und reflektiert das JS zur\u00fcck   Wenn diese Anfrage vom Opfer ausgef\u00fchrt wird, kann so beliebigs JS zur Ausf\u00fchrung gebracht werden    Moderne Browser merken das JS in der URL und verhindern das Ausf\u00fchren beim Reply (XSS-Filter)   Server kann XSS-Filter auch enforcen (bei neuen Browsern) mit Header  X-XSS-Protection", 
+            "title": "Reflected XSS"
+        }, 
+        {
+            "location": "/InfSi3/6_XSS/#dom-based-xss", 
+            "text": "XSS im lokalen DOM ohne Server-Request  JS-code wird im Anchor nach dem  #  angeh\u00e4ngt, so wird sie nie dem Server \u00fcbermittelt", 
+            "title": "DOM-Based XSS"
+        }, 
+        {
+            "location": "/InfSi3/6_XSS/#xss-shell", 
+            "text": "Angreifer injected  script src=\"attacker-site/script.js\"/  auf Webapp  Opfer f\u00fchrt Attacker-JS aus und pollt regelm\u00e4ssig den Attacker-Server  So kann die Shell Befehle schicken, die vom Opfer abgeholt werden", 
+            "title": "XSS Shell"
+        }, 
+        {
+            "location": "/InfSi3/6_XSS/#mitigation", 
+            "text": "HTML-Characters escapen   in  lt;  usw. umwandeln  In Praxis schwierig, das nicht g\u00fcltige Zeichen wie  '  escaped werden", 
+            "title": "Mitigation"
         }, 
         {
             "location": "/ParProg/0_Index/", 
@@ -857,12 +932,12 @@
         }, 
         {
             "location": "/SE2/0_Index/", 
-            "text": "Software Engineering 2\n\n\n\n\nExam Notes\n\n\nProject Automation\n\n\nSoftware Engineering Practises\n\n\nError Handling Design", 
+            "text": "Software Engineering 2\n\n\n\n\nExam Notes\n\n\nProject Automation\n\n\nSoftware Engineering Practises\n\n\nError Handling Design\n\n\nDesign by Contract", 
             "title": "0 Index"
         }, 
         {
             "location": "/SE2/0_Index/#software-engineering-2", 
-            "text": "Exam Notes  Project Automation  Software Engineering Practises  Error Handling Design", 
+            "text": "Exam Notes  Project Automation  Software Engineering Practises  Error Handling Design  Design by Contract", 
             "title": "Software Engineering 2"
         }, 
         {
@@ -1029,6 +1104,31 @@
             "location": "/SE2/4_Error_Handling_Design/#assertions", 
             "text": "Logisch dassselbe wie  if.. else throw  Kann von der Runtime an- oder abgeschaltet werden, z.B. f\u00fcr Debug-Umgebung  F\u00fcr produktive F\u00e4lle wie externe Quellen immer Exceptions verwenden!  Assertions f\u00fcr Programmierfehler verwenden, die nie auftreten d\u00fcrfen  Sicher sein, dass sie immer wahr sind! Quasi als formale Kommentare  z.B. wenn man bereits weiss, dass Preconditions erf\u00fcllt sind  Kein Ausf\u00fchrbarer code, bzw. keine Seiteneffekte! Assertions werden nicht immer ausgef\u00fchrt    F\u00fcr Tests assertions abschalten, wenn sie in der Produktion auch disabled sind", 
             "title": "Assertions"
+        }, 
+        {
+            "location": "/SE2/5_Design_by_Contract/", 
+            "text": "Design by Contract\n\n\n\n\nContracts legen Rechte (benefits) und Pflichten (obligations) zwischen zweier Parteien in einem formalen Dokument fest\n\n\nDesign by Contract will dieses Prinzip auf SW anwenden\n\n\nBeziehungn zwischen \"Kunden und Lieferanten\", zwischen zwei Komponenten, werden durch Vertr\u00e4ge geregelt\n\n\nKomponenten k\u00f6nnen Systeme oder Subsysteme (z.B. Klassen) sein\n\n\nEinf\u00fchrung Konzept von Eiffel\n\n\n\n\nPre-/Post-Conditons\n\n\n\n\nPreconditions\n: Bedingungen, die vor dem Aufruf einer Methode gelten (bei Klasse). Der Aufrufer ist daf\u00fcr verantwortlich\n\n\nPostconditions\n: Bedingungen, die nach dem Aufruf g\u00fcltig sind, verantwortlich ist die konkrete Implementation\n\n\n\n\nKlasseninvarianten\n: Garantien f\u00fcr einen Aufrufer, welche Eigenschaften vor / nach jedem Methodenaufruf gelten\n\n\n\n\noder: Allgemeing\u00fcltige Postconditions f\u00fcr alle Methoden in einer Klasse\n\n\n\n\n\n\n\n\nPre- und Postconditions werden nur auf der \"supplier\"-Seite definiert, also dem \"Callee\"\n\n\n\n\nGrund: Kontext des Aufrufers ist verschieden, beim Supplier aber immer gleich\n\n\n\n\n\n\n\n\nIn Eiffel werden Pre-conditions im \nrequire\n-Block, Post-conditions im \nensure\n-Block definiert\n\n\n\n\n\n\nDer defensive Ansatz pr\u00fcft die Pre-conditon in der Methode\n\n\n\n\nDer Ansatz von \nDesign by contract\n geht davon aus, dass die Pre- und Post-conditions \nerf\u00fcllt\n sind, ohne sie explizit zu pr\u00fcfen\n\n\nPre- und postconditions d\u00fcrfen Zust\u00e4nde des Systems abfragen, aber nicht ver\u00e4ndern!\n\n\n\n\nVollst\u00e4ndigkeit\n\n\n\n\nMan kann eine Klasse nur auf ihren internen Zustand pr\u00fcfen\n\n\nWenn z.B. eine Klasse eine Referenz auf eine andere Klasse hat, kann man nicht die internen Eigenschaften der Klasse \"ausserhalb\" pr\u00fcfen\n\n\n\n\n\n\n\n\nContracts und Vererbung\n\n\n\n\nEin Subtyp muss mindestens den Contract der Superklasse erf\u00fcllen\n\n\nWegen Liskov's Substitution Principle: Eine Superklasse muss austauschbar durch die Subklasse sein\n\n\n\n\n\n\nSubtypen d\u00fcrfen postconditons der Superklassen verst\u00e4rken (eingrenzen) und preconditions schw\u00e4chen (erweitern), aber nicht umgekehrt", 
+            "title": "5 Design by Contract"
+        }, 
+        {
+            "location": "/SE2/5_Design_by_Contract/#design-by-contract", 
+            "text": "Contracts legen Rechte (benefits) und Pflichten (obligations) zwischen zweier Parteien in einem formalen Dokument fest  Design by Contract will dieses Prinzip auf SW anwenden  Beziehungn zwischen \"Kunden und Lieferanten\", zwischen zwei Komponenten, werden durch Vertr\u00e4ge geregelt  Komponenten k\u00f6nnen Systeme oder Subsysteme (z.B. Klassen) sein  Einf\u00fchrung Konzept von Eiffel", 
+            "title": "Design by Contract"
+        }, 
+        {
+            "location": "/SE2/5_Design_by_Contract/#pre-post-conditons", 
+            "text": "Preconditions : Bedingungen, die vor dem Aufruf einer Methode gelten (bei Klasse). Der Aufrufer ist daf\u00fcr verantwortlich  Postconditions : Bedingungen, die nach dem Aufruf g\u00fcltig sind, verantwortlich ist die konkrete Implementation   Klasseninvarianten : Garantien f\u00fcr einen Aufrufer, welche Eigenschaften vor / nach jedem Methodenaufruf gelten   oder: Allgemeing\u00fcltige Postconditions f\u00fcr alle Methoden in einer Klasse     Pre- und Postconditions werden nur auf der \"supplier\"-Seite definiert, also dem \"Callee\"   Grund: Kontext des Aufrufers ist verschieden, beim Supplier aber immer gleich     In Eiffel werden Pre-conditions im  require -Block, Post-conditions im  ensure -Block definiert    Der defensive Ansatz pr\u00fcft die Pre-conditon in der Methode   Der Ansatz von  Design by contract  geht davon aus, dass die Pre- und Post-conditions  erf\u00fcllt  sind, ohne sie explizit zu pr\u00fcfen  Pre- und postconditions d\u00fcrfen Zust\u00e4nde des Systems abfragen, aber nicht ver\u00e4ndern!", 
+            "title": "Pre-/Post-Conditons"
+        }, 
+        {
+            "location": "/SE2/5_Design_by_Contract/#vollstandigkeit", 
+            "text": "Man kann eine Klasse nur auf ihren internen Zustand pr\u00fcfen  Wenn z.B. eine Klasse eine Referenz auf eine andere Klasse hat, kann man nicht die internen Eigenschaften der Klasse \"ausserhalb\" pr\u00fcfen", 
+            "title": "Vollst\u00e4ndigkeit"
+        }, 
+        {
+            "location": "/SE2/5_Design_by_Contract/#contracts-und-vererbung", 
+            "text": "Ein Subtyp muss mindestens den Contract der Superklasse erf\u00fcllen  Wegen Liskov's Substitution Principle: Eine Superklasse muss austauschbar durch die Subklasse sein    Subtypen d\u00fcrfen postconditons der Superklassen verst\u00e4rken (eingrenzen) und preconditions schw\u00e4chen (erweitern), aber nicht umgekehrt", 
+            "title": "Contracts und Vererbung"
         }, 
         {
             "location": "/Vss/0_Index/", 
@@ -1499,6 +1599,71 @@
             "location": "/Vwl/5_Arbeitsmarkt/#grund-anstieg-arbeitslosenquote-1990er", 
             "text": "Verst\u00e4rkte Einbindung von Frauen  Mehr Ausl\u00e4nder mit langfristigen Aufenthaltsbewilligung  Attraktivere Arbeitslosenversicherung  Gleichzeitig sank die Nachfrage nach Arbeitnehmer  Rezession der Wirtschaft", 
             "title": "Grund Anstieg Arbeitslosenquote 1990er"
+        }, 
+        {
+            "location": "/Vwl/6_Konjuktur/", 
+            "text": "Konjuktur\n\n\nNachfrage- und Angebotsschock\n\n\nNegativer Nachfrageschock:\n\n\n\n\nAnfrage-Kurve wird nach links verschoben\n\n\nUrsache (Bsp.): \n\n\nKonsum der Haushalte bricht ein\n\n\nStaat muss sparen\n\n\nUnternehmen investieren weniger\n\n\nAusland sinkt Nachfrage\n\n\n\n\n\n\nReales BIP geht zur\u00fcck\n\n\nDas Preisniveau sinkt\n\n\nKaufkraft steigt (wenn L\u00f6hne gleich bleiben)\n\n\n\n\n\n\nAuswirkungen:\n\n\nWeniger Arbeitspl\u00e4tze\n\n\nUnternehmen k\u00f6nnen weniger herstellen\n\n\nSchlecht f\u00fcr Importe und Exporte\n\n\n-\n Schlimmer f\u00fcr Unternehmen als f\u00fcr Haushalte\n\n\n\n\n\n\n\n\nPositiver Nachfrageschock\n\n\n\n\nGut f\u00fcr Haushalte bez\u00fcglich Arbeitspl\u00e4tze, aber weniger Kaufkraft\n\n\nGut f\u00fcr Unternehmen, es wird mehr hergestellt\n\n\nPositive Nachfrage auf lange Sicht f\u00fchrt zu Inflation, weil die Kapazit\u00e4tsgrenze gleich bleibt\n\n\n\n\nNegativer Angebotsschock\n\n\n\n\nAngebotskurve nach links verschoben\n\n\nUrsache\n\n\nRohstoffe werden knapp\n\n\n(Mindestlohn)\n\n\nMehr Steuern f\u00fcr Unternehmen\n\n\n\n\n\n\nAuswirkung\n\n\nWeniger BIP\n\n\nPreissteigerung kann f\u00fcr Unternehmen positiv sein\n\n\nF\u00fcr Haushalte: Gef\u00e4hrdung der Arbeitsstelle, h\u00f6here Preise\n\n\n\n\n\n\n\n\nPositiver Angebotsschock\n\n\n\n\nGut f\u00fcr Haushalte, tiefere Preise, sicherer Arbeitsplatz\n\n\nUnternehmen k\u00f6nnen mehr produzieren, aber zu tieferem Preis verkaufen\n\n\n\n\nFazit\n\n\n\n\nNicht jede konjukturelle Ver\u00e4nderung ist f\u00fcr alle Positiv oder Negativ\n\n\nMacht Analysen komplex\n\n\n\n\nKonjukturzyklen\n\n\n\n\nVor 2. WK war Wirtschaft in \"nat\u00fcrlichem\" Zyklus im Gegenuhrzeigersinn\n\n\nNach 2. WK bewegt sich der Zyklus nur noch im inflation\u00e4ren Bereich\n\n\nZentralbanken wollen Deflation verhindern\n\n\nDeflation f\u00fchrt zu weniger Investitionen und sie werden mehr hinaus gez\u00f6gert\n\n\nJapan ist in dieser Situation (\"Deflationsfalle\")\n\n\n\n\nKonjukturpolitik\n\n\n\n\nIn der Schweiz muss der Bund Konjukturpolitik betreiben (Gegen Marktwirtschaft)\n\n\n\n\n\n\n\n\nNichts tun: M\u00e4rkten sollen sich selbst regulieren.\n- Nachfrage nach Arbeit sinkt\n- L\u00f6hne m\u00fcssten kleiner werden\n- Davon profitieren Unternehmen, Angebot geht hinauf bis zur Balance\n- Preisniveau ist gesunken, aber L\u00f6hne auch -\n gleiche Kaufkraft\n- \nProblem\n: Arbeitsm\u00e4rkte ist reguliert, L\u00f6hne d\u00fcrfen nicht sinken. Funktioniert in der Praxis also nicht\n\n\n\n\n\n\nAktive Konjukturpolitik: Der Staat f\u00f6rdert die Nachfrage\n- Arbeitsm\u00e4rkte sind reguliert\n- Nachfrage-Kurve muss wieder nach rechts verschoben werden\n- Haushalte m\u00fcssen mehr Konsumieren oder Unternehmen mehr investieren\n- Weniger Steuern, weniger Zinsen f\u00fcr Haushalte\n- Wenn Staat Konjukturpolitik macht, ist es \"Fiskalpolitik\"\n- Wenn es die Zentralbank macht, \"Geldpolitik\"\n\n\n\n\n\n\nSt\u00e4rkung der automatischen Stabilisatoren: Staatliche Einnahmen und Ausgaben, damit bei R\u00fcckgang der Nachfrage diese automatisch stimuliert wird\n- Bremsung durch progressives Steursystem (Steuereinnahmen steigen exponentiell bei h\u00f6heren Einkommen)\n\n\n\n\n\n\nKritik aktive Konjukturpolitik\n\n\n\n\nRezession: Wenn BIP 2 Quartale hintereinander negativ ist\n\n\nVerz\u00f6gerung ist also mindestens 3 Quartale\n\n\nF\u00fcr Konjukturpaket muss Parlament entscheiden\n\n\nGeht mit allem etwa 5 Jahre\n\n\n\n\n\n\nVerz\u00f6gerung l\u00e4uft Gefahr, dass Korrektur kommt, wenn Hochkonjuktur herrscht\n\n\nDurch f\u00f6deralistischem Prinzip haben Kantone viel Macht\n\n\nSteuern sind auf Bundesebene viel tiefer als auf Kantonalebene!\n\n\n\n\n\n\n\n\nKantone m\u00fcssten mitziehen\n\n\n\n\n\n\nDarum\n: In der Schweiz wird vorallem mit Stabilisatoren gearbeitet\n\n\n\n\nIn der Vergangenheit hat aktive Konjukturpolitik in der Schweiz schlecht funktioniert\n\n\nAuf z.B. Ebene Europa machht es mehr Sinn, weil Rezessionen \u00fcber viele Jahre gehen\n\n\n\n\nKonkukturpolitik 2008-2010\n\n\n\n\nLetzte Krise 2008 ging die Rezession 3 Quartale lang\n\n\nKonjukturpaket aufgrund von Druck\n\n\nErste Stufe 2009\n\n\nDer Bund und die Baubranche hat vorallem profitiert\n\n\n\n\n\n\nZweite Stufe 2009\n\n\nSchiene, Strasse, Infrastruktur\n\n\nHat erst viel sp\u00e4ter Wirkung\n\n\nWieder Vorteile f\u00fcr Baubranche\n\n\n\n\n\n\nDritte Stufe 2010\n\n\nBek\u00e4mpfung Arbeitslosigkeit\n\n\nKurzarbeit: Teil des Lohnes wird vom Staat \u00fcbernommen\n\n\nUnternehmen entlassen weniger Arbeiter und k\u00f6nnen so Rezession ausharren\n\n\nGut f\u00fcr Arbeitgeber und Arbeitnehmer\n\n\n\n\n\n\nFr\u00fchzeitige R\u00fcckverteilung CO2-Abgabe, wird sowieso jedes Jahr gemacht und hat nichts mit Konjukturpolitik zu tun\n\n\n\n\n\n\n\n\nFazit\n\n\n\n\nWar nicht \"timely\", da Einf\u00fchrung viel zu sp\u00e4t\n\n\nNicht \"targeted\", vorallem Staat und Baubranche hat profitiert\n\n\nNicht \"temporarly\": Gelder wurden bis 2015 ausgegeben\n\n\nGesamtpaket 2.1 Milliarden Fr. auf 550 Mrd. BIP - Wenig Einfluss\n\n\n\"Placebo\"-Wirkung, auf Druck der Wirtschaft\n\n\nAls Vergleich haben Kantone und Gemeinde zusammen Konjuktur-Pakete von \n5 Mrd.\n beschlossen\n\n\nInsgesamt war der Einfluss 0.6% des BIPs -\n sehr wenig", 
+            "title": "6 Konjuktur"
+        }, 
+        {
+            "location": "/Vwl/6_Konjuktur/#konjuktur", 
+            "text": "", 
+            "title": "Konjuktur"
+        }, 
+        {
+            "location": "/Vwl/6_Konjuktur/#nachfrage-und-angebotsschock", 
+            "text": "", 
+            "title": "Nachfrage- und Angebotsschock"
+        }, 
+        {
+            "location": "/Vwl/6_Konjuktur/#negativer-nachfrageschock", 
+            "text": "Anfrage-Kurve wird nach links verschoben  Ursache (Bsp.):   Konsum der Haushalte bricht ein  Staat muss sparen  Unternehmen investieren weniger  Ausland sinkt Nachfrage    Reales BIP geht zur\u00fcck  Das Preisniveau sinkt  Kaufkraft steigt (wenn L\u00f6hne gleich bleiben)    Auswirkungen:  Weniger Arbeitspl\u00e4tze  Unternehmen k\u00f6nnen weniger herstellen  Schlecht f\u00fcr Importe und Exporte  -  Schlimmer f\u00fcr Unternehmen als f\u00fcr Haushalte", 
+            "title": "Negativer Nachfrageschock:"
+        }, 
+        {
+            "location": "/Vwl/6_Konjuktur/#positiver-nachfrageschock", 
+            "text": "Gut f\u00fcr Haushalte bez\u00fcglich Arbeitspl\u00e4tze, aber weniger Kaufkraft  Gut f\u00fcr Unternehmen, es wird mehr hergestellt  Positive Nachfrage auf lange Sicht f\u00fchrt zu Inflation, weil die Kapazit\u00e4tsgrenze gleich bleibt", 
+            "title": "Positiver Nachfrageschock"
+        }, 
+        {
+            "location": "/Vwl/6_Konjuktur/#negativer-angebotsschock", 
+            "text": "Angebotskurve nach links verschoben  Ursache  Rohstoffe werden knapp  (Mindestlohn)  Mehr Steuern f\u00fcr Unternehmen    Auswirkung  Weniger BIP  Preissteigerung kann f\u00fcr Unternehmen positiv sein  F\u00fcr Haushalte: Gef\u00e4hrdung der Arbeitsstelle, h\u00f6here Preise", 
+            "title": "Negativer Angebotsschock"
+        }, 
+        {
+            "location": "/Vwl/6_Konjuktur/#positiver-angebotsschock", 
+            "text": "Gut f\u00fcr Haushalte, tiefere Preise, sicherer Arbeitsplatz  Unternehmen k\u00f6nnen mehr produzieren, aber zu tieferem Preis verkaufen", 
+            "title": "Positiver Angebotsschock"
+        }, 
+        {
+            "location": "/Vwl/6_Konjuktur/#fazit", 
+            "text": "Nicht jede konjukturelle Ver\u00e4nderung ist f\u00fcr alle Positiv oder Negativ  Macht Analysen komplex", 
+            "title": "Fazit"
+        }, 
+        {
+            "location": "/Vwl/6_Konjuktur/#konjukturzyklen", 
+            "text": "Vor 2. WK war Wirtschaft in \"nat\u00fcrlichem\" Zyklus im Gegenuhrzeigersinn  Nach 2. WK bewegt sich der Zyklus nur noch im inflation\u00e4ren Bereich  Zentralbanken wollen Deflation verhindern  Deflation f\u00fchrt zu weniger Investitionen und sie werden mehr hinaus gez\u00f6gert  Japan ist in dieser Situation (\"Deflationsfalle\")", 
+            "title": "Konjukturzyklen"
+        }, 
+        {
+            "location": "/Vwl/6_Konjuktur/#konjukturpolitik", 
+            "text": "In der Schweiz muss der Bund Konjukturpolitik betreiben (Gegen Marktwirtschaft)     Nichts tun: M\u00e4rkten sollen sich selbst regulieren.\n- Nachfrage nach Arbeit sinkt\n- L\u00f6hne m\u00fcssten kleiner werden\n- Davon profitieren Unternehmen, Angebot geht hinauf bis zur Balance\n- Preisniveau ist gesunken, aber L\u00f6hne auch -  gleiche Kaufkraft\n-  Problem : Arbeitsm\u00e4rkte ist reguliert, L\u00f6hne d\u00fcrfen nicht sinken. Funktioniert in der Praxis also nicht    Aktive Konjukturpolitik: Der Staat f\u00f6rdert die Nachfrage\n- Arbeitsm\u00e4rkte sind reguliert\n- Nachfrage-Kurve muss wieder nach rechts verschoben werden\n- Haushalte m\u00fcssen mehr Konsumieren oder Unternehmen mehr investieren\n- Weniger Steuern, weniger Zinsen f\u00fcr Haushalte\n- Wenn Staat Konjukturpolitik macht, ist es \"Fiskalpolitik\"\n- Wenn es die Zentralbank macht, \"Geldpolitik\"    St\u00e4rkung der automatischen Stabilisatoren: Staatliche Einnahmen und Ausgaben, damit bei R\u00fcckgang der Nachfrage diese automatisch stimuliert wird\n- Bremsung durch progressives Steursystem (Steuereinnahmen steigen exponentiell bei h\u00f6heren Einkommen)", 
+            "title": "Konjukturpolitik"
+        }, 
+        {
+            "location": "/Vwl/6_Konjuktur/#kritik-aktive-konjukturpolitik", 
+            "text": "Rezession: Wenn BIP 2 Quartale hintereinander negativ ist  Verz\u00f6gerung ist also mindestens 3 Quartale  F\u00fcr Konjukturpaket muss Parlament entscheiden  Geht mit allem etwa 5 Jahre    Verz\u00f6gerung l\u00e4uft Gefahr, dass Korrektur kommt, wenn Hochkonjuktur herrscht  Durch f\u00f6deralistischem Prinzip haben Kantone viel Macht  Steuern sind auf Bundesebene viel tiefer als auf Kantonalebene!     Kantone m\u00fcssten mitziehen    Darum : In der Schweiz wird vorallem mit Stabilisatoren gearbeitet   In der Vergangenheit hat aktive Konjukturpolitik in der Schweiz schlecht funktioniert  Auf z.B. Ebene Europa machht es mehr Sinn, weil Rezessionen \u00fcber viele Jahre gehen", 
+            "title": "Kritik aktive Konjukturpolitik"
+        }, 
+        {
+            "location": "/Vwl/6_Konjuktur/#konkukturpolitik-2008-2010", 
+            "text": "Letzte Krise 2008 ging die Rezession 3 Quartale lang  Konjukturpaket aufgrund von Druck  Erste Stufe 2009  Der Bund und die Baubranche hat vorallem profitiert    Zweite Stufe 2009  Schiene, Strasse, Infrastruktur  Hat erst viel sp\u00e4ter Wirkung  Wieder Vorteile f\u00fcr Baubranche    Dritte Stufe 2010  Bek\u00e4mpfung Arbeitslosigkeit  Kurzarbeit: Teil des Lohnes wird vom Staat \u00fcbernommen  Unternehmen entlassen weniger Arbeiter und k\u00f6nnen so Rezession ausharren  Gut f\u00fcr Arbeitgeber und Arbeitnehmer    Fr\u00fchzeitige R\u00fcckverteilung CO2-Abgabe, wird sowieso jedes Jahr gemacht und hat nichts mit Konjukturpolitik zu tun", 
+            "title": "Konkukturpolitik 2008-2010"
+        }, 
+        {
+            "location": "/Vwl/6_Konjuktur/#fazit_1", 
+            "text": "War nicht \"timely\", da Einf\u00fchrung viel zu sp\u00e4t  Nicht \"targeted\", vorallem Staat und Baubranche hat profitiert  Nicht \"temporarly\": Gelder wurden bis 2015 ausgegeben  Gesamtpaket 2.1 Milliarden Fr. auf 550 Mrd. BIP - Wenig Einfluss  \"Placebo\"-Wirkung, auf Druck der Wirtschaft  Als Vergleich haben Kantone und Gemeinde zusammen Konjuktur-Pakete von  5 Mrd.  beschlossen  Insgesamt war der Einfluss 0.6% des BIPs -  sehr wenig", 
+            "title": "Fazit"
         }
     ]
 }
