@@ -3,3 +3,4 @@
 2. [Project Automation](2_Project_Automation.md)
 3. [Software Engineering Practises](3_SE_Practises.md)
 4. [Error Handling Design](4_Error_Handling_Design.md)
+5. [Design by Contract](5_Design_by_Contract.md)

@@ -27,3 +27,25 @@
         - Zertifikate werden auf Vorrat erstellt
         - Es werden mehrere PINS mitgeschickt, auch solche von zukünftigen Certs
         - Oder: Eigenes Intermediate CA Pinnen und von diesem aus die richtigen Server-Certs ausstellen
+
+## 302 Redirect nach Login
+- Wenn der Server vertrauliche Daten per POST erhält (Login), sollte er mit 302 Redirect antworten
+- Bei 200 Returncode würde der Browser die gesendeten Daten cachen (und können erneut gesendet werden bei back-button)
+- Bei 302 Redirect cached der Browser die Daten nicht
+
+## Session Fixation Attack
+- Angreifer erstellt Session auf Webapp (noch ohne Login)
+- Angreifer schickt seine Session zum Opfer und bringt es dazu, diese Session zu verwenden
+- Opfer loggt sich ein, Session ist nun authentifiziert
+- Angreifer kann diese Session verwenden
+
+- Das "unterjubeln" von Sessions geht nur schwer über Cookies, betroffen sind primär Server, die Session-Handling über URL-Requests machen
+
+### Remedies
+- Beim Login soll der Server eine neue Session erstellen (mit Kopie des Inhalts der alten Session) und die alte invalidieren
+
+## Same Origin Policy
+- Same Origin wird definiert auf Protokoll, Host und Port
+- Verboten also auch von HTTP zu HTTPS und umgekehrt!
+- SOP kann umgehen werden, indem JS auf Third-party-seite liegt und mit `<script src="..">` eingebunden wird
+- Sauber geht es über CORS (später)
