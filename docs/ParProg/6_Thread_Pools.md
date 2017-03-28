@@ -85,6 +85,7 @@ class CountTask extends RecursiveTask<Integer> {
 - `Fork()` und dann `Join()` ist schneller, wenn `Join()` in umgekehrter Reihenfolge ausgeführt wird
     - Grund: Neue Sub-Tasks werden zuoberst in lokale Queue eingefügt
 - Worker-Threads laufen als Daemon-Threads
+    - d.h. das Programm darf nicht zu früh enden, um nicht die Worker-Threads zu killen!
 - Anzahl Threads werden dynamisch verändert
 - Common Pool (sinleton) hat immer #Prozessoren - 1 Threads (also langsamer)
 - Moderne Thread-Pool-Implementationen haben mehrere Queues
@@ -103,3 +104,5 @@ CompletableFuture<Long> future =
 //other work
 future.thenAccept(result -> System.out.println(result));
 ```
+- Die Funktion in `thenAccept()` wird in belibebigem Worker-Thread *oder vom Aufrufer-Thread* ausgeführt
+- 
