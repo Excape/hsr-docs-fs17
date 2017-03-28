@@ -9,7 +9,7 @@
         <meta name="description" content="HSR Study Documentation FS16">
       
       
-        <link rel="canonical" href="https://doc.robinsuter.ch/Dbs2/6_Datenstrukturen/">
+        <link rel="canonical" href="https://doc.robinsuter.ch/Vss/7_Scalability_Availability/">
       
       
         <meta name="author" content="Robin Suter">
@@ -21,7 +21,7 @@
     
     
       
-        <title>6 Datenstrukturen - HSR Notizen FS17</title>
+        <title>7 Scalability Availability - HSR Notizen FS17</title>
       
     
     
@@ -84,11 +84,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Dbs2
+                  Vss
                 </span>
               
             
-            6 Datenstrukturen
+            7 Scalability Availability
           
         </span>
       </div>
@@ -217,12 +217,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Dbs2
@@ -240,7 +238,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../0_Index/" title="0 Index" class="md-nav__link">
+    <a href="../../Dbs2/0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
   </li>
@@ -252,7 +250,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../../Dbs2/1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -264,7 +262,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../2_OR-Mapping/" title="2 OR Mapping" class="md-nav__link">
+    <a href="../../Dbs2/2_OR-Mapping/" title="2 OR Mapping" class="md-nav__link">
       2 OR Mapping
     </a>
   </li>
@@ -276,7 +274,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../3_Stored_Procedures/" title="3 Stored Procedures" class="md-nav__link">
+    <a href="../../Dbs2/3_Stored_Procedures/" title="3 Stored Procedures" class="md-nav__link">
       3 Stored Procedures
     </a>
   </li>
@@ -288,7 +286,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../4_Triggers/" title="4 Triggers" class="md-nav__link">
+    <a href="../../Dbs2/4_Triggers/" title="4 Triggers" class="md-nav__link">
       4 Triggers
     </a>
   </li>
@@ -300,7 +298,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../5_Views/" title="5 Views" class="md-nav__link">
+    <a href="../../Dbs2/5_Views/" title="5 Views" class="md-nav__link">
       5 Views
     </a>
   </li>
@@ -310,101 +308,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        6 Datenstrukturen
-      </label>
-    
-    <a href="./" title="6 Datenstrukturen" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../Dbs2/6_Datenstrukturen/" title="6 Datenstrukturen" class="md-nav__link">
       6 Datenstrukturen
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#arrays" title="Arrays" class="md-nav__link">
-    Arrays
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#accessoren" title="Accessoren" class="md-nav__link">
-    Accessoren
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#slicing" title="Slicing" class="md-nav__link">
-    Slicing
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#operatoren" title="Operatoren" class="md-nav__link">
-    Operatoren
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dictionaries" title="Dictionaries" class="md-nav__link">
-    Dictionaries
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trees" title="Trees" class="md-nav__link">
-    Trees
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#materialized-path-ltree" title="Materialized Path (ltree)" class="md-nav__link">
-    Materialized Path (ltree)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -414,7 +322,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../8_Interne_Ebene/" title="8 Interne Ebene" class="md-nav__link">
+    <a href="../../Dbs2/8_Interne_Ebene/" title="8 Interne Ebene" class="md-nav__link">
       8 Interne Ebene
     </a>
   </li>
@@ -909,10 +817,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" checked>
     
     <label class="md-nav__link" for="nav-10">
       Vss
@@ -930,7 +840,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Vss/0_Index/" title="0 Index" class="md-nav__link">
+    <a href="../0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
   </li>
@@ -942,7 +852,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Vss/1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -954,7 +864,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Vss/2_Introduction/" title="2 Introduction" class="md-nav__link">
+    <a href="../2_Introduction/" title="2 Introduction" class="md-nav__link">
       2 Introduction
     </a>
   </li>
@@ -966,7 +876,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Vss/3_socket_programmierung/" title="3 socket programmierung" class="md-nav__link">
+    <a href="../3_socket_programmierung/" title="3 socket programmierung" class="md-nav__link">
       3 socket programmierung
     </a>
   </li>
@@ -978,7 +888,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Vss/4_Asynchronous_Messaging/" title="4 Asynchronous Messaging" class="md-nav__link">
+    <a href="../4_Asynchronous_Messaging/" title="4 Asynchronous Messaging" class="md-nav__link">
       4 Asynchronous Messaging
     </a>
   </li>
@@ -990,7 +900,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Vss/5_RMI_Web-Services/" title="5 RMI Web Services" class="md-nav__link">
+    <a href="../5_RMI_Web-Services/" title="5 RMI Web Services" class="md-nav__link">
       5 RMI Web Services
     </a>
   </li>
@@ -1002,7 +912,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Vss/6_Design_for_Performance/" title="6 Design for Performance" class="md-nav__link">
+    <a href="../6_Design_for_Performance/" title="6 Design for Performance" class="md-nav__link">
       6 Design for Performance
     </a>
   </li>
@@ -1012,11 +922,122 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../Vss/7_Scalability_Availability/" title="7 Scalability Availability" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        7 Scalability Availability
+      </label>
+    
+    <a href="./" title="7 Scalability Availability" class="md-nav__link md-nav__link--active">
       7 Scalability Availability
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scalability" title="Scalability" class="md-nav__link">
+    Scalability
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#availability" title="Availability" class="md-nav__link">
+    Availability
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ursachen-von-fehlern" title="Ursachen von Fehlern" class="md-nav__link">
+    Ursachen von Fehlern
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definition" title="Definition" class="md-nav__link">
+    Definition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#begriffe" title="Begriffe" class="md-nav__link">
+    Begriffe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kosten" title="Kosten" class="md-nav__link">
+    Kosten
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#techniken-zur-verbesserung-der-verfugbarkeit" title="Techniken zur Verbesserung der Verfügbarkeit" class="md-nav__link">
+    Techniken zur Verbesserung der Verfügbarkeit
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-point-of-failures-vermeiden" title="Single Point of Failures vermeiden" class="md-nav__link">
+    Single Point of Failures vermeiden
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redundanz" title="Redundanz" class="md-nav__link">
+    Redundanz
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ausfalle-so-schnell-wie-moglich-entdecken" title="Ausfälle so schnell wie möglich entdecken" class="md-nav__link">
+    Ausfälle so schnell wie möglich entdecken
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1154,30 +1175,23 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#arrays" title="Arrays" class="md-nav__link">
-    Arrays
+  <a href="#scalability" title="Scalability" class="md-nav__link">
+    Scalability
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#availability" title="Availability" class="md-nav__link">
+    Availability
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#accessoren" title="Accessoren" class="md-nav__link">
-    Accessoren
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#slicing" title="Slicing" class="md-nav__link">
-    Slicing
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#operatoren" title="Operatoren" class="md-nav__link">
-    Operatoren
+  <a href="#ursachen-von-fehlern" title="Ursachen von Fehlern" class="md-nav__link">
+    Ursachen von Fehlern
   </a>
   
 </li>
@@ -1188,23 +1202,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dictionaries" title="Dictionaries" class="md-nav__link">
-    Dictionaries
+  <a href="#definition" title="Definition" class="md-nav__link">
+    Definition
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#trees" title="Trees" class="md-nav__link">
-    Trees
+  <a href="#begriffe" title="Begriffe" class="md-nav__link">
+    Begriffe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kosten" title="Kosten" class="md-nav__link">
+    Kosten
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#techniken-zur-verbesserung-der-verfugbarkeit" title="Techniken zur Verbesserung der Verfügbarkeit" class="md-nav__link">
+    Techniken zur Verbesserung der Verfügbarkeit
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#materialized-path-ltree" title="Materialized Path (ltree)" class="md-nav__link">
-    Materialized Path (ltree)
+  <a href="#single-point-of-failures-vermeiden" title="Single Point of Failures vermeiden" class="md-nav__link">
+    Single Point of Failures vermeiden
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redundanz" title="Redundanz" class="md-nav__link">
+    Redundanz
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ausfalle-so-schnell-wie-moglich-entdecken" title="Ausfälle so schnell wie möglich entdecken" class="md-nav__link">
+    Ausfälle so schnell wie möglich entdecken
   </a>
   
 </li>
@@ -1228,88 +1270,146 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Dbs2/6_Datenstrukturen.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Vss/7_Scalability_Availability.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <h1 id="datenstrukturen">Datenstrukturen</h1>
-<h2 id="arrays">Arrays</h2>
+                <h1 id="design-for-scalability-availability">Design for Scalability &amp; Availability</h1>
+<h2 id="scalability">Scalability</h2>
 <ul>
-<li>In Postgres 1-indexiert!</li>
-<li>Doku: <a href="https://www.postgresql.org/docs/current/static/arrays.html">https://www.postgresql.org/docs/current/static/arrays.html</a></li>
+<li>Ziel: Skalierung soll linear sein<ul>
+<li>Workload ist linear proportional zu den vorhandenen Ressourcen</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">sal_emp</span> <span class="p">(</span>
-    <span class="n">name</span> <span class="nb">text</span><span class="p">,</span>
-    <span class="n">pay_by_quarter</span> <span class="nb">integer</span><span class="p">[],</span>
-    <span class="n">schedule</span> <span class="nb">text</span><span class="p">[][]</span>
-<span class="p">);</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">sal_emp</span> <span class="k">VALUES</span> <span class="p">(</span>
-<span class="s1">&#39;Bill&#39;</span><span class="p">,</span>
-<span class="nb">ARRAY</span><span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">],</span>
-<span class="nb">ARRAY</span><span class="p">[[</span><span class="s1">&#39;meeting&#39;</span><span class="p">,</span> <span class="s1">&#39;lunch&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;training&#39;</span><span class="p">,</span> <span class="s1">&#39;presentation&#39;</span><span class="p">]]</span>
-<span class="p">);</span>
-</pre></div>
-
-
-<h3 id="accessoren">Accessoren</h3>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="nb">ARRAY</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="p">];</span>
-<span class="c1">-- returns: {1,2,7}</span>
-</pre></div>
-
-
-<h3 id="slicing">Slicing</h3>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">schedule</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<span class="c1">-- first two elements</span>
-</pre></div>
-
-
-<ul>
-<li><code>array[from:to]</code></li>
-<li><code>from</code> und <code>to</code> sind inclusive!</li>
-</ul>
-<h3 id="operatoren">Operatoren</h3>
-<ul>
-<li>Equality mit <code>=</code></li>
-<li>"Is contained by" mit <code>&lt;@</code></li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="nb">ARRAY</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span> <span class="o">&lt;@</span> <span class="nb">ARRAY</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">];</span>
-</pre></div>
-
-
-<ul>
-<li>Overlap: <code>&amp;&amp;</code></li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="nb">ARRAY</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="nb">ARRAY</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-
-
-<h2 id="dictionaries">Dictionaries</h2>
-<ul>
-<li>Collection aus Key-Value-Pairs, auch "Entitiy Attribute Value" - EAV</li>
-<li>Nur in ausnamefällen in RDBS verwenden!</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>TODO!</p>
-</div>
-<h2 id="trees">Trees</h2>
-<ul>
-<li>Adjazenzliste: Jeder Record hat einen Fremdschlüssel zu seinem Parent</li>
-<li>Nested Set-Modell: Die Knoten werden in Preorder-Reihenfolge durchnummeriert. Beim traversieren in die tiefe wird "left" gesetzt, beim backtracking wird "right" gesetzt (immer aufsteigend gezählt)</li>
-</ul>
-<h3 id="materialized-path-ltree">Materialized Path (ltree)</h3>
-<ul>
-<li>Doku: <a href="https://www.postgresql.org/docs/current/static/ltree.html">https://www.postgresql.org/docs/current/static/ltree.html</a></li>
-<li>Knoten auf einer Ebene werden von links nach rechts mit 1,2,3,... nummeriert</li>
-<li>Jeder Knoten hat einen Pfad zu sich von der Root aus gespeichert, in der Form <code>1.2.1.&lt;...&gt;</code> ("lineage")</li>
-<li>Im Postgres-Datentyp <code>ltree</code> können die Knoten beschriftet werden<ul>
-<li>Dann ist ein Pfad z.B. <code>top.countries.europe.switzerland</code></li>
+</li>
+<li>In Grösse Skalieren: Schnellere oder mehr Hardware-Komponenten</li>
+<li>Generation Scalability: Schnellere / Bessere HW-Komponenten durch technische Innovation</li>
+<li><em>Vertikal</em> skalieren: Performance / Kapazität der Server erhöhen</li>
+<li><em>Horizontal</em> skalieren (Scale out): Anzahl Server / Nodes erhöhen<ul>
+<li>z.B. mit Load-Balancer verteilen</li>
+<li><em>Session Affinity</em>: Alle requests einer Session werden vom Load-Balancer an den gleichen App-Server geschickt<ul>
+<li>Wird mit Session-Cookie realisiert</li>
 </ul>
 </li>
 </ul>
-<p><img alt="" src="../img/comparison_trees.png" /></p>
+</li>
+</ul>
+<h2 id="availability">Availability</h2>
+<h3 id="ursachen-von-fehlern">Ursachen von Fehlern</h3>
+<ul>
+<li>Architektur / Umwelt<ul>
+<li>Kommunikationskanäle</li>
+<li>Strom</li>
+<li>Höhere Gewalt</li>
+</ul>
+</li>
+<li>System-Management<ul>
+<li>Auch die besten Mitarbeiter machen Fehler<ul>
+<li>Möglichst automatisieren</li>
+<li>Redundanz</li>
+<li>Schulung</li>
+</ul>
+</li>
+<li>Software-Installation</li>
+</ul>
+</li>
+<li>"Transient Software Errors"<ul>
+<li>Fehler, die nicht immer reproduzierbar sind</li>
+<li>Anderes Verhalten beim Debuggen</li>
+<li>Race Conditions</li>
+</ul>
+</li>
+</ul>
+<h2 id="definition">Definition</h2>
+<ul>
+<li>Ein System ist "available", wenn es läuft <em>und</em> korrekte Resultate erzeugt, und evtl. weitere NFS wie Response Time erfüllt</li>
+<li>Availability ist der Anteil der Zeit, in der das System verfügbar ist (0 - 1)</li>
+</ul>
+<h2 id="begriffe">Begriffe</h2>
+<ul>
+<li><em>Mean Time to Recover (MTTR)</em>: Durschnittliche Zeit zwischen dem Ausfall und der Wiederaufnahme</li>
+<li><em>Mean Time to Failure (MTTF)</em>: Durchschnittliche Zeit zwischen zwei Ausfällen</li>
+<li>
+<p><em>Mean Time between Failure (MTBF)</em>: Durchschnittliche Zeit zwischen zweil Ausfällen, <em>recovery time eingerechnet</em>. (MTTF + MTTR)</p>
+</li>
+<li>
+<p><em>Recovery Time Objective (RTO)</em>: Zeit, in der das System wiederhergestellt werden <em>muss</em> (NFR-Requirement)</p>
+</li>
+<li><em>Recovery Point Objective (RPO)</em>: Maximal tolerierbare Zeitspanne, in der Daten nach einem Ausfall verloren sein könnten (NFR-Requirement)</li>
+</ul>
+<h2 id="kosten">Kosten</h2>
+<ul>
+<li>Kosten wachsen nach 95% 1Availability sehr schnell, 100% ist fast unmöglich</li>
+<li>Gesucht wird das Minimum der Funktionen Cost of Downtime + Costs of Availability</li>
+</ul>
+<p><img alt="" src="../img/availability_cost.png" /></p>
+<ul>
+<li>Wenn Komponenten voneinander abhängen, wird die Verfügbarkeit der einzelnen multipliziert -&gt; Die totale Verfügbarkeit ist kleiner als die der schwächsten Komponente</li>
+<li>Bei Parallelen Komponenten ist die totale Verfügbarkeit <script type="math/tex"> 1 - [ (1 - A1) * (1 - A2) * (1 - A3) ]</script>
+<ul>
+<li>Die gesamte Verfügbarkeit ist höher als die der einzelnen Komponenten</li>
+</ul>
+</li>
+</ul>
+<h2 id="techniken-zur-verbesserung-der-verfugbarkeit">Techniken zur Verbesserung der Verfügbarkeit</h2>
+<h3 id="single-point-of-failures-vermeiden">Single Point of Failures vermeiden</h3>
+<ul>
+<li>Sind oft selten gebrauchte Komponenten</li>
+<li>Login-Server (z.B. Active Directory)</li>
+<li>Kann auf Hardware- oder Software-Seite sein</li>
+</ul>
+<h3 id="redundanz">Redundanz</h3>
+<ul>
+<li>Clusters</li>
+<li>Warm Backups<ul>
+<li>Zwei Server laufen parallel mit einem als Master und der andere passiv</li>
+<li>Bei einem Ausfall übernimmt der zweite, passive, Server (Fail-over)</li>
+</ul>
+</li>
+<li>Hot Backup<ul>
+<li>Master- und Backup-Server arbeiten parallel, Backup muss immer den gleichen Stand haben wie Master (synchronisiert)</li>
+<li>Ist teuer, da praktisch die doppelte Anzahl Resourcen gebraucht werden</li>
+<li>Wird z.B. im Aktiengeschäft eingesetzt</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Design Option</th>
+<th>Installed Nodes</th>
+<th>Running Nodes</th>
+<th>Active Nodes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cold Standby</td>
+<td>N</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Warm Standby</td>
+<td>N</td>
+<td>N</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Hot Standby</td>
+<td>N</td>
+<td>N</td>
+<td>N</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ausfalle-so-schnell-wie-moglich-entdecken">Ausfälle so schnell wie möglich entdecken</h3>
+<ul>
+<li>Je kleiner das Auftreten des Fehlers zum Erkennen ist, desto kleiner wird die MTTR</li>
+<li>Fail fast<ul>
+<li>Fehler sofort melden, wenn es zu Ausfall kommen könnte</li>
+<li>System regelmässig prüfen, um Fehler früh zu erkennen</li>
+</ul>
+</li>
+</ul>
                 
                   
                 
@@ -1328,7 +1428,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../5_Views/" title="5 Views" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../6_Design_for_Performance/" title="6 Design for Performance" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1337,19 +1437,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                5 Views
+                6 Design for Performance
               </span>
             </div>
           </a>
         
         
-          <a href="../8_Interne_Ebene/" title="8 Interne Ebene" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../Vwl/0_Index/" title="0 Index" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                8 Interne Ebene
+                0 Index
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

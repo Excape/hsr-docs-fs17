@@ -9,7 +9,7 @@
         <meta name="description" content="HSR Study Documentation FS16">
       
       
-        <link rel="canonical" href="https://doc.robinsuter.ch/Dbs2/6_Datenstrukturen/">
+        <link rel="canonical" href="https://doc.robinsuter.ch/Dbs2/8_Interne_Ebene/">
       
       
         <meta name="author" content="Robin Suter">
@@ -21,7 +21,7 @@
     
     
       
-        <title>6 Datenstrukturen - HSR Notizen FS17</title>
+        <title>8 Interne Ebene - HSR Notizen FS17</title>
       
     
     
@@ -88,7 +88,7 @@
                 </span>
               
             
-            6 Datenstrukturen
+            8 Interne Ebene
           
         </span>
       </div>
@@ -310,6 +310,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../6_Datenstrukturen/" title="6 Datenstrukturen" class="md-nav__link">
+      6 Datenstrukturen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -321,11 +333,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        6 Datenstrukturen
+        8 Interne Ebene
       </label>
     
-    <a href="./" title="6 Datenstrukturen" class="md-nav__link md-nav__link--active">
-      6 Datenstrukturen
+    <a href="./" title="8 Interne Ebene" class="md-nav__link md-nav__link--active">
+      8 Interne Ebene
     </a>
     
       
@@ -339,30 +351,51 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#arrays" title="Arrays" class="md-nav__link">
-    Arrays
+  <a href="#heap" title="Heap" class="md-nav__link">
+    Heap
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-scan" title="Table Scan" class="md-nav__link">
+    Table Scan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexe" title="Indexe" class="md-nav__link">
+    Indexe
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#accessoren" title="Accessoren" class="md-nav__link">
-    Accessoren
+  <a href="#b-trees" title="B-Trees" class="md-nav__link">
+    B-Trees
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#slicing" title="Slicing" class="md-nav__link">
-    Slicing
+  <a href="#hash-index" title="Hash-Index" class="md-nav__link">
+    Hash-Index
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#operatoren" title="Operatoren" class="md-nav__link">
-    Operatoren
+  <a href="#bitmap-index" title="Bitmap Index" class="md-nav__link">
+    Bitmap Index
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexe-erstellen" title="Indexe erstellen" class="md-nav__link">
+    Indexe erstellen
   </a>
   
 </li>
@@ -373,29 +406,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dictionaries" title="Dictionaries" class="md-nav__link">
-    Dictionaries
+  <a href="#query-processing" title="Query Processing" class="md-nav__link">
+    Query Processing
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trees" title="Trees" class="md-nav__link">
-    Trees
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#materialized-path-ltree" title="Materialized Path (ltree)" class="md-nav__link">
-    Materialized Path (ltree)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -405,18 +418,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../8_Interne_Ebene/" title="8 Interne Ebene" class="md-nav__link">
-      8 Interne Ebene
-    </a>
   </li>
 
         
@@ -1154,30 +1155,51 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#arrays" title="Arrays" class="md-nav__link">
-    Arrays
+  <a href="#heap" title="Heap" class="md-nav__link">
+    Heap
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-scan" title="Table Scan" class="md-nav__link">
+    Table Scan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexe" title="Indexe" class="md-nav__link">
+    Indexe
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#accessoren" title="Accessoren" class="md-nav__link">
-    Accessoren
+  <a href="#b-trees" title="B-Trees" class="md-nav__link">
+    B-Trees
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#slicing" title="Slicing" class="md-nav__link">
-    Slicing
+  <a href="#hash-index" title="Hash-Index" class="md-nav__link">
+    Hash-Index
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#operatoren" title="Operatoren" class="md-nav__link">
-    Operatoren
+  <a href="#bitmap-index" title="Bitmap Index" class="md-nav__link">
+    Bitmap Index
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexe-erstellen" title="Indexe erstellen" class="md-nav__link">
+    Indexe erstellen
   </a>
   
 </li>
@@ -1188,29 +1210,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dictionaries" title="Dictionaries" class="md-nav__link">
-    Dictionaries
+  <a href="#query-processing" title="Query Processing" class="md-nav__link">
+    Query Processing
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trees" title="Trees" class="md-nav__link">
-    Trees
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#materialized-path-ltree" title="Materialized Path (ltree)" class="md-nav__link">
-    Materialized Path (ltree)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1228,88 +1230,81 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Dbs2/6_Datenstrukturen.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Dbs2/8_Interne_Ebene.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <h1 id="datenstrukturen">Datenstrukturen</h1>
-<h2 id="arrays">Arrays</h2>
+                <h1 id="interne-ebene">Interne Ebene</h1>
+<h2 id="heap">Heap</h2>
 <ul>
-<li>In Postgres 1-indexiert!</li>
-<li>Doku: <a href="https://www.postgresql.org/docs/current/static/arrays.html">https://www.postgresql.org/docs/current/static/arrays.html</a></li>
+<li>Eine DB-Tabelle wird in einem Heap (Collection) von Data Pages gespeichert</li>
+<li>Jede Data-Page hat eine fixe Grösse, meist 8KB</li>
+<li>Die Rows darin sind nicht sortiert</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">sal_emp</span> <span class="p">(</span>
-    <span class="n">name</span> <span class="nb">text</span><span class="p">,</span>
-    <span class="n">pay_by_quarter</span> <span class="nb">integer</span><span class="p">[],</span>
-    <span class="n">schedule</span> <span class="nb">text</span><span class="p">[][]</span>
-<span class="p">);</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">sal_emp</span> <span class="k">VALUES</span> <span class="p">(</span>
-<span class="s1">&#39;Bill&#39;</span><span class="p">,</span>
-<span class="nb">ARRAY</span><span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">],</span>
-<span class="nb">ARRAY</span><span class="p">[[</span><span class="s1">&#39;meeting&#39;</span><span class="p">,</span> <span class="s1">&#39;lunch&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;training&#39;</span><span class="p">,</span> <span class="s1">&#39;presentation&#39;</span><span class="p">]]</span>
-<span class="p">);</span>
-</pre></div>
-
-
-<h3 id="accessoren">Accessoren</h3>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="nb">ARRAY</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="p">];</span>
-<span class="c1">-- returns: {1,2,7}</span>
-</pre></div>
-
-
-<h3 id="slicing">Slicing</h3>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">schedule</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<span class="c1">-- first two elements</span>
-</pre></div>
-
-
+<h2 id="table-scan">Table Scan</h2>
 <ul>
-<li><code>array[from:to]</code></li>
-<li><code>from</code> und <code>to</code> sind inclusive!</li>
+<li>Scanning aller Pages einer Tabelle durch alle Rows</li>
+<li>Extrahiere Rows, die Query-Bedinung erfüllen</li>
+<li>Meist langsame Operation, soll durch Indexe verbessert werden</li>
+<li>Wenn aber Resultatset 80% der Tabelle enthält, ist der Table Scan schneller als der Zugriff über ein Index</li>
 </ul>
-<h3 id="operatoren">Operatoren</h3>
+<h2 id="indexe">Indexe</h2>
 <ul>
-<li>Equality mit <code>=</code></li>
-<li>"Is contained by" mit <code>&lt;@</code></li>
+<li>Dienen der Beschleunigung der Suche</li>
+<li>Braucht zusätzlich Speicher-Overhead</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="nb">ARRAY</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span> <span class="o">&lt;@</span> <span class="nb">ARRAY</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">];</span>
+<h3 id="b-trees">B-Trees</h3>
+<ul>
+<li>"Balanced Trees"</li>
+<li>Eignet sich für Equality-Search (Filtern nach Gleichheitsbedigung) und Range-Search (Suchen in Wertebereich)</li>
+<li>"B+-Baum" hat Daten nur in Blättern</li>
+<li>Durch ausbalancierter Baum <script type="math/tex">O(log(n))</script> Zugriffe</li>
+<li>Ein Knoten hat die Grösse einer Page</li>
+<li>Visualisierung: <a href="https://www.cs.usfca.edu/~galles/visualization/BTree.html">https://www.cs.usfca.edu/~galles/visualization/BTree.html</a></li>
+<li>In einem <em>clustered Index</em> enthalten die Blätter selbst die Daten-Rows</li>
+<li>In einem <em>unclustered Index</em> halten die Blätter nur Referenzen auf die Rows im Heap</li>
+</ul>
+<h3 id="hash-index">Hash-Index</h3>
+<ul>
+<li>Speichert Key-Value-pairs aufgrund einer Hash-funkion (wie hashmap)</li>
+<li>Performance-Einbussen bei gleichen Hashes (gibt "overflow chain" - linked-List der Rows mit den gleichen hashes)</li>
+</ul>
+<h3 id="bitmap-index">Bitmap Index</h3>
+<ul>
+<li>Speichert Attribute als Bitmuster</li>
+<li>Nur geeignet, wenn Werte in Attribute kleinen Wertebereich haben (und diskret sind)</li>
+<li>Wenn z.B. in einem Attribut immer nur die gleichen 2 Werte vorkommen, kann dies mit 1 Bit indexiert werden</li>
+<li>Schnelle Abfragen mit ORs / ANDs</li>
+</ul>
+<h3 id="indexe-erstellen">Indexe erstellen</h3>
+<ul>
+<li>convention (nicht standardisiert):</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="o">&lt;</span><span class="n">IndexName</span><span class="o">&gt;</span>
+<span class="k">ON</span> <span class="o">&lt;</span><span class="k">Table</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
 </pre></div>
 
 
 <ul>
-<li>Overlap: <code>&amp;&amp;</code></li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="nb">ARRAY</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="nb">ARRAY</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-
-
-<h2 id="dictionaries">Dictionaries</h2>
-<ul>
-<li>Collection aus Key-Value-Pairs, auch "Entitiy Attribute Value" - EAV</li>
-<li>Nur in ausnamefällen in RDBS verwenden!</li>
+<li>Auf PK-Attributen werden automatisch Indices erstellt</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>TODO!</p>
+<p>TODO</p>
 </div>
-<h2 id="trees">Trees</h2>
+<h2 id="query-processing">Query Processing</h2>
 <ul>
-<li>Adjazenzliste: Jeder Record hat einen Fremdschlüssel zu seinem Parent</li>
-<li>Nested Set-Modell: Die Knoten werden in Preorder-Reihenfolge durchnummeriert. Beim traversieren in die tiefe wird "left" gesetzt, beim backtracking wird "right" gesetzt (immer aufsteigend gezählt)</li>
-</ul>
-<h3 id="materialized-path-ltree">Materialized Path (ltree)</h3>
-<ul>
-<li>Doku: <a href="https://www.postgresql.org/docs/current/static/ltree.html">https://www.postgresql.org/docs/current/static/ltree.html</a></li>
-<li>Knoten auf einer Ebene werden von links nach rechts mit 1,2,3,... nummeriert</li>
-<li>Jeder Knoten hat einen Pfad zu sich von der Root aus gespeichert, in der Form <code>1.2.1.&lt;...&gt;</code> ("lineage")</li>
-<li>Im Postgres-Datentyp <code>ltree</code> können die Knoten beschriftet werden<ul>
-<li>Dann ist ein Pfad z.B. <code>top.countries.europe.switzerland</code></li>
+<li>Eine Query wird geparst in einen Query-Tree</li>
+<li>Vom Optimizer wird optimierter Ausführungsplan erstellt</li>
+<li><em>Point Query</em>: Suche Row mit bestimmten Wert, z.B. <code>where id = 1024</code></li>
+<li><em>Multipoint Query</em>: Suche mehrere Rows mit bestimmten Wert, z.B. <code>where balance = 1000</code></li>
+<li><em>Range Query</em>: Suche in einer Range, z.B. <code>where income between 100 and 1000</code></li>
+<li><em>Order Query</em>: Query mit <code>order by</code></li>
+<li>Interpretation Postgres<ul>
+<li>Index wird nicht immer verwendet, vor allem wenn alle Rows durchgegangen werden (z.B. <code>count(*)</code>)</li>
+<li>Einfacher Select ist mit Index ca. 3-10x schneller</li>
 </ul>
 </li>
 </ul>
-<p><img alt="" src="../img/comparison_trees.png" /></p>
                 
                   
                 
@@ -1328,7 +1323,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../5_Views/" title="5 Views" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../6_Datenstrukturen/" title="6 Datenstrukturen" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1337,19 +1332,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                5 Views
+                6 Datenstrukturen
               </span>
             </div>
           </a>
         
         
-          <a href="../8_Interne_Ebene/" title="8 Interne Ebene" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../EPJ/0_Index/" title="0 Index" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                8 Interne Ebene
+                0 Index
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

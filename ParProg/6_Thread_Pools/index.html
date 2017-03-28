@@ -316,6 +316,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Dbs2/8_Interne_Ebene/" title="8 Interne Ebene" class="md-nav__link">
+      8 Interne Ebene
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -717,12 +729,31 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#-die-funktion-in-thenaccept-wird-in-belibebigem-worker-thread-oder-vom-aufrufer-thread-ausgefuhrt" title="- Die Funktion in thenAccept() wird in belibebigem Worker-Thread oder vom Aufrufer-Thread ausgeführt" class="md-nav__link">
+    - Die Funktion in thenAccept() wird in belibebigem Worker-Thread oder vom Aufrufer-Thread ausgeführt
+  </a>
+  
+</li>
+      
       
       
     </ul>
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../7_Task_Parallel_Library/" title="7 Task Parallel Library" class="md-nav__link">
+      7 Task Parallel Library
+    </a>
   </li>
 
         
@@ -978,6 +1009,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vss/7_Scalability_Availability/" title="7 Scalability Availability" class="md-nav__link">
+      7 Scalability Availability
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1166,6 +1209,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#-die-funktion-in-thenaccept-wird-in-belibebigem-worker-thread-oder-vom-aufrufer-thread-ausgefuhrt" title="- Die Funktion in thenAccept() wird in belibebigem Worker-Thread oder vom Aufrufer-Thread ausgeführt" class="md-nav__link">
+    - Die Funktion in thenAccept() wird in belibebigem Worker-Thread oder vom Aufrufer-Thread ausgeführt
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -1294,7 +1344,10 @@
 <li>Grund: Neue Sub-Tasks werden zuoberst in lokale Queue eingefügt</li>
 </ul>
 </li>
-<li>Worker-Threads laufen als Daemon-Threads</li>
+<li>Worker-Threads laufen als Daemon-Threads<ul>
+<li>d.h. das Programm darf nicht zu früh enden, um nicht die Worker-Threads zu killen!</li>
+</ul>
+</li>
 <li>Anzahl Threads werden dynamisch verändert</li>
 <li>Common Pool (sinleton) hat immer #Prozessoren - 1 Threads (also langsamer)</li>
 <li>Moderne Thread-Pool-Implementationen haben mehrere Queues<ul>
@@ -1315,6 +1368,9 @@
 <span class="c1">//other work</span>
 <span class="n">future</span><span class="o">.</span><span class="na">thenAccept</span><span class="o">(</span><span class="n">result</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">));</span>
 </pre></div>
+
+
+<h2 id="-die-funktion-in-thenaccept-wird-in-belibebigem-worker-thread-oder-vom-aufrufer-thread-ausgefuhrt">- Die Funktion in <code>thenAccept()</code> wird in belibebigem Worker-Thread <em>oder vom Aufrufer-Thread</em> ausgeführt</h2>
                 
                   
                 
@@ -1348,13 +1404,13 @@
           </a>
         
         
-          <a href="../../PhAI/0_Index/" title="0 Index" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../7_Task_Parallel_Library/" title="7 Task Parallel Library" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                0 Index
+                7 Task Parallel Library
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
