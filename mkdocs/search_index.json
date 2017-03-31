@@ -516,6 +516,31 @@
             "title": "Informationssicherheit 3"
         }, 
         {
+            "location": "/InfSi3/10_CSRF/", 
+            "text": "Cross Site Request Forgery\n\n\nUrsprung\n\n\n\n\nDie meisten Router-Admin-Interfaces laufen auf den gleichen IPs\n\n\nRouter haben oft Default Passwords\n\n\nInfiszierter PC sendet Request an Router, loggt sich ein und \u00e4ndert den DNS-Server (den des Hackers)\n\n\n\n\nAttack\n\n\n\n\nOpfer authentisiert sich bei E-Banking\n\n\nOpfer geht auf Hacker-Seite\n\n\nIm Browser wird einen Request (nicht ajax) an die Bank geschickt mit einer bestimmtem Transaktion\n\n\nz.B. \u00fcber ein Bild\n\n\nschickt dabei Session-Cookie mit\n\n\n\n\n\n\n\n\nRemediation\n\n\n\n\nE-Banking verlangen SMS-Best\u00e4tigung\n\n\nGrunds\u00e4tzlich: Aktion darf nicht mit einem voraussehbaren Request ausf\u00fchrbar sein\n\n\nIn Formular zuf\u00e4lliges XSRF-Token als hidden field einbinden\n\n\nClient muss im Request dieses Token wieder mitschicken", 
+            "title": "10 CSRF"
+        }, 
+        {
+            "location": "/InfSi3/10_CSRF/#cross-site-request-forgery", 
+            "text": "", 
+            "title": "Cross Site Request Forgery"
+        }, 
+        {
+            "location": "/InfSi3/10_CSRF/#ursprung", 
+            "text": "Die meisten Router-Admin-Interfaces laufen auf den gleichen IPs  Router haben oft Default Passwords  Infiszierter PC sendet Request an Router, loggt sich ein und \u00e4ndert den DNS-Server (den des Hackers)", 
+            "title": "Ursprung"
+        }, 
+        {
+            "location": "/InfSi3/10_CSRF/#attack", 
+            "text": "Opfer authentisiert sich bei E-Banking  Opfer geht auf Hacker-Seite  Im Browser wird einen Request (nicht ajax) an die Bank geschickt mit einer bestimmtem Transaktion  z.B. \u00fcber ein Bild  schickt dabei Session-Cookie mit", 
+            "title": "Attack"
+        }, 
+        {
+            "location": "/InfSi3/10_CSRF/#remediation", 
+            "text": "E-Banking verlangen SMS-Best\u00e4tigung  Grunds\u00e4tzlich: Aktion darf nicht mit einem voraussehbaren Request ausf\u00fchrbar sein  In Formular zuf\u00e4lliges XSRF-Token als hidden field einbinden  Client muss im Request dieses Token wieder mitschicken", 
+            "title": "Remediation"
+        }, 
+        {
             "location": "/InfSi3/1_Exam/", 
             "text": "Exam\n\n\n\n\nPr\u00fcfung ohne Unterlagen\n\n\nSelbststudium ist Pr\u00fcfungsstoff!", 
             "title": "1 Exam"
@@ -674,6 +699,61 @@
             "location": "/InfSi3/6_XSS/#mitigation", 
             "text": "HTML-Characters escapen   in  lt;  usw. umwandeln  In Praxis schwierig, das nicht g\u00fcltige Zeichen wie  '  escaped werden", 
             "title": "Mitigation"
+        }, 
+        {
+            "location": "/InfSi3/7_CORS/", 
+            "text": "CORS\n\n\n\n\nCross Origin Resource Sharing\n\n\n\n\n\n\nZiel: Cross-Site-Requests erlauben, um z.B. per AJAX von einem anderen Server Daten zu laden\n\n\nAlternative mit \nscript src=\"..\" /\n, ist aber gef\u00e4hrlich, weil es in der gleichen Security Domain wie unsere App ausgef\u00fchrt wird!\n\n\n\n\n\n\nWarning\n\n\nKein Schutz gegen XSS!\n\n\n\n\n\n\nDer Browser schickt mit dem AJAX-Request einen \nOrigin: mySite\n header mit der Origin der Seite\n\n\nDer Server (API) kann entscheiden, ob die Origin erlaubt ist\n\n\nDer Server der API, auf die zugegriffen werden m\u00f6chte, setzt den Header \nAccess-Control-Allow-Origin: mySite\n bei der Antwort\n\n\n\n\nPre-flight request\n\n\n\n\nProblem: Bei der Antwort des Server weiss der Client noch nicht, ob er Cross-Domain damit kommunizieren kann\n\n\nDer Client schickt vor dem ersten eigentlichen Request einen \nOPTIONS\n-Request an den Server\n\n\nDer Server antwortet mit den verf\u00fcgbaren HTTP-Methoden \nund\n dem \nAccess-Control-Allow-Origin\n-Header\n\n\nNun weiss der Browser, ob er mit dem Server kommunizieren kann\n\n\nNicht alle CORS-Requests brauchen einen Pre-flight-Request, es ist standardisiert welche (z.B. Multipart form und alle Methoden ausser GET, POST und HEAD)\n\n\nWird vom Browser automatisch gemacht\n\n\n\n\nAngriffsvektor\n\n\n\n\nWenn der Angreifer den Browser kontrolliert, kann er den \norigin\n-Header manipulieren. Der Server k\u00f6nnte das aber irgendwann merken\n\n\nIm grossen Stil ist der Angriff nicht wirkungsvoll", 
+            "title": "7 CORS"
+        }, 
+        {
+            "location": "/InfSi3/7_CORS/#cors", 
+            "text": "Cross Origin Resource Sharing    Ziel: Cross-Site-Requests erlauben, um z.B. per AJAX von einem anderen Server Daten zu laden  Alternative mit  script src=\"..\" / , ist aber gef\u00e4hrlich, weil es in der gleichen Security Domain wie unsere App ausgef\u00fchrt wird!    Warning  Kein Schutz gegen XSS!    Der Browser schickt mit dem AJAX-Request einen  Origin: mySite  header mit der Origin der Seite  Der Server (API) kann entscheiden, ob die Origin erlaubt ist  Der Server der API, auf die zugegriffen werden m\u00f6chte, setzt den Header  Access-Control-Allow-Origin: mySite  bei der Antwort", 
+            "title": "CORS"
+        }, 
+        {
+            "location": "/InfSi3/7_CORS/#pre-flight-request", 
+            "text": "Problem: Bei der Antwort des Server weiss der Client noch nicht, ob er Cross-Domain damit kommunizieren kann  Der Client schickt vor dem ersten eigentlichen Request einen  OPTIONS -Request an den Server  Der Server antwortet mit den verf\u00fcgbaren HTTP-Methoden  und  dem  Access-Control-Allow-Origin -Header  Nun weiss der Browser, ob er mit dem Server kommunizieren kann  Nicht alle CORS-Requests brauchen einen Pre-flight-Request, es ist standardisiert welche (z.B. Multipart form und alle Methoden ausser GET, POST und HEAD)  Wird vom Browser automatisch gemacht", 
+            "title": "Pre-flight request"
+        }, 
+        {
+            "location": "/InfSi3/7_CORS/#angriffsvektor", 
+            "text": "Wenn der Angreifer den Browser kontrolliert, kann er den  origin -Header manipulieren. Der Server k\u00f6nnte das aber irgendwann merken  Im grossen Stil ist der Angriff nicht wirkungsvoll", 
+            "title": "Angriffsvektor"
+        }, 
+        {
+            "location": "/InfSi3/8_CSP/", 
+            "text": "CSP - Content Security Policy\n\n\n\n\nServer gibt vor, wohin der Browser sich verbinden darf\n\n\nSchutz gegen XSS mit \nscript src=\"...\" /\n\n\n\n\nWird geschickt per HTTP-Header \nX-Content-Security-Policy\n\n\n\n\n\n\nBeispiel: \nX-Content-Security-Policy script-src self ajax.google.com\n\n\n\n\nErlaubt nur Skripte vom Sever selbst und ajax.google.com\n\n\n\n\n\n\nGibt f\u00fcr Objekte wie css, bilder, etc. eigene policies\n\n\nXHRs werden \u00fcber \nconnect-src\n gesteuert!\n\n\n\n\n\n\ndefault-src: 'none'\n als ersten Wert fungiert als \"Deny all\", nachher k\u00f6nnen Ausnahmen definiert werden\n\n\nF\u00fcr Debugging kann mit \nreport-uri\n und dem Header \nContent-Security-Policy-Report-Only\n eine uri angegeben werden\n\n\nDer Browser enforced die Policy nicht, aber schickt violations an die angegebene uri", 
+            "title": "8 CSP"
+        }, 
+        {
+            "location": "/InfSi3/8_CSP/#csp-content-security-policy", 
+            "text": "Server gibt vor, wohin der Browser sich verbinden darf  Schutz gegen XSS mit  script src=\"...\" /   Wird geschickt per HTTP-Header  X-Content-Security-Policy    Beispiel:  X-Content-Security-Policy script-src self ajax.google.com   Erlaubt nur Skripte vom Sever selbst und ajax.google.com    Gibt f\u00fcr Objekte wie css, bilder, etc. eigene policies  XHRs werden \u00fcber  connect-src  gesteuert!    default-src: 'none'  als ersten Wert fungiert als \"Deny all\", nachher k\u00f6nnen Ausnahmen definiert werden  F\u00fcr Debugging kann mit  report-uri  und dem Header  Content-Security-Policy-Report-Only  eine uri angegeben werden  Der Browser enforced die Policy nicht, aber schickt violations an die angegebene uri", 
+            "title": "CSP - Content Security Policy"
+        }, 
+        {
+            "location": "/InfSi3/9_JSON_Hijacking/", 
+            "text": "JSON Hijacking\n\n\n\n\nBekannt geworden durch Google\n\n\nProfildaten wurden \u00fcber AJAX nachgeladen (per JSON und ins DOM eingef\u00fcgt)\n\n\n\n\n\n\n\n\nSzenario\n\n\n\n\nOpfer ist authentisiert mit Google\n\n\nOpfer greift auf Website des Hackers zu\n\n\nDarauf ist ein Script von Google eingebunden\n\n\nscript src=\"google.com/profile\" /\n z.B.\n\n\n\n\n\n\nDadurch schickt Opfer-Browser XHR-Request an Google (mit Access Token)\n\n\nGoogle gibt Daten als JSON zur\u00fcck\n\n\nIm JSON ist ein Array-Konstruktor hinterlegt\n\n\nHacker hat diese Funktion \u00fcberschrieben, um das JSON zu ihm zu schicken\n\n\n\n\nVoraussetzungen\n\n\n\n\nOpfer muss authentisiert sein\n\n\nJSONP oder allgemein Array-Konstruktor im JSON\n\n\nKeine vertraulichen Inhalte \u00fcber JSONP \u00fcbertragen!\n\n\n\n\n\n\n\n\nRemediation\n\n\n\n\nCORS einsetzen, um Zugriff einzuschr\u00e4nken\n\n\nGoogle hat zu Beginn des JSON eine Endlosschleife eingebaut, quick / dirty!", 
+            "title": "9 JSON Hijacking"
+        }, 
+        {
+            "location": "/InfSi3/9_JSON_Hijacking/#json-hijacking", 
+            "text": "Bekannt geworden durch Google  Profildaten wurden \u00fcber AJAX nachgeladen (per JSON und ins DOM eingef\u00fcgt)", 
+            "title": "JSON Hijacking"
+        }, 
+        {
+            "location": "/InfSi3/9_JSON_Hijacking/#szenario", 
+            "text": "Opfer ist authentisiert mit Google  Opfer greift auf Website des Hackers zu  Darauf ist ein Script von Google eingebunden  script src=\"google.com/profile\" /  z.B.    Dadurch schickt Opfer-Browser XHR-Request an Google (mit Access Token)  Google gibt Daten als JSON zur\u00fcck  Im JSON ist ein Array-Konstruktor hinterlegt  Hacker hat diese Funktion \u00fcberschrieben, um das JSON zu ihm zu schicken", 
+            "title": "Szenario"
+        }, 
+        {
+            "location": "/InfSi3/9_JSON_Hijacking/#voraussetzungen", 
+            "text": "Opfer muss authentisiert sein  JSONP oder allgemein Array-Konstruktor im JSON  Keine vertraulichen Inhalte \u00fcber JSONP \u00fcbertragen!", 
+            "title": "Voraussetzungen"
+        }, 
+        {
+            "location": "/InfSi3/9_JSON_Hijacking/#remediation", 
+            "text": "CORS einsetzen, um Zugriff einzuschr\u00e4nken  Google hat zu Beginn des JSON eine Endlosschleife eingebaut, quick / dirty!", 
+            "title": "Remediation"
         }, 
         {
             "location": "/ParProg/0_Index/", 
@@ -1234,6 +1314,26 @@
             "location": "/SE2/5_Design_by_Contract/#contracts-und-vererbung", 
             "text": "Ein Subtyp muss mindestens den Contract der Superklasse erf\u00fcllen  Wegen Liskov's Substitution Principle: Eine Superklasse muss austauschbar durch die Subklasse sein    Subtypen d\u00fcrfen postconditons der Superklassen verst\u00e4rken (eingrenzen) und preconditions schw\u00e4chen (erweitern), aber nicht umgekehrt", 
             "title": "Contracts und Vererbung"
+        }, 
+        {
+            "location": "/SE2/6_Story_Splitting/", 
+            "text": "Story Splitting\n\n\nGrosse Projekte aufteilen\n\n\n\n\nWenn Projekt zu gross wird, gestaffelt Teile des Ganzen liefern\n\n\nAufteilung nach Kundendom\u00e4ne: Zuerst nur eine Teildom\u00e4ne des Kunden realisieren\n\n\nAufteilung nach Prozessen: Ein Prozess kann meist gut in UCs \u00fcbertragen werden. Diese k\u00f6nnen nacheinander ausgeliefert werden\n\n\nKernfunktionalit\u00e4t zuerts implementieren, CRUD erst sp\u00e4ter, da diese gut gefaked werden k\u00f6nnen\n\n\n\n\n\n\nAufteilung nach Rollen: Rollen werden priorisiert und nach dieser Reihenfolge auch die UCs\n\n\nAufteilung nach Domain Modell: Gruppieren und priorisieren\n\n\nGeografisch aufteilen: Zuerst in kleinem Rahmen austeilen, dann f\u00fcr stetig gr\u00f6sseren\n\n\n\n\nGrosse Arbeitspakete aufteilen\n\n\n\n\nZuerst primitive Version implementieren, dann Schritt f\u00fcr Schritt \"vergolden\"\n\n\nIn einem Sprint ist ca. 60%-70% der Arbeitszeit produktiv\n\n\nDaher ideale Gr\u00f6sse: 50%-70% pro Arbeitspaket, damit eine Person in einem Sprint sicher fertig wird\n\n\nEpics sind ungef\u00e4hr UCs, die aufgeteilt werden in User Stories (= Arbeitspakete)\n\n\nUser Stories sind urspr\u00fcnglich von der Form \"as a .. I want to ...\", aber das ist kundenorientiert\n\n\nIn der Implementierung braucht es anwendungsorientierte User Stories (=Arbeitspakete)", 
+            "title": "6 Story Splitting"
+        }, 
+        {
+            "location": "/SE2/6_Story_Splitting/#story-splitting", 
+            "text": "", 
+            "title": "Story Splitting"
+        }, 
+        {
+            "location": "/SE2/6_Story_Splitting/#grosse-projekte-aufteilen", 
+            "text": "Wenn Projekt zu gross wird, gestaffelt Teile des Ganzen liefern  Aufteilung nach Kundendom\u00e4ne: Zuerst nur eine Teildom\u00e4ne des Kunden realisieren  Aufteilung nach Prozessen: Ein Prozess kann meist gut in UCs \u00fcbertragen werden. Diese k\u00f6nnen nacheinander ausgeliefert werden  Kernfunktionalit\u00e4t zuerts implementieren, CRUD erst sp\u00e4ter, da diese gut gefaked werden k\u00f6nnen    Aufteilung nach Rollen: Rollen werden priorisiert und nach dieser Reihenfolge auch die UCs  Aufteilung nach Domain Modell: Gruppieren und priorisieren  Geografisch aufteilen: Zuerst in kleinem Rahmen austeilen, dann f\u00fcr stetig gr\u00f6sseren", 
+            "title": "Grosse Projekte aufteilen"
+        }, 
+        {
+            "location": "/SE2/6_Story_Splitting/#grosse-arbeitspakete-aufteilen", 
+            "text": "Zuerst primitive Version implementieren, dann Schritt f\u00fcr Schritt \"vergolden\"  In einem Sprint ist ca. 60%-70% der Arbeitszeit produktiv  Daher ideale Gr\u00f6sse: 50%-70% pro Arbeitspaket, damit eine Person in einem Sprint sicher fertig wird  Epics sind ungef\u00e4hr UCs, die aufgeteilt werden in User Stories (= Arbeitspakete)  User Stories sind urspr\u00fcnglich von der Form \"as a .. I want to ...\", aber das ist kundenorientiert  In der Implementierung braucht es anwendungsorientierte User Stories (=Arbeitspakete)", 
+            "title": "Grosse Arbeitspakete aufteilen"
         }, 
         {
             "location": "/Vss/0_Index/", 
@@ -1829,6 +1929,66 @@
             "location": "/Vwl/6_Konjuktur/#fazit_1", 
             "text": "War nicht \"timely\", da Einf\u00fchrung viel zu sp\u00e4t  Nicht \"targeted\", vorallem Staat und Baubranche hat profitiert  Nicht \"temporarly\": Gelder wurden bis 2015 ausgegeben  Gesamtpaket 2.1 Milliarden Fr. auf 550 Mrd. BIP - Wenig Einfluss  \"Placebo\"-Wirkung, auf Druck der Wirtschaft  Als Vergleich haben Kantone und Gemeinde zusammen Konjuktur-Pakete von  5 Mrd.  beschlossen  Insgesamt war der Einfluss 0.6% des BIPs -  sehr wenig", 
             "title": "Fazit"
+        }, 
+        {
+            "location": "/Vwl/7_Preisstabilit\u00e4t/", 
+            "text": "Preisstabilit\u00e4t\n\n\nInflation\n\n\n\n\nBei extremer Inflation geht W\u00e4hrung \"kaputt\"\n\n\nHeute ist Venezuela am n\u00e4hesten daran\n\n\nIn der Schweiz seit 20 Jahren nicht relevant\n\n\nDaf\u00fcr gibt es jetzt in der Schweiz Deflation\n\n\n\n\nEntstehung\n\n\n\n\nPermanente\n Steigerung des Preisniveau\n\n\nNicht Schwankungen des Preisniveaus!\n\n\n\n\n\n\nAusl\u00f6ser ist einmalige Steigerung des Preisniveaus\n\n\nexpansiver Nachfrageschock oder negativen Angebotsschock\n\n\n\n\n\n\nH\u00e4ngt auch von der Geldpolitik der Zentralbank ab (Geld drucken)\n\n\n\n\nExpansiver Nachfrageschock\n\n\n\n\nNachfrage geht nach rechts\n\n\nPreisniveau erh\u00f6ht sich (noch keine Inflation, evtl. Beginn)\n\n\n-\n \nNachfrageorientierte Inflation\n\n\n\n\nNegativer Angebotsschock\n\n\n\n\nAngebots-Kurve geht nach links\n\n\nPreisniveau steigt\n\n\n\n\nLohn-Preis-Spirale\n\n\n\n\nDurch erh\u00f6htes Preisnivaeu nimmt Kaufkraft ab\n\n\nHaushalte wollen Lohnerh\u00f6hung (\"auf Vorrat\" - \u00fcberkompensation)\n\n\nH\u00f6here Produktionskosten der Unternehmen\n\n\nDadurch h\u00f6here Preise (\"wieder auf Vorrat\")\n\n\n\n\nPreisniveau steigt weiter, usw..\n\n\n\n\n\n\nVerursacht durch \u00dcberkompensation der Inflation\n\n\n\n\nInflation geht nur, wenn dann Zentralbank Geld druckt\n\n\nInflation hilft dem Staat, weil Schulden dadurch (real) kleiner\n\n\n\"Bezahlt\" durch Kreditgeber des Staates (meist das eigene Volk z.B. durch Staatsanleihen) oder z.B. Pensionskasse\n\n\n\n\n\n\n\n\nQuantit\u00e4tsgleichung\n\n\n\n\n\n\nP x Q = M x V\n\n\n\n\nV ergibt sich aus den Anderen Variablen\n\n\nP = Preisniveau\n\n\nQ = reales BIP\n\n\nM = Geldmenge ingesamt in der Schweiz\n\n\nP x Q = Nominales BIP\n\n\nV = Geldumlaufgeschwindigkeit \n\\frac{P x Q}{M}\n\n\n\n\nMit einer Note werden im Jahr mehrere Zahlungen gemacht\n\n\nNoten: \n 1\n\n\nSparkonten: \n 1\n\n\nIn der Schweiz ca. 0.18 sinkend\n\n\n\n\n\n\nWenn Geldmenge gr\u00f6sser wird, muss bei gleichem BIP das Preisniveau steigen\n\n\n\n\nIn der Schweiz ist M gestiegen, P und Q etwa gleich geblieben\n\n\n\n\nAlso muss Geldumlaufmenge gesunken sein -\n Mehr gespart\n\n\nViel Geld liegt bei den Gesch\u00e4ftsbanken\n\n\nWenig Nachfrage nach Krediten bei Banken, grosse Unternehmen haben hohe Liquidit\u00e4t\n\n\n\n\n\n\n\n\n\n\n\n\nUSA hat als Ausgleich Zinsen erh\u00f6ht, um Wachstum zu bremsen\n\n\n\n\nDadurch investieren Unternehmen weniger und Haushalte sparen mehr\n\n\n\n\n\n\n\n\nErh\u00f6hung der Geldmenge\n\n\n\n\nNachfrage-Kurve verschiebt sich nach rechts\n\n\nZinsen sinken -\n Haushalte geben mehr aus\n\n\n\n\n\n\nAuswirkung: Preisniveau und BIP steigt\n\n\nBIP-Steigerung \u00fcberwiegt Erh\u00f6hung des Preisniveaus, wenn in einer Depression\n\n\n\n\n\n\nIn einer Boom-Phase ist die gleiche Erh\u00f6hung des Angebots sch\u00e4dlicher, weil das BIP weniger steigt als das Preisniveau\n\n\nDas ist das Problem am Euro: Erh\u00f6hung der Geldmenge hat je nach Konjuktur-Lage einen negativen (DE) oder positiven (Griechenland) Einfluss\n\n\n\n\nKosten der Inflation\n\n\n\n\nZinsen werden in Inflationszinsen eher zu hoch angesetzt aus Unsicherheit\n\n\nPreise werden verzerrt, weil verschiedene G\u00fcter unterschiedlich schnell teurer werden, Preisgef\u00fchl geht verloren\n\n\n\n\nBek\u00e4mpfung der Inflation\n\n\n\n\nNachfrage runterdr\u00fccken durch restriktive Geldpolitik\n\n\nPreis: Niedrigeres BIP, mehr Arbeitslosigkeit\n\n\n\n\nDeflation\n\n\n\n\nPermanenter R\u00fcckgang des Preisniveaus\n\n\nKann Angebotsorientiert werden: Angebot steigt\n\n\nOder Nachfrageorientiert: Nachfrage sinkt (weniger konsumiert)\n\n\n\"Depressionsfalle\" wie in Japan\n\n\nPreise sinken, Haushalte sparen\n\n\nImmer weniger Bev\u00f6lkerung (Alterung)\n\n\nIst abgeschlossen (keine Immigration)\n\n\n\n\n\n\nDeflationserwartung ist selbsterf\u00fcllend\n\n\nNominall\u00f6hne bleiben gleich, wird f\u00fcr Unternehmen teurer\n\n\nStaat gibt mehr aus als Gegenmittel, f\u00fchrt aber zu hohen Staatsschulden", 
+            "title": "7 Preisstabilit\u00e4t"
+        }, 
+        {
+            "location": "/Vwl/7_Preisstabilit\u00e4t/#preisstabilitat", 
+            "text": "", 
+            "title": "Preisstabilit\u00e4t"
+        }, 
+        {
+            "location": "/Vwl/7_Preisstabilit\u00e4t/#inflation", 
+            "text": "Bei extremer Inflation geht W\u00e4hrung \"kaputt\"  Heute ist Venezuela am n\u00e4hesten daran  In der Schweiz seit 20 Jahren nicht relevant  Daf\u00fcr gibt es jetzt in der Schweiz Deflation", 
+            "title": "Inflation"
+        }, 
+        {
+            "location": "/Vwl/7_Preisstabilit\u00e4t/#entstehung", 
+            "text": "Permanente  Steigerung des Preisniveau  Nicht Schwankungen des Preisniveaus!    Ausl\u00f6ser ist einmalige Steigerung des Preisniveaus  expansiver Nachfrageschock oder negativen Angebotsschock    H\u00e4ngt auch von der Geldpolitik der Zentralbank ab (Geld drucken)", 
+            "title": "Entstehung"
+        }, 
+        {
+            "location": "/Vwl/7_Preisstabilit\u00e4t/#expansiver-nachfrageschock", 
+            "text": "Nachfrage geht nach rechts  Preisniveau erh\u00f6ht sich (noch keine Inflation, evtl. Beginn)  -   Nachfrageorientierte Inflation", 
+            "title": "Expansiver Nachfrageschock"
+        }, 
+        {
+            "location": "/Vwl/7_Preisstabilit\u00e4t/#negativer-angebotsschock", 
+            "text": "Angebots-Kurve geht nach links  Preisniveau steigt", 
+            "title": "Negativer Angebotsschock"
+        }, 
+        {
+            "location": "/Vwl/7_Preisstabilit\u00e4t/#lohn-preis-spirale", 
+            "text": "Durch erh\u00f6htes Preisnivaeu nimmt Kaufkraft ab  Haushalte wollen Lohnerh\u00f6hung (\"auf Vorrat\" - \u00fcberkompensation)  H\u00f6here Produktionskosten der Unternehmen  Dadurch h\u00f6here Preise (\"wieder auf Vorrat\")   Preisniveau steigt weiter, usw..    Verursacht durch \u00dcberkompensation der Inflation   Inflation geht nur, wenn dann Zentralbank Geld druckt  Inflation hilft dem Staat, weil Schulden dadurch (real) kleiner  \"Bezahlt\" durch Kreditgeber des Staates (meist das eigene Volk z.B. durch Staatsanleihen) oder z.B. Pensionskasse", 
+            "title": "Lohn-Preis-Spirale"
+        }, 
+        {
+            "location": "/Vwl/7_Preisstabilit\u00e4t/#quantitatsgleichung", 
+            "text": "P x Q = M x V   V ergibt sich aus den Anderen Variablen  P = Preisniveau  Q = reales BIP  M = Geldmenge ingesamt in der Schweiz  P x Q = Nominales BIP  V = Geldumlaufgeschwindigkeit  \\frac{P x Q}{M}   Mit einer Note werden im Jahr mehrere Zahlungen gemacht  Noten:   1  Sparkonten:   1  In der Schweiz ca. 0.18 sinkend    Wenn Geldmenge gr\u00f6sser wird, muss bei gleichem BIP das Preisniveau steigen   In der Schweiz ist M gestiegen, P und Q etwa gleich geblieben   Also muss Geldumlaufmenge gesunken sein -  Mehr gespart  Viel Geld liegt bei den Gesch\u00e4ftsbanken  Wenig Nachfrage nach Krediten bei Banken, grosse Unternehmen haben hohe Liquidit\u00e4t       USA hat als Ausgleich Zinsen erh\u00f6ht, um Wachstum zu bremsen   Dadurch investieren Unternehmen weniger und Haushalte sparen mehr", 
+            "title": "Quantit\u00e4tsgleichung"
+        }, 
+        {
+            "location": "/Vwl/7_Preisstabilit\u00e4t/#erhohung-der-geldmenge", 
+            "text": "Nachfrage-Kurve verschiebt sich nach rechts  Zinsen sinken -  Haushalte geben mehr aus    Auswirkung: Preisniveau und BIP steigt  BIP-Steigerung \u00fcberwiegt Erh\u00f6hung des Preisniveaus, wenn in einer Depression    In einer Boom-Phase ist die gleiche Erh\u00f6hung des Angebots sch\u00e4dlicher, weil das BIP weniger steigt als das Preisniveau  Das ist das Problem am Euro: Erh\u00f6hung der Geldmenge hat je nach Konjuktur-Lage einen negativen (DE) oder positiven (Griechenland) Einfluss", 
+            "title": "Erh\u00f6hung der Geldmenge"
+        }, 
+        {
+            "location": "/Vwl/7_Preisstabilit\u00e4t/#kosten-der-inflation", 
+            "text": "Zinsen werden in Inflationszinsen eher zu hoch angesetzt aus Unsicherheit  Preise werden verzerrt, weil verschiedene G\u00fcter unterschiedlich schnell teurer werden, Preisgef\u00fchl geht verloren", 
+            "title": "Kosten der Inflation"
+        }, 
+        {
+            "location": "/Vwl/7_Preisstabilit\u00e4t/#bekampfung-der-inflation", 
+            "text": "Nachfrage runterdr\u00fccken durch restriktive Geldpolitik  Preis: Niedrigeres BIP, mehr Arbeitslosigkeit", 
+            "title": "Bek\u00e4mpfung der Inflation"
+        }, 
+        {
+            "location": "/Vwl/7_Preisstabilit\u00e4t/#deflation", 
+            "text": "Permanenter R\u00fcckgang des Preisniveaus  Kann Angebotsorientiert werden: Angebot steigt  Oder Nachfrageorientiert: Nachfrage sinkt (weniger konsumiert)  \"Depressionsfalle\" wie in Japan  Preise sinken, Haushalte sparen  Immer weniger Bev\u00f6lkerung (Alterung)  Ist abgeschlossen (keine Immigration)    Deflationserwartung ist selbsterf\u00fcllend  Nominall\u00f6hne bleiben gleich, wird f\u00fcr Unternehmen teurer  Staat gibt mehr aus als Gegenmittel, f\u00fchrt aber zu hohen Staatsschulden", 
+            "title": "Deflation"
         }
     ]
 }
