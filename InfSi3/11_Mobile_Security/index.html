@@ -9,7 +9,7 @@
         <meta name="description" content="HSR Study Documentation FS16">
       
       
-        <link rel="canonical" href="https://doc.robinsuter.ch/Vwl/6_Konjuktur/">
+        <link rel="canonical" href="https://doc.robinsuter.ch/InfSi3/11_Mobile_Security/">
       
       
         <meta name="author" content="Robin Suter">
@@ -21,7 +21,7 @@
     
     
       
-        <title>6 Konjuktur - HSR Notizen FS17</title>
+        <title>11 Mobile Security - HSR Notizen FS17</title>
       
     
     
@@ -84,11 +84,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Vwl
+                  InfSi3
                 </span>
               
             
-            6 Konjuktur
+            11 Mobile Security
           
         </span>
       </div>
@@ -457,10 +457,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
       InfSi3
@@ -478,7 +480,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InfSi3/0_Index/" title="0 Index" class="md-nav__link">
+    <a href="../0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
   </li>
@@ -490,7 +492,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InfSi3/10_CSRF/" title="10 CSRF" class="md-nav__link">
+    <a href="../10_CSRF/" title="10 CSRF" class="md-nav__link">
       10 CSRF
     </a>
   </li>
@@ -500,11 +502,136 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../InfSi3/11_Mobile_Security/" title="11 Mobile Security" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        11 Mobile Security
+      </label>
+    
+    <a href="./" title="11 Mobile Security" class="md-nav__link md-nav__link--active">
       11 Mobile Security
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ios-bascis" title="iOS Bascis" class="md-nav__link">
+    iOS Bascis
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-protection-api" title="Data Protection API" class="md-nav__link">
+    Data Protection API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keychain-api" title="Keychain API" class="md-nav__link">
+    Keychain API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android-basics" title="Android Basics" class="md-nav__link">
+    Android Basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#owasp-mobile-top-10" title="OWASP Mobile Top 10" class="md-nav__link">
+    OWASP Mobile Top 10
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#m1-improper-platform-usage" title="M1: Improper Platform Usage" class="md-nav__link">
+    M1: Improper Platform Usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m2-insecure-data-storage" title="M2: Insecure Data Storage" class="md-nav__link">
+    M2: Insecure Data Storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m3-insecure-communication" title="M3: Insecure Communication" class="md-nav__link">
+    M3: Insecure Communication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m6-insecure-authorization" title="M6: Insecure Authorization" class="md-nav__link">
+    M6: Insecure Authorization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m7-client-code-quality" title="M7: Client Code Quality" class="md-nav__link">
+    M7: Client Code Quality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m8-code-tampering" title="M8: Code Tampering" class="md-nav__link">
+    M8: Code Tampering
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m9-reverse-engineering" title="M9: Reverse Engineering" class="md-nav__link">
+    M9: Reverse Engineering
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -514,7 +641,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InfSi3/1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -526,7 +653,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InfSi3/2_Overview/" title="2 Overview" class="md-nav__link">
+    <a href="../2_Overview/" title="2 Overview" class="md-nav__link">
       2 Overview
     </a>
   </li>
@@ -538,7 +665,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InfSi3/3_Software_Security/" title="3 Software Security" class="md-nav__link">
+    <a href="../3_Software_Security/" title="3 Software Security" class="md-nav__link">
       3 Software Security
     </a>
   </li>
@@ -550,7 +677,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InfSi3/4_Application_Security_Basics/" title="4 Application Security Basics" class="md-nav__link">
+    <a href="../4_Application_Security_Basics/" title="4 Application Security Basics" class="md-nav__link">
       4 Application Security Basics
     </a>
   </li>
@@ -562,7 +689,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InfSi3/5_SQL_Injection/" title="5 SQL Injection" class="md-nav__link">
+    <a href="../5_SQL_Injection/" title="5 SQL Injection" class="md-nav__link">
       5 SQL Injection
     </a>
   </li>
@@ -574,7 +701,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InfSi3/6_XSS/" title="6 XSS" class="md-nav__link">
+    <a href="../6_XSS/" title="6 XSS" class="md-nav__link">
       6 XSS
     </a>
   </li>
@@ -586,7 +713,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InfSi3/7_CORS/" title="7 CORS" class="md-nav__link">
+    <a href="../7_CORS/" title="7 CORS" class="md-nav__link">
       7 CORS
     </a>
   </li>
@@ -598,7 +725,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InfSi3/8_CSP/" title="8 CSP" class="md-nav__link">
+    <a href="../8_CSP/" title="8 CSP" class="md-nav__link">
       8 CSP
     </a>
   </li>
@@ -610,7 +737,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InfSi3/9_JSON_Hijacking/" title="9 JSON Hijacking" class="md-nav__link">
+    <a href="../9_JSON_Hijacking/" title="9 JSON Hijacking" class="md-nav__link">
       9 JSON Hijacking
     </a>
   </li>
@@ -641,7 +768,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../InfSi3/hacking-lab/2651_CSRF/" title="2651 CSRF" class="md-nav__link">
+    <a href="../hacking-lab/2651_CSRF/" title="2651 CSRF" class="md-nav__link">
       2651 CSRF
     </a>
   </li>
@@ -1093,12 +1220,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
     <label class="md-nav__link" for="nav-11">
       Vwl
@@ -1116,7 +1241,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../0_Index/" title="0 Index" class="md-nav__link">
+    <a href="../../Vwl/0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
   </li>
@@ -1128,7 +1253,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../../Vwl/1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -1140,7 +1265,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../2_Wohlstand/" title="2 Wohlstand" class="md-nav__link">
+    <a href="../../Vwl/2_Wohlstand/" title="2 Wohlstand" class="md-nav__link">
       2 Wohlstand
     </a>
   </li>
@@ -1152,7 +1277,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../3_Einkommensverteilung_und_Sozialwerke/" title="3 Einkommensverteilung und Sozialwerke" class="md-nav__link">
+    <a href="../../Vwl/3_Einkommensverteilung_und_Sozialwerke/" title="3 Einkommensverteilung und Sozialwerke" class="md-nav__link">
       3 Einkommensverteilung und Sozialwerke
     </a>
   </li>
@@ -1164,7 +1289,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../4_Wachstum/" title="4 Wachstum" class="md-nav__link">
+    <a href="../../Vwl/4_Wachstum/" title="4 Wachstum" class="md-nav__link">
       4 Wachstum
     </a>
   </li>
@@ -1176,7 +1301,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../5_Arbeitsmarkt/" title="5 Arbeitsmarkt" class="md-nav__link">
+    <a href="../../Vwl/5_Arbeitsmarkt/" title="5 Arbeitsmarkt" class="md-nav__link">
       5 Arbeitsmarkt
     </a>
   </li>
@@ -1186,135 +1311,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        6 Konjuktur
-      </label>
-    
-    <a href="./" title="6 Konjuktur" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../Vwl/6_Konjuktur/" title="6 Konjuktur" class="md-nav__link">
       6 Konjuktur
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#nachfrage-und-angebotsschock" title="Nachfrage- und Angebotsschock" class="md-nav__link">
-    Nachfrage- und Angebotsschock
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#negativer-nachfrageschock" title="Negativer Nachfrageschock:" class="md-nav__link">
-    Negativer Nachfrageschock:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#positiver-nachfrageschock" title="Positiver Nachfrageschock" class="md-nav__link">
-    Positiver Nachfrageschock
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#negativer-angebotsschock" title="Negativer Angebotsschock" class="md-nav__link">
-    Negativer Angebotsschock
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#positiver-angebotsschock" title="Positiver Angebotsschock" class="md-nav__link">
-    Positiver Angebotsschock
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fazit" title="Fazit" class="md-nav__link">
-    Fazit
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#konjukturzyklen" title="Konjukturzyklen" class="md-nav__link">
-    Konjukturzyklen
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#konjukturpolitik" title="Konjukturpolitik" class="md-nav__link">
-    Konjukturpolitik
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#kritik-aktive-konjukturpolitik" title="Kritik aktive Konjukturpolitik" class="md-nav__link">
-    Kritik aktive Konjukturpolitik
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#konkukturpolitik-2008-2010" title="Konkukturpolitik 2008-2010" class="md-nav__link">
-    Konkukturpolitik 2008-2010
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fazit_1" title="Fazit" class="md-nav__link">
-    Fazit
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1324,7 +1325,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../7_Preisstabilität/" title="7 Preisstabilität" class="md-nav__link">
+    <a href="../../Vwl/7_Preisstabilität/" title="7 Preisstabilität" class="md-nav__link">
       7 Preisstabilität
     </a>
   </li>
@@ -1356,44 +1357,23 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#nachfrage-und-angebotsschock" title="Nachfrage- und Angebotsschock" class="md-nav__link">
-    Nachfrage- und Angebotsschock
+  <a href="#ios-bascis" title="iOS Bascis" class="md-nav__link">
+    iOS Bascis
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#negativer-nachfrageschock" title="Negativer Nachfrageschock:" class="md-nav__link">
-    Negativer Nachfrageschock:
+  <a href="#data-protection-api" title="Data Protection API" class="md-nav__link">
+    Data Protection API
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#positiver-nachfrageschock" title="Positiver Nachfrageschock" class="md-nav__link">
-    Positiver Nachfrageschock
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#negativer-angebotsschock" title="Negativer Angebotsschock" class="md-nav__link">
-    Negativer Angebotsschock
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#positiver-angebotsschock" title="Positiver Angebotsschock" class="md-nav__link">
-    Positiver Angebotsschock
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fazit" title="Fazit" class="md-nav__link">
-    Fazit
+  <a href="#keychain-api" title="Keychain API" class="md-nav__link">
+    Keychain API
   </a>
   
 </li>
@@ -1404,44 +1384,66 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#konjukturzyklen" title="Konjukturzyklen" class="md-nav__link">
-    Konjukturzyklen
+  <a href="#android-basics" title="Android Basics" class="md-nav__link">
+    Android Basics
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#konjukturpolitik" title="Konjukturpolitik" class="md-nav__link">
-    Konjukturpolitik
+  <a href="#owasp-mobile-top-10" title="OWASP Mobile Top 10" class="md-nav__link">
+    OWASP Mobile Top 10
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#kritik-aktive-konjukturpolitik" title="Kritik aktive Konjukturpolitik" class="md-nav__link">
-    Kritik aktive Konjukturpolitik
+  <a href="#m1-improper-platform-usage" title="M1: Improper Platform Usage" class="md-nav__link">
+    M1: Improper Platform Usage
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#konkukturpolitik-2008-2010" title="Konkukturpolitik 2008-2010" class="md-nav__link">
-    Konkukturpolitik 2008-2010
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fazit_1" title="Fazit" class="md-nav__link">
-    Fazit
+  <a href="#m2-insecure-data-storage" title="M2: Insecure Data Storage" class="md-nav__link">
+    M2: Insecure Data Storage
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#m3-insecure-communication" title="M3: Insecure Communication" class="md-nav__link">
+    M3: Insecure Communication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m6-insecure-authorization" title="M6: Insecure Authorization" class="md-nav__link">
+    M6: Insecure Authorization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m7-client-code-quality" title="M7: Client Code Quality" class="md-nav__link">
+    M7: Client Code Quality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m8-code-tampering" title="M8: Code Tampering" class="md-nav__link">
+    M8: Code Tampering
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m9-reverse-engineering" title="M9: Reverse Engineering" class="md-nav__link">
+    M9: Reverse Engineering
+  </a>
   
 </li>
         
@@ -1464,157 +1466,104 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Vwl/6_Konjuktur.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/InfSi3/11_Mobile_Security.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <h1 id="konjuktur">Konjuktur</h1>
-<h2 id="nachfrage-und-angebotsschock">Nachfrage- und Angebotsschock</h2>
-<h3 id="negativer-nachfrageschock">Negativer Nachfrageschock:</h3>
+                <h1 id="mobile-security">Mobile Security</h1>
+<h2 id="ios-bascis">iOS Bascis</h2>
 <ul>
-<li>Anfrage-Kurve wird nach links verschoben</li>
-<li>Ursache (Bsp.): <ul>
-<li>Konsum der Haushalte bricht ein</li>
-<li>Staat muss sparen</li>
-<li>Unternehmen investieren weniger</li>
-<li>Ausland sinkt Nachfrage</li>
+<li>iOS ist Subset von OS X mit gleichen Libraries</li>
+<li>Objective-C, Swift und C kann gemischt werden</li>
+<li>Jede App ist gekapselt durch Sandboxing</li>
+<li>Secure Boot Chain<ul>
+<li>LLB: Low-Level Bootloader</li>
+<li>Jeder Schritt überprüft die Signatur des nächsten</li>
 </ul>
 </li>
-<li>Reales BIP geht zurück</li>
-<li>Das Preisniveau sinkt<ul>
-<li>Kaufkraft steigt (wenn Löhne gleich bleiben)</li>
+<li>Berechtigungen werden einzeln erfragt</li>
 </ul>
-</li>
-<li>Auswirkungen:<ul>
-<li>Weniger Arbeitsplätze</li>
-<li>Unternehmen können weniger herstellen</li>
-<li>Schlecht für Importe und Exporte</li>
-<li>-&gt; Schlimmer für Unternehmen als für Haushalte</li>
-</ul>
-</li>
-</ul>
-<h3 id="positiver-nachfrageschock">Positiver Nachfrageschock</h3>
+<h3 id="data-protection-api">Data Protection API</h3>
 <ul>
-<li>Gut für Haushalte bezüglich Arbeitsplätze, aber weniger Kaufkraft</li>
-<li>Gut für Unternehmen, es wird mehr hergestellt</li>
-<li>Positive Nachfrage auf lange Sicht führt zu Inflation, weil die Kapazitätsgrenze gleich bleibt</li>
+<li>File-System-Key: Wird bei einem Wipe gewechselt, dann können die verschlüsselten Daten nicht mehr gelesen werden</li>
+<li>Es gibt unterschiedliche Class Keys, die zu unterschiedlichen Zeiten im Memory sind, z.B. wenn das Gerät entsperrt ist oder gesperrt</li>
 </ul>
-<h3 id="negativer-angebotsschock">Negativer Angebotsschock</h3>
+<h3 id="keychain-api">Keychain API</h3>
 <ul>
-<li>Angebotskurve nach links verschoben</li>
-<li>Ursache<ul>
-<li>Rohstoffe werden knapp</li>
-<li>(Mindestlohn)</li>
-<li>Mehr Steuern für Unternehmen</li>
+<li>Durch Hardware-Key geschützt (eigener Chip)</li>
+<li>Jede App kann in ihrer Sandbox gehörenden Secrets lesen</li>
+<li>Kann ähnlich wie Class Keys gesteuert werden, wann sie verfügbar sein sollen </li>
+<li>Seit iOS 7 können solche Secrets auch mit dem Fingerprint gesichert werden</li>
 </ul>
-</li>
-<li>Auswirkung<ul>
-<li>Weniger BIP</li>
-<li>Preissteigerung kann für Unternehmen positiv sein</li>
-<li>Für Haushalte: Gefährdung der Arbeitsstelle, höhere Preise</li>
-</ul>
-</li>
-</ul>
-<h3 id="positiver-angebotsschock">Positiver Angebotsschock</h3>
+<h2 id="android-basics">Android Basics</h2>
 <ul>
-<li>Gut für Haushalte, tiefere Preise, sicherer Arbeitsplatz</li>
-<li>Unternehmen können mehr produzieren, aber zu tieferem Preis verkaufen</li>
+<li>SELinux seit Android 4.4</li>
+<li>Für alternative Stores (z.B. Amazon) muss Installation von fremden APKs aktiviert werden - Sicherheitsriskio</li>
+<li>jede App läuft in eigener JVM</li>
+<li>KeyStore API seit 4.3 - ähnlich zu iOS</li>
 </ul>
-<h3 id="fazit">Fazit</h3>
+<h2 id="owasp-mobile-top-10">OWASP Mobile Top 10</h2>
+<h3 id="m1-improper-platform-usage">M1: Improper Platform Usage</h3>
 <ul>
-<li>Nicht jede konjukturelle Veränderung ist für alle Positiv oder Negativ</li>
-<li>Macht Analysen komplex</li>
+<li>Platform-Features für Sicherheit nicht oder falsch benutzen</li>
+<li>Guidelines (unabsichtlich) nicht einhalten</li>
+<li>Zu viele Permissions geben</li>
+<li>z.B. Schlüssel nicht in KeyChain API speichern, sondern unverschlüsselt in ein Property-File</li>
 </ul>
-<h2 id="konjukturzyklen">Konjukturzyklen</h2>
+<h3 id="m2-insecure-data-storage">M2: Insecure Data Storage</h3>
 <ul>
-<li>Vor 2. WK war Wirtschaft in "natürlichem" Zyklus im Gegenuhrzeigersinn</li>
-<li>Nach 2. WK bewegt sich der Zyklus nur noch im inflationären Bereich</li>
-<li>Zentralbanken wollen Deflation verhindern</li>
-<li>Deflation führt zu weniger Investitionen und sie werden mehr hinaus gezögert</li>
-<li>Japan ist in dieser Situation ("Deflationsfalle")</li>
+<li>Unsicherer Data Store, wenn Gerät verloren wurde oder mit jailbreak / root</li>
+<li>Leakage durch Sidechannels<ul>
+<li>z.B. Screenshots der "recent apps" View</li>
+<li>Bei iOS und Adroid können diese Screenshots bearbeitet werden</li>
 </ul>
-<h2 id="konjukturpolitik">Konjukturpolitik</h2>
+</li>
+</ul>
+<h3 id="m3-insecure-communication">M3: Insecure Communication</h3>
 <ul>
-<li>In der Schweiz muss der Bund Konjukturpolitik betreiben (Gegen Marktwirtschaft)</li>
+<li>Unsichere Kommunikationskanäle</li>
+<li>z.B. alte TLS-Versionen, schwache Ciphers, clear-text</li>
+<li>Certificate Pinning verwenden<ul>
+<li>Public-Key des Servers in der App hinterlegen</li>
+<li>In Android und iOS über Standard-APIs</li>
 </ul>
-<ol>
-<li>
-<p>Nichts tun: Märkten sollen sich selbst regulieren.
-- Nachfrage nach Arbeit sinkt
-- Löhne müssten kleiner werden
-- Davon profitieren Unternehmen, Angebot geht hinauf bis zur Balance
-- Preisniveau ist gesunken, aber Löhne auch -&gt; gleiche Kaufkraft
-- <em>Problem</em>: Arbeitsmärkte ist reguliert, Löhne dürfen nicht sinken. Funktioniert in der Praxis also nicht</p>
 </li>
-<li>
-<p>Aktive Konjukturpolitik: Der Staat fördert die Nachfrage
-- Arbeitsmärkte sind reguliert
-- Nachfrage-Kurve muss wieder nach rechts verschoben werden
-- Haushalte müssen mehr Konsumieren oder Unternehmen mehr investieren
-- Weniger Steuern, weniger Zinsen für Haushalte
-- Wenn Staat Konjukturpolitik macht, ist es "Fiskalpolitik"
-- Wenn es die Zentralbank macht, "Geldpolitik"</p>
-</li>
-<li>
-<p>Stärkung der automatischen Stabilisatoren: Staatliche Einnahmen und Ausgaben, damit bei Rückgang der Nachfrage diese automatisch stimuliert wird
-- Bremsung durch progressives Steursystem (Steuereinnahmen steigen exponentiell bei höheren Einkommen)</p>
-</li>
-</ol>
-<h3 id="kritik-aktive-konjukturpolitik">Kritik aktive Konjukturpolitik</h3>
+</ul>
+<h3 id="m6-insecure-authorization">M6: Insecure Authorization</h3>
+<h3 id="m7-client-code-quality">M7: Client Code Quality</h3>
 <ul>
-<li>Rezession: Wenn BIP 2 Quartale hintereinander negativ ist</li>
-<li>Verzögerung ist also mindestens 3 Quartale</li>
-<li>Für Konjukturpaket muss Parlament entscheiden<ul>
-<li>Geht mit allem etwa 5 Jahre</li>
+<li>XSS, SQL-Injection, ...</li>
 </ul>
-</li>
-<li>Verzögerung läuft Gefahr, dass Korrektur kommt, wenn Hochkonjuktur herrscht</li>
-<li>Durch föderalistischem Prinzip haben Kantone viel Macht<ul>
-<li>Steuern sind auf Bundesebene viel tiefer als auf Kantonalebene!</li>
-</ul>
-</li>
-<li>
-<p>Kantone müssten mitziehen</p>
-</li>
-<li>
-<p><strong>Darum</strong>: In der Schweiz wird vorallem mit Stabilisatoren gearbeitet</p>
-</li>
-<li>In der Vergangenheit hat aktive Konjukturpolitik in der Schweiz schlecht funktioniert</li>
-<li>Auf z.B. Ebene Europa machht es mehr Sinn, weil Rezessionen über viele Jahre gehen</li>
-</ul>
-<h3 id="konkukturpolitik-2008-2010">Konkukturpolitik 2008-2010</h3>
+<h3 id="m8-code-tampering">M8: Code Tampering</h3>
 <ul>
-<li>Letzte Krise 2008 ging die Rezession 3 Quartale lang</li>
-<li>Konjukturpaket aufgrund von Druck</li>
-<li>Erste Stufe 2009<ul>
-<li>Der Bund und die Baubranche hat vorallem profitiert</li>
+<li>Monkey-Patching</li>
+<li>Jailbreaking / Rooting<ul>
+<li>Detection auch möglich, indem z.B. nach shell-skripts gesucht wird</li>
 </ul>
 </li>
-<li>Zweite Stufe 2009<ul>
-<li>Schiene, Strasse, Infrastruktur</li>
-<li>Hat erst viel später Wirkung</li>
-<li>Wieder Vorteile für Baubranche</li>
+<li>Method Swizzling<ul>
+<li>Methoden werden vertauscht</li>
 </ul>
 </li>
-<li>Dritte Stufe 2010<ul>
-<li>Bekämpfung Arbeitslosigkeit<ul>
-<li>Kurzarbeit: Teil des Lohnes wird vom Staat übernommen</li>
-<li>Unternehmen entlassen weniger Arbeiter und können so Rezession ausharren</li>
-<li>Gut für Arbeitgeber und Arbeitnehmer</li>
-</ul>
-</li>
-<li>Frühzeitige Rückverteilung CO2-Abgabe, wird sowieso jedes Jahr gemacht und hat nichts mit Konjukturpolitik zu tun</li>
+<li>In Objective-C werden alle Methoden-Aufrufe über eine zentrale Methode geschickt, die Messages verschickt<ul>
+<li>diese können mit jailbreak überschrieben werden</li>
+<li>Besser in Swift</li>
 </ul>
 </li>
 </ul>
-<h4 id="fazit_1">Fazit</h4>
+<h3 id="m9-reverse-engineering">M9: Reverse Engineering</h3>
 <ul>
-<li>War nicht "timely", da Einführung viel zu spät</li>
-<li>Nicht "targeted", vorallem Staat und Baubranche hat profitiert</li>
-<li>Nicht "temporarly": Gelder wurden bis 2015 ausgegeben</li>
-<li>Gesamtpaket 2.1 Milliarden Fr. auf 550 Mrd. BIP - Wenig Einfluss</li>
-<li>"Placebo"-Wirkung, auf Druck der Wirtschaft</li>
-<li>Als Vergleich haben Kantone und Gemeinde zusammen Konjuktur-Pakete von <em>5 Mrd.</em> beschlossen</li>
-<li>Insgesamt war der Einfluss 0.6% des BIPs -&gt; sehr wenig</li>
+<li>Code Reversing</li>
+<li>Disassembly</li>
+<li>Bei Android Code Obfuscating im SDK dabei</li>
+<li>Android kompiliert Java zu "smali" Code bis Android 5<ul>
+<li>Mit <code>dex2jar</code> kann es auch zu normalen Class-files kompiliert werden</li>
+</ul>
+</li>
+<li>Seit Android 5 Android Runtime<ul>
+<li>Kompiliert code bei Installation zu native code</li>
+<li>DEX-File ist immer noch im APK - Reverse Engineering gleich möglich</li>
+</ul>
+</li>
 </ul>
                 
                   
@@ -1634,7 +1583,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../5_Arbeitsmarkt/" title="5 Arbeitsmarkt" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../10_CSRF/" title="10 CSRF" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1643,19 +1592,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                5 Arbeitsmarkt
+                10 CSRF
               </span>
             </div>
           </a>
         
         
-          <a href="../7_Preisstabilität/" title="7 Preisstabilität" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../1_Exam/" title="1 Exam" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                7 Preisstabilität
+                1 Exam
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
