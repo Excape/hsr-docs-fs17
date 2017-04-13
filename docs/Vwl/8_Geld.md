@@ -64,3 +64,16 @@
 - SNB ist Aktiengesellschaft der Börse
     - Gehört den Kantonen
     - Aktien ohne Stimm- oder Gewinnrecht
+
+### Historie der Schweizer Geldpolitik
+- Vor dem 2. WK kaum Einflusss auf heute
+- Fixe Wechselkurse 1944 beim Treffen der Siegermächte
+    - US$ als internationale Leitwährung, auch für Schweiz
+- Bis 1973 funktioniert. Wegen verlorenem Vietnamkrieg mit Frankreich (Kolonialherrschaft), USA hat übernommen, ebenfalls verloren.
+    - Inflation des US-Dollars wegen Finanzierung des Vietnamkriegs, hat sich übertragen auf ganzen Westen
+    - Golddeckung aufgelöst
+- 1974-1999: Orientierung an der Geldmenge
+    - Es wurde proportional zum BIP mehr oder weniger Geld gedruckt
+    - Geht, solange `V` konstant ist
+    - Ende der 80er wurde `V` flexibel
+- Ab 1999: Orientierung an Inflationsprognosen

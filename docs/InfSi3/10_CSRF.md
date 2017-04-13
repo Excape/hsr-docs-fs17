@@ -6,6 +6,8 @@
 
 ## Attack
 - Opfer authentisiert sich bei E-Banking
+- Nutzt dabei ein Session-Cookie aus
+    - Geht nicht mit URL-Based Session handling!
 - Opfer geht auf Hacker-Seite
 - Im Browser wird einen Request (nicht ajax) an die Bank geschickt mit einer bestimmtem Transaktion
     - z.B. über ein Bild

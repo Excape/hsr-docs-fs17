@@ -8,22 +8,22 @@
 
 ```java
 StringBuilder localStringBuilder1 = new StringBuilder();
-String str = paramArrayOfCowGameScore[0].getNickname() + 
-"::" + paramArrayOfCowGameScore[0].getScore() + 
-"::" + (int)(System.currentTimeMillis() / 1000L);
+    String str = paramArrayOfCowGameScore[0].getNickname() + 
+    "::" + paramArrayOfCowGameScore[0].getScore() + 
+    "::" + (int)(System.currentTimeMillis() / 1000L);
 
-byte[] arrayOfByte = OpenSSL.encrypt("AES-256-CBC", 
-"FbXVVzMwXKdHaFXz8sJRAwkprbCxfwQn74zHZX27jSjEwfvB".toCharArray(), 
-str.getBytes(Charset.forName("ASCII")), false);
+    byte[] arrayOfByte = OpenSSL.encrypt("AES-256-CBC", 
+    "FbXVVzMwXKdHaFXz8sJRAwkprbCxfwQn74zHZX27jSjEwfvB".toCharArray(), 
+    str.getBytes(Charset.forName("ASCII")), false);
 
-HttpGet localHttpGet = new HttpGet(Uri.parse(FolkloreService.this.mobileSiteURI.toString())
-.buildUpon().appendEncodedPath("score.php")
-.appendQueryParameter("message", Base64.encodeToString(arrayOfByte, 8)).build().toString());
+    HttpGet localHttpGet = new HttpGet(Uri.parse(FolkloreService.this.mobileSiteURI.toString())
+    .buildUpon().appendEncodedPath("score.php")
+    .appendQueryParameter("message", Base64.encodeToString(arrayOfByte, 8)).build().toString());
 
-StringBuilder localStringBuilder2 = new StringBuilder();
-Log.d("FolkloreService", "Posting " + localHttpGet.getURI().toString());
-FolkloreService.this.fac.makeHttpClient().execute(localHttpGet);
-return Boolean.valueOf(true);
+    StringBuilder localStringBuilder2 = new StringBuilder();
+    Log.d("FolkloreService", "Posting " + localHttpGet.getURI().toString());
+    FolkloreService.this.fac.makeHttpClient().execute(localHttpGet);
+    return Boolean.valueOf(true);
 ```
 
 - Es ist aber nicht gut ersichtlich, was die `mobileSiteURI` ist, an die der Request geschickt wird. Da es aber nicht TLS-verschlüsselt ist, finden wir das schnell mit Wireshark heraus:
