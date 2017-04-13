@@ -9,7 +9,7 @@
         <meta name="description" content="HSR Study Documentation FS16">
       
       
-        <link rel="canonical" href="https://doc.robinsuter.ch/Vwl/0_Index/">
+        <link rel="canonical" href="https://doc.robinsuter.ch/ParProg/9_Memory_Models/">
       
       
         <meta name="author" content="Robin Suter">
@@ -21,7 +21,7 @@
     
     
       
-        <title>0 Index - HSR Notizen FS17</title>
+        <title>9 Memory Models - HSR Notizen FS17</title>
       
     
     
@@ -84,11 +84,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Vwl
+                  ParProg
                 </span>
               
             
-            0 Index
+            9 Memory Models
           
         </span>
       </div>
@@ -733,10 +733,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
     <label class="md-nav__link" for="nav-7">
       ParProg
@@ -754,7 +756,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/0_Index/" title="0 Index" class="md-nav__link">
+    <a href="../0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
   </li>
@@ -766,7 +768,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -778,7 +780,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/2_Multi-Threading_Grundlagen/" title="2 Multi Threading Grundlagen" class="md-nav__link">
+    <a href="../2_Multi-Threading_Grundlagen/" title="2 Multi Threading Grundlagen" class="md-nav__link">
       2 Multi Threading Grundlagen
     </a>
   </li>
@@ -790,7 +792,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/3_Thread-Synchronisation/" title="3 Thread Synchronisation" class="md-nav__link">
+    <a href="../3_Thread-Synchronisation/" title="3 Thread Synchronisation" class="md-nav__link">
       3 Thread Synchronisation
     </a>
   </li>
@@ -802,7 +804,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/4_Synchronisationsprimitiven/" title="4 Synchronisationsprimitiven" class="md-nav__link">
+    <a href="../4_Synchronisationsprimitiven/" title="4 Synchronisationsprimitiven" class="md-nav__link">
       4 Synchronisationsprimitiven
     </a>
   </li>
@@ -814,7 +816,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/5_Gefahren/" title="5 Gefahren" class="md-nav__link">
+    <a href="../5_Gefahren/" title="5 Gefahren" class="md-nav__link">
       5 Gefahren
     </a>
   </li>
@@ -826,7 +828,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/6_Thread_Pools/" title="6 Thread Pools" class="md-nav__link">
+    <a href="../6_Thread_Pools/" title="6 Thread Pools" class="md-nav__link">
       6 Thread Pools
     </a>
   </li>
@@ -838,7 +840,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/7_Task_Parallel_Library/" title="7 Task Parallel Library" class="md-nav__link">
+    <a href="../7_Task_Parallel_Library/" title="7 Task Parallel Library" class="md-nav__link">
       7 Task Parallel Library
     </a>
   </li>
@@ -850,7 +852,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/8_GUI_Threading/" title="8 GUI Threading" class="md-nav__link">
+    <a href="../8_GUI_Threading/" title="8 GUI Threading" class="md-nav__link">
       8 GUI Threading
     </a>
   </li>
@@ -860,11 +862,136 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../ParProg/9_Memory_Models/" title="9 Memory Models" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        9 Memory Models
+      </label>
+    
+    <a href="./" title="9 Memory Models" class="md-nav__link md-nav__link--active">
       9 Memory Models
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quiz-letzte-vorlesung" title="Quiz letzte Vorlesung" class="md-nav__link">
+    Quiz letzte Vorlesung
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ziel" title="Ziel" class="md-nav__link">
+    Ziel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#probleme" title="Probleme" class="md-nav__link">
+    Probleme
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java-memory-model" title="Java Memory Model" class="md-nav__link">
+    Java Memory Model
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atomicity" title="Atomicity" class="md-nav__link">
+    Atomicity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visibility" title="Visibility" class="md-nav__link">
+    Visibility
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#garantien" title="Garantien" class="md-nav__link">
+    Garantien
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordering" title="Ordering" class="md-nav__link">
+    Ordering
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atomare-operationen" title="Atomare Operationen" class="md-nav__link">
+    Atomare Operationen
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atomic-boolean" title="Atomic Boolean" class="md-nav__link">
+    Atomic Boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimisitsche-synchronisation" title="Optimisitsche Synchronisation" class="md-nav__link">
+    Optimisitsche Synchronisation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#net" title=".NET" class="md-nav__link">
+    .NET
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1189,12 +1316,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
     <label class="md-nav__link" for="nav-11">
       Vwl
@@ -1210,20 +1335,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="./" title="0 Index" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../Vwl/0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
-    
   </li>
 
         
@@ -1233,7 +1349,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../../Vwl/1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -1245,7 +1361,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../2_Wohlstand/" title="2 Wohlstand" class="md-nav__link">
+    <a href="../../Vwl/2_Wohlstand/" title="2 Wohlstand" class="md-nav__link">
       2 Wohlstand
     </a>
   </li>
@@ -1257,7 +1373,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../3_Einkommensverteilung_und_Sozialwerke/" title="3 Einkommensverteilung und Sozialwerke" class="md-nav__link">
+    <a href="../../Vwl/3_Einkommensverteilung_und_Sozialwerke/" title="3 Einkommensverteilung und Sozialwerke" class="md-nav__link">
       3 Einkommensverteilung und Sozialwerke
     </a>
   </li>
@@ -1269,7 +1385,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../4_Wachstum/" title="4 Wachstum" class="md-nav__link">
+    <a href="../../Vwl/4_Wachstum/" title="4 Wachstum" class="md-nav__link">
       4 Wachstum
     </a>
   </li>
@@ -1281,7 +1397,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../5_Arbeitsmarkt/" title="5 Arbeitsmarkt" class="md-nav__link">
+    <a href="../../Vwl/5_Arbeitsmarkt/" title="5 Arbeitsmarkt" class="md-nav__link">
       5 Arbeitsmarkt
     </a>
   </li>
@@ -1293,7 +1409,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../6_Konjuktur/" title="6 Konjuktur" class="md-nav__link">
+    <a href="../../Vwl/6_Konjuktur/" title="6 Konjuktur" class="md-nav__link">
       6 Konjuktur
     </a>
   </li>
@@ -1305,7 +1421,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../7_Preisstabilität/" title="7 Preisstabilität" class="md-nav__link">
+    <a href="../../Vwl/7_Preisstabilität/" title="7 Preisstabilität" class="md-nav__link">
       7 Preisstabilität
     </a>
   </li>
@@ -1317,7 +1433,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../8_Geld/" title="8 Geld" class="md-nav__link">
+    <a href="../../Vwl/8_Geld/" title="8 Geld" class="md-nav__link">
       8 Geld
     </a>
   </li>
@@ -1329,7 +1445,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../9_Wechselkurse/" title="9 Wechselkurse" class="md-nav__link">
+    <a href="../../Vwl/9_Wechselkurse/" title="9 Wechselkurse" class="md-nav__link">
       9 Wechselkurse
     </a>
   </li>
@@ -1357,6 +1473,109 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quiz-letzte-vorlesung" title="Quiz letzte Vorlesung" class="md-nav__link">
+    Quiz letzte Vorlesung
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ziel" title="Ziel" class="md-nav__link">
+    Ziel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#probleme" title="Probleme" class="md-nav__link">
+    Probleme
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#java-memory-model" title="Java Memory Model" class="md-nav__link">
+    Java Memory Model
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atomicity" title="Atomicity" class="md-nav__link">
+    Atomicity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visibility" title="Visibility" class="md-nav__link">
+    Visibility
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#garantien" title="Garantien" class="md-nav__link">
+    Garantien
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordering" title="Ordering" class="md-nav__link">
+    Ordering
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atomare-operationen" title="Atomare Operationen" class="md-nav__link">
+    Atomare Operationen
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atomic-boolean" title="Atomic Boolean" class="md-nav__link">
+    Atomic Boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimisitsche-synchronisation" title="Optimisitsche Synchronisation" class="md-nav__link">
+    Optimisitsche Synchronisation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#net" title=".NET" class="md-nav__link">
+    .NET
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1367,17 +1586,89 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Vwl/0_Index.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/ParProg/9_Memory_Models.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <h1 id="volkswirtschaft">Volkswirtschaft</h1>
-<ol>
-<li><a href="../1_Exam/">Exam Notes</a></li>
-<li><a href="../2_Wohlstand/">Wohlstand</a></li>
-<li><a href="../3_Einkommensverteilung_und_Sozialwerke/">Einkommensverteilung und Sozialwerke</a></li>
-<li><a href="../4_Wachstum/">Wachstum</a></li>
-<li><a href="../5_Arbeitsmarkt/">Arbeitsmarkt</a></li>
-</ol>
+                <h1 id="memory-models">Memory Models</h1>
+<h2 id="quiz-letzte-vorlesung">Quiz letzte Vorlesung</h2>
+<ul>
+<li><code>InvalidOperationException</code>, wenn während dem Download ein Element in die Collection eingefügt wird</li>
+<li><code>await</code> haltet die Schleife an und kann den Thread wechseln. Währenddessen kann das UI die Collection ändern</li>
+</ul>
+<h2 id="ziel">Ziel</h2>
+<ul>
+<li>Korrekte nebenläufige Interaktion</li>
+<li>Garantien ds Speichermodell nutzen</li>
+<li>Effiziente Synchronisation, skalierbar</li>
+</ul>
+<h2 id="probleme">Probleme</h2>
+<ul>
+<li>Umordnung: Optimizer kann Code-Ablauf nicht-deterministisch ändern, wenn zwei Statements unabhängig voneinander sind ("Weak Consistency")</li>
+<li>Keine sequentielle Konsistenz bei Nebenläufigkeit</li>
+</ul>
+<h2 id="java-memory-model">Java Memory Model</h2>
+<h3 id="atomicity">Atomicity</h3>
+<ul>
+<li>Unteilbarkeit</li>
+<li>Garantiert einzelnes atomares Lesen und Schreiben für Primitive Datentypen (bis 32 Bit), Objekt-Referenzen und <code>volatile</code> long und double</li>
+<li>Unteilbarkeit heisst nicht Sichtbarkeit: Nach einem Write kann ein Thread noch den alten Wert sehen  </li>
+</ul>
+<h3 id="visibility">Visibility</h3>
+<ul>
+<li>Wenn ein Thread eine Variable setzt, ist es nicht garantiert, dass ein anderer den neuen Wert sieht</li>
+<li>Kann nicht-deterministisch nach gewisser Zeit oder gar nie sichtbar werden</li>
+<li>Optimizer lädt evtl. Variable in ein Register, dass dann gar nie geupdated wird<ul>
+<li>Optimizer beachtet nur die Ausführung in einem Thread</li>
+</ul>
+</li>
+</ul>
+<h3 id="garantien">Garantien</h3>
+<ul>
+<li>Sichtbar bei Locks (sonst würde das ganze Lock-System nicht funktionieren)</li>
+<li><code>volatile</code> Variablen sind für andere Zugreifer immer sichtbar<ul>
+<li>Vor dem <code>volatile</code>-Zugriff werden alle Änderungen(auch von nicht-volatile-Variablen!) für andere sichtbar, die auch auf diese Variable zugreifen </li>
+<li>Besser explizite Synchronisation einsetzen</li>
+<li>Ordnung ist vor und nach dem volatile-Zugriff garantiert, wie ein "Memory-Fence"</li>
+</ul>
+</li>
+<li><code>final</code>-Variablen nach Initialisierung im Constructor: "Initialized State" ist sichtbar</li>
+<li>Thread-Start / Join, bzw. Task Start und Ende</li>
+</ul>
+<h3 id="ordering">Ordering</h3>
+<ul>
+<li>Innerhalb eines Threads wird alles sequentiell ausgeführt</li>
+<li>Zwischen Threads ist die Reihenfolge nur erhalten für Synchronisationsbefehle und Zugriff auf volatile-Varialben</li>
+<li>"Memory Fence": Keine Umordnung über Synchronisation oder Volatile-Zugriffe hinweg</li>
+</ul>
+<h3 id="atomare-operationen">Atomare Operationen</h3>
+<ul>
+<li>Effiziente, atomare Instruktion des Prozessors</li>
+<li>Komplexer als Lesen / Schreiben</li>
+</ul>
+<h4 id="atomic-boolean">Atomic Boolean</h4>
+<ul>
+<li>Kann mit <code>getAndSet()</code> atomar alten Wert lesen und neuen Wert setzen</li>
+<li><code>compareAndSet()</code>: Atomares lesen und setzen mit Condition<ul>
+<li>Wenn Variable expected Wert hat, wird neuer Wert gesezt und <code>true</code> returned</li>
+</ul>
+</li>
+<li>Atomic Klassen gibt es auch für Integer, Long und Referenzen</li>
+</ul>
+<h4 id="optimisitsche-synchronisation">Optimisitsche Synchronisation</h4>
+<ul>
+<li>In einer Schleife wird versucht, den Wert zu aktualisieren</li>
+<li>alten Wert zwischenspeichern und versuchen zu Updaten, bis der Wert nicht nicht zwischendrin verändert wurde</li>
+<li>Nachteile: <ul>
+<li>Theoretische Starvation-Möglichkeit</li>
+<li>Zwischenänderungen werden nicht erkannt (ABA-Problem)</li>
+</ul>
+</li>
+<li>Concurrent Lockfreie Datenstrukturen sind meistens so implementiert</li>
+</ul>
+<h2 id="net">.NET</h2>
+<blockquote>
+<p>TODO</p>
+</blockquote>
                 
                   
                 
@@ -1396,7 +1687,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../Vss/9_CFIA/" title="9 CFIA" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../8_GUI_Threading/" title="8 GUI Threading" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1405,19 +1696,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                9 CFIA
+                8 GUI Threading
               </span>
             </div>
           </a>
         
         
-          <a href="../1_Exam/" title="1 Exam" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../PhAI/0_Index/" title="0 Index" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                1 Exam
+                0 Index
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

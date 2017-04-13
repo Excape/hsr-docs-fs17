@@ -9,7 +9,7 @@
         <meta name="description" content="HSR Study Documentation FS16">
       
       
-        <link rel="canonical" href="https://doc.robinsuter.ch/Vwl/0_Index/">
+        <link rel="canonical" href="https://doc.robinsuter.ch/Dbs2/10_Verteilte_DB/">
       
       
         <meta name="author" content="Robin Suter">
@@ -21,7 +21,7 @@
     
     
       
-        <title>0 Index - HSR Notizen FS17</title>
+        <title>10 Verteilte DB - HSR Notizen FS17</title>
       
     
     
@@ -84,11 +84,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Vwl
+                  Dbs2
                 </span>
               
             
-            0 Index
+            10 Verteilte DB
           
         </span>
       </div>
@@ -217,10 +217,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Dbs2
@@ -238,7 +240,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Dbs2/0_Index/" title="0 Index" class="md-nav__link">
+    <a href="../0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
   </li>
@@ -248,11 +250,182 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../Dbs2/10_Verteilte_DB/" title="10 Verteilte DB" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        10 Verteilte DB
+      </label>
+    
+    <a href="./" title="10 Verteilte DB" class="md-nav__link md-nav__link--active">
       10 Verteilte DB
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vdbms" title="VDBMS" class="md-nav__link">
+    VDBMS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replikation" title="Replikation" class="md-nav__link">
+    Replikation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fragmentierung" title="Fragmentierung" class="md-nav__link">
+    Fragmentierung
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verteilte-transaktionen" title="Verteilte Transaktionen" class="md-nav__link">
+    Verteilte Transaktionen
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-phase-commit-2pc" title="Two Phase Commit (2PC)" class="md-nav__link">
+    Two Phase Commit (2PC)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-phase-locking" title="2-Phase-Locking" class="md-nav__link">
+    2-Phase-Locking
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#globaler-lock-manager" title="Globaler Lock-Manager" class="md-nav__link">
+    Globaler Lock-Manager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lokaler-lock-manager" title="Lokaler Lock-Manager" class="md-nav__link">
+    Lokaler Lock-Manager
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timestamp-based-synchronisation" title="Timestamp-based Synchronisation" class="md-nav__link">
+    Timestamp-based Synchronisation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verteilte-deadlocks" title="Verteilte Deadlocks" class="md-nav__link">
+    Verteilte Deadlocks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#erkennung" title="Erkennung" class="md-nav__link">
+    Erkennung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vermeidung" title="Vermeidung" class="md-nav__link">
+    Vermeidung
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distributed-query-processing" title="Distributed Query Processing" class="md-nav__link">
+    Distributed Query Processing
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verteilte-anfragen" title="Verteilte Anfragen" class="md-nav__link">
+    Verteilte Anfragen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join-strategien" title="Join-Strategien" class="md-nav__link">
+    Join-Strategien
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#semi-join" title="Semi-Join" class="md-nav__link">
+    Semi-Join
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -262,7 +435,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Dbs2/1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -274,7 +447,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Dbs2/2_OR-Mapping/" title="2 OR Mapping" class="md-nav__link">
+    <a href="../2_OR-Mapping/" title="2 OR Mapping" class="md-nav__link">
       2 OR Mapping
     </a>
   </li>
@@ -286,7 +459,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Dbs2/3_Stored_Procedures/" title="3 Stored Procedures" class="md-nav__link">
+    <a href="../3_Stored_Procedures/" title="3 Stored Procedures" class="md-nav__link">
       3 Stored Procedures
     </a>
   </li>
@@ -298,7 +471,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Dbs2/4_Triggers/" title="4 Triggers" class="md-nav__link">
+    <a href="../4_Triggers/" title="4 Triggers" class="md-nav__link">
       4 Triggers
     </a>
   </li>
@@ -310,7 +483,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Dbs2/5_Views/" title="5 Views" class="md-nav__link">
+    <a href="../5_Views/" title="5 Views" class="md-nav__link">
       5 Views
     </a>
   </li>
@@ -322,7 +495,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Dbs2/6_Datenstrukturen/" title="6 Datenstrukturen" class="md-nav__link">
+    <a href="../6_Datenstrukturen/" title="6 Datenstrukturen" class="md-nav__link">
       6 Datenstrukturen
     </a>
   </li>
@@ -334,7 +507,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Dbs2/8_Interne_Ebene/" title="8 Interne Ebene" class="md-nav__link">
+    <a href="../8_Interne_Ebene/" title="8 Interne Ebene" class="md-nav__link">
       8 Interne Ebene
     </a>
   </li>
@@ -346,7 +519,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Dbs2/9_Optimierung/" title="9 Optimierung" class="md-nav__link">
+    <a href="../9_Optimierung/" title="9 Optimierung" class="md-nav__link">
       9 Optimierung
     </a>
   </li>
@@ -1189,12 +1362,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
     <label class="md-nav__link" for="nav-11">
       Vwl
@@ -1210,20 +1381,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="./" title="0 Index" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../Vwl/0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
-    
   </li>
 
         
@@ -1233,7 +1395,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../../Vwl/1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -1245,7 +1407,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../2_Wohlstand/" title="2 Wohlstand" class="md-nav__link">
+    <a href="../../Vwl/2_Wohlstand/" title="2 Wohlstand" class="md-nav__link">
       2 Wohlstand
     </a>
   </li>
@@ -1257,7 +1419,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../3_Einkommensverteilung_und_Sozialwerke/" title="3 Einkommensverteilung und Sozialwerke" class="md-nav__link">
+    <a href="../../Vwl/3_Einkommensverteilung_und_Sozialwerke/" title="3 Einkommensverteilung und Sozialwerke" class="md-nav__link">
       3 Einkommensverteilung und Sozialwerke
     </a>
   </li>
@@ -1269,7 +1431,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../4_Wachstum/" title="4 Wachstum" class="md-nav__link">
+    <a href="../../Vwl/4_Wachstum/" title="4 Wachstum" class="md-nav__link">
       4 Wachstum
     </a>
   </li>
@@ -1281,7 +1443,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../5_Arbeitsmarkt/" title="5 Arbeitsmarkt" class="md-nav__link">
+    <a href="../../Vwl/5_Arbeitsmarkt/" title="5 Arbeitsmarkt" class="md-nav__link">
       5 Arbeitsmarkt
     </a>
   </li>
@@ -1293,7 +1455,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../6_Konjuktur/" title="6 Konjuktur" class="md-nav__link">
+    <a href="../../Vwl/6_Konjuktur/" title="6 Konjuktur" class="md-nav__link">
       6 Konjuktur
     </a>
   </li>
@@ -1305,7 +1467,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../7_Preisstabilität/" title="7 Preisstabilität" class="md-nav__link">
+    <a href="../../Vwl/7_Preisstabilität/" title="7 Preisstabilität" class="md-nav__link">
       7 Preisstabilität
     </a>
   </li>
@@ -1317,7 +1479,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../8_Geld/" title="8 Geld" class="md-nav__link">
+    <a href="../../Vwl/8_Geld/" title="8 Geld" class="md-nav__link">
       8 Geld
     </a>
   </li>
@@ -1329,7 +1491,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../9_Wechselkurse/" title="9 Wechselkurse" class="md-nav__link">
+    <a href="../../Vwl/9_Wechselkurse/" title="9 Wechselkurse" class="md-nav__link">
       9 Wechselkurse
     </a>
   </li>
@@ -1357,6 +1519,155 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vdbms" title="VDBMS" class="md-nav__link">
+    VDBMS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replikation" title="Replikation" class="md-nav__link">
+    Replikation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fragmentierung" title="Fragmentierung" class="md-nav__link">
+    Fragmentierung
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verteilte-transaktionen" title="Verteilte Transaktionen" class="md-nav__link">
+    Verteilte Transaktionen
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-phase-commit-2pc" title="Two Phase Commit (2PC)" class="md-nav__link">
+    Two Phase Commit (2PC)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-phase-locking" title="2-Phase-Locking" class="md-nav__link">
+    2-Phase-Locking
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#globaler-lock-manager" title="Globaler Lock-Manager" class="md-nav__link">
+    Globaler Lock-Manager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lokaler-lock-manager" title="Lokaler Lock-Manager" class="md-nav__link">
+    Lokaler Lock-Manager
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timestamp-based-synchronisation" title="Timestamp-based Synchronisation" class="md-nav__link">
+    Timestamp-based Synchronisation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verteilte-deadlocks" title="Verteilte Deadlocks" class="md-nav__link">
+    Verteilte Deadlocks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#erkennung" title="Erkennung" class="md-nav__link">
+    Erkennung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vermeidung" title="Vermeidung" class="md-nav__link">
+    Vermeidung
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distributed-query-processing" title="Distributed Query Processing" class="md-nav__link">
+    Distributed Query Processing
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verteilte-anfragen" title="Verteilte Anfragen" class="md-nav__link">
+    Verteilte Anfragen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join-strategien" title="Join-Strategien" class="md-nav__link">
+    Join-Strategien
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#semi-join" title="Semi-Join" class="md-nav__link">
+    Semi-Join
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1367,17 +1678,130 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Vwl/0_Index.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Dbs2/10_Verteilte_DB.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <h1 id="volkswirtschaft">Volkswirtschaft</h1>
-<ol>
-<li><a href="../1_Exam/">Exam Notes</a></li>
-<li><a href="../2_Wohlstand/">Wohlstand</a></li>
-<li><a href="../3_Einkommensverteilung_und_Sozialwerke/">Einkommensverteilung und Sozialwerke</a></li>
-<li><a href="../4_Wachstum/">Wachstum</a></li>
-<li><a href="../5_Arbeitsmarkt/">Arbeitsmarkt</a></li>
-</ol>
+                <h1 id="verteilte-datenbanksysteme">Verteilte Datenbanksysteme</h1>
+<h2 id="vdbms">VDBMS</h2>
+<ul>
+<li>Ist ein Datenbanksystem verteilt über mehrere physische Knoten</li>
+<li>Ist Transparent gegen aussen, die Verteilung der Daten ist aus Sicht des Benutzers egal</li>
+<li>In einem <strong>homogenen</strong> System laufen alle Noten mit der gleichen Software und wissen voneinander, es erscheint gegenüber dem Benutzer als ein System</li>
+<li>In einem <strong>heterogenen</strong> System können auf den Knoten unterschiedliche Software und Schemas laufen, sie sind voneinander unabhängig, wissen also nichts voneinander. Dies macht das Verteilen von Daten und Transaktionen schwerer.</li>
+</ul>
+<h2 id="replikation">Replikation</h2>
+<ul>
+<li>Eine Relation (Tabelle) wird redundant auf mehreren Knoten gespeichert</li>
+<li>Dies bietet mehr Verfügbarkeit und Parallelität bei Ausführung von Queries</li>
+<li>Hat aber höhere Update-Kosten und komplexere Synchronisation, Änderungen können zu temporär inkonsistenten Daten führen</li>
+</ul>
+<h2 id="fragmentierung">Fragmentierung</h2>
+<ul>
+<li>Jede Relation wird in Fragmente aufgeteilt</li>
+<li><strong>Horizontale Fragmentierung</strong>: Jedes <em>Tupel</em> wird auf ein oder mehrere Fragmente aufgeteilt (Sharding). Dies kann z.B. nach einem Attribut der Relation gruppiert werden</li>
+<li><strong>Vertikale Fragmentierung</strong>: Das Schemea der Relation ist in mehrere kleinere Schematas aufgeteilt. z.B. ist ein Tupel so verteilt auf mehrere Fragmente, die mit einem gemeinsamen Schlüssel verbunden werden</li>
+</ul>
+<h2 id="verteilte-transaktionen">Verteilte Transaktionen</h2>
+<ul>
+<li>Problem: Transaktion ist immer lokal zu einer DB-Session</li>
+<li>In einem VDBMS muss im Hintergrund die Transaktion aber auf mehreren Nodes committed werden</li>
+</ul>
+<h3 id="two-phase-commit-2pc">Two Phase Commit (2PC)</h3>
+<ul>
+<li>Garantiert Atomarität von verteilten Transaktionen</li>
+<li>Die Transaktion zwischen DBMS und Applikation wird von einem <em>Transaction Manager</em> verwaltet</li>
+<li>Beim Commit-Befehl der Applikation zum <em>TM</em> fragt dieser zuerst alle Resourcen (Nodes) an, ob sie bereit zum commit sind (<em>prepare to commit</em>)</li>
+<li>Falls alle Resourcen bereit sind, sendet der TM allen den Befehl zum commit</li>
+<li>Wird während dem Commit der Commit von einer Resource abgebrochen, oder sie antwortet nicht rechtzeitig, sendet der TM einen Rollback-Befehl an <em>alle</em> Resourcen</li>
+<li>
+<p>Haben die Resourcen einen Commit abgeschlossen, antworten sie mit einem <em>ACK</em></p>
+</li>
+<li>
+<p>Der TM stellt so sicher, dass die Transaktion entweder von <em>allen</em> commited oder von allen rollbacked wird. Er muss auch mit allen Fehlersituationen der Serverkommunikation dazwischen umgehen können</p>
+</li>
+<li>Das Protokoll muss auch mit einem Absturz des TM umgehen können</li>
+<li>Alle Schritte werden vom TM und den einzelnen Resource-Managers geloggt. So weiss das System nach einem Absturz, welche Aktionen noch durchgeführt werden konnten</li>
+<li>
+<p>Resource Manager kann von alleine nicht entscheiden, wenn nach dem <em>ready</em> kein <em>commit</em> vom TM kommt. Er muss dann solange blockieren, bis er entweder <em>commit</em> oder <em>abort</em> erhält</p>
+</li>
+<li>
+<p>2PC ist kein effizientes Protokoll, es ist relativ langsam und skaliert schlecht</p>
+</li>
+<li>Allerdings wird es von fast allen Herstellern unterstützt</li>
+</ul>
+<h2 id="2-phase-locking">2-Phase-Locking</h2>
+<ul>
+<li>Lokale Serialisierbarkeit einer Transaktion reicht bei VDBMS nicht aus, es braucht eine globale Serialisierbarkeit über alle Nodes</li>
+<li>Dafür wird 2-Phase-Locking auf verteilte Systeme adaptiert</li>
+</ul>
+<h3 id="globaler-lock-manager">Globaler Lock-Manager</h3>
+<ul>
+<li>Verwaltet Locks auf globaler Ebene über alle Nodes hinweg</li>
+<li>Transaktionen fragen beim Lock-Manager an, um Resourcen zu sperren</li>
+<li>Vorteil: Deadlock-Erkennung ist gleich wie im System mit einem Knoten</li>
+<li>Nachteile: <ul>
+<li>Jede Sperr-Anfrage muss zuerst an den Knoten gesendet werden und die Antwort abwarten</li>
+<li>Lock-Manager ist SPOF</li>
+</ul>
+</li>
+</ul>
+<h3 id="lokaler-lock-manager">Lokaler Lock-Manager</h3>
+<ul>
+<li>Verwaltet die Locks auf jedem Node einzeln für sich selbst</li>
+<li>wird über globalen Algorithmus gesteuert</li>
+<li>Vorteil: Arbeit ist verteilt und robuster gegen Ausfälle</li>
+<li>Nachteil: Schwierige Deadlock-Erkennung, Performance-Einbussen</li>
+</ul>
+<h2 id="timestamp-based-synchronisation">Timestamp-based Synchronisation</h2>
+<ul>
+<li>Jede Transaktion bekommt einen Zeitstempel + Rechner-ID, was sie im System global Unique macht</li>
+<li>Dadurch wird die Serialisierungsreihenfolge einer Transaktion festgelegt bei Konfliktoperationen</li>
+<li>Transaktionen müssen alle Änderungen von älteren Zeitstempel sehen, aber keine von jüngeren</li>
+<li>Eine jüngere Transaktion darf nicht ein objekt verändert haben, das anschliessend von der älteren geschrieben wird</li>
+<li>Bei Verletzung der Regel wird ein Rollback gemacht</li>
+</ul>
+<h2 id="verteilte-deadlocks">Verteilte Deadlocks</h2>
+<h3 id="erkennung">Erkennung</h3>
+<ul>
+<li>Primitive Variante: Bei Timout wird Transaktion zurückgesetzt und erneut gestartet<ul>
+<li>Problem beim Wählen des Timeouts: Zu lang ist ineffizient, zu kurz gibt "false-positives" für Deadlocks</li>
+</ul>
+</li>
+<li>Zentralisierte Erkennung: Stationen melden lokale Wartebeziehung an eine Station, die dann den globalen Wartegraphen aufbaut<ul>
+<li>Sichere Lösung, aber hoher Aufwand</li>
+<li>Risiko von Phantom-Deadlocks - nicht existierende Deadlocks durch das "Überholen" von Nachrichtne in der Übertragung</li>
+</ul>
+</li>
+</ul>
+<h3 id="vermeidung">Vermeidung</h3>
+<ul>
+<li>Optimistic Concurrency: Nach Abschluss der Transaktion wird Validierung durchgeführt</li>
+<li>Timestamp-based Synchronisation</li>
+</ul>
+<h2 id="distributed-query-processing">Distributed Query Processing</h2>
+<h3 id="verteilte-anfragen">Verteilte Anfragen</h3>
+<ul>
+<li>Bei einem zentralen System werden die Kosten bestimmt durch Anzahl Disk I/O's</li>
+<li>Im verteilten System werden sie bestimmt durch Anzahl Netzwerk-I/O's und den Performancegewinn durch Parallelisierung</li>
+<li>Parallelisierung ist z.B. durch horizontale Fragmentierung möglich, indem Teilresultate durch Kriterien auf Knoten verteilt sind und anschliessend zusammen geführt werden</li>
+</ul>
+<h3 id="join-strategien">Join-Strategien</h3>
+<ul>
+<li><em>Ship Whole</em>: Alle benötigten Relationen auf einen Knoten übertragen, der dann den Join ausführt<ul>
+<li>Wenig Nachrichten, hohes Datenvolumen</li>
+</ul>
+</li>
+<li><em>Fetch as needed</em>: Nur Join-Attribute an einen Knoten schicken, der den Join durchführt<ul>
+<li>Viele Nachrichten, niedriges Datenvolumen</li>
+</ul>
+</li>
+</ul>
+<h4 id="semi-join">Semi-Join</h4>
+<ul>
+<li>Optimierung des <em>Fetch-as-needed</em> Ansatz</li>
+<li>Join-Attribute der ersten Relation werden zum Knoten der zweiten Relation geschickt</li>
+<li>Knoten der zweiten Relation schickt alle Tupels, die auf den Join matchen, zurück zum Knoten der ersten Relation, wo dann der Join erfolgt</li>
+</ul>
                 
                   
                 
@@ -1396,7 +1820,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../Vss/9_CFIA/" title="9 CFIA" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../0_Index/" title="0 Index" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1405,7 +1829,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                9 CFIA
+                0 Index
               </span>
             </div>
           </a>
