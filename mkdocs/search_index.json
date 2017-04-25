@@ -591,6 +591,66 @@
             "title": "Best Practices"
         }, 
         {
+            "location": "/Dbs2/Replikation/", 
+            "text": "Replikation\n\n\nAnwendungen\n\n\n\n\nLoad-Balancing\n\n\nCluster, schnelle Verbindungen\n\n\n\n\n\n\nDistributed geographic Data processing\n\n\nauf verschiedene Standorte verteilt Peer-to-Peer\n\n\nMittelschnelle Verbindung, hohe Verf\u00fcgbarkeit\n\n\n\n\n\n\nReal Time OLAP\n\n\n(Online Analytical Processing)\n\n\nReplikation auf einen Slave, z.B. als Data Warehouse\n\n\n\n\n\n\nWarm Standby\n\n\nMaster-Slave\n\n\nSchnelle, hochverf\u00fcgbare Verbindung\n\n\n\n\n\n\nMobile Datenbanken\n\n\nBei jedem Client liegt eine Kopie der n\u00f6tigen Daten, die mit dem zentralen \"Master\" repliziert werden\n\n\nClients k\u00f6nnen auch offline sein oder langsame Verbindungen haben\n\n\n\n\n\n\n\n\nMotivation\n\n\n\n\nHohe Verf\u00fcgarkeit durch Verteilung auf mehrere Nodes\n\n\nNiedrige Kommunikationskosten\n\n\nLastverteilung, dadurch skalierbar\n\n\nVorbeugung gegen Datenverlust\n\n\nClient k\u00f6nnen disconnected sein (Mobile Databases)\n\n\n\n\nKorrektheit\n\n\n\n\nLeser sollten eine m\u00f6glichst konsistente Kopie der Daten erhalten\n\n\nWeak Consistency\n: Version, die der Leser erh\u00e4lt, muss nicht die aktuellste sein\n\n\nGibt evtl. parallele \u00c4nderungen, Konflikt-Behebung nachtr\u00e4glich\n\n\nAsynchrone Replikation\n\n\nHohe Performance\n\n\nHohe Verf\u00fcgbarkeit (wenig overhead) und Fehlertoleranz\n\n\n\n\n\n\nStrong Consistency\n: Jeder Zugriff liefert neustes transaktionskonsistente Version der Daten\n\n\nSynchrone Replikation\n\n\nBenutzt das 2PC-Protokoll, dadurch grosser Overhead\n\n\nWeniger Fehlertoleranz und Verf\u00fcgbarkeit\n\n\n\n\n\n\n\n\nReplikationsarten\n\n\nMaster Slave\n\n\n\n\nUpdates geschehen immer auf dem Primary Node\n\n\nAlle Updates werden zu Read-only-Subscribers (Slaves) propagiert\n\n\nAusfall eines Knotens f\u00fchrt zum Ausfall des ganzen Systems!!\n\n\n\n\nSynchrone Replikation (eager)\n\n\n\n\nWenn auf Master eine Transaktion ausgef\u00fchrt wird, wird sie sofort mit 2PC zu den Slaves repliziert\n\n\nDie Daten werden repliziert, \nbevor\n das OK zur\u00fcck zur Applikation geschickt wird\n\n\nSo sind die Daten immer konsistent\n\n\n\n\nAsynchrone Replikation (lazy)\n\n\n\n\nDie Transaktion wird zuerst vom Master abgeschlossen\n\n\nErst anschliessend werden die Slaves asynchron aktualisiert\n\n\nDadurch k\u00f6nnen Konflikte auftreten\n\n\nH\u00f6here Verf\u00fcgbarkeit\n\n\n\u00c4nderungen bei Master werden effizienterweise im Log-File erkannt und \u00c4nderungen daraus abgeleitet\n\n\nAlternative: Jedes Update feuert einen Trigger auf dem Master\n\n\n\n\n\n\n\n\nMulti-Master\n\n\n\n\nJeder Master kann Update-Operationen ausf\u00fchren\n\n\nKomplexe Synchronisation, asynchrone Replikation\n\n\nKonflikte, wenn parallele \u00c4nderungen an verschiedenen Nodes ausgef\u00fchrt werden\n\n\nTypische Anwendung in HPC\n\n\n\n\nSynchronisationsprotokolle\n\n\n\n\nRead-One, Write-All\n: Schreibzugriffe werden synchron repliziert, Lesezugriffe asynchron\n\n\nMajority Protocol\n: Lesen und Schreiben verlangt Locks auf einer \nMehrheit\n der Replikaten\n\n\nJedes Replikat kann ein Write-Lock und mehrere Read-Locks haben\n\n\nBraucht mehr als 2 Knoten\n\n\n\n\n\n\nQuorum Consesus Protocol\n\n\nVerallgemeinerung vom Majority Protocol\n\n\nJede Kopie enth\u00e4lt bestimmte Anzahl von Stimmen\n\n\nLesen und Schreiben erfordert je eine bestimmte Anzahl Stimmen\n\n\n\n\n\n\nSnapshot-Replikation\n: Einfacheres Verfahren mit schw\u00e4cheren Konsistenzanforderungen\n\n\nMerge Replikation\n: Unsychronisierte \u00c4nderungen an mehreren Knoten, mit asynchroner Prograpierung der \u00c4nderungen\n\n\nBen\u00f6tigt f\u00fcr disconnected clients\n\n\nNachtr\u00e4gliche Konfliktbehandlung\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nTODO\n\n\n\n\nSharding\n\n\n\n\nHorizontale Skalierung, also Verteilung der Daten auf mehrere Nodes\n\n\nCollections werden in Shards aufgeteilt, z.B. nach Wertebereich des Keys oder mit einer Hash-Funktion\n\n\nDabei ist ein document immer vollst\u00e4ndig in einem Shard\n\n\n\n\n\n\nRequests werden von \nmongos\n, einem Query-Router, zum richtigen Shard geleitet\n\n\nDer Query-Router entscheidet mit Hilfe von Config servers, wo welche Daten liegen", 
+            "title": "Replikation"
+        }, 
+        {
+            "location": "/Dbs2/Replikation/#replikation", 
+            "text": "", 
+            "title": "Replikation"
+        }, 
+        {
+            "location": "/Dbs2/Replikation/#anwendungen", 
+            "text": "Load-Balancing  Cluster, schnelle Verbindungen    Distributed geographic Data processing  auf verschiedene Standorte verteilt Peer-to-Peer  Mittelschnelle Verbindung, hohe Verf\u00fcgbarkeit    Real Time OLAP  (Online Analytical Processing)  Replikation auf einen Slave, z.B. als Data Warehouse    Warm Standby  Master-Slave  Schnelle, hochverf\u00fcgbare Verbindung    Mobile Datenbanken  Bei jedem Client liegt eine Kopie der n\u00f6tigen Daten, die mit dem zentralen \"Master\" repliziert werden  Clients k\u00f6nnen auch offline sein oder langsame Verbindungen haben", 
+            "title": "Anwendungen"
+        }, 
+        {
+            "location": "/Dbs2/Replikation/#motivation", 
+            "text": "Hohe Verf\u00fcgarkeit durch Verteilung auf mehrere Nodes  Niedrige Kommunikationskosten  Lastverteilung, dadurch skalierbar  Vorbeugung gegen Datenverlust  Client k\u00f6nnen disconnected sein (Mobile Databases)", 
+            "title": "Motivation"
+        }, 
+        {
+            "location": "/Dbs2/Replikation/#korrektheit", 
+            "text": "Leser sollten eine m\u00f6glichst konsistente Kopie der Daten erhalten  Weak Consistency : Version, die der Leser erh\u00e4lt, muss nicht die aktuellste sein  Gibt evtl. parallele \u00c4nderungen, Konflikt-Behebung nachtr\u00e4glich  Asynchrone Replikation  Hohe Performance  Hohe Verf\u00fcgbarkeit (wenig overhead) und Fehlertoleranz    Strong Consistency : Jeder Zugriff liefert neustes transaktionskonsistente Version der Daten  Synchrone Replikation  Benutzt das 2PC-Protokoll, dadurch grosser Overhead  Weniger Fehlertoleranz und Verf\u00fcgbarkeit", 
+            "title": "Korrektheit"
+        }, 
+        {
+            "location": "/Dbs2/Replikation/#replikationsarten", 
+            "text": "", 
+            "title": "Replikationsarten"
+        }, 
+        {
+            "location": "/Dbs2/Replikation/#master-slave", 
+            "text": "Updates geschehen immer auf dem Primary Node  Alle Updates werden zu Read-only-Subscribers (Slaves) propagiert  Ausfall eines Knotens f\u00fchrt zum Ausfall des ganzen Systems!!", 
+            "title": "Master Slave"
+        }, 
+        {
+            "location": "/Dbs2/Replikation/#synchrone-replikation-eager", 
+            "text": "Wenn auf Master eine Transaktion ausgef\u00fchrt wird, wird sie sofort mit 2PC zu den Slaves repliziert  Die Daten werden repliziert,  bevor  das OK zur\u00fcck zur Applikation geschickt wird  So sind die Daten immer konsistent", 
+            "title": "Synchrone Replikation (eager)"
+        }, 
+        {
+            "location": "/Dbs2/Replikation/#asynchrone-replikation-lazy", 
+            "text": "Die Transaktion wird zuerst vom Master abgeschlossen  Erst anschliessend werden die Slaves asynchron aktualisiert  Dadurch k\u00f6nnen Konflikte auftreten  H\u00f6here Verf\u00fcgbarkeit  \u00c4nderungen bei Master werden effizienterweise im Log-File erkannt und \u00c4nderungen daraus abgeleitet  Alternative: Jedes Update feuert einen Trigger auf dem Master", 
+            "title": "Asynchrone Replikation (lazy)"
+        }, 
+        {
+            "location": "/Dbs2/Replikation/#multi-master", 
+            "text": "Jeder Master kann Update-Operationen ausf\u00fchren  Komplexe Synchronisation, asynchrone Replikation  Konflikte, wenn parallele \u00c4nderungen an verschiedenen Nodes ausgef\u00fchrt werden  Typische Anwendung in HPC", 
+            "title": "Multi-Master"
+        }, 
+        {
+            "location": "/Dbs2/Replikation/#synchronisationsprotokolle", 
+            "text": "Read-One, Write-All : Schreibzugriffe werden synchron repliziert, Lesezugriffe asynchron  Majority Protocol : Lesen und Schreiben verlangt Locks auf einer  Mehrheit  der Replikaten  Jedes Replikat kann ein Write-Lock und mehrere Read-Locks haben  Braucht mehr als 2 Knoten    Quorum Consesus Protocol  Verallgemeinerung vom Majority Protocol  Jede Kopie enth\u00e4lt bestimmte Anzahl von Stimmen  Lesen und Schreiben erfordert je eine bestimmte Anzahl Stimmen    Snapshot-Replikation : Einfacheres Verfahren mit schw\u00e4cheren Konsistenzanforderungen  Merge Replikation : Unsychronisierte \u00c4nderungen an mehreren Knoten, mit asynchroner Prograpierung der \u00c4nderungen  Ben\u00f6tigt f\u00fcr disconnected clients  Nachtr\u00e4gliche Konfliktbehandlung      Note  TODO", 
+            "title": "Synchronisationsprotokolle"
+        }, 
+        {
+            "location": "/Dbs2/Replikation/#sharding", 
+            "text": "Horizontale Skalierung, also Verteilung der Daten auf mehrere Nodes  Collections werden in Shards aufgeteilt, z.B. nach Wertebereich des Keys oder mit einer Hash-Funktion  Dabei ist ein document immer vollst\u00e4ndig in einem Shard    Requests werden von  mongos , einem Query-Router, zum richtigen Shard geleitet  Der Query-Router entscheidet mit Hilfe von Config servers, wo welche Daten liegen", 
+            "title": "Sharding"
+        }, 
+        {
             "location": "/EPJ/0_Index/", 
             "text": "Engineering-Projekt\n\n\n\n\nProjektplan", 
             "title": "0 Index"
@@ -1124,6 +1184,26 @@
             "location": "/ParProg/0_Index/#parallele-programmierung", 
             "text": "Exam Notes  Multi-Threading Grundlagen  Thread Synchronisation  Synchronisationsprimitiven  Gefahren der Nebenl\u00e4ufigket  Thread Pools", 
             "title": "Parallele Programmierung"
+        }, 
+        {
+            "location": "/ParProg/10_Actor_Model/", 
+            "text": "Actor Model\n\n\n\n\nObjekte sind in diesem Paradigma \"aktiv\"\n\n\nAktive Objekte haben ein nebenl\u00e4ufiges Innenleben\n\n\nAlle aktiven Objekte (=Actors) laufen nebenl\u00e4ufig\n\n\nKommunikation \u00fcber Nachrichtenaustausch\n\n\nErlaubt auch einfache Verteilung\n\n\n\n\n\n\nKein shared memory zwischen den Objekten\n\n\n\n\nAkka\n\n\n\n\nJVM-Implementierung vom Actor Model\n\n\nIn einem Actor werden Nachrichten immer sequentiell abgearbeitet - keine Synchronisation n\u00f6tig\n\n\nNachrichten sind beliebige Objekte\n\n\nJava kennt nur \"untyped\" Actors, messages sind immer Typ \nobject\n\n\n\n\n\n\nActorRef\n ist eine Adresse eines Actors\n\n\nReferenz bleibt dieselbe, auch wenn der Actor crashed und neu erstellt wird\n\n\n\n\n\n\n\n\nActor Hierarchies\n\n\n\n\nWenn ein Actor weitere Actors erstellt, ist er \"parent\" davon und zust\u00e4ndig\n\n\nBroadcast-Messsages \u00fcber ActorSelectors", 
+            "title": "10 Actor Model"
+        }, 
+        {
+            "location": "/ParProg/10_Actor_Model/#actor-model", 
+            "text": "Objekte sind in diesem Paradigma \"aktiv\"  Aktive Objekte haben ein nebenl\u00e4ufiges Innenleben  Alle aktiven Objekte (=Actors) laufen nebenl\u00e4ufig  Kommunikation \u00fcber Nachrichtenaustausch  Erlaubt auch einfache Verteilung    Kein shared memory zwischen den Objekten", 
+            "title": "Actor Model"
+        }, 
+        {
+            "location": "/ParProg/10_Actor_Model/#akka", 
+            "text": "JVM-Implementierung vom Actor Model  In einem Actor werden Nachrichten immer sequentiell abgearbeitet - keine Synchronisation n\u00f6tig  Nachrichten sind beliebige Objekte  Java kennt nur \"untyped\" Actors, messages sind immer Typ  object    ActorRef  ist eine Adresse eines Actors  Referenz bleibt dieselbe, auch wenn der Actor crashed und neu erstellt wird", 
+            "title": "Akka"
+        }, 
+        {
+            "location": "/ParProg/10_Actor_Model/#actor-hierarchies", 
+            "text": "Wenn ein Actor weitere Actors erstellt, ist er \"parent\" davon und zust\u00e4ndig  Broadcast-Messsages \u00fcber ActorSelectors", 
+            "title": "Actor Hierarchies"
         }, 
         {
             "location": "/ParProg/1_Exam/", 
@@ -1881,6 +1961,16 @@
             "title": "Server Setup"
         }, 
         {
+            "location": "/SE2/8_Metriken/", 
+            "text": "Metriken", 
+            "title": "8 Metriken"
+        }, 
+        {
+            "location": "/SE2/8_Metriken/#metriken", 
+            "text": "", 
+            "title": "Metriken"
+        }, 
+        {
             "location": "/Vss/0_Index/", 
             "text": "Verteilte Software-Systeme\n\n\n\n\nExam Notes\n\n\nIntroduction\n\n\nSocket Programmierung\n\n\nAsynchronous Messaging\n\n\nRMI and Web-Services\n\n\nDesign for Performance", 
             "title": "0 Index"
@@ -1889,6 +1979,46 @@
             "location": "/Vss/0_Index/#verteilte-software-systeme", 
             "text": "Exam Notes  Introduction  Socket Programmierung  Asynchronous Messaging  RMI and Web-Services  Design for Performance", 
             "title": "Verteilte Software-Systeme"
+        }, 
+        {
+            "location": "/Vss/10_Naming/", 
+            "text": "Naming\n\n\n\n\nName things to find Resources that interest me\n\n\nAssign names to entities to identify them, e.g. assign phone numbers to customers\n\n\nName Resolution is the problem of accessing a resource using a name\n\n\n\n\nNaming in a Distributed System\n\n\n\n\ne.g. processes on a single computer\n\n\na centralized name resolution for the telephone system would be a single phonebook in existence\n\n\nnot robust (what if you lose it?)\n\n\nnot scalable\n\n\nhigh \"network latency\"\n\n\n\n\n\n\nPossible Solution: Hand everyone a copy -\n Distributed Name Resolution System\n\n\n\n\nTerminology\n\n\n\n\nNormally, each entity (e.g. a person) has an access point (e.g. a phone) through which the entity can be accessed\n\n\nName\n: String to identify an entity\n\n\nEntity\n: Physical or logical object\n\n\nAccess Point\n: Entity that is used to access another entity\n\n\nOften given through physical connection, e.g. a customers owns his phone\n\n\n\n\n\n\nAddress\n: Name of an Access Point\n\n\noften defined at another level, e.g. a MAC-Adress to a NIC\n\n\n\n\n\n\nAdvantages\n\n\nVery flexible: Adress and access points can change, but it is still accessible through it's name\n\n\nEntity can listen to multiple access points\n\n\n\n\n\n\nLocation Independent Name\n: Name is independent of address\n\n\n\n\nNaming Overview\n\n\nFlat Naming\n\n\n\n\nNames are unstructured identifiers\n\n\nNames may have internal structure, but it's not used in name resolution (e.g. IP-Adress)\n\n\nUsed with broadcasting\n\n\nEvery entity knows it's (flat) name and address\n\n\nResolution is done with broadcasting: \"Where is X?\" - X answers with his address\n\n\n\n\n\n\nUsed in ARP\n\n\nPros\n\n\nSimplicity\n\n\nLocation independent\n\n\n\n\n\n\nCons\n\n\nNot scalable, e.g. wouldn't work for a phone system\n\n\nEasy to impersonate someone else\n\n\n\n\n\n\n\n\nStructured Naming\n\n\n\n\nNames are hierarchical structured\n\n\nName represents a path in a tree, e.g. \nunterricht.hsr.ch\n\n\nResolution is split into sepparate layers with different responsibilities\n\n\ne.g. DNS\n\n\nHighly scalable\n\n\n\n\nAttribute-based Naming", 
+            "title": "10 Naming"
+        }, 
+        {
+            "location": "/Vss/10_Naming/#naming", 
+            "text": "Name things to find Resources that interest me  Assign names to entities to identify them, e.g. assign phone numbers to customers  Name Resolution is the problem of accessing a resource using a name", 
+            "title": "Naming"
+        }, 
+        {
+            "location": "/Vss/10_Naming/#naming-in-a-distributed-system", 
+            "text": "e.g. processes on a single computer  a centralized name resolution for the telephone system would be a single phonebook in existence  not robust (what if you lose it?)  not scalable  high \"network latency\"    Possible Solution: Hand everyone a copy -  Distributed Name Resolution System", 
+            "title": "Naming in a Distributed System"
+        }, 
+        {
+            "location": "/Vss/10_Naming/#terminology", 
+            "text": "Normally, each entity (e.g. a person) has an access point (e.g. a phone) through which the entity can be accessed  Name : String to identify an entity  Entity : Physical or logical object  Access Point : Entity that is used to access another entity  Often given through physical connection, e.g. a customers owns his phone    Address : Name of an Access Point  often defined at another level, e.g. a MAC-Adress to a NIC    Advantages  Very flexible: Adress and access points can change, but it is still accessible through it's name  Entity can listen to multiple access points    Location Independent Name : Name is independent of address", 
+            "title": "Terminology"
+        }, 
+        {
+            "location": "/Vss/10_Naming/#naming-overview", 
+            "text": "", 
+            "title": "Naming Overview"
+        }, 
+        {
+            "location": "/Vss/10_Naming/#flat-naming", 
+            "text": "Names are unstructured identifiers  Names may have internal structure, but it's not used in name resolution (e.g. IP-Adress)  Used with broadcasting  Every entity knows it's (flat) name and address  Resolution is done with broadcasting: \"Where is X?\" - X answers with his address    Used in ARP  Pros  Simplicity  Location independent    Cons  Not scalable, e.g. wouldn't work for a phone system  Easy to impersonate someone else", 
+            "title": "Flat Naming"
+        }, 
+        {
+            "location": "/Vss/10_Naming/#structured-naming", 
+            "text": "Names are hierarchical structured  Name represents a path in a tree, e.g.  unterricht.hsr.ch  Resolution is split into sepparate layers with different responsibilities  e.g. DNS  Highly scalable", 
+            "title": "Structured Naming"
+        }, 
+        {
+            "location": "/Vss/10_Naming/#attribute-based-naming", 
+            "text": "", 
+            "title": "Attribute-based Naming"
         }, 
         {
             "location": "/Vss/1_Exam/", 
@@ -2284,6 +2414,46 @@
             "location": "/Vwl/0_Index/#volkswirtschaft", 
             "text": "Exam Notes  Wohlstand  Einkommensverteilung und Sozialwerke  Wachstum  Arbeitsmarkt", 
             "title": "Volkswirtschaft"
+        }, 
+        {
+            "location": "/Vwl/10_Staatsfinanzen/", 
+            "text": "Staatsfinanzen\n\n\nStaatsfinanzierung in der Schweiz\n\n\n\n\nIndirekte Steuern, vor allem MWSt\n\n\nDirekte Steuern\n\n\nEinkommen- und Verm\u00f6genssteuern von Haushalten und Unternehmen\n\n\nEinkommenssteuern Haushalte macht den gr\u00f6ssten Teil aus\n\n\n\n\n\n\nNB: Verm\u00f6genssteuern gibt es nicht in jedem Land, weil es eigentlich mehrfache Besteuerung ist\n\n\nDie reichsten 20% der Bev\u00f6lkerung zahlen ca. 80% der Steuern\n\n\n\n\n\n\n\n\nStaatsverschuldung\n\n\n\n\nVerschuldung im Inland:\n Staat bezieht im Inland Kredite -\n H\u00f6here Nachfrage, h\u00f6here Zinss\u00e4tze -\n Unternehmen investieren weniger\n\n\nVerschuldung im Ausland\n: Staat verkauft Staatsanleihen in eigener W\u00e4hrung -\n erh\u00f6hte Nachfrage nach eigener W\u00e4hrung, W\u00e4hrung wird st\u00e4rker -\n Problem f\u00fcr Exportindustrie\n\n\n\n\nVorteile\n\n\n\n\nStaatliche Investitionen f\u00fcr zuk\u00fcnftige Generationen, z.B. NEAT-Tunnel\n\n\nEin Teil wird als Schulden aufgenommen\n\n\nDadurch schiebt man die Finanzlast an zuk\u00fcnftige Generationen\n\n\n\n\n\n\n\n\nStaatsverschuldung in Europa\n\n\n\n\nTendenziell immer Anstieg von Staatsschulden\n\n\nVerschuldung ist politisch immer attraktiver\n\n\nAusgaben bringen mehr Stimmen\n\n\n\n\n\n\nGesamte L\u00e4nderverschuldung = Staatsschulden + Unternehmens- und Haushaltsschulden\n\n\nIrland hat h\u00f6chste Gesamtverschuldung, Griechenland ist da im Mittelfeld\n\n\n\n\n\n\n\n\nZukunftsschulden\n\n\n\n\nZ.B. Zahlungsversprechen an AHV, die in der Zukunft auftreten werden\n\n\nZusammen mit der expliziten Staatschuld ist das die \"Implizite Staatschuld\"\n\n\nIm Vergleich zur Staatsschuld ist die implizite Schuld in der Schweiz relativ hoch, im internationalen Vergleich etwa gleich wie DE\n\n\n\n\nStaatsverschuldung in der Schweiz\n\n\n\n\nNimmt seit 2003 ab\n\n\n2001 Schuldenbrems-Initiative (-\n Auf Verfassungsebene)\n\n\nSchulden d\u00fcrfen nur im Umfangs des BIPs steigen", 
+            "title": "10 Staatsfinanzen"
+        }, 
+        {
+            "location": "/Vwl/10_Staatsfinanzen/#staatsfinanzen", 
+            "text": "", 
+            "title": "Staatsfinanzen"
+        }, 
+        {
+            "location": "/Vwl/10_Staatsfinanzen/#staatsfinanzierung-in-der-schweiz", 
+            "text": "Indirekte Steuern, vor allem MWSt  Direkte Steuern  Einkommen- und Verm\u00f6genssteuern von Haushalten und Unternehmen  Einkommenssteuern Haushalte macht den gr\u00f6ssten Teil aus    NB: Verm\u00f6genssteuern gibt es nicht in jedem Land, weil es eigentlich mehrfache Besteuerung ist  Die reichsten 20% der Bev\u00f6lkerung zahlen ca. 80% der Steuern", 
+            "title": "Staatsfinanzierung in der Schweiz"
+        }, 
+        {
+            "location": "/Vwl/10_Staatsfinanzen/#staatsverschuldung", 
+            "text": "Verschuldung im Inland:  Staat bezieht im Inland Kredite -  H\u00f6here Nachfrage, h\u00f6here Zinss\u00e4tze -  Unternehmen investieren weniger  Verschuldung im Ausland : Staat verkauft Staatsanleihen in eigener W\u00e4hrung -  erh\u00f6hte Nachfrage nach eigener W\u00e4hrung, W\u00e4hrung wird st\u00e4rker -  Problem f\u00fcr Exportindustrie", 
+            "title": "Staatsverschuldung"
+        }, 
+        {
+            "location": "/Vwl/10_Staatsfinanzen/#vorteile", 
+            "text": "Staatliche Investitionen f\u00fcr zuk\u00fcnftige Generationen, z.B. NEAT-Tunnel  Ein Teil wird als Schulden aufgenommen  Dadurch schiebt man die Finanzlast an zuk\u00fcnftige Generationen", 
+            "title": "Vorteile"
+        }, 
+        {
+            "location": "/Vwl/10_Staatsfinanzen/#staatsverschuldung-in-europa", 
+            "text": "Tendenziell immer Anstieg von Staatsschulden  Verschuldung ist politisch immer attraktiver  Ausgaben bringen mehr Stimmen    Gesamte L\u00e4nderverschuldung = Staatsschulden + Unternehmens- und Haushaltsschulden  Irland hat h\u00f6chste Gesamtverschuldung, Griechenland ist da im Mittelfeld", 
+            "title": "Staatsverschuldung in Europa"
+        }, 
+        {
+            "location": "/Vwl/10_Staatsfinanzen/#zukunftsschulden", 
+            "text": "Z.B. Zahlungsversprechen an AHV, die in der Zukunft auftreten werden  Zusammen mit der expliziten Staatschuld ist das die \"Implizite Staatschuld\"  Im Vergleich zur Staatsschuld ist die implizite Schuld in der Schweiz relativ hoch, im internationalen Vergleich etwa gleich wie DE", 
+            "title": "Zukunftsschulden"
+        }, 
+        {
+            "location": "/Vwl/10_Staatsfinanzen/#staatsverschuldung-in-der-schweiz", 
+            "text": "Nimmt seit 2003 ab  2001 Schuldenbrems-Initiative (-  Auf Verfassungsebene)  Schulden d\u00fcrfen nur im Umfangs des BIPs steigen", 
+            "title": "Staatsverschuldung in der Schweiz"
         }, 
         {
             "location": "/Vwl/1_Exam/", 
@@ -2692,7 +2862,7 @@
         }, 
         {
             "location": "/Vwl/9_Wechselkurse/", 
-            "text": "Wechselkurse\n\n\n\n\nNominaler Wechselkurs \ne\n: Verh\u00e4ltnis einer W\u00e4hrung (= M3 Menge) zur anderen\n\n\nIst volkswirtschaftlich unwichtig\n\n\n\n\n\n\nSinkt nominaler Kurs, wird die inl\u00e4ndische W\u00e4hrung \naufgewertet\n\n\nSchlecht f\u00fcr Exporte\n\n\n\n\n\n\n\n\nRealer Wechselkurs\n\n\n\n\nRealer Wechselkurs: \nr = \\frac{e \\cdot p*}{p}\n\n\n\n\n\n\np*\n : Preis G\u00fcterkorb im Ausland in ausl\u00e4ndischer W\u00e4hrung\n\n\n\n\np\n: Preis G\u00fcterkorb im Inland in inl\u00e4ndischer W\u00e4hrung\n\n\nWechselkurs \u00e4ndert sich sofort mit der Geldmenge\n\n\nPreise f\u00fcr den G\u00fcterkorb sind viel tr\u00e4ger\n\n\nMietpreise z.B. lassen sich erst nach 3 Monaten \u00e4ndern\n\n\nim Durchschnitt 1-3 Jahre, bis Geldmengenerh\u00f6hung als Preiserh\u00f6hung komplett ankommt\n\n\n\n\n\n\nKurzfristig wird bei Erh\u00f6hung von \ne\n die W\u00e4hrung abgewertet, Gut f\u00fcr Exporte\n\n\nLangfristig passt sich \np\n aber an, realer Wechselkurs gleicht sich aus\n\n\nJapan z.B. erh\u00f6hte die Geldmenge in den letzten Jahren, was langfristig nichts bringt\n\n\n\n\nFixe Wechselkurse\n\n\n\n\nz.B. Bretton-Woods nach 2. WK\n\n\nNachteil, dass das Land die Geldmenge an der Leitw\u00e4hrung anpassen muss\n\n\nWenn sich zwei L\u00e4ndern in unterschiedlichen Konjukturzyklen verhindern, funktioniert ein fixer Wechselkurs nicht (siehe D / GB)\n\n\nNach dem Bretton-Woods wurde EWS gegr\u00fcndet (ohne Schweiz), die W\u00e4hrungen wurden am D-Mark angeh\u00e4ngt\n\n\nInflationsraten gesunken in EWS-L\u00e4ndern\n\n\n\n\nr\n wurde wegen erh\u00f6hter Inflation als in Deutschland erh\u00f6ht, auch wenn der nominale Kurs konstant war (ab 1988) -\n Zusammenbruch der Exportindustrie von Italien", 
+            "text": "Wechselkurse\n\n\n\n\nNominaler Wechselkurs \ne\n: Verh\u00e4ltnis einer W\u00e4hrung (= M3 Menge) zur anderen\n\n\nIst volkswirtschaftlich unwichtig\n\n\n\n\n\n\nSinkt nominaler Kurs, wird die inl\u00e4ndische W\u00e4hrung \naufgewertet\n\n\nSchlecht f\u00fcr Exporte\n\n\n\n\n\n\n\n\nRealer Wechselkurs\n\n\n\n\nRealer Wechselkurs: \nr = \\frac{e \\cdot p*}{p}\n\n\n\n\n\n\np*\n : Preis G\u00fcterkorb im Ausland in ausl\u00e4ndischer W\u00e4hrung\n\n\n\n\np\n: Preis G\u00fcterkorb im Inland in inl\u00e4ndischer W\u00e4hrung\n\n\nWechselkurs \u00e4ndert sich sofort mit der Geldmenge\n\n\nPreise f\u00fcr den G\u00fcterkorb sind viel tr\u00e4ger\n\n\nMietpreise z.B. lassen sich erst nach 3 Monaten \u00e4ndern\n\n\nim Durchschnitt 1-3 Jahre, bis Geldmengenerh\u00f6hung als Preiserh\u00f6hung komplett ankommt\n\n\n\n\n\n\nKurzfristig wird bei Erh\u00f6hung von \ne\n die W\u00e4hrung abgewertet, Gut f\u00fcr Exporte\n\n\nLangfristig passt sich \np\n aber an, realer Wechselkurs gleicht sich aus\n\n\nJapan z.B. erh\u00f6hte die Geldmenge in den letzten Jahren, was langfristig nichts bringt\n\n\n\n\nFixe Wechselkurse\n\n\n\n\nz.B. Bretton-Woods nach 2. WK\n\n\nNachteil, dass das Land die Geldmenge an der Leitw\u00e4hrung anpassen muss\n\n\nWenn sich zwei L\u00e4ndern in unterschiedlichen Konjukturzyklen verhindern, funktioniert ein fixer Wechselkurs nicht (siehe D / GB)\n\n\nNach dem Bretton-Woods wurde EWS gegr\u00fcndet (ohne Schweiz), die W\u00e4hrungen wurden am D-Mark angeh\u00e4ngt\n\n\nInflationsraten gesunken in EWS-L\u00e4ndern\n\n\n\n\nr\n wurde wegen erh\u00f6hter Inflation als in Deutschland erh\u00f6ht, auch wenn der nominale Kurs konstant war (ab 1988) -\n Zusammenbruch der Exportindustrie von Italien\n\n\n\n\n\n\n\n\nW\u00e4hrungsunionen\n\n\n\n\nEine Zentralbank mit einer W\u00e4hrung f\u00fcr alle Nationen in der Union\n\n\nProblem: Unterschiedliche Konjuktur\n\n\nW\u00fcrde funktionieren, wenn flexible L\u00f6hne gelten w\u00fcrden und Arbeitskr\u00e4fte wandern w\u00fcrdern, die die Konjuktur ausgleichen w\u00fcrden\n\n\nFunktioniert in Europa aber nicht durch kulturelle / sprachliche Unterschiede\n\n\nIn den USA geht das z.B.\n\n\n\n\n\n\nEWU stellte zur Aufnahme Bedingungen an Geld- und Fiskalpolitik\n\n\nGriechenland erf\u00fcllte Bedingungen nicht, kam aber trotzdem rein (\"Geburtsst\u00e4dte der Demokratie\")\n\n\n\n\n\n\nZiel der EU: Keine Kriege mehr von Europa ausgehend\n\n\n\n\nEurokrise\n\n\n\n\nNichts zu tun mit US Immobilienkrisen, nur fast gleichzeitig\n\n\n2013: \u00dcberschuldung Griechenland erh\u00f6hte Sorge \u00fcber andere L\u00e4nder (Italien, Spanien, Portugal, etc.)\n\n\nVertrauen in R\u00fcckzahlungsf\u00e4higkeit der Staaten sinkt\n\n\nSchuldzinsen waren vor 2000 in schw\u00e4cheren EU-Staaten viel h\u00f6her (weil h\u00f6heres Risiko) als z.B. in Deutschland\n\n\nMit Einf\u00fchrung des Euros wurden alle Schuldzinss\u00e4tze auf die Ebene Deutschlands gesenkt (durch Finanzm\u00e4rkte)\n\n\nGIPS-Staaten nahmen so viel mehr Kredite auf und verschuldeten sich h\u00f6her, w\u00e4hrend Wirtschaftskraft sich nicht \u00e4nderte\n\n\nNB: Deutschland hat Schuldgrenze von 60% des BIPs als erstes \u00fcberschritten, es gab keine Sanktionen daf\u00fcr\n\n\nVerschuldung hat zum Zusammenbruch der Exportindustrie gef\u00fchrt\n\n\n\n\ne\n = 1\n\n\nWirtschaftsboom, Preisniveau steigt\n\n\n\n\nr\n wird kleiner, weil \np\n schneller steigt als \np*\n, Wechselkurs wertet sich auf\n\n\nSchw\u00e4cht Exportindustrie\n\n\n\n\n\n\nL\u00f6sungsvorschl\u00e4ge, Eurozonen zu spalten in schwache und starke Euro-Zonen, aber das w\u00fcrde gegen die Friedenspolitische Idee der EU", 
             "title": "9 Wechselkurse"
         }, 
         {
@@ -2709,6 +2879,16 @@
             "location": "/Vwl/9_Wechselkurse/#fixe-wechselkurse", 
             "text": "z.B. Bretton-Woods nach 2. WK  Nachteil, dass das Land die Geldmenge an der Leitw\u00e4hrung anpassen muss  Wenn sich zwei L\u00e4ndern in unterschiedlichen Konjukturzyklen verhindern, funktioniert ein fixer Wechselkurs nicht (siehe D / GB)  Nach dem Bretton-Woods wurde EWS gegr\u00fcndet (ohne Schweiz), die W\u00e4hrungen wurden am D-Mark angeh\u00e4ngt  Inflationsraten gesunken in EWS-L\u00e4ndern   r  wurde wegen erh\u00f6hter Inflation als in Deutschland erh\u00f6ht, auch wenn der nominale Kurs konstant war (ab 1988) -  Zusammenbruch der Exportindustrie von Italien", 
             "title": "Fixe Wechselkurse"
+        }, 
+        {
+            "location": "/Vwl/9_Wechselkurse/#wahrungsunionen", 
+            "text": "Eine Zentralbank mit einer W\u00e4hrung f\u00fcr alle Nationen in der Union  Problem: Unterschiedliche Konjuktur  W\u00fcrde funktionieren, wenn flexible L\u00f6hne gelten w\u00fcrden und Arbeitskr\u00e4fte wandern w\u00fcrdern, die die Konjuktur ausgleichen w\u00fcrden  Funktioniert in Europa aber nicht durch kulturelle / sprachliche Unterschiede  In den USA geht das z.B.    EWU stellte zur Aufnahme Bedingungen an Geld- und Fiskalpolitik  Griechenland erf\u00fcllte Bedingungen nicht, kam aber trotzdem rein (\"Geburtsst\u00e4dte der Demokratie\")    Ziel der EU: Keine Kriege mehr von Europa ausgehend", 
+            "title": "W\u00e4hrungsunionen"
+        }, 
+        {
+            "location": "/Vwl/9_Wechselkurse/#eurokrise", 
+            "text": "Nichts zu tun mit US Immobilienkrisen, nur fast gleichzeitig  2013: \u00dcberschuldung Griechenland erh\u00f6hte Sorge \u00fcber andere L\u00e4nder (Italien, Spanien, Portugal, etc.)  Vertrauen in R\u00fcckzahlungsf\u00e4higkeit der Staaten sinkt  Schuldzinsen waren vor 2000 in schw\u00e4cheren EU-Staaten viel h\u00f6her (weil h\u00f6heres Risiko) als z.B. in Deutschland  Mit Einf\u00fchrung des Euros wurden alle Schuldzinss\u00e4tze auf die Ebene Deutschlands gesenkt (durch Finanzm\u00e4rkte)  GIPS-Staaten nahmen so viel mehr Kredite auf und verschuldeten sich h\u00f6her, w\u00e4hrend Wirtschaftskraft sich nicht \u00e4nderte  NB: Deutschland hat Schuldgrenze von 60% des BIPs als erstes \u00fcberschritten, es gab keine Sanktionen daf\u00fcr  Verschuldung hat zum Zusammenbruch der Exportindustrie gef\u00fchrt   e  = 1  Wirtschaftsboom, Preisniveau steigt   r  wird kleiner, weil  p  schneller steigt als  p* , Wechselkurs wertet sich auf  Schw\u00e4cht Exportindustrie    L\u00f6sungsvorschl\u00e4ge, Eurozonen zu spalten in schwache und starke Euro-Zonen, aber das w\u00fcrde gegen die Friedenspolitische Idee der EU", 
+            "title": "Eurokrise"
         }
     ]
 }

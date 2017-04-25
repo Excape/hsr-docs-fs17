@@ -9,7 +9,7 @@
         <meta name="description" content="HSR Study Documentation FS16">
       
       
-        <link rel="canonical" href="https://doc.robinsuter.ch/Dbs2/3_Stored_Procedures/">
+        <link rel="canonical" href="https://doc.robinsuter.ch/ParProg/10_Actor_Model/">
       
       
         <meta name="author" content="Robin Suter">
@@ -21,7 +21,7 @@
     
     
       
-        <title>3 Stored Procedures - HSR Notizen FS17</title>
+        <title>10 Actor Model - HSR Notizen FS17</title>
       
     
     
@@ -84,11 +84,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Dbs2
+                  ParProg
                 </span>
               
             
-            3 Stored Procedures
+            10 Actor Model
           
         </span>
       </div>
@@ -217,12 +217,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Dbs2
@@ -240,7 +238,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../0_Index/" title="0 Index" class="md-nav__link">
+    <a href="../../Dbs2/0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
   </li>
@@ -252,7 +250,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../10_Verteilte_DB/" title="10 Verteilte DB" class="md-nav__link">
+    <a href="../../Dbs2/10_Verteilte_DB/" title="10 Verteilte DB" class="md-nav__link">
       10 Verteilte DB
     </a>
   </li>
@@ -264,7 +262,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../../Dbs2/1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -276,7 +274,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../2_OR-Mapping/" title="2 OR Mapping" class="md-nav__link">
+    <a href="../../Dbs2/2_OR-Mapping/" title="2 OR Mapping" class="md-nav__link">
       2 OR Mapping
     </a>
   </li>
@@ -286,101 +284,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        3 Stored Procedures
-      </label>
-    
-    <a href="./" title="3 Stored Procedures" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../Dbs2/3_Stored_Procedures/" title="3 Stored Procedures" class="md-nav__link">
       3 Stored Procedures
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#stored-procedures" title="Stored Procedures" class="md-nav__link">
-    Stored Procedures
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#select-into" title="Select .. Into" class="md-nav__link">
-    Select .. Into
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#insert-into" title="Insert ... into" class="md-nav__link">
-    Insert ... into
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#return-table" title="Return Table" class="md-nav__link">
-    Return Table
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#return-a-set" title="Return a Set" class="md-nav__link">
-    Return a Set
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cursor" title="Cursor" class="md-nav__link">
-    Cursor
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cursor-fur-update" title="Cursor für UPDATE" class="md-nav__link">
-    Cursor für UPDATE
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -390,7 +298,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../4_Triggers/" title="4 Triggers" class="md-nav__link">
+    <a href="../../Dbs2/4_Triggers/" title="4 Triggers" class="md-nav__link">
       4 Triggers
     </a>
   </li>
@@ -402,7 +310,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../5_Views/" title="5 Views" class="md-nav__link">
+    <a href="../../Dbs2/5_Views/" title="5 Views" class="md-nav__link">
       5 Views
     </a>
   </li>
@@ -414,7 +322,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../6_Datenstrukturen/" title="6 Datenstrukturen" class="md-nav__link">
+    <a href="../../Dbs2/6_Datenstrukturen/" title="6 Datenstrukturen" class="md-nav__link">
       6 Datenstrukturen
     </a>
   </li>
@@ -426,7 +334,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../8_Interne_Ebene/" title="8 Interne Ebene" class="md-nav__link">
+    <a href="../../Dbs2/8_Interne_Ebene/" title="8 Interne Ebene" class="md-nav__link">
       8 Interne Ebene
     </a>
   </li>
@@ -438,7 +346,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../9_Optimierung/" title="9 Optimierung" class="md-nav__link">
+    <a href="../../Dbs2/9_Optimierung/" title="9 Optimierung" class="md-nav__link">
       9 Optimierung
     </a>
   </li>
@@ -450,7 +358,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Replikation/" title="Replikation" class="md-nav__link">
+    <a href="../../Dbs2/Replikation/" title="Replikation" class="md-nav__link">
       Replikation
     </a>
   </li>
@@ -837,10 +745,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
     <label class="md-nav__link" for="nav-7">
       ParProg
@@ -858,7 +768,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/0_Index/" title="0 Index" class="md-nav__link">
+    <a href="../0_Index/" title="0 Index" class="md-nav__link">
       0 Index
     </a>
   </li>
@@ -868,11 +778,60 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../ParProg/10_Actor_Model/" title="10 Actor Model" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        10 Actor Model
+      </label>
+    
+    <a href="./" title="10 Actor Model" class="md-nav__link md-nav__link--active">
       10 Actor Model
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#akka" title="Akka" class="md-nav__link">
+    Akka
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actor-hierarchies" title="Actor Hierarchies" class="md-nav__link">
+    Actor Hierarchies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -882,7 +841,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/1_Exam/" title="1 Exam" class="md-nav__link">
+    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
   </li>
@@ -894,7 +853,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/2_Multi-Threading_Grundlagen/" title="2 Multi Threading Grundlagen" class="md-nav__link">
+    <a href="../2_Multi-Threading_Grundlagen/" title="2 Multi Threading Grundlagen" class="md-nav__link">
       2 Multi Threading Grundlagen
     </a>
   </li>
@@ -906,7 +865,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/3_Thread-Synchronisation/" title="3 Thread Synchronisation" class="md-nav__link">
+    <a href="../3_Thread-Synchronisation/" title="3 Thread Synchronisation" class="md-nav__link">
       3 Thread Synchronisation
     </a>
   </li>
@@ -918,7 +877,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/4_Synchronisationsprimitiven/" title="4 Synchronisationsprimitiven" class="md-nav__link">
+    <a href="../4_Synchronisationsprimitiven/" title="4 Synchronisationsprimitiven" class="md-nav__link">
       4 Synchronisationsprimitiven
     </a>
   </li>
@@ -930,7 +889,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/5_Gefahren/" title="5 Gefahren" class="md-nav__link">
+    <a href="../5_Gefahren/" title="5 Gefahren" class="md-nav__link">
       5 Gefahren
     </a>
   </li>
@@ -942,7 +901,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/6_Thread_Pools/" title="6 Thread Pools" class="md-nav__link">
+    <a href="../6_Thread_Pools/" title="6 Thread Pools" class="md-nav__link">
       6 Thread Pools
     </a>
   </li>
@@ -954,7 +913,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/7_Task_Parallel_Library/" title="7 Task Parallel Library" class="md-nav__link">
+    <a href="../7_Task_Parallel_Library/" title="7 Task Parallel Library" class="md-nav__link">
       7 Task Parallel Library
     </a>
   </li>
@@ -966,7 +925,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/8_GUI_Threading/" title="8 GUI Threading" class="md-nav__link">
+    <a href="../8_GUI_Threading/" title="8 GUI Threading" class="md-nav__link">
       8 GUI Threading
     </a>
   </li>
@@ -978,7 +937,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ParProg/9_Memory_Models/" title="9 Memory Models" class="md-nav__link">
+    <a href="../9_Memory_Models/" title="9 Memory Models" class="md-nav__link">
       9 Memory Models
     </a>
   </li>
@@ -1502,57 +1461,16 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#stored-procedures" title="Stored Procedures" class="md-nav__link">
-    Stored Procedures
+  <a href="#akka" title="Akka" class="md-nav__link">
+    Akka
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#select-into" title="Select .. Into" class="md-nav__link">
-    Select .. Into
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#insert-into" title="Insert ... into" class="md-nav__link">
-    Insert ... into
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#return-table" title="Return Table" class="md-nav__link">
-    Return Table
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#return-a-set" title="Return a Set" class="md-nav__link">
-    Return a Set
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cursor" title="Cursor" class="md-nav__link">
-    Cursor
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cursor-fur-update" title="Cursor für UPDATE" class="md-nav__link">
-    Cursor für UPDATE
+  <a href="#actor-hierarchies" title="Actor Hierarchies" class="md-nav__link">
+    Actor Hierarchies
   </a>
   
 </li>
@@ -1576,160 +1494,38 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Dbs2/3_Stored_Procedures.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/ParProg/10_Actor_Model.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <h1 id="stored-procedures-pgsql">Stored Procedures / pgSQL</h1>
-<h2 id="stored-procedures">Stored Procedures</h2>
+                <h1 id="actor-model">Actor Model</h1>
 <ul>
-<li>Funktionen, die auf dem DBMS "nahe den Daten" ausgeführt werden</li>
-<li>Können wiederum von anderen SP, Trigger oder PL/SQL ausgeführt werden</li>
-<li>Sind Datenbankobjekte</li>
-<li>Haben eigenes Recht zur Ausführung</li>
-<li>PL: Prozedurale Sprache für Datenbanken</li>
+<li>Objekte sind in diesem Paradigma "aktiv"</li>
+<li>Aktive Objekte haben ein nebenläufiges Innenleben</li>
+<li>Alle aktiven Objekte (=Actors) laufen nebenläufig</li>
+<li>Kommunikation über Nachrichtenaustausch<ul>
+<li>Erlaubt auch einfache Verteilung</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="k">increment</span><span class="p">(</span><span class="n">i</span> <span class="nb">INT</span><span class="p">)</span>
-<span class="k">RETURNS</span> <span class="nb">INT</span> <span class="k">AS</span> <span class="err">$$</span>
-<span class="k">BEGIN</span>
-<span class="k">RETURN</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-<span class="k">END</span><span class="p">;</span>
-<span class="err">$$</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
-
-<span class="c1">-- use</span>
-<span class="k">SELECT</span> <span class="k">increment</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">-- 11</span>
-</pre></div>
-
-
-<ul>
-<li>Variablen deklarieren in <code>DECLARE</code> Block</li>
-<li>Gefolgt von Logik zwischen <code>BEGIN</code> und <code>END</code></li>
-<li>SQL kann direkt eingebettet werden</li>
-<li>IF: <code>IF expression THEN statements ELSIF cond THEN ... END IF;</code></li>
-<li>Exceptions:</li>
+</li>
+<li>Kein shared memory zwischen den Objekten</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">EXCEPTION</span>
-<span class="k">WHEN</span> <span class="k">type</span> <span class="k">THEN</span> <span class="k">statement</span><span class="p">;</span>
-<span class="k">WHEN</span> <span class="n">other_type</span> <span class="k">THEN</span> <span class="k">statement</span><span class="p">;</span>
-</pre></div>
-
-
-<h3 id="select-into">Select .. Into</h3>
-<div class="codehilite"><pre><span></span><span class="k">DECLARE</span>
-    <span class="n">AngNr</span> <span class="n">Angestellter</span><span class="p">.</span><span class="n">PersNr</span><span class="o">%</span><span class="k">TYPE</span><span class="p">;</span>
-    <span class="c1">-- Typ von Angestellter.PersNr</span>
-<span class="k">BEGIN</span> <span class="cm">/*lokaler, anonymer Block */</span>
-    <span class="k">SELECT</span> <span class="n">Angestellter</span><span class="p">.</span><span class="n">PersNr</span> <span class="k">INTO</span> <span class="k">STRICT</span> <span class="n">AngNr</span>
-    <span class="k">FROM</span> <span class="n">Angestellter</span>
-    <span class="k">WHERE</span> <span class="n">Angestellter</span><span class="p">.</span><span class="n">Name</span> <span class="o">=</span> <span class="s1">&#39;Marxer, Markus&#39;</span><span class="p">;</span>
-<span class="k">END</span>
-</pre></div>
-
-
-<h3 id="insert-into">Insert ... into</h3>
-<div class="codehilite"><pre><span></span><span class="k">DECLARE</span>
-    <span class="n">PNr</span> <span class="n">Projekt</span><span class="p">.</span><span class="n">ProjNr</span><span class="o">%</span><span class="k">TYPE</span><span class="p">;</span>
-    <span class="n">AngNr</span> <span class="n">Angestellter</span><span class="p">.</span><span class="n">PersNr</span><span class="o">%</span><span class="k">TYPE</span><span class="p">;</span>
-    <span class="n">ProzAnt</span> <span class="nb">DECIMAL</span><span class="p">;</span>
-<span class="k">BEGIN</span>
-<span class="c1">--....</span>
-    <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">ProjektZuteilung</span>
-    <span class="k">VALUES</span> <span class="p">(</span><span class="n">AngNr</span><span class="p">,</span> <span class="n">PNr</span><span class="p">,</span> <span class="n">ProzAnt</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">);</span>
-<span class="k">EXCEPTION</span>
-    <span class="k">WHEN</span> <span class="n">unique_violation</span> <span class="k">THEN</span>
-    <span class="cm">/*Projektzuteilung existiert bereits*/</span>
-<span class="k">END</span><span class="p">;</span>
-</pre></div>
-
-
+<h2 id="akka">Akka</h2>
 <ul>
-<li><code>FOUND</code> wird <code>true</code>, wenn Row gefunden wurde</li>
-<li>In PostgreSQL Terminologie<ul>
-<li>"Stored Procedure" = "Function" mit Returnwert void</li>
+<li>JVM-Implementierung vom Actor Model</li>
+<li>In einem Actor werden Nachrichten immer sequentiell abgearbeitet - keine Synchronisation nötig</li>
+<li>Nachrichten sind beliebige Objekte<ul>
+<li>Java kennt nur "untyped" Actors, messages sind immer Typ <code>object</code></li>
+</ul>
+</li>
+<li><code>ActorRef</code> ist eine Adresse eines Actors<ul>
+<li>Referenz bleibt dieselbe, auch wenn der Actor crashed und neu erstellt wird</li>
 </ul>
 </li>
 </ul>
-<h3 id="return-table">Return Table</h3>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">get_AbtMA</span> <span class="p">(</span><span class="n">nr</span> <span class="nb">integer</span><span class="p">)</span>
-    <span class="k">RETURNS</span> <span class="k">TABLE</span> <span class="p">(</span>
-        <span class="n">abtname</span> <span class="nb">VARCHAR</span><span class="p">,</span>
-        <span class="n">abtMA</span> <span class="nb">VARCHAR</span>
-    <span class="p">)</span>
-<span class="k">AS</span> <span class="err">$$</span>
-<span class="k">BEGIN</span>
-    <span class="k">RETURN</span> <span class="n">QUERY</span>
-    <span class="k">SELECT</span> <span class="n">abt</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">ang</span><span class="p">.</span><span class="n">name</span> <span class="k">FROM</span> <span class="n">abteilung</span> <span class="n">abt</span>
-    <span class="k">join</span> <span class="n">angestellter</span> <span class="n">ang</span> <span class="k">on</span> <span class="n">ang</span><span class="p">.</span><span class="n">abtnr</span><span class="o">=</span><span class="n">abt</span><span class="p">.</span><span class="n">abtnr</span>
-    <span class="k">where</span> <span class="n">abt</span><span class="p">.</span><span class="n">abtnr</span><span class="o">=</span><span class="n">nr</span>
-    <span class="k">order</span> <span class="k">by</span> <span class="n">abt</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">ang</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
-<span class="k">END</span><span class="p">;</span>
-<span class="err">$$</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
-</pre></div>
-
-
-<h3 id="return-a-set">Return a Set</h3>
+<h3 id="actor-hierarchies">Actor Hierarchies</h3>
 <ul>
-<li>Return a set of rows</li>
+<li>Wenn ein Actor weitere Actors erstellt, ist er "parent" davon und zuständig</li>
+<li>Broadcast-Messsages über ActorSelectors</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">getAllFoo</span><span class="p">()</span>
-<span class="k">RETURNS</span> <span class="k">SETOF</span> <span class="n">foo</span> <span class="k">AS</span> <span class="err">$$</span>
-<span class="k">DECLARE</span>
-    <span class="n">r</span> <span class="n">foo</span><span class="o">%</span><span class="n">rowtype</span><span class="p">;</span> <span class="c1">-- foo ist tabelle</span>
-<span class="k">BEGIN</span>
-    <span class="k">FOR</span> <span class="n">r</span> <span class="k">IN</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">foo</span> <span class="k">WHERE</span> <span class="n">fooid</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="n">LOOP</span>
-        <span class="c1">-- do something...</span>
-        <span class="k">RETURN</span> <span class="k">NEXT</span> <span class="n">r</span><span class="p">;</span> <span class="c1">-- return current row of SELECT</span>
-    <span class="k">END</span> <span class="n">LOOP</span><span class="p">;</span>
-    <span class="k">RETURN</span><span class="p">;</span>
-<span class="k">END</span>
-<span class="err">$$</span> <span class="k">LANGUAGE</span> <span class="s1">&#39;plpgsql&#39;</span><span class="p">;</span>
-</pre></div>
-
-
-<h2 id="cursor">Cursor</h2>
-<ul>
-<li>Ein Cursor zeigt auf ein Tupel in einem ResultSet</li>
-</ul>
-<ol>
-<li>Cursor deklarieren in <code>DECLARE</code></li>
-</ol>
-<div class="codehilite"><pre><span></span><span class="n">AngCursor</span> <span class="p">(</span><span class="n">abtNr</span> <span class="nb">integer</span><span class="p">)</span> <span class="k">CURSOR</span> <span class="k">FOR</span>
-    <span class="k">SELECT</span> <span class="n">Salaer</span><span class="p">,</span> <span class="n">PersNr</span> <span class="k">FROM</span> <span class="n">Angestellter</span>
-    <span class="k">WHERE</span> <span class="n">Angestellter</span><span class="p">.</span><span class="n">AbtNr</span> <span class="o">=</span> <span class="n">abtNr</span><span class="p">;</span>
-</pre></div>
-
-
-<ol>
-<li>Cursor öffnen: <code>OPEN AngCursor(2)</code></li>
-<li>Fetch records</li>
-</ol>
-<div class="codehilite"><pre><span></span><span class="n">LOOP</span> <span class="cm">/*Iteration ueber Resulatmenge*/</span>
-    <span class="k">FETCH</span> <span class="n">AngCursor</span> <span class="k">INTO</span> <span class="n">AngSalaer</span><span class="p">,</span> <span class="n">AngPersNr</span><span class="p">;</span>
-    <span class="n">EXIT</span> <span class="k">WHEN</span> <span class="k">NOT</span> <span class="k">FOUND</span>
-    <span class="n">SalSumme</span> <span class="p">:</span><span class="o">=</span> <span class="n">SalSumme</span> <span class="o">+</span> <span class="n">AngSalaer</span><span class="p">;</span>
-    <span class="n">RAISE</span> <span class="n">notice</span> <span class="s1">&#39;Angstellter PersNr: % Salaer %&#39;</span><span class="p">,</span>
-    <span class="n">AngPersNr</span><span class="p">,</span> <span class="n">AngSalaer</span><span class="p">;</span>
-<span class="k">END</span> <span class="n">LOOP</span><span class="p">;</span>
-</pre></div>
-
-
-<ol>
-<li>Cursor schliessen: <code>CLOSE AngCursor</code></li>
-</ol>
-<h3 id="cursor-fur-update">Cursor für UPDATE</h3>
-<div class="codehilite"><pre><span></span><span class="n">AngCursor</span> <span class="k">CURSOR</span> <span class="k">FOR</span>
-    <span class="k">SELECT</span> <span class="n">Salaer</span><span class="p">,</span> <span class="n">Chef</span><span class="p">,</span> <span class="n">PersNr</span> <span class="k">FROM</span> <span class="n">Angestellter</span>
-    <span class="k">WHERE</span> <span class="n">Angestellter</span><span class="p">.</span><span class="n">AbtNr</span><span class="o">=</span><span class="n">CurrAbtNr</span>
-    <span class="k">FOR</span> <span class="k">UPDATE</span><span class="p">;</span>
-<span class="k">OPEN</span> <span class="n">AngCursor</span><span class="p">;</span>
-<span class="n">LOOP</span>
-    <span class="k">FETCH</span> <span class="n">AngCursor</span> <span class="k">INTO</span> <span class="n">AngRec</span><span class="p">;</span>
-    <span class="n">EXIT</span> <span class="k">WHEN</span> <span class="k">NOT</span> <span class="k">FOUND</span><span class="p">;</span>
-    <span class="k">UPDATE</span> <span class="n">Angestellter</span> <span class="k">SET</span> <span class="n">Salaer</span> <span class="o">=</span> <span class="n">MinSalaer</span>
-    <span class="k">WHERE</span> <span class="k">CURRENT</span> <span class="k">OF</span> <span class="n">AngCursor</span><span class="p">;</span> <span class="c1">-- &lt;---</span>
-<span class="k">END</span> <span class="n">LOOP</span><span class="p">;</span>
-<span class="k">CLOSE</span> <span class="n">AngCursor</span><span class="p">;</span>
-</pre></div>
                 
                   
                 
@@ -1748,7 +1544,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../2_OR-Mapping/" title="2 OR Mapping" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../0_Index/" title="0 Index" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1757,19 +1553,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                2 OR Mapping
+                0 Index
               </span>
             </div>
           </a>
         
         
-          <a href="../4_Triggers/" title="4 Triggers" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../1_Exam/" title="1 Exam" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                4 Triggers
+                1 Exam
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

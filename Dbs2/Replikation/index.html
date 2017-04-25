@@ -9,7 +9,7 @@
         <meta name="description" content="HSR Study Documentation FS16">
       
       
-        <link rel="canonical" href="https://doc.robinsuter.ch/Dbs2/3_Stored_Procedures/">
+        <link rel="canonical" href="https://doc.robinsuter.ch/Dbs2/Replikation/">
       
       
         <meta name="author" content="Robin Suter">
@@ -21,7 +21,7 @@
     
     
       
-        <title>3 Stored Procedures - HSR Notizen FS17</title>
+        <title>Replikation - HSR Notizen FS17</title>
       
     
     
@@ -88,7 +88,7 @@
                 </span>
               
             
-            3 Stored Procedures
+            Replikation
           
         </span>
       </div>
@@ -286,101 +286,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        3 Stored Procedures
-      </label>
-    
-    <a href="./" title="3 Stored Procedures" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../3_Stored_Procedures/" title="3 Stored Procedures" class="md-nav__link">
       3 Stored Procedures
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#stored-procedures" title="Stored Procedures" class="md-nav__link">
-    Stored Procedures
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#select-into" title="Select .. Into" class="md-nav__link">
-    Select .. Into
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#insert-into" title="Insert ... into" class="md-nav__link">
-    Insert ... into
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#return-table" title="Return Table" class="md-nav__link">
-    Return Table
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#return-a-set" title="Return a Set" class="md-nav__link">
-    Return a Set
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cursor" title="Cursor" class="md-nav__link">
-    Cursor
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cursor-fur-update" title="Cursor für UPDATE" class="md-nav__link">
-    Cursor für UPDATE
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -448,11 +358,128 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../Replikation/" title="Replikation" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Replikation
+      </label>
+    
+    <a href="./" title="Replikation" class="md-nav__link md-nav__link--active">
       Replikation
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anwendungen" title="Anwendungen" class="md-nav__link">
+    Anwendungen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" title="Motivation" class="md-nav__link">
+    Motivation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#korrektheit" title="Korrektheit" class="md-nav__link">
+    Korrektheit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replikationsarten" title="Replikationsarten" class="md-nav__link">
+    Replikationsarten
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#master-slave" title="Master Slave" class="md-nav__link">
+    Master Slave
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synchrone-replikation-eager" title="Synchrone Replikation (eager)" class="md-nav__link">
+    Synchrone Replikation (eager)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asynchrone-replikation-lazy" title="Asynchrone Replikation (lazy)" class="md-nav__link">
+    Asynchrone Replikation (lazy)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-master" title="Multi-Master" class="md-nav__link">
+    Multi-Master
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synchronisationsprotokolle" title="Synchronisationsprotokolle" class="md-nav__link">
+    Synchronisationsprotokolle
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sharding" title="Sharding" class="md-nav__link">
+    Sharding
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1502,37 +1529,52 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#stored-procedures" title="Stored Procedures" class="md-nav__link">
-    Stored Procedures
+  <a href="#anwendungen" title="Anwendungen" class="md-nav__link">
+    Anwendungen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" title="Motivation" class="md-nav__link">
+    Motivation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#korrektheit" title="Korrektheit" class="md-nav__link">
+    Korrektheit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replikationsarten" title="Replikationsarten" class="md-nav__link">
+    Replikationsarten
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#select-into" title="Select .. Into" class="md-nav__link">
-    Select .. Into
+  <a href="#master-slave" title="Master Slave" class="md-nav__link">
+    Master Slave
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synchrone-replikation-eager" title="Synchrone Replikation (eager)" class="md-nav__link">
+    Synchrone Replikation (eager)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#insert-into" title="Insert ... into" class="md-nav__link">
-    Insert ... into
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#return-table" title="Return Table" class="md-nav__link">
-    Return Table
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#return-a-set" title="Return a Set" class="md-nav__link">
-    Return a Set
+  <a href="#asynchrone-replikation-lazy" title="Asynchrone Replikation (lazy)" class="md-nav__link">
+    Asynchrone Replikation (lazy)
   </a>
   
 </li>
@@ -1541,18 +1583,30 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#cursor" title="Cursor" class="md-nav__link">
-    Cursor
+        
+          <li class="md-nav__item">
+  <a href="#multi-master" title="Multi-Master" class="md-nav__link">
+    Multi-Master
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cursor-fur-update" title="Cursor für UPDATE" class="md-nav__link">
-    Cursor für UPDATE
+  <a href="#synchronisationsprotokolle" title="Synchronisationsprotokolle" class="md-nav__link">
+    Synchronisationsprotokolle
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sharding" title="Sharding" class="md-nav__link">
+    Sharding
   </a>
   
 </li>
@@ -1576,160 +1630,128 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Dbs2/3_Stored_Procedures.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Dbs2/Replikation.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <h1 id="stored-procedures-pgsql">Stored Procedures / pgSQL</h1>
-<h2 id="stored-procedures">Stored Procedures</h2>
+                <h1 id="replikation">Replikation</h1>
+<h2 id="anwendungen">Anwendungen</h2>
 <ul>
-<li>Funktionen, die auf dem DBMS "nahe den Daten" ausgeführt werden</li>
-<li>Können wiederum von anderen SP, Trigger oder PL/SQL ausgeführt werden</li>
-<li>Sind Datenbankobjekte</li>
-<li>Haben eigenes Recht zur Ausführung</li>
-<li>PL: Prozedurale Sprache für Datenbanken</li>
+<li>Load-Balancing<ul>
+<li>Cluster, schnelle Verbindungen</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="k">increment</span><span class="p">(</span><span class="n">i</span> <span class="nb">INT</span><span class="p">)</span>
-<span class="k">RETURNS</span> <span class="nb">INT</span> <span class="k">AS</span> <span class="err">$$</span>
-<span class="k">BEGIN</span>
-<span class="k">RETURN</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-<span class="k">END</span><span class="p">;</span>
-<span class="err">$$</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
-
-<span class="c1">-- use</span>
-<span class="k">SELECT</span> <span class="k">increment</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">-- 11</span>
-</pre></div>
-
-
-<ul>
-<li>Variablen deklarieren in <code>DECLARE</code> Block</li>
-<li>Gefolgt von Logik zwischen <code>BEGIN</code> und <code>END</code></li>
-<li>SQL kann direkt eingebettet werden</li>
-<li>IF: <code>IF expression THEN statements ELSIF cond THEN ... END IF;</code></li>
-<li>Exceptions:</li>
+</li>
+<li>Distributed geographic Data processing<ul>
+<li>auf verschiedene Standorte verteilt Peer-to-Peer</li>
+<li>Mittelschnelle Verbindung, hohe Verfügbarkeit</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">EXCEPTION</span>
-<span class="k">WHEN</span> <span class="k">type</span> <span class="k">THEN</span> <span class="k">statement</span><span class="p">;</span>
-<span class="k">WHEN</span> <span class="n">other_type</span> <span class="k">THEN</span> <span class="k">statement</span><span class="p">;</span>
-</pre></div>
-
-
-<h3 id="select-into">Select .. Into</h3>
-<div class="codehilite"><pre><span></span><span class="k">DECLARE</span>
-    <span class="n">AngNr</span> <span class="n">Angestellter</span><span class="p">.</span><span class="n">PersNr</span><span class="o">%</span><span class="k">TYPE</span><span class="p">;</span>
-    <span class="c1">-- Typ von Angestellter.PersNr</span>
-<span class="k">BEGIN</span> <span class="cm">/*lokaler, anonymer Block */</span>
-    <span class="k">SELECT</span> <span class="n">Angestellter</span><span class="p">.</span><span class="n">PersNr</span> <span class="k">INTO</span> <span class="k">STRICT</span> <span class="n">AngNr</span>
-    <span class="k">FROM</span> <span class="n">Angestellter</span>
-    <span class="k">WHERE</span> <span class="n">Angestellter</span><span class="p">.</span><span class="n">Name</span> <span class="o">=</span> <span class="s1">&#39;Marxer, Markus&#39;</span><span class="p">;</span>
-<span class="k">END</span>
-</pre></div>
-
-
-<h3 id="insert-into">Insert ... into</h3>
-<div class="codehilite"><pre><span></span><span class="k">DECLARE</span>
-    <span class="n">PNr</span> <span class="n">Projekt</span><span class="p">.</span><span class="n">ProjNr</span><span class="o">%</span><span class="k">TYPE</span><span class="p">;</span>
-    <span class="n">AngNr</span> <span class="n">Angestellter</span><span class="p">.</span><span class="n">PersNr</span><span class="o">%</span><span class="k">TYPE</span><span class="p">;</span>
-    <span class="n">ProzAnt</span> <span class="nb">DECIMAL</span><span class="p">;</span>
-<span class="k">BEGIN</span>
-<span class="c1">--....</span>
-    <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">ProjektZuteilung</span>
-    <span class="k">VALUES</span> <span class="p">(</span><span class="n">AngNr</span><span class="p">,</span> <span class="n">PNr</span><span class="p">,</span> <span class="n">ProzAnt</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">);</span>
-<span class="k">EXCEPTION</span>
-    <span class="k">WHEN</span> <span class="n">unique_violation</span> <span class="k">THEN</span>
-    <span class="cm">/*Projektzuteilung existiert bereits*/</span>
-<span class="k">END</span><span class="p">;</span>
-</pre></div>
-
-
-<ul>
-<li><code>FOUND</code> wird <code>true</code>, wenn Row gefunden wurde</li>
-<li>In PostgreSQL Terminologie<ul>
-<li>"Stored Procedure" = "Function" mit Returnwert void</li>
+</li>
+<li>Real Time OLAP<ul>
+<li>(Online Analytical Processing)</li>
+<li>Replikation auf einen Slave, z.B. als Data Warehouse</li>
+</ul>
+</li>
+<li>Warm Standby<ul>
+<li>Master-Slave</li>
+<li>Schnelle, hochverfügbare Verbindung</li>
+</ul>
+</li>
+<li>Mobile Datenbanken<ul>
+<li>Bei jedem Client liegt eine Kopie der nötigen Daten, die mit dem zentralen "Master" repliziert werden</li>
+<li>Clients können auch offline sein oder langsame Verbindungen haben</li>
 </ul>
 </li>
 </ul>
-<h3 id="return-table">Return Table</h3>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">get_AbtMA</span> <span class="p">(</span><span class="n">nr</span> <span class="nb">integer</span><span class="p">)</span>
-    <span class="k">RETURNS</span> <span class="k">TABLE</span> <span class="p">(</span>
-        <span class="n">abtname</span> <span class="nb">VARCHAR</span><span class="p">,</span>
-        <span class="n">abtMA</span> <span class="nb">VARCHAR</span>
-    <span class="p">)</span>
-<span class="k">AS</span> <span class="err">$$</span>
-<span class="k">BEGIN</span>
-    <span class="k">RETURN</span> <span class="n">QUERY</span>
-    <span class="k">SELECT</span> <span class="n">abt</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">ang</span><span class="p">.</span><span class="n">name</span> <span class="k">FROM</span> <span class="n">abteilung</span> <span class="n">abt</span>
-    <span class="k">join</span> <span class="n">angestellter</span> <span class="n">ang</span> <span class="k">on</span> <span class="n">ang</span><span class="p">.</span><span class="n">abtnr</span><span class="o">=</span><span class="n">abt</span><span class="p">.</span><span class="n">abtnr</span>
-    <span class="k">where</span> <span class="n">abt</span><span class="p">.</span><span class="n">abtnr</span><span class="o">=</span><span class="n">nr</span>
-    <span class="k">order</span> <span class="k">by</span> <span class="n">abt</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">ang</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
-<span class="k">END</span><span class="p">;</span>
-<span class="err">$$</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
-</pre></div>
-
-
-<h3 id="return-a-set">Return a Set</h3>
+<h2 id="motivation">Motivation</h2>
 <ul>
-<li>Return a set of rows</li>
+<li>Hohe Verfügarkeit durch Verteilung auf mehrere Nodes</li>
+<li>Niedrige Kommunikationskosten</li>
+<li>Lastverteilung, dadurch skalierbar</li>
+<li>Vorbeugung gegen Datenverlust</li>
+<li>Client können disconnected sein (Mobile Databases)</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">getAllFoo</span><span class="p">()</span>
-<span class="k">RETURNS</span> <span class="k">SETOF</span> <span class="n">foo</span> <span class="k">AS</span> <span class="err">$$</span>
-<span class="k">DECLARE</span>
-    <span class="n">r</span> <span class="n">foo</span><span class="o">%</span><span class="n">rowtype</span><span class="p">;</span> <span class="c1">-- foo ist tabelle</span>
-<span class="k">BEGIN</span>
-    <span class="k">FOR</span> <span class="n">r</span> <span class="k">IN</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">foo</span> <span class="k">WHERE</span> <span class="n">fooid</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="n">LOOP</span>
-        <span class="c1">-- do something...</span>
-        <span class="k">RETURN</span> <span class="k">NEXT</span> <span class="n">r</span><span class="p">;</span> <span class="c1">-- return current row of SELECT</span>
-    <span class="k">END</span> <span class="n">LOOP</span><span class="p">;</span>
-    <span class="k">RETURN</span><span class="p">;</span>
-<span class="k">END</span>
-<span class="err">$$</span> <span class="k">LANGUAGE</span> <span class="s1">&#39;plpgsql&#39;</span><span class="p">;</span>
-</pre></div>
-
-
-<h2 id="cursor">Cursor</h2>
+<h2 id="korrektheit">Korrektheit</h2>
 <ul>
-<li>Ein Cursor zeigt auf ein Tupel in einem ResultSet</li>
+<li>Leser sollten eine möglichst konsistente Kopie der Daten erhalten</li>
+<li><em>Weak Consistency</em>: Version, die der Leser erhält, muss nicht die aktuellste sein<ul>
+<li>Gibt evtl. parallele Änderungen, Konflikt-Behebung nachträglich</li>
+<li>Asynchrone Replikation</li>
+<li>Hohe Performance</li>
+<li>Hohe Verfügbarkeit (wenig overhead) und Fehlertoleranz</li>
 </ul>
-<ol>
-<li>Cursor deklarieren in <code>DECLARE</code></li>
-</ol>
-<div class="codehilite"><pre><span></span><span class="n">AngCursor</span> <span class="p">(</span><span class="n">abtNr</span> <span class="nb">integer</span><span class="p">)</span> <span class="k">CURSOR</span> <span class="k">FOR</span>
-    <span class="k">SELECT</span> <span class="n">Salaer</span><span class="p">,</span> <span class="n">PersNr</span> <span class="k">FROM</span> <span class="n">Angestellter</span>
-    <span class="k">WHERE</span> <span class="n">Angestellter</span><span class="p">.</span><span class="n">AbtNr</span> <span class="o">=</span> <span class="n">abtNr</span><span class="p">;</span>
-</pre></div>
-
-
-<ol>
-<li>Cursor öffnen: <code>OPEN AngCursor(2)</code></li>
-<li>Fetch records</li>
-</ol>
-<div class="codehilite"><pre><span></span><span class="n">LOOP</span> <span class="cm">/*Iteration ueber Resulatmenge*/</span>
-    <span class="k">FETCH</span> <span class="n">AngCursor</span> <span class="k">INTO</span> <span class="n">AngSalaer</span><span class="p">,</span> <span class="n">AngPersNr</span><span class="p">;</span>
-    <span class="n">EXIT</span> <span class="k">WHEN</span> <span class="k">NOT</span> <span class="k">FOUND</span>
-    <span class="n">SalSumme</span> <span class="p">:</span><span class="o">=</span> <span class="n">SalSumme</span> <span class="o">+</span> <span class="n">AngSalaer</span><span class="p">;</span>
-    <span class="n">RAISE</span> <span class="n">notice</span> <span class="s1">&#39;Angstellter PersNr: % Salaer %&#39;</span><span class="p">,</span>
-    <span class="n">AngPersNr</span><span class="p">,</span> <span class="n">AngSalaer</span><span class="p">;</span>
-<span class="k">END</span> <span class="n">LOOP</span><span class="p">;</span>
-</pre></div>
-
-
-<ol>
-<li>Cursor schliessen: <code>CLOSE AngCursor</code></li>
-</ol>
-<h3 id="cursor-fur-update">Cursor für UPDATE</h3>
-<div class="codehilite"><pre><span></span><span class="n">AngCursor</span> <span class="k">CURSOR</span> <span class="k">FOR</span>
-    <span class="k">SELECT</span> <span class="n">Salaer</span><span class="p">,</span> <span class="n">Chef</span><span class="p">,</span> <span class="n">PersNr</span> <span class="k">FROM</span> <span class="n">Angestellter</span>
-    <span class="k">WHERE</span> <span class="n">Angestellter</span><span class="p">.</span><span class="n">AbtNr</span><span class="o">=</span><span class="n">CurrAbtNr</span>
-    <span class="k">FOR</span> <span class="k">UPDATE</span><span class="p">;</span>
-<span class="k">OPEN</span> <span class="n">AngCursor</span><span class="p">;</span>
-<span class="n">LOOP</span>
-    <span class="k">FETCH</span> <span class="n">AngCursor</span> <span class="k">INTO</span> <span class="n">AngRec</span><span class="p">;</span>
-    <span class="n">EXIT</span> <span class="k">WHEN</span> <span class="k">NOT</span> <span class="k">FOUND</span><span class="p">;</span>
-    <span class="k">UPDATE</span> <span class="n">Angestellter</span> <span class="k">SET</span> <span class="n">Salaer</span> <span class="o">=</span> <span class="n">MinSalaer</span>
-    <span class="k">WHERE</span> <span class="k">CURRENT</span> <span class="k">OF</span> <span class="n">AngCursor</span><span class="p">;</span> <span class="c1">-- &lt;---</span>
-<span class="k">END</span> <span class="n">LOOP</span><span class="p">;</span>
-<span class="k">CLOSE</span> <span class="n">AngCursor</span><span class="p">;</span>
-</pre></div>
+</li>
+<li><em>Strong Consistency</em>: Jeder Zugriff liefert neustes transaktionskonsistente Version der Daten<ul>
+<li>Synchrone Replikation</li>
+<li>Benutzt das 2PC-Protokoll, dadurch grosser Overhead</li>
+<li>Weniger Fehlertoleranz und Verfügbarkeit</li>
+</ul>
+</li>
+</ul>
+<h2 id="replikationsarten">Replikationsarten</h2>
+<h3 id="master-slave">Master Slave</h3>
+<ul>
+<li>Updates geschehen immer auf dem Primary Node</li>
+<li>Alle Updates werden zu Read-only-Subscribers (Slaves) propagiert</li>
+<li>Ausfall eines Knotens führt zum Ausfall des ganzen Systems!!</li>
+</ul>
+<h4 id="synchrone-replikation-eager">Synchrone Replikation (eager)</h4>
+<ul>
+<li>Wenn auf Master eine Transaktion ausgeführt wird, wird sie sofort mit 2PC zu den Slaves repliziert</li>
+<li>Die Daten werden repliziert, <strong>bevor</strong> das OK zurück zur Applikation geschickt wird</li>
+<li>So sind die Daten immer konsistent</li>
+</ul>
+<h4 id="asynchrone-replikation-lazy">Asynchrone Replikation (lazy)</h4>
+<ul>
+<li>Die Transaktion wird zuerst vom Master abgeschlossen</li>
+<li>Erst anschliessend werden die Slaves asynchron aktualisiert</li>
+<li>Dadurch können Konflikte auftreten</li>
+<li>Höhere Verfügbarkeit</li>
+<li>Änderungen bei Master werden effizienterweise im Log-File erkannt und Änderungen daraus abgeleitet<ul>
+<li>Alternative: Jedes Update feuert einen Trigger auf dem Master</li>
+</ul>
+</li>
+</ul>
+<h3 id="multi-master">Multi-Master</h3>
+<ul>
+<li>Jeder Master kann Update-Operationen ausführen</li>
+<li>Komplexe Synchronisation, asynchrone Replikation</li>
+<li>Konflikte, wenn parallele Änderungen an verschiedenen Nodes ausgeführt werden</li>
+<li>Typische Anwendung in HPC</li>
+</ul>
+<h4 id="synchronisationsprotokolle">Synchronisationsprotokolle</h4>
+<ul>
+<li><em>Read-One, Write-All</em>: Schreibzugriffe werden synchron repliziert, Lesezugriffe asynchron</li>
+<li><em>Majority Protocol</em>: Lesen und Schreiben verlangt Locks auf einer <em>Mehrheit</em> der Replikaten<ul>
+<li>Jedes Replikat kann ein Write-Lock und mehrere Read-Locks haben</li>
+<li>Braucht mehr als 2 Knoten</li>
+</ul>
+</li>
+<li><em>Quorum Consesus Protocol</em><ul>
+<li>Verallgemeinerung vom Majority Protocol</li>
+<li>Jede Kopie enthält bestimmte Anzahl von Stimmen</li>
+<li>Lesen und Schreiben erfordert je eine bestimmte Anzahl Stimmen</li>
+</ul>
+</li>
+<li><em>Snapshot-Replikation</em>: Einfacheres Verfahren mit schwächeren Konsistenzanforderungen</li>
+<li><em>Merge Replikation</em>: Unsychronisierte Änderungen an mehreren Knoten, mit asynchroner Prograpierung der Änderungen<ul>
+<li>Benötigt für disconnected clients</li>
+<li>Nachträgliche Konfliktbehandlung</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TODO</p>
+</div>
+<h3 id="sharding">Sharding</h3>
+<ul>
+<li>Horizontale Skalierung, also Verteilung der Daten auf mehrere Nodes</li>
+<li>Collections werden in Shards aufgeteilt, z.B. nach Wertebereich des Keys oder mit einer Hash-Funktion<ul>
+<li>Dabei ist ein document immer vollständig in einem Shard</li>
+</ul>
+</li>
+<li>Requests werden von <code>mongos</code>, einem Query-Router, zum richtigen Shard geleitet</li>
+<li>Der Query-Router entscheidet mit Hilfe von Config servers, wo welche Daten liegen</li>
+</ul>
                 
                   
                 
@@ -1748,7 +1770,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../2_OR-Mapping/" title="2 OR Mapping" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../9_Optimierung/" title="9 Optimierung" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1757,19 +1779,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                2 OR Mapping
+                9 Optimierung
               </span>
             </div>
           </a>
         
         
-          <a href="../4_Triggers/" title="4 Triggers" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../EPJ/0_Index/" title="0 Index" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                4 Triggers
+                0 Index
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
