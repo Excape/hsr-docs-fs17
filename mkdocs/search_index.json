@@ -32,12 +32,12 @@
         }, 
         {
             "location": "/Dbs2/0_Index/", 
-            "text": "Datenbanksysteme 2\n\n\n\n\nExam Notes\n\n\nOR-Mapping\n\n\nStored Procedures\n\n\nTriggers\n\n\nViews\n\n\nDatenstrukturen", 
+            "text": "Datenbanksysteme 2\n\n\n\n\nExam Notes\n\n\nOR-Mapping\n\n\nStored Procedures\n\n\nTriggers\n\n\nViews\n\n\nDatenstrukturen\n\n\nInterne Ebene\n\n\nOptimierung\n\n\nVerteilte Datenbanken\n\n\nReplikation\n\n\nNoSQL", 
             "title": "0 Index"
         }, 
         {
             "location": "/Dbs2/0_Index/#datenbanksysteme-2", 
-            "text": "Exam Notes  OR-Mapping  Stored Procedures  Triggers  Views  Datenstrukturen", 
+            "text": "Exam Notes  OR-Mapping  Stored Procedures  Triggers  Views  Datenstrukturen  Interne Ebene  Optimierung  Verteilte Datenbanken  Replikation  NoSQL", 
             "title": "Datenbanksysteme 2"
         }, 
         {
@@ -1257,12 +1257,12 @@
         }, 
         {
             "location": "/ParProg/0_Index/", 
-            "text": "Parallele Programmierung\n\n\n\n\nExam Notes\n\n\nMulti-Threading Grundlagen\n\n\nThread Synchronisation\n\n\nSynchronisationsprimitiven\n\n\nGefahren der Nebenl\u00e4ufigket\n\n\nThread Pools", 
+            "text": "Parallele Programmierung\n\n\n\n\nExam Notes\n\n\nMulti-Threading Grundlagen\n\n\nThread Synchronisation\n\n\nSynchronisationsprimitiven\n\n\nGefahren der Nebenl\u00e4ufigket\n\n\nThread Pools\n\n\nTask Parallel Library\n\n\nGUI Threading\n\n\nMemory Models\n\n\nActor Model\n\n\nGPU Parallelisierung", 
             "title": "0 Index"
         }, 
         {
             "location": "/ParProg/0_Index/#parallele-programmierung", 
-            "text": "Exam Notes  Multi-Threading Grundlagen  Thread Synchronisation  Synchronisationsprimitiven  Gefahren der Nebenl\u00e4ufigket  Thread Pools", 
+            "text": "Exam Notes  Multi-Threading Grundlagen  Thread Synchronisation  Synchronisationsprimitiven  Gefahren der Nebenl\u00e4ufigket  Thread Pools  Task Parallel Library  GUI Threading  Memory Models  Actor Model  GPU Parallelisierung", 
             "title": "Parallele Programmierung"
         }, 
         {
@@ -1807,12 +1807,12 @@
         }, 
         {
             "location": "/SE2/0_Index/", 
-            "text": "Software Engineering 2\n\n\n\n\nExam Notes\n\n\nProject Automation\n\n\nSoftware Engineering Practises\n\n\nError Handling Design\n\n\nDesign by Contract", 
+            "text": "Software Engineering 2\n\n\n\n\nExam Notes\n\n\nProject Automation\n\n\nSoftware Engineering Practises\n\n\nError Handling Design\n\n\nDesign by Contract\n\n\nStory Splitting\n\n\nTesting\n\n\nMetriken", 
             "title": "0 Index"
         }, 
         {
             "location": "/SE2/0_Index/#software-engineering-2", 
-            "text": "Exam Notes  Project Automation  Software Engineering Practises  Error Handling Design  Design by Contract", 
+            "text": "Exam Notes  Project Automation  Software Engineering Practises  Error Handling Design  Design by Contract  Story Splitting  Testing  Metriken", 
             "title": "Software Engineering 2"
         }, 
         {
@@ -2097,12 +2097,12 @@
         }, 
         {
             "location": "/Vss/0_Index/", 
-            "text": "Verteilte Software-Systeme\n\n\n\n\nExam Notes\n\n\nIntroduction\n\n\nSocket Programmierung\n\n\nAsynchronous Messaging\n\n\nRMI and Web-Services\n\n\nDesign for Performance", 
+            "text": "Verteilte Software-Systeme\n\n\n\n\nExam Notes\n\n\nIntroduction\n\n\nSocket Programmierung\n\n\nAsynchronous Messaging\n\n\nRMI and Web-Services\n\n\nDesign for Performance\n\n\nScalability and Availability\n\n\nVSS Management\n\n\nCFIA\n\n\nNaming", 
             "title": "0 Index"
         }, 
         {
             "location": "/Vss/0_Index/#verteilte-software-systeme", 
-            "text": "Exam Notes  Introduction  Socket Programmierung  Asynchronous Messaging  RMI and Web-Services  Design for Performance", 
+            "text": "Exam Notes  Introduction  Socket Programmierung  Asynchronous Messaging  RMI and Web-Services  Design for Performance  Scalability and Availability  VSS Management  CFIA  Naming", 
             "title": "Verteilte Software-Systeme"
         }, 
         {
@@ -2557,12 +2557,12 @@
         }, 
         {
             "location": "/Vwl/0_Index/", 
-            "text": "Volkswirtschaft\n\n\n\n\nExam Notes\n\n\nWohlstand\n\n\nEinkommensverteilung und Sozialwerke\n\n\nWachstum\n\n\nArbeitsmarkt", 
+            "text": "Volkswirtschaft\n\n\n\n\nExam Notes\n\n\nWohlstand\n\n\nEinkommensverteilung und Sozialwerke\n\n\nWachstum\n\n\nArbeitsmarkt\n\n\nKonjuktur\n\n\nPreisstabilit\u00e4t\n\n\nGeld\n\n\nWechselkurse\n\n\nStaatsfinanzen", 
             "title": "0 Index"
         }, 
         {
             "location": "/Vwl/0_Index/#volkswirtschaft", 
-            "text": "Exam Notes  Wohlstand  Einkommensverteilung und Sozialwerke  Wachstum  Arbeitsmarkt", 
+            "text": "Exam Notes  Wohlstand  Einkommensverteilung und Sozialwerke  Wachstum  Arbeitsmarkt  Konjuktur  Preisstabilit\u00e4t  Geld  Wechselkurse  Staatsfinanzen", 
             "title": "Volkswirtschaft"
         }, 
         {
