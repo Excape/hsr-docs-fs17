@@ -131,6 +131,121 @@
             "title": "Semi-Join"
         }, 
         {
+            "location": "/Dbs2/11_Replikation/", 
+            "text": "Replikation\n\n\nAnwendungen\n\n\n\n\nLoad-Balancing\n\n\nCluster, schnelle Verbindungen\n\n\n\n\n\n\nDistributed geographic Data processing\n\n\nauf verschiedene Standorte verteilt Peer-to-Peer\n\n\nMittelschnelle Verbindung, hohe Verf\u00fcgbarkeit\n\n\n\n\n\n\nReal Time OLAP\n\n\n(Online Analytical Processing)\n\n\nReplikation auf einen Slave, z.B. als Data Warehouse\n\n\n\n\n\n\nWarm Standby\n\n\nMaster-Slave\n\n\nSchnelle, hochverf\u00fcgbare Verbindung\n\n\n\n\n\n\nMobile Datenbanken\n\n\nBei jedem Client liegt eine Kopie der n\u00f6tigen Daten, die mit dem zentralen \"Master\" repliziert werden\n\n\nClients k\u00f6nnen auch offline sein oder langsame Verbindungen haben\n\n\n\n\n\n\n\n\nMotivation\n\n\n\n\nHohe Verf\u00fcgarkeit durch Verteilung auf mehrere Nodes\n\n\nNiedrige Kommunikationskosten\n\n\nLastverteilung, dadurch skalierbar\n\n\nVorbeugung gegen Datenverlust\n\n\nClient k\u00f6nnen disconnected sein (Mobile Databases)\n\n\n\n\nKorrektheit\n\n\n\n\nLeser sollten eine m\u00f6glichst konsistente Kopie der Daten erhalten\n\n\nWeak Consistency\n: Version, die der Leser erh\u00e4lt, muss nicht die aktuellste sein\n\n\nGibt evtl. parallele \u00c4nderungen, Konflikt-Behebung nachtr\u00e4glich\n\n\nAsynchrone Replikation\n\n\nHohe Performance\n\n\nHohe Verf\u00fcgbarkeit (wenig overhead) und Fehlertoleranz\n\n\n\n\n\n\nStrong Consistency\n: Jeder Zugriff liefert neustes transaktionskonsistente Version der Daten\n\n\nSynchrone Replikation\n\n\nBenutzt das 2PC-Protokoll, dadurch grosser Overhead\n\n\nWeniger Fehlertoleranz und Verf\u00fcgbarkeit\n\n\n\n\n\n\n\n\nReplikationsarten\n\n\nMaster Slave\n\n\n\n\nUpdates geschehen immer auf dem Primary Node\n\n\nAlle Updates werden zu Read-only-Subscribers (Slaves) propagiert\n\n\nAusfall eines Knotens f\u00fchrt zum Ausfall des ganzen Systems!!\n\n\n\n\nSynchrone Replikation (eager)\n\n\n\n\nWenn auf Master eine Transaktion ausgef\u00fchrt wird, wird sie sofort mit 2PC zu den Slaves repliziert\n\n\nDie Daten werden repliziert, \nbevor\n das OK zur\u00fcck zur Applikation geschickt wird\n\n\nSo sind die Daten immer konsistent\n\n\n\n\nAsynchrone Replikation (lazy)\n\n\n\n\nDie Transaktion wird zuerst vom Master abgeschlossen\n\n\nErst anschliessend werden die Slaves asynchron aktualisiert\n\n\nDadurch k\u00f6nnen Konflikte auftreten\n\n\nH\u00f6here Verf\u00fcgbarkeit\n\n\n\u00c4nderungen bei Master werden effizienterweise im Log-File erkannt und \u00c4nderungen daraus abgeleitet\n\n\nAlternative: Jedes Update feuert einen Trigger auf dem Master\n\n\n\n\n\n\n\n\nMulti-Master\n\n\n\n\nJeder Master kann Update-Operationen ausf\u00fchren\n\n\nKomplexe Synchronisation, asynchrone Replikation\n\n\nKonflikte, wenn parallele \u00c4nderungen an verschiedenen Nodes ausgef\u00fchrt werden\n\n\nTypische Anwendung in HPC\n\n\n\n\nSynchronisationsprotokolle\n\n\n\n\nRead-One, Write-All\n: Schreibzugriffe werden synchron repliziert, Lesezugriffe asynchron\n\n\nMajority Protocol\n: Lesen und Schreiben verlangt Locks auf einer \nMehrheit\n der Replikaten\n\n\nJedes Replikat kann ein Write-Lock und mehrere Read-Locks haben\n\n\nBraucht mehr als 2 Knoten\n\n\n\n\n\n\nQuorum Consesus Protocol\n\n\nVerallgemeinerung vom Majority Protocol\n\n\nJede Kopie enth\u00e4lt bestimmte Anzahl von Stimmen\n\n\nLesen und Schreiben erfordert je eine bestimmte Anzahl Stimmen\n\n\n\n\n\n\nSnapshot-Replikation\n: Einfacheres Verfahren mit schw\u00e4cheren Konsistenzanforderungen\n\n\nMerge Replikation\n: Unsychronisierte \u00c4nderungen an mehreren Knoten, mit asynchroner Prograpierung der \u00c4nderungen\n\n\nBen\u00f6tigt f\u00fcr disconnected clients\n\n\nNachtr\u00e4gliche Konfliktbehandlung\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nTODO\n\n\n\n\nSharding\n\n\n\n\nHorizontale Skalierung, also Verteilung der Daten auf mehrere Nodes\n\n\nCollections werden in Shards aufgeteilt, z.B. nach Wertebereich des Keys oder mit einer Hash-Funktion\n\n\nDabei ist ein document immer vollst\u00e4ndig in einem Shard\n\n\n\n\n\n\nRequests werden von \nmongos\n, einem Query-Router, zum richtigen Shard geleitet\n\n\nDer Query-Router entscheidet mit Hilfe von Config servers, wo welche Daten liegen", 
+            "title": "11 Replikation"
+        }, 
+        {
+            "location": "/Dbs2/11_Replikation/#replikation", 
+            "text": "", 
+            "title": "Replikation"
+        }, 
+        {
+            "location": "/Dbs2/11_Replikation/#anwendungen", 
+            "text": "Load-Balancing  Cluster, schnelle Verbindungen    Distributed geographic Data processing  auf verschiedene Standorte verteilt Peer-to-Peer  Mittelschnelle Verbindung, hohe Verf\u00fcgbarkeit    Real Time OLAP  (Online Analytical Processing)  Replikation auf einen Slave, z.B. als Data Warehouse    Warm Standby  Master-Slave  Schnelle, hochverf\u00fcgbare Verbindung    Mobile Datenbanken  Bei jedem Client liegt eine Kopie der n\u00f6tigen Daten, die mit dem zentralen \"Master\" repliziert werden  Clients k\u00f6nnen auch offline sein oder langsame Verbindungen haben", 
+            "title": "Anwendungen"
+        }, 
+        {
+            "location": "/Dbs2/11_Replikation/#motivation", 
+            "text": "Hohe Verf\u00fcgarkeit durch Verteilung auf mehrere Nodes  Niedrige Kommunikationskosten  Lastverteilung, dadurch skalierbar  Vorbeugung gegen Datenverlust  Client k\u00f6nnen disconnected sein (Mobile Databases)", 
+            "title": "Motivation"
+        }, 
+        {
+            "location": "/Dbs2/11_Replikation/#korrektheit", 
+            "text": "Leser sollten eine m\u00f6glichst konsistente Kopie der Daten erhalten  Weak Consistency : Version, die der Leser erh\u00e4lt, muss nicht die aktuellste sein  Gibt evtl. parallele \u00c4nderungen, Konflikt-Behebung nachtr\u00e4glich  Asynchrone Replikation  Hohe Performance  Hohe Verf\u00fcgbarkeit (wenig overhead) und Fehlertoleranz    Strong Consistency : Jeder Zugriff liefert neustes transaktionskonsistente Version der Daten  Synchrone Replikation  Benutzt das 2PC-Protokoll, dadurch grosser Overhead  Weniger Fehlertoleranz und Verf\u00fcgbarkeit", 
+            "title": "Korrektheit"
+        }, 
+        {
+            "location": "/Dbs2/11_Replikation/#replikationsarten", 
+            "text": "", 
+            "title": "Replikationsarten"
+        }, 
+        {
+            "location": "/Dbs2/11_Replikation/#master-slave", 
+            "text": "Updates geschehen immer auf dem Primary Node  Alle Updates werden zu Read-only-Subscribers (Slaves) propagiert  Ausfall eines Knotens f\u00fchrt zum Ausfall des ganzen Systems!!", 
+            "title": "Master Slave"
+        }, 
+        {
+            "location": "/Dbs2/11_Replikation/#synchrone-replikation-eager", 
+            "text": "Wenn auf Master eine Transaktion ausgef\u00fchrt wird, wird sie sofort mit 2PC zu den Slaves repliziert  Die Daten werden repliziert,  bevor  das OK zur\u00fcck zur Applikation geschickt wird  So sind die Daten immer konsistent", 
+            "title": "Synchrone Replikation (eager)"
+        }, 
+        {
+            "location": "/Dbs2/11_Replikation/#asynchrone-replikation-lazy", 
+            "text": "Die Transaktion wird zuerst vom Master abgeschlossen  Erst anschliessend werden die Slaves asynchron aktualisiert  Dadurch k\u00f6nnen Konflikte auftreten  H\u00f6here Verf\u00fcgbarkeit  \u00c4nderungen bei Master werden effizienterweise im Log-File erkannt und \u00c4nderungen daraus abgeleitet  Alternative: Jedes Update feuert einen Trigger auf dem Master", 
+            "title": "Asynchrone Replikation (lazy)"
+        }, 
+        {
+            "location": "/Dbs2/11_Replikation/#multi-master", 
+            "text": "Jeder Master kann Update-Operationen ausf\u00fchren  Komplexe Synchronisation, asynchrone Replikation  Konflikte, wenn parallele \u00c4nderungen an verschiedenen Nodes ausgef\u00fchrt werden  Typische Anwendung in HPC", 
+            "title": "Multi-Master"
+        }, 
+        {
+            "location": "/Dbs2/11_Replikation/#synchronisationsprotokolle", 
+            "text": "Read-One, Write-All : Schreibzugriffe werden synchron repliziert, Lesezugriffe asynchron  Majority Protocol : Lesen und Schreiben verlangt Locks auf einer  Mehrheit  der Replikaten  Jedes Replikat kann ein Write-Lock und mehrere Read-Locks haben  Braucht mehr als 2 Knoten    Quorum Consesus Protocol  Verallgemeinerung vom Majority Protocol  Jede Kopie enth\u00e4lt bestimmte Anzahl von Stimmen  Lesen und Schreiben erfordert je eine bestimmte Anzahl Stimmen    Snapshot-Replikation : Einfacheres Verfahren mit schw\u00e4cheren Konsistenzanforderungen  Merge Replikation : Unsychronisierte \u00c4nderungen an mehreren Knoten, mit asynchroner Prograpierung der \u00c4nderungen  Ben\u00f6tigt f\u00fcr disconnected clients  Nachtr\u00e4gliche Konfliktbehandlung      Note  TODO", 
+            "title": "Synchronisationsprotokolle"
+        }, 
+        {
+            "location": "/Dbs2/11_Replikation/#sharding", 
+            "text": "Horizontale Skalierung, also Verteilung der Daten auf mehrere Nodes  Collections werden in Shards aufgeteilt, z.B. nach Wertebereich des Keys oder mit einer Hash-Funktion  Dabei ist ein document immer vollst\u00e4ndig in einem Shard    Requests werden von  mongos , einem Query-Router, zum richtigen Shard geleitet  Der Query-Router entscheidet mit Hilfe von Config servers, wo welche Daten liegen", 
+            "title": "Sharding"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/", 
+            "text": "NoSQL\n\n\nDefinition\n\n\n\n\nKeine klare Definition\n\n\n\"Not only SQL\", \"new SQL\"\n\n\nEinfaches API, horizontal gut skalierbar\n\n\n\n\nCAP and BASE\n\n\n\n\nKlassische Systeme sind fokussiert auf ACID Eigenschaften\n\n\n\"Moderne\" Systeme konzentrieren sich auf BASE\n\n\n\"Basically available\": Jeder Request wird beantwortet, es kann aber auch eine Fehlermeldung sein, oder die Daten k\u00f6nnen inkonsistent sein\n\n\nScalable\n\n\n\"Eventually Consistent\": Nach dem Updaten werden die Daten irgendwann \u00fcberall repliziert sein\n\n\n\n\n\n\n\n\nCAP Theorem\n\n\n\n\nIn einem verteilten System muss man sich zwischen \nConsitency\n und \nAvailability\n entscheiden\n\n\nConsistency\n: Alle Clients haben dieselben Daten, braucht atomarit\u00e4t, transaction isolation\n\n\nAvailability\n: Jeder Request wird beantwortet\n\n\nPartition Tolerance\n: Das System darf nur inkorrekt antworten, wenn es komplett ausf\u00e4llt\n\n\nCAP Theorem\n: Alle drei Kriterien zu erf\u00fcllen, ist \nunm\u00f6glich\n\n\n\n\nKey-Value Database\n\n\n\n\nHash-Table, die nur mit key ansprechbar ist\n\n\nz.B. Redis, Memcached\n\n\nKeys werden gruppiert zu \"Buckets\"\n\n\nNormalerweise wird in einem Bucket nur Values mit gleichem Typ gespeichert, (\"domain bucket\")\n\n\n\n\n\n\n\"Eventually consistent\" in verteilten Systemen\n\n\nAnwendungen: Session-Informationen, User Profiles, Shopping Cart Data\n\n\nNicht geeignet f\u00fcr Beziehungen zwischen Daten\n\n\n\n\nDocument Databases\n\n\n\n\nMapped einen Key zu einem Document\n\n\nEin Document ist meist ein JSON (oder BSON) Objekt\n\n\nz.B. MongoDB, CouchDB\n\n\nDocuments werden in Collections (analog Tables) gespeichert\n\n\nDocuments m\u00fcssen kein festes Schema haben\n\n\n\n\nModeling Herausforderungen\n\n\n\n\nEmbedded Relationships: Beziehungen werden eingebettet, dies verursacht Redundanz (\nDenormalisierung\n)\n\n\nReferencing: Beziehungen werden \u00fcber Referenzen aufgel\u00f6st. In MongoDB wird die Object-ID als \"Fremdschl\u00fcssel\" verwendet\n\n\nNachteil: Aufw\u00e4ndige Joins, muss von Hand gemacht werden\n\n\n\n\n\n\nAnsatz: Daten so modellieren, dass zusammengeh\u00f6rende Daten in ein einziges Document geschrieben werden\n\n\nBsp. Blogpost: Ein Blogpost wird immer als ganzes geladen. Der Text, Autor und die Kommentare kommen also in ein einziges Document\n\n\n\n\n\n\n\n\nMongoDB\n\n\nReplica Set\n\n\n\n\nEs wird ein Primary Node anhand der Priorit\u00e4t oder Rechenpower ausgew\u00e4hlt\n\n\nAlle Requests gehen durch den Primary Node\n\n\nWenn der Primary Node ausf\u00e4llt, machen die anderen Nodes aus, wer den Primary \u00fcbernimmt\n\n\n\n\nConsistency\n\n\n\n\nEin Replica Set sieht eine Write-Operation als komplett an, wenn eine Mehrheit der Nodes diese geschrieben hat\n\n\nRead Concern\n\n\nLocal (default): Es wird einfach die neuste Daten der beantworteten Instanz gelesen\n\n\nMajority: Daten werden \nvon der beantwortenden Instanz\n gelesen, die von einer Mehrheit der Nodes best\u00e4tigt worden ist\n\n\nLinearizable: Returnierende Daten sind garantiert die neusten, die von einer Mehrheit der Nodes akzeptiert worden ist (\"Majority\" hingegen gilt nur auf lokaler Instanz)", 
+            "title": "12 NoSQL"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#nosql", 
+            "text": "", 
+            "title": "NoSQL"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#definition", 
+            "text": "Keine klare Definition  \"Not only SQL\", \"new SQL\"  Einfaches API, horizontal gut skalierbar", 
+            "title": "Definition"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#cap-and-base", 
+            "text": "Klassische Systeme sind fokussiert auf ACID Eigenschaften  \"Moderne\" Systeme konzentrieren sich auf BASE  \"Basically available\": Jeder Request wird beantwortet, es kann aber auch eine Fehlermeldung sein, oder die Daten k\u00f6nnen inkonsistent sein  Scalable  \"Eventually Consistent\": Nach dem Updaten werden die Daten irgendwann \u00fcberall repliziert sein", 
+            "title": "CAP and BASE"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#cap-theorem", 
+            "text": "In einem verteilten System muss man sich zwischen  Consitency  und  Availability  entscheiden  Consistency : Alle Clients haben dieselben Daten, braucht atomarit\u00e4t, transaction isolation  Availability : Jeder Request wird beantwortet  Partition Tolerance : Das System darf nur inkorrekt antworten, wenn es komplett ausf\u00e4llt  CAP Theorem : Alle drei Kriterien zu erf\u00fcllen, ist  unm\u00f6glich", 
+            "title": "CAP Theorem"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#key-value-database", 
+            "text": "Hash-Table, die nur mit key ansprechbar ist  z.B. Redis, Memcached  Keys werden gruppiert zu \"Buckets\"  Normalerweise wird in einem Bucket nur Values mit gleichem Typ gespeichert, (\"domain bucket\")    \"Eventually consistent\" in verteilten Systemen  Anwendungen: Session-Informationen, User Profiles, Shopping Cart Data  Nicht geeignet f\u00fcr Beziehungen zwischen Daten", 
+            "title": "Key-Value Database"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#document-databases", 
+            "text": "Mapped einen Key zu einem Document  Ein Document ist meist ein JSON (oder BSON) Objekt  z.B. MongoDB, CouchDB  Documents werden in Collections (analog Tables) gespeichert  Documents m\u00fcssen kein festes Schema haben", 
+            "title": "Document Databases"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#modeling-herausforderungen", 
+            "text": "Embedded Relationships: Beziehungen werden eingebettet, dies verursacht Redundanz ( Denormalisierung )  Referencing: Beziehungen werden \u00fcber Referenzen aufgel\u00f6st. In MongoDB wird die Object-ID als \"Fremdschl\u00fcssel\" verwendet  Nachteil: Aufw\u00e4ndige Joins, muss von Hand gemacht werden    Ansatz: Daten so modellieren, dass zusammengeh\u00f6rende Daten in ein einziges Document geschrieben werden  Bsp. Blogpost: Ein Blogpost wird immer als ganzes geladen. Der Text, Autor und die Kommentare kommen also in ein einziges Document", 
+            "title": "Modeling Herausforderungen"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#mongodb", 
+            "text": "", 
+            "title": "MongoDB"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#replica-set", 
+            "text": "Es wird ein Primary Node anhand der Priorit\u00e4t oder Rechenpower ausgew\u00e4hlt  Alle Requests gehen durch den Primary Node  Wenn der Primary Node ausf\u00e4llt, machen die anderen Nodes aus, wer den Primary \u00fcbernimmt", 
+            "title": "Replica Set"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#consistency", 
+            "text": "Ein Replica Set sieht eine Write-Operation als komplett an, wenn eine Mehrheit der Nodes diese geschrieben hat  Read Concern  Local (default): Es wird einfach die neuste Daten der beantworteten Instanz gelesen  Majority: Daten werden  von der beantwortenden Instanz  gelesen, die von einer Mehrheit der Nodes best\u00e4tigt worden ist  Linearizable: Returnierende Daten sind garantiert die neusten, die von einer Mehrheit der Nodes akzeptiert worden ist (\"Majority\" hingegen gilt nur auf lokaler Instanz)", 
+            "title": "Consistency"
+        }, 
+        {
             "location": "/Dbs2/1_Exam/", 
             "text": "Some exam notes...", 
             "title": "1 Exam"
@@ -589,66 +704,6 @@
             "location": "/Dbs2/9_Optimierung/#best-practices", 
             "text": "Nur Indexe erstellen, die oft verwendet werden  Indexe auf Prim\u00e4r-, Fremdschl\u00fcssel und Attribute, auf denen h\u00e4ufig Queries ausgef\u00fchrt werden    Info  TODO: SARG-able Queries", 
             "title": "Best Practices"
-        }, 
-        {
-            "location": "/Dbs2/Replikation/", 
-            "text": "Replikation\n\n\nAnwendungen\n\n\n\n\nLoad-Balancing\n\n\nCluster, schnelle Verbindungen\n\n\n\n\n\n\nDistributed geographic Data processing\n\n\nauf verschiedene Standorte verteilt Peer-to-Peer\n\n\nMittelschnelle Verbindung, hohe Verf\u00fcgbarkeit\n\n\n\n\n\n\nReal Time OLAP\n\n\n(Online Analytical Processing)\n\n\nReplikation auf einen Slave, z.B. als Data Warehouse\n\n\n\n\n\n\nWarm Standby\n\n\nMaster-Slave\n\n\nSchnelle, hochverf\u00fcgbare Verbindung\n\n\n\n\n\n\nMobile Datenbanken\n\n\nBei jedem Client liegt eine Kopie der n\u00f6tigen Daten, die mit dem zentralen \"Master\" repliziert werden\n\n\nClients k\u00f6nnen auch offline sein oder langsame Verbindungen haben\n\n\n\n\n\n\n\n\nMotivation\n\n\n\n\nHohe Verf\u00fcgarkeit durch Verteilung auf mehrere Nodes\n\n\nNiedrige Kommunikationskosten\n\n\nLastverteilung, dadurch skalierbar\n\n\nVorbeugung gegen Datenverlust\n\n\nClient k\u00f6nnen disconnected sein (Mobile Databases)\n\n\n\n\nKorrektheit\n\n\n\n\nLeser sollten eine m\u00f6glichst konsistente Kopie der Daten erhalten\n\n\nWeak Consistency\n: Version, die der Leser erh\u00e4lt, muss nicht die aktuellste sein\n\n\nGibt evtl. parallele \u00c4nderungen, Konflikt-Behebung nachtr\u00e4glich\n\n\nAsynchrone Replikation\n\n\nHohe Performance\n\n\nHohe Verf\u00fcgbarkeit (wenig overhead) und Fehlertoleranz\n\n\n\n\n\n\nStrong Consistency\n: Jeder Zugriff liefert neustes transaktionskonsistente Version der Daten\n\n\nSynchrone Replikation\n\n\nBenutzt das 2PC-Protokoll, dadurch grosser Overhead\n\n\nWeniger Fehlertoleranz und Verf\u00fcgbarkeit\n\n\n\n\n\n\n\n\nReplikationsarten\n\n\nMaster Slave\n\n\n\n\nUpdates geschehen immer auf dem Primary Node\n\n\nAlle Updates werden zu Read-only-Subscribers (Slaves) propagiert\n\n\nAusfall eines Knotens f\u00fchrt zum Ausfall des ganzen Systems!!\n\n\n\n\nSynchrone Replikation (eager)\n\n\n\n\nWenn auf Master eine Transaktion ausgef\u00fchrt wird, wird sie sofort mit 2PC zu den Slaves repliziert\n\n\nDie Daten werden repliziert, \nbevor\n das OK zur\u00fcck zur Applikation geschickt wird\n\n\nSo sind die Daten immer konsistent\n\n\n\n\nAsynchrone Replikation (lazy)\n\n\n\n\nDie Transaktion wird zuerst vom Master abgeschlossen\n\n\nErst anschliessend werden die Slaves asynchron aktualisiert\n\n\nDadurch k\u00f6nnen Konflikte auftreten\n\n\nH\u00f6here Verf\u00fcgbarkeit\n\n\n\u00c4nderungen bei Master werden effizienterweise im Log-File erkannt und \u00c4nderungen daraus abgeleitet\n\n\nAlternative: Jedes Update feuert einen Trigger auf dem Master\n\n\n\n\n\n\n\n\nMulti-Master\n\n\n\n\nJeder Master kann Update-Operationen ausf\u00fchren\n\n\nKomplexe Synchronisation, asynchrone Replikation\n\n\nKonflikte, wenn parallele \u00c4nderungen an verschiedenen Nodes ausgef\u00fchrt werden\n\n\nTypische Anwendung in HPC\n\n\n\n\nSynchronisationsprotokolle\n\n\n\n\nRead-One, Write-All\n: Schreibzugriffe werden synchron repliziert, Lesezugriffe asynchron\n\n\nMajority Protocol\n: Lesen und Schreiben verlangt Locks auf einer \nMehrheit\n der Replikaten\n\n\nJedes Replikat kann ein Write-Lock und mehrere Read-Locks haben\n\n\nBraucht mehr als 2 Knoten\n\n\n\n\n\n\nQuorum Consesus Protocol\n\n\nVerallgemeinerung vom Majority Protocol\n\n\nJede Kopie enth\u00e4lt bestimmte Anzahl von Stimmen\n\n\nLesen und Schreiben erfordert je eine bestimmte Anzahl Stimmen\n\n\n\n\n\n\nSnapshot-Replikation\n: Einfacheres Verfahren mit schw\u00e4cheren Konsistenzanforderungen\n\n\nMerge Replikation\n: Unsychronisierte \u00c4nderungen an mehreren Knoten, mit asynchroner Prograpierung der \u00c4nderungen\n\n\nBen\u00f6tigt f\u00fcr disconnected clients\n\n\nNachtr\u00e4gliche Konfliktbehandlung\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nTODO\n\n\n\n\nSharding\n\n\n\n\nHorizontale Skalierung, also Verteilung der Daten auf mehrere Nodes\n\n\nCollections werden in Shards aufgeteilt, z.B. nach Wertebereich des Keys oder mit einer Hash-Funktion\n\n\nDabei ist ein document immer vollst\u00e4ndig in einem Shard\n\n\n\n\n\n\nRequests werden von \nmongos\n, einem Query-Router, zum richtigen Shard geleitet\n\n\nDer Query-Router entscheidet mit Hilfe von Config servers, wo welche Daten liegen", 
-            "title": "Replikation"
-        }, 
-        {
-            "location": "/Dbs2/Replikation/#replikation", 
-            "text": "", 
-            "title": "Replikation"
-        }, 
-        {
-            "location": "/Dbs2/Replikation/#anwendungen", 
-            "text": "Load-Balancing  Cluster, schnelle Verbindungen    Distributed geographic Data processing  auf verschiedene Standorte verteilt Peer-to-Peer  Mittelschnelle Verbindung, hohe Verf\u00fcgbarkeit    Real Time OLAP  (Online Analytical Processing)  Replikation auf einen Slave, z.B. als Data Warehouse    Warm Standby  Master-Slave  Schnelle, hochverf\u00fcgbare Verbindung    Mobile Datenbanken  Bei jedem Client liegt eine Kopie der n\u00f6tigen Daten, die mit dem zentralen \"Master\" repliziert werden  Clients k\u00f6nnen auch offline sein oder langsame Verbindungen haben", 
-            "title": "Anwendungen"
-        }, 
-        {
-            "location": "/Dbs2/Replikation/#motivation", 
-            "text": "Hohe Verf\u00fcgarkeit durch Verteilung auf mehrere Nodes  Niedrige Kommunikationskosten  Lastverteilung, dadurch skalierbar  Vorbeugung gegen Datenverlust  Client k\u00f6nnen disconnected sein (Mobile Databases)", 
-            "title": "Motivation"
-        }, 
-        {
-            "location": "/Dbs2/Replikation/#korrektheit", 
-            "text": "Leser sollten eine m\u00f6glichst konsistente Kopie der Daten erhalten  Weak Consistency : Version, die der Leser erh\u00e4lt, muss nicht die aktuellste sein  Gibt evtl. parallele \u00c4nderungen, Konflikt-Behebung nachtr\u00e4glich  Asynchrone Replikation  Hohe Performance  Hohe Verf\u00fcgbarkeit (wenig overhead) und Fehlertoleranz    Strong Consistency : Jeder Zugriff liefert neustes transaktionskonsistente Version der Daten  Synchrone Replikation  Benutzt das 2PC-Protokoll, dadurch grosser Overhead  Weniger Fehlertoleranz und Verf\u00fcgbarkeit", 
-            "title": "Korrektheit"
-        }, 
-        {
-            "location": "/Dbs2/Replikation/#replikationsarten", 
-            "text": "", 
-            "title": "Replikationsarten"
-        }, 
-        {
-            "location": "/Dbs2/Replikation/#master-slave", 
-            "text": "Updates geschehen immer auf dem Primary Node  Alle Updates werden zu Read-only-Subscribers (Slaves) propagiert  Ausfall eines Knotens f\u00fchrt zum Ausfall des ganzen Systems!!", 
-            "title": "Master Slave"
-        }, 
-        {
-            "location": "/Dbs2/Replikation/#synchrone-replikation-eager", 
-            "text": "Wenn auf Master eine Transaktion ausgef\u00fchrt wird, wird sie sofort mit 2PC zu den Slaves repliziert  Die Daten werden repliziert,  bevor  das OK zur\u00fcck zur Applikation geschickt wird  So sind die Daten immer konsistent", 
-            "title": "Synchrone Replikation (eager)"
-        }, 
-        {
-            "location": "/Dbs2/Replikation/#asynchrone-replikation-lazy", 
-            "text": "Die Transaktion wird zuerst vom Master abgeschlossen  Erst anschliessend werden die Slaves asynchron aktualisiert  Dadurch k\u00f6nnen Konflikte auftreten  H\u00f6here Verf\u00fcgbarkeit  \u00c4nderungen bei Master werden effizienterweise im Log-File erkannt und \u00c4nderungen daraus abgeleitet  Alternative: Jedes Update feuert einen Trigger auf dem Master", 
-            "title": "Asynchrone Replikation (lazy)"
-        }, 
-        {
-            "location": "/Dbs2/Replikation/#multi-master", 
-            "text": "Jeder Master kann Update-Operationen ausf\u00fchren  Komplexe Synchronisation, asynchrone Replikation  Konflikte, wenn parallele \u00c4nderungen an verschiedenen Nodes ausgef\u00fchrt werden  Typische Anwendung in HPC", 
-            "title": "Multi-Master"
-        }, 
-        {
-            "location": "/Dbs2/Replikation/#synchronisationsprotokolle", 
-            "text": "Read-One, Write-All : Schreibzugriffe werden synchron repliziert, Lesezugriffe asynchron  Majority Protocol : Lesen und Schreiben verlangt Locks auf einer  Mehrheit  der Replikaten  Jedes Replikat kann ein Write-Lock und mehrere Read-Locks haben  Braucht mehr als 2 Knoten    Quorum Consesus Protocol  Verallgemeinerung vom Majority Protocol  Jede Kopie enth\u00e4lt bestimmte Anzahl von Stimmen  Lesen und Schreiben erfordert je eine bestimmte Anzahl Stimmen    Snapshot-Replikation : Einfacheres Verfahren mit schw\u00e4cheren Konsistenzanforderungen  Merge Replikation : Unsychronisierte \u00c4nderungen an mehreren Knoten, mit asynchroner Prograpierung der \u00c4nderungen  Ben\u00f6tigt f\u00fcr disconnected clients  Nachtr\u00e4gliche Konfliktbehandlung      Note  TODO", 
-            "title": "Synchronisationsprotokolle"
-        }, 
-        {
-            "location": "/Dbs2/Replikation/#sharding", 
-            "text": "Horizontale Skalierung, also Verteilung der Daten auf mehrere Nodes  Collections werden in Shards aufgeteilt, z.B. nach Wertebereich des Keys oder mit einer Hash-Funktion  Dabei ist ein document immer vollst\u00e4ndig in einem Shard    Requests werden von  mongos , einem Query-Router, zum richtigen Shard geleitet  Der Query-Router entscheidet mit Hilfe von Config servers, wo welche Daten liegen", 
-            "title": "Sharding"
         }, 
         {
             "location": "/EPJ/0_Index/", 
@@ -1176,6 +1231,31 @@
             "title": "4252 DIVA App: M2 Unintended Data Leakage"
         }, 
         {
+            "location": "/InfSi3/hacking-lab/7002_GotRoot/", 
+            "text": "7002 Got Root\n\n\nAnalyse\n\n\n\n\nMit dem \nrestricted\n User ist man in einer Shell gefangen, \ncat\n zum Beispiel funktioniert nicht:\n\n\n\n\n-rbash: /usr/bin/python: restricted: cannot specify `/\n in command names\n\n\n\n\n\n\n\nOffensichtlich ist man in einer \nrbash\n. Im \"home\"-Verzeichnis liegt folgendes:\n\n\n\n\n$ ls -la\ndrwx------ \n3\n restricted users \n4096\n \n2012\n-04-12 \n12\n:43 .\ndrwxr-xr-x \n6\n root       root  \n4096\n \n2008\n-11-13 \n16\n:54 ..\n-rw------- \n1\n restricted users  \n883\n \n2012\n-04-12 \n12\n:52 .bash_history\n-rw-r--r-- \n1\n restricted users   \n39\n \n2007\n-09-12 \n12\n:27 .bashrc\ndr-xr-xr-x \n2\n root       root  \n4096\n \n2007\n-09-12 \n11\n:50 bin\nlrwxrwxrwx \n1\n root       root     \n7\n \n2008\n-11-13 \n10\n:18 .profile -\n .bashrc\n\n\n\n\n\n\n\nMit \nls -la bin/\n sehen wir, dass wir \ntee\n, \nls\n und \nping\n ausf\u00fchren k\u00f6nnen\n\n\nDie \n.bashrc\n wird bei jedem Login ausgef\u00fchrt, und als \nrestricted\n User haben wir Schreibrechte drauf\n\n\n\n\nExploit\n\n\n\n\nMit \ntee\n k\u00f6nnen wir die \n.bashrc\n \u00fcberschreiben\n\n\n\n\necho\n \n/bin/sh\n \n|\n tee .bashrc\n\n\n\n\n\n\n\nWenn wir jetzt eine sepparate SSH-Session aufmachen, wird \n/bin/sh\n ausgef\u00fchrt, und wir sind in einer normalen Shell\n\n\nVon do k\u00f6nnen wir den Exploit von \nhttp://www.exploit-db.com/exploits/18105/\n benutzen\n\n\ncat \n exploit.sh \n EOF\n\n\nExploit einf\u00fcgen\n\n\nEOF\n\n\nchmod +x exploit.sh\n\n\n./exploit.sh\n\n\n\n\n\n\n\n\n\n(im Bild heisst der exploit \nnothing.sh\n und wurde schon in der rbash hinein kopiert)\n\n\nsecret.txt:\n\n\nTEAM X GOTROOT\n\nID: GOTROOT\n\n____________________________________________________________\nJe unschuldiger ein M\u00e4dchen ist, desto weniger weiss sie\nvon den Methoden der Verf\u00fchrung. Bevor sie Zeit hat nachzu-\ndenken, zieht Begehren sie an, Neugier noch mehr und Gelegen-\nheit macht den Rest...\n(Casanova)\n\nI love you all \nE1\n\n\n\n\n\nRemediation\n\n\n\n\nDas File \n.bashrc\n muss zwar vom \nrestricted\n User ausgef\u00fchrt werden k\u00f6nnen, er braucht aber keine Schreibberechtigung darauf. Eine Berechtigung von \n400\n w\u00fcrde reichen, dann k\u00f6nnte er die Datei nicht mehr \u00fcberschreiben\n\n\nNat\u00fcrlich ist dieser Exploit nur mit einer alten Version von \nglibc\n m\u00f6glich", 
+            "title": "7002 GotRoot"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/7002_GotRoot/#7002-got-root", 
+            "text": "", 
+            "title": "7002 Got Root"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/7002_GotRoot/#analyse", 
+            "text": "Mit dem  restricted  User ist man in einer Shell gefangen,  cat  zum Beispiel funktioniert nicht:   -rbash: /usr/bin/python: restricted: cannot specify `/  in command names   Offensichtlich ist man in einer  rbash . Im \"home\"-Verzeichnis liegt folgendes:   $ ls -la\ndrwx------  3  restricted users  4096   2012 -04-12  12 :43 .\ndrwxr-xr-x  6  root       root   4096   2008 -11-13  16 :54 ..\n-rw-------  1  restricted users   883   2012 -04-12  12 :52 .bash_history\n-rw-r--r--  1  restricted users    39   2007 -09-12  12 :27 .bashrc\ndr-xr-xr-x  2  root       root   4096   2007 -09-12  11 :50 bin\nlrwxrwxrwx  1  root       root      7   2008 -11-13  10 :18 .profile -  .bashrc   Mit  ls -la bin/  sehen wir, dass wir  tee ,  ls  und  ping  ausf\u00fchren k\u00f6nnen  Die  .bashrc  wird bei jedem Login ausgef\u00fchrt, und als  restricted  User haben wir Schreibrechte drauf", 
+            "title": "Analyse"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/7002_GotRoot/#exploit", 
+            "text": "Mit  tee  k\u00f6nnen wir die  .bashrc  \u00fcberschreiben   echo   /bin/sh   |  tee .bashrc   Wenn wir jetzt eine sepparate SSH-Session aufmachen, wird  /bin/sh  ausgef\u00fchrt, und wir sind in einer normalen Shell  Von do k\u00f6nnen wir den Exploit von  http://www.exploit-db.com/exploits/18105/  benutzen  cat   exploit.sh   EOF  Exploit einf\u00fcgen  EOF  chmod +x exploit.sh  ./exploit.sh     \n(im Bild heisst der exploit  nothing.sh  und wurde schon in der rbash hinein kopiert)  secret.txt:  TEAM X GOTROOT\n\nID: GOTROOT\n\n____________________________________________________________\nJe unschuldiger ein M\u00e4dchen ist, desto weniger weiss sie\nvon den Methoden der Verf\u00fchrung. Bevor sie Zeit hat nachzu-\ndenken, zieht Begehren sie an, Neugier noch mehr und Gelegen-\nheit macht den Rest...\n(Casanova)\n\nI love you all \nE1", 
+            "title": "Exploit"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/7002_GotRoot/#remediation", 
+            "text": "Das File  .bashrc  muss zwar vom  restricted  User ausgef\u00fchrt werden k\u00f6nnen, er braucht aber keine Schreibberechtigung darauf. Eine Berechtigung von  400  w\u00fcrde reichen, dann k\u00f6nnte er die Datei nicht mehr \u00fcberschreiben  Nat\u00fcrlich ist dieser Exploit nur mit einer alten Version von  glibc  m\u00f6glich", 
+            "title": "Remediation"
+        }, 
+        {
             "location": "/ParProg/0_Index/", 
             "text": "Parallele Programmierung\n\n\n\n\nExam Notes\n\n\nMulti-Threading Grundlagen\n\n\nThread Synchronisation\n\n\nSynchronisationsprimitiven\n\n\nGefahren der Nebenl\u00e4ufigket\n\n\nThread Pools", 
             "title": "0 Index"
@@ -1204,6 +1284,51 @@
             "location": "/ParProg/10_Actor_Model/#actor-hierarchies", 
             "text": "Wenn ein Actor weitere Actors erstellt, ist er \"parent\" davon und zust\u00e4ndig  Broadcast-Messsages \u00fcber ActorSelectors", 
             "title": "Actor Hierarchies"
+        }, 
+        {
+            "location": "/ParProg/11_GPU_Parallelisierung/", 
+            "text": "GPU Parallelisierung\n\n\nVorteile Actor Model\n\n\n\n\nKein Shared Memory\n\n\nKeine Data Races\n\n\nDistributed Concurrency - Beliebige Verteilung auf mehrere Systeme\n\n\nParallelisierung ist inh\u00e4rent eingebaut, man braucht keine Synchronisationsprimitiven\n\n\n\n\nZiel\n\n\n\n\nGPUs haben viele Cores, aber sie sind langsam und spezifisch (nicht \"general-purpose)\n\n\nZiel ist also m\u00f6glicht hohe Parallelisierung\n\n\n\n\nGPU Prozessarchitektur\n\n\n\n\nALU f\u00fchrt Rechenoperationen durch\n\n\nIm einer CPU werden relativ wenig Transistoren f\u00fcr die ALU eingesetzt\n\n\nAuf einer GPU ist der gr\u00f6sste Teil Transistoren f\u00fcr ALUs, daf\u00fcr sind diese primitver, z.B. wird nur wenig Caching eingesetzt\n\n\nEine GPU besteht aus mehreren SM (Streaming Multiprocessor), die selbst aus mehreren (z.B. 32 oder 64) Cores bestehen\n\n\ndie Cores in einer SM sind f\u00fcr sich selbst nicht f\u00e4hig f\u00fcr Operationen\n\n\nEine Instruktion wird von einer SM ausgef\u00fchrt, diese wird dann von jedem Core im SM gleichzeitig ausgef\u00fchrt auf unterschiedlichen Datenstellen\n\n\nNormale Operationen werden ausgef\u00fchrt in sequentiellen Reihenfolge fetch - decode - execute - write back\n\n\n\n\n\n\nGPU-Parallelit\u00e4t eignen sich gut f\u00fcr Blockweise Operationen, wenn viele gleiche Berechnungen durchgef\u00fchrt werden, z.B. Video Gaming\n\n\nEignet sich hingegen nicht f\u00fcr komplizierte Verzweigungen, z.B. Schach-Computer\n\n\n\n\n\n\n\n\nNUMA Modell\n\n\n\n\nNon-Uniform Memory Access\n\n\nKein gemeinsamer Speicher zwischen CPU und GPU\n\n\nUnterschiedlicher Instruktionssatz zwischen CPU und CPU\n\n\nCode f\u00fcr GPU und CPU sepparat kompilieren\n\n\n\n\n\n\n\n\nCUDA\n\n\n\n\nPropriet\u00e4re API / Compiler f\u00fcr C/C++ \nf\u00fcr NVIDIA Karten\n\n\n\n\nVideo-Computing und CUDA werden parallel in einem Thread-Pool ausgef\u00fchrt\n\n\n\n\n\n\nCode f\u00fcr GPU wird speziell ausgezeichnet\n\n\n\n\nEin Kernel (Methode) wird von mehreren Threads ausgef\u00fchrt\n\n\nThread-index wird mit \nthreadIdx.x\n abgerufen (\nx\n ist koordinate)\n\n\n\n\n__global__\n\n\nvoid\n \nVectorAddKernel\n(\nfloat\n \n*\nA\n,\n \nfloat\n \n*\nB\n,\n \nfloat\n \n*\nC\n)\n \n{\n\n    \nint\n \ni\n \n=\n \nthreadIdx\n.\nx\n;\n\n    \nC\n[\ni\n]\n \n=\n \nA\n[\ni\n]\n \n+\n \nB\n[\ni\n];\n\n\n}\n\n\n\n\n\n\nThreads\n\n\n\n\nThreads sind gruppiert in Bl\u00f6cke, ein Block ist im Hintergrund immer auf einem Streaming Multiprocessor\n\n\nInnerhalb eines Blocks k\u00f6nnen Threads untereinander kommunizieren\n\n\nEin Thread ist ein virtueller Skalarprozessor\n\n\nThread-Bl\u00f6cke m\u00fcssen unabh\u00e4ngig sein\n\n\nBl\u00f6cke werden mit Thread-Pool auf die verschiedenen Streaming-Prozessoren verteilt\n\n\nEin Block ist quasi ein \"Task\"\n\n\n\n\n\n\nEin Grid ist eine Gruppe von Block, meist ein Programm\n\n\nAufteilung in Blocks und Threads wird vom Programmiere modelliert\n\n\nz.B. globalen Index ermittel mit \ni = threadIdx.x + blockDim.x * blockIdx.x\n\n\nIm Aufruf des Kernels angeben, wie es ausgef\u00fchrt werden soll. \n4, 512\n heisst 4 Bl\u00f6cke zu je 512 Threads\n\n\n\n\n\n\n\n\nAusf\u00fchrung\n\n\n\n\nSpeicher muss auf auch der GPU alloziert werden und hin und her von Host- zu Device-Memory kopiert werden\n\n\nDiese Schritte m\u00fcssen manuell im Code gemacht werden", 
+            "title": "11 GPU Parallelisierung"
+        }, 
+        {
+            "location": "/ParProg/11_GPU_Parallelisierung/#gpu-parallelisierung", 
+            "text": "", 
+            "title": "GPU Parallelisierung"
+        }, 
+        {
+            "location": "/ParProg/11_GPU_Parallelisierung/#vorteile-actor-model", 
+            "text": "Kein Shared Memory  Keine Data Races  Distributed Concurrency - Beliebige Verteilung auf mehrere Systeme  Parallelisierung ist inh\u00e4rent eingebaut, man braucht keine Synchronisationsprimitiven", 
+            "title": "Vorteile Actor Model"
+        }, 
+        {
+            "location": "/ParProg/11_GPU_Parallelisierung/#ziel", 
+            "text": "GPUs haben viele Cores, aber sie sind langsam und spezifisch (nicht \"general-purpose)  Ziel ist also m\u00f6glicht hohe Parallelisierung", 
+            "title": "Ziel"
+        }, 
+        {
+            "location": "/ParProg/11_GPU_Parallelisierung/#gpu-prozessarchitektur", 
+            "text": "ALU f\u00fchrt Rechenoperationen durch  Im einer CPU werden relativ wenig Transistoren f\u00fcr die ALU eingesetzt  Auf einer GPU ist der gr\u00f6sste Teil Transistoren f\u00fcr ALUs, daf\u00fcr sind diese primitver, z.B. wird nur wenig Caching eingesetzt  Eine GPU besteht aus mehreren SM (Streaming Multiprocessor), die selbst aus mehreren (z.B. 32 oder 64) Cores bestehen  die Cores in einer SM sind f\u00fcr sich selbst nicht f\u00e4hig f\u00fcr Operationen  Eine Instruktion wird von einer SM ausgef\u00fchrt, diese wird dann von jedem Core im SM gleichzeitig ausgef\u00fchrt auf unterschiedlichen Datenstellen  Normale Operationen werden ausgef\u00fchrt in sequentiellen Reihenfolge fetch - decode - execute - write back    GPU-Parallelit\u00e4t eignen sich gut f\u00fcr Blockweise Operationen, wenn viele gleiche Berechnungen durchgef\u00fchrt werden, z.B. Video Gaming  Eignet sich hingegen nicht f\u00fcr komplizierte Verzweigungen, z.B. Schach-Computer", 
+            "title": "GPU Prozessarchitektur"
+        }, 
+        {
+            "location": "/ParProg/11_GPU_Parallelisierung/#numa-modell", 
+            "text": "Non-Uniform Memory Access  Kein gemeinsamer Speicher zwischen CPU und GPU  Unterschiedlicher Instruktionssatz zwischen CPU und CPU  Code f\u00fcr GPU und CPU sepparat kompilieren", 
+            "title": "NUMA Modell"
+        }, 
+        {
+            "location": "/ParProg/11_GPU_Parallelisierung/#cuda", 
+            "text": "Propriet\u00e4re API / Compiler f\u00fcr C/C++  f\u00fcr NVIDIA Karten   Video-Computing und CUDA werden parallel in einem Thread-Pool ausgef\u00fchrt    Code f\u00fcr GPU wird speziell ausgezeichnet   Ein Kernel (Methode) wird von mehreren Threads ausgef\u00fchrt  Thread-index wird mit  threadIdx.x  abgerufen ( x  ist koordinate)   __global__  void   VectorAddKernel ( float   * A ,   float   * B ,   float   * C )   { \n     int   i   =   threadIdx . x ; \n     C [ i ]   =   A [ i ]   +   B [ i ];  }", 
+            "title": "CUDA"
+        }, 
+        {
+            "location": "/ParProg/11_GPU_Parallelisierung/#threads", 
+            "text": "Threads sind gruppiert in Bl\u00f6cke, ein Block ist im Hintergrund immer auf einem Streaming Multiprocessor  Innerhalb eines Blocks k\u00f6nnen Threads untereinander kommunizieren  Ein Thread ist ein virtueller Skalarprozessor  Thread-Bl\u00f6cke m\u00fcssen unabh\u00e4ngig sein  Bl\u00f6cke werden mit Thread-Pool auf die verschiedenen Streaming-Prozessoren verteilt  Ein Block ist quasi ein \"Task\"    Ein Grid ist eine Gruppe von Block, meist ein Programm  Aufteilung in Blocks und Threads wird vom Programmiere modelliert  z.B. globalen Index ermittel mit  i = threadIdx.x + blockDim.x * blockIdx.x  Im Aufruf des Kernels angeben, wie es ausgef\u00fchrt werden soll.  4, 512  heisst 4 Bl\u00f6cke zu je 512 Threads", 
+            "title": "Threads"
+        }, 
+        {
+            "location": "/ParProg/11_GPU_Parallelisierung/#ausfuhrung", 
+            "text": "Speicher muss auf auch der GPU alloziert werden und hin und her von Host- zu Device-Memory kopiert werden  Diese Schritte m\u00fcssen manuell im Code gemacht werden", 
+            "title": "Ausf\u00fchrung"
         }, 
         {
             "location": "/ParProg/1_Exam/", 
@@ -1982,7 +2107,7 @@
         }, 
         {
             "location": "/Vss/10_Naming/", 
-            "text": "Naming\n\n\n\n\nName things to find Resources that interest me\n\n\nAssign names to entities to identify them, e.g. assign phone numbers to customers\n\n\nName Resolution is the problem of accessing a resource using a name\n\n\n\n\nNaming in a Distributed System\n\n\n\n\ne.g. processes on a single computer\n\n\na centralized name resolution for the telephone system would be a single phonebook in existence\n\n\nnot robust (what if you lose it?)\n\n\nnot scalable\n\n\nhigh \"network latency\"\n\n\n\n\n\n\nPossible Solution: Hand everyone a copy -\n Distributed Name Resolution System\n\n\n\n\nTerminology\n\n\n\n\nNormally, each entity (e.g. a person) has an access point (e.g. a phone) through which the entity can be accessed\n\n\nName\n: String to identify an entity\n\n\nEntity\n: Physical or logical object\n\n\nAccess Point\n: Entity that is used to access another entity\n\n\nOften given through physical connection, e.g. a customers owns his phone\n\n\n\n\n\n\nAddress\n: Name of an Access Point\n\n\noften defined at another level, e.g. a MAC-Adress to a NIC\n\n\n\n\n\n\nAdvantages\n\n\nVery flexible: Adress and access points can change, but it is still accessible through it's name\n\n\nEntity can listen to multiple access points\n\n\n\n\n\n\nLocation Independent Name\n: Name is independent of address\n\n\n\n\nNaming Overview\n\n\nFlat Naming\n\n\n\n\nNames are unstructured identifiers\n\n\nNames may have internal structure, but it's not used in name resolution (e.g. IP-Adress)\n\n\nUsed with broadcasting\n\n\nEvery entity knows it's (flat) name and address\n\n\nResolution is done with broadcasting: \"Where is X?\" - X answers with his address\n\n\n\n\n\n\nUsed in ARP\n\n\nPros\n\n\nSimplicity\n\n\nLocation independent\n\n\n\n\n\n\nCons\n\n\nNot scalable, e.g. wouldn't work for a phone system\n\n\nEasy to impersonate someone else\n\n\n\n\n\n\n\n\nStructured Naming\n\n\n\n\nNames are hierarchical structured\n\n\nName represents a path in a tree, e.g. \nunterricht.hsr.ch\n\n\nResolution is split into sepparate layers with different responsibilities\n\n\ne.g. DNS\n\n\nHighly scalable\n\n\n\n\nAttribute-based Naming", 
+            "text": "Naming\n\n\n\n\nName things to find Resources that interest me\n\n\nAssign names to entities to identify them, e.g. assign phone numbers to customers\n\n\nName Resolution is the problem of accessing a resource using a name\n\n\n\n\nNaming in a Distributed System\n\n\n\n\ne.g. processes on a single computer\n\n\na centralized name resolution for the telephone system would be a single phonebook in existence\n\n\nnot robust (what if you lose it?)\n\n\nnot scalable\n\n\nhigh \"network latency\"\n\n\n\n\n\n\nPossible Solution: Hand everyone a copy -\n Distributed Name Resolution System\n\n\n\n\nTerminology\n\n\n\n\nNormally, each entity (e.g. a person) has an access point (e.g. a phone) through which the entity can be accessed\n\n\nName\n: String to identify an entity\n\n\nEntity\n: Physical or logical object\n\n\nAccess Point\n: Entity that is used to access another entity\n\n\nOften given through physical connection, e.g. a customers owns his phone\n\n\n\n\n\n\nAddress\n: Name of an Access Point\n\n\noften defined at another level, e.g. a MAC-Adress to a NIC\n\n\n\n\n\n\nAdvantages\n\n\nVery flexible: Adress and access points can change, but it is still accessible through it's name\n\n\nEntity can listen to multiple access points\n\n\n\n\n\n\nLocation Independent Name\n: Name is independent of address\n\n\n\n\nNaming Overview\n\n\nFlat Naming\n\n\n\n\nNames are unstructured identifiers\n\n\nNames may have internal structure, but it's not used in name resolution (e.g. IP-Adress)\n\n\nUsed with broadcasting\n\n\nEvery entity knows it's (flat) name and address\n\n\nResolution is done with broadcasting: \"Where is X?\" - X answers with his address\n\n\n\n\n\n\nUsed in ARP\n\n\nPros\n\n\nSimplicity\n\n\nLocation independent\n\n\n\n\n\n\nCons\n\n\nNot scalable, e.g. wouldn't work for a phone system\n\n\nEasy to impersonate someone else\n\n\n\n\n\n\n\n\nStructured Naming\n\n\n\n\nNames are hierarchical structured\n\n\nName represents a path in a tree, e.g. \nunterricht.hsr.ch\n\n\nResolution is split into sepparate layers with different responsibilities\n\n\ne.g. DNS\n\n\nHighly scalable\n\n\n\n\nIterative Resolution\n\n\n\n\nLike DNS, every step the client has to ask first the root, then its child, and so on...\n\n\nUses more resources on the server, but better caching is possible\n\n\n\n\nRecursive Resolution\n\n\n\n\nThe client just sends its request to the root, which then recursively resolves the complete name before returning the result\n\n\n\n\nAttribute-based Naming\n\n\n\n\nThe user searches for entities based on a description\n\n\nSearch is performed with attribute-value-pairs\n\n\nused in Directory Services\n\n\nEach entry is a collection of attributes\n\n\n\n\n\n\nin LDAP, each Entry has a Distinguished Name \nDN\n\n\nentries build ab hierarichal trees\n\n\n\n\n\n\n\n\nCase Study: Bonjour / Zeroconf\n\n\n\n\nAllows to add and use devices in a network without manual configuration\n\n\ncombines various protocols like DHCP, mDNS, SDP (Service Discovery Protocol)\n\n\nOnly works in a local network, users must trust the entire network!\n\n\n\n\n\u00dcbung 10\n\n\n\n\nKE1: Give an example of where an address of an entity E needs to be further resolved into another address to actually access E.\n\n\n\n\nDNS-ARP: A name is resolved to an IP, which needs to be resolved into a MAC-Adress\n\n\n\n\nKE2: Would you consider a URL such as http://www.acme.org/index.html to be location independent? What about http://www.acme.nl/index.html?\n\n\n\n\nNo, they are both not location-independent, because the name contains a structure to determine its location. If it ends in \norg\n or \nnl\n is irrelevant here.\n\n\n\n\nKE3: Give some examples of true identifiers.\n\n\n\n\n- MAC-Adresses (at least in theory)\n\n\n\n\nKE4: Is an identifier allowed to contain information on the entity it refers to?\n\n\n\n\nyes, as long as it is unique\n\n\n\n\nKE5: Outline an efficient implementation of globally unique identifiers.\n\n\nKE6: Consider the Chord system as shown in Fig. 5-4 (ch. 5 in Tannenbaum et al.) and assume that node 7 has just joined the network. What would its finger table be and would there be any changes to other finger tables?\n\n\n\n\n\n\nIts finger table would contain \n{1, 1, 5}\n (same as \np6\n before)\n\n\nThe finger table of \np7\ns predecessor (\np6\n) has to be changed to \n{7, 1, 5}\n\n\n\n\n\n\nKE7: If we insert a node into a Chord system, do we need to instantly update all the finger tables?\n\n\nKE8: High-level name servers in DNS, that is, name servers implementing nodes in the DNS name space that are close to the root, generally do not support recursive name resolution. Can we expect much performance improvement if they did?\n\n\n\n\nNo, this would mean a huge increase in server resource requirement\n\n\n\n\nKE9: Explain how DNS can be used to implement a home-based approach to locating mobile hosts.", 
             "title": "10 Naming"
         }, 
         {
@@ -2016,9 +2141,34 @@
             "title": "Structured Naming"
         }, 
         {
+            "location": "/Vss/10_Naming/#iterative-resolution", 
+            "text": "Like DNS, every step the client has to ask first the root, then its child, and so on...  Uses more resources on the server, but better caching is possible", 
+            "title": "Iterative Resolution"
+        }, 
+        {
+            "location": "/Vss/10_Naming/#recursive-resolution", 
+            "text": "The client just sends its request to the root, which then recursively resolves the complete name before returning the result", 
+            "title": "Recursive Resolution"
+        }, 
+        {
             "location": "/Vss/10_Naming/#attribute-based-naming", 
-            "text": "", 
+            "text": "The user searches for entities based on a description  Search is performed with attribute-value-pairs  used in Directory Services  Each entry is a collection of attributes    in LDAP, each Entry has a Distinguished Name  DN  entries build ab hierarichal trees", 
             "title": "Attribute-based Naming"
+        }, 
+        {
+            "location": "/Vss/10_Naming/#case-study-bonjour-zeroconf", 
+            "text": "Allows to add and use devices in a network without manual configuration  combines various protocols like DHCP, mDNS, SDP (Service Discovery Protocol)  Only works in a local network, users must trust the entire network!", 
+            "title": "Case Study: Bonjour / Zeroconf"
+        }, 
+        {
+            "location": "/Vss/10_Naming/#ubung-10", 
+            "text": "KE1: Give an example of where an address of an entity E needs to be further resolved into another address to actually access E.   DNS-ARP: A name is resolved to an IP, which needs to be resolved into a MAC-Adress   KE2: Would you consider a URL such as http://www.acme.org/index.html to be location independent? What about http://www.acme.nl/index.html?   No, they are both not location-independent, because the name contains a structure to determine its location. If it ends in  org  or  nl  is irrelevant here.   KE3: Give some examples of true identifiers.", 
+            "title": "\u00dcbung 10"
+        }, 
+        {
+            "location": "/Vss/10_Naming/#-mac-adresses-at-least-in-theory", 
+            "text": "KE4: Is an identifier allowed to contain information on the entity it refers to?   yes, as long as it is unique   KE5: Outline an efficient implementation of globally unique identifiers.  KE6: Consider the Chord system as shown in Fig. 5-4 (ch. 5 in Tannenbaum et al.) and assume that node 7 has just joined the network. What would its finger table be and would there be any changes to other finger tables?    Its finger table would contain  {1, 1, 5}  (same as  p6  before)  The finger table of  p7 s predecessor ( p6 ) has to be changed to  {7, 1, 5}    KE7: If we insert a node into a Chord system, do we need to instantly update all the finger tables?  KE8: High-level name servers in DNS, that is, name servers implementing nodes in the DNS name space that are close to the root, generally do not support recursive name resolution. Can we expect much performance improvement if they did?   No, this would mean a huge increase in server resource requirement   KE9: Explain how DNS can be used to implement a home-based approach to locating mobile hosts.", 
+            "title": "- MAC-Adresses (at least in theory)"
         }, 
         {
             "location": "/Vss/1_Exam/", 
