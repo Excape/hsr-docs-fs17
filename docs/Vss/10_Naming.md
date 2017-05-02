@@ -46,4 +46,63 @@
 - e.g. DNS
 - Highly scalable
 
-## Attribute-based Naming
+#### Iterative Resolution
+- Like DNS, every step the client has to ask first the root, then its child, and so on...
+- Uses more resources on the server, but better caching is possible
+
+#### Recursive Resolution
+- The client just sends its request to the root, which then recursively resolves the complete name before returning the result
+
+
+### Attribute-based Naming
+- The user searches for entities based on a description
+- Search is performed with attribute-value-pairs
+- used in Directory Services
+    - Each entry is a collection of attributes
+- in LDAP, each Entry has a Distinguished Name `DN`
+    - entries build ab hierarichal trees
+
+## Case Study: Bonjour / Zeroconf
+- Allows to add and use devices in a network without manual configuration
+- combines various protocols like DHCP, mDNS, SDP (Service Discovery Protocol)
+- Only works in a local network, users must trust the entire network!
+
+## Übung 10
+> KE1: Give an example of where an address of an entity E needs to be further resolved into another address to actually access E.
+
+DNS-ARP: A name is resolved to an IP, which needs to be resolved into a MAC-Adress
+
+> KE2: Would you consider a URL such as http://www.acme.org/index.html to be location independent? What about http://www.acme.nl/index.html?
+
+No, they are both not location-independent, because the name contains a structure to determine its location. If it ends in `org` or `nl` is irrelevant here.
+
+> KE3: Give some examples of true identifiers.
+
+- MAC-Adresses (at least in theory)
+-
+
+> KE4: Is an identifier allowed to contain information on the entity it refers to?
+
+yes, as long as it is unique
+
+> KE5: Outline an efficient implementation of globally unique identifiers.
+
+
+
+> KE6: Consider the Chord system as shown in Fig. 5-4 (ch. 5 in Tannenbaum et al.) and assume that node 7 has just joined the network. What would its finger table be and would there be any changes to other finger tables?
+
+- Its finger table would contain `{1, 1, 5}` (same as `p6` before)
+- The finger table of `p7`s predecessor (`p6`) has to be changed to `{7, 1, 5}`
+
+> KE7: If we insert a node into a Chord system, do we need to instantly update all the finger tables?
+
+
+
+> KE8: High-level name servers in DNS, that is, name servers implementing nodes in the DNS name space that are close to the root, generally do not support recursive name resolution. Can we expect much performance improvement if they did?
+
+No, this would mean a huge increase in server resource requirement
+
+> KE9: Explain how DNS can be used to implement a home-based approach to locating mobile hosts.
+
+
+
