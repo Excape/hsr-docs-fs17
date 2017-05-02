@@ -5,3 +5,8 @@
 4. [Synchronisationsprimitiven](4_Synchronisationsprimitiven.md)
 5. [Gefahren der Nebenläufigket](5_Gefahren.md)
 6. [Thread Pools](6_Thread_Pools.md)
+7. [Task Parallel Library](7_Task_Parallel_Library.md)
+8. [GUI Threading](8_GUI_Threading.md)
+9. [Memory Models](9_Memory_Models.md)
+10. [Actor Model](10_Actor_Model.md)
+11. [GPU Parallelisierung](11_GPU_Parallelisierung.md)

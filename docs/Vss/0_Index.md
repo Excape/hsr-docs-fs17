@@ -5,3 +5,7 @@
 4. [Asynchronous Messaging](4_Asynchronous_Messaging.md)
 5. [RMI and Web-Services](5_RMI_Web-Services.md)
 6. [Design for Performance](6_Design_for_Performance.md)
+7. [Scalability and Availability](7_Scalability_Availability.md)
+8. [VSS Management](8_Vss_Management.md)
+9. [CFIA](9_CFIA.md)
+10. [Naming](10_Naming.md)

@@ -5,3 +5,8 @@
 4. [Triggers](4_Triggers.md)
 5. [Views](5_Views.md)
 6. [Datenstrukturen](6_Datenstrukturen.md)
+8. [Interne Ebene](8_Interne_Ebene.md)
+9. [Optimierung](9_Optimierung.md)
+10. [Verteilte Datenbanken](10_Verteilte_DB.md)
+11. [Replikation](11_Replikation.md)
+12. [NoSQL](12_NoSQL.md)

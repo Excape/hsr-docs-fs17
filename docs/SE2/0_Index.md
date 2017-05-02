@@ -4,3 +4,6 @@
 3. [Software Engineering Practises](3_SE_Practises.md)
 4. [Error Handling Design](4_Error_Handling_Design.md)
 5. [Design by Contract](5_Design_by_Contract.md)
+6. [Story Splitting](6_Story_Splitting.md)
+7. [Testing](7_Testing.md)
+8. [Metriken](8_Metriken.md)
