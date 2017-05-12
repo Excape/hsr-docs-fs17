@@ -192,7 +192,7 @@
         }, 
         {
             "location": "/Dbs2/12_NoSQL/", 
-            "text": "NoSQL\n\n\nDefinition\n\n\n\n\nKeine klare Definition\n\n\n\"Not only SQL\", \"new SQL\"\n\n\nEinfaches API, horizontal gut skalierbar\n\n\n\n\nCAP and BASE\n\n\n\n\nKlassische Systeme sind fokussiert auf ACID Eigenschaften\n\n\n\"Moderne\" Systeme konzentrieren sich auf BASE\n\n\n\"Basically available\": Jeder Request wird beantwortet, es kann aber auch eine Fehlermeldung sein, oder die Daten k\u00f6nnen inkonsistent sein\n\n\nScalable\n\n\n\"Eventually Consistent\": Nach dem Updaten werden die Daten irgendwann \u00fcberall repliziert sein\n\n\n\n\n\n\n\n\nCAP Theorem\n\n\n\n\nIn einem verteilten System muss man sich zwischen \nConsitency\n und \nAvailability\n entscheiden\n\n\nConsistency\n: Alle Clients haben dieselben Daten, braucht atomarit\u00e4t, transaction isolation\n\n\nAvailability\n: Jeder Request wird beantwortet\n\n\nPartition Tolerance\n: Das System darf nur inkorrekt antworten, wenn es komplett ausf\u00e4llt\n\n\nCAP Theorem\n: Alle drei Kriterien zu erf\u00fcllen, ist \nunm\u00f6glich\n\n\n\n\nKey-Value Database\n\n\n\n\nHash-Table, die nur mit key ansprechbar ist\n\n\nz.B. Redis, Memcached\n\n\nKeys werden gruppiert zu \"Buckets\"\n\n\nNormalerweise wird in einem Bucket nur Values mit gleichem Typ gespeichert, (\"domain bucket\")\n\n\n\n\n\n\n\"Eventually consistent\" in verteilten Systemen\n\n\nAnwendungen: Session-Informationen, User Profiles, Shopping Cart Data\n\n\nNicht geeignet f\u00fcr Beziehungen zwischen Daten\n\n\n\n\nDocument Databases\n\n\n\n\nMapped einen Key zu einem Document\n\n\nEin Document ist meist ein JSON (oder BSON) Objekt\n\n\nz.B. MongoDB, CouchDB\n\n\nDocuments werden in Collections (analog Tables) gespeichert\n\n\nDocuments m\u00fcssen kein festes Schema haben\n\n\n\n\nModeling Herausforderungen\n\n\n\n\nEmbedded Relationships: Beziehungen werden eingebettet, dies verursacht Redundanz (\nDenormalisierung\n)\n\n\nReferencing: Beziehungen werden \u00fcber Referenzen aufgel\u00f6st. In MongoDB wird die Object-ID als \"Fremdschl\u00fcssel\" verwendet\n\n\nNachteil: Aufw\u00e4ndige Joins, muss von Hand gemacht werden\n\n\n\n\n\n\nAnsatz: Daten so modellieren, dass zusammengeh\u00f6rende Daten in ein einziges Document geschrieben werden\n\n\nBsp. Blogpost: Ein Blogpost wird immer als ganzes geladen. Der Text, Autor und die Kommentare kommen also in ein einziges Document\n\n\n\n\n\n\n\n\nMongoDB\n\n\nReplica Set\n\n\n\n\nEs wird ein Primary Node anhand der Priorit\u00e4t oder Rechenpower ausgew\u00e4hlt\n\n\nAlle Requests gehen durch den Primary Node\n\n\nWenn der Primary Node ausf\u00e4llt, machen die anderen Nodes aus, wer den Primary \u00fcbernimmt\n\n\n\n\nConsistency\n\n\n\n\nEin Replica Set sieht eine Write-Operation als komplett an, wenn eine Mehrheit der Nodes diese geschrieben hat\n\n\nRead Concern\n\n\nLocal (default): Es wird einfach die neuste Daten der beantworteten Instanz gelesen\n\n\nMajority: Daten werden \nvon der beantwortenden Instanz\n gelesen, die von einer Mehrheit der Nodes best\u00e4tigt worden ist\n\n\nLinearizable: Returnierende Daten sind garantiert die neusten, die von einer Mehrheit der Nodes akzeptiert worden ist (\"Majority\" hingegen gilt nur auf lokaler Instanz)", 
+            "text": "NoSQL\n\n\nDefinition\n\n\n\n\nKeine klare Definition\n\n\n\"Not only SQL\", \"new SQL\"\n\n\nEinfaches API, horizontal gut skalierbar\n\n\n\n\nCAP and BASE\n\n\n\n\nKlassische Systeme sind fokussiert auf ACID Eigenschaften\n\n\n\"Moderne\" Systeme konzentrieren sich auf BASE\n\n\n\"Basically available\": Jeder Request wird beantwortet, es kann aber auch eine Fehlermeldung sein, oder die Daten k\u00f6nnen inkonsistent sein\n\n\nScalable\n\n\n\"Eventually Consistent\": Nach dem Updaten werden die Daten irgendwann \u00fcberall repliziert sein\n\n\n\n\n\n\n\n\nCAP Theorem\n\n\n\n\nIn einem verteilten System muss man sich zwischen \nConsitency\n und \nAvailability\n entscheiden\n\n\nConsistency\n: Alle Clients haben dieselben Daten, braucht atomarit\u00e4t, transaction isolation\n\n\nAvailability\n: Jeder Request wird beantwortet\n\n\nPartition Tolerance\n: Das System darf nur inkorrekt antworten, wenn es komplett ausf\u00e4llt\n\n\nCAP Theorem\n: Alle drei Kriterien zu erf\u00fcllen, ist \nunm\u00f6glich\n\n\n\n\nKey-Value Database\n\n\n\n\nHash-Table, die nur mit key ansprechbar ist\n\n\nz.B. Redis, Memcached\n\n\nKeys werden gruppiert zu \"Buckets\"\n\n\nNormalerweise wird in einem Bucket nur Values mit gleichem Typ gespeichert, (\"domain bucket\")\n\n\n\n\n\n\n\"Eventually consistent\" in verteilten Systemen\n\n\nAnwendungen: Session-Informationen, User Profiles, Shopping Cart Data\n\n\nNicht geeignet f\u00fcr Beziehungen zwischen Daten\n\n\n\n\nDocument Databases\n\n\n\n\nMapped einen Key zu einem Document\n\n\nEin Document ist meist ein JSON (oder BSON) Objekt\n\n\nz.B. MongoDB, CouchDB\n\n\nDocuments werden in Collections (analog Tables) gespeichert\n\n\nDocuments m\u00fcssen kein festes Schema haben\n\n\n\n\nModeling Herausforderungen\n\n\n\n\nEmbedded Relationships: Beziehungen werden eingebettet, dies verursacht Redundanz (\nDenormalisierung\n)\n\n\nReferencing: Beziehungen werden \u00fcber Referenzen aufgel\u00f6st. In MongoDB wird die Object-ID als \"Fremdschl\u00fcssel\" verwendet\n\n\nNachteil: Aufw\u00e4ndige Joins, muss von Hand gemacht werden\n\n\n\n\n\n\nAnsatz: Daten so modellieren, dass zusammengeh\u00f6rende Daten in ein einziges Document geschrieben werden\n\n\nBsp. Blogpost: Ein Blogpost wird immer als ganzes geladen. Der Text, Autor und die Kommentare kommen also in ein einziges Document\n\n\n\n\n\n\n\n\nMongoDB\n\n\nReplica Set\n\n\n\n\nEs wird ein Primary Node anhand der Priorit\u00e4t oder Rechenpower ausgew\u00e4hlt\n\n\nAlle Requests gehen durch den Primary Node\n\n\nWenn der Primary Node ausf\u00e4llt, machen die anderen Nodes aus, wer den Primary \u00fcbernimmt\n\n\n\n\nConsistency\n\n\n\n\nEin Replica Set sieht eine Write-Operation als komplett an, wenn eine Mehrheit der Nodes diese geschrieben hat\n\n\nRead Concern\n\n\nLocal (default): Es wird einfach die neuste Daten der beantworteten Instanz gelesen\n\n\nMajority: Daten werden \nvon der beantwortenden Instanz\n gelesen, die von einer Mehrheit der Nodes best\u00e4tigt worden ist\n\n\nLinearizable: Returnierende Daten sind garantiert die neusten, die von einer Mehrheit der Nodes akzeptiert worden ist (\"Majority\" hingegen gilt nur auf lokaler Instanz)\n\n\n\n\n\n\n\n\nColumn-Family Stores\n\n\n\n\nDaten mit Key-Value-Mappings\n\n\nValues sind gruppiert in mehrere Column Families, in einer Family werden Daten zusammengefasst, die oft zusammen benutzt werden\n\n\nEine Column Family besteht aus einem Key-Value-Pair, wobei der Key ein name ist und der \"Value\" ein Set von Columns\n\n\nAnalog zu RDBMS ist eine Column Family eine Tabelle und jedes Key-Value Tupel eine Row\n\n\n\n\nCassandra\n\n\n\n\nIm Cassandra ist eine Column ein Key-Value-Pair mit einem Wert als Value\n\n\nEine Row ist ein Pair von einem Namen und ein Set von Columns\n\n\nEine Column Family ist ein Pair von einem Namen und ein Set von Rows\n\n\nBei Replication gibt es keinen Master, alle Nodes sind peers\n\n\nPartitioning: Mit einem Hash-Algorithmus werden die DAten auf die Nodes verteilt\n\n\nJeder Node weiss, welche Hash-Ranges zu welchem Node im Cluster geh\u00f6ren\n\n\n\n\n\n\nMit dem \"Gossip\" Protokoll tauschen die Nodes unterneinander ihren Zustand aus\n\n\nDer Status des Clusters mit N Nodes ist in \nO(log(N))\n Runden bekannt\n\n\nAlle T sekunden sendet ein Node seine Liste zu einem anderen Node im Cluster\n\n\n\n\n\n\nQuery Syntax ist \u00e4hnlich zu SQL\n\n\nUse Cases: Event Logging, CMS, Blogs\n\n\n\n\nGraph-Datenbanken\n\n\n\n\nDaten werden \u00fcber Nodes und Relationships definiert\n\n\nBeide k\u00f6nnen Properties haben\n\n\n\n\n\n\n\n\nNeo4J\n\n\n\n\nJava basierte Graph-DB, z.B. von Facebook verwendet\n\n\n\n\nCypher Query Syntax\n\n\n\n\nDeklarativ\n\n\n\n\nMATCH (john {name: \nJohn\n})-[:firend]-\n()-[:friend]-\n(fof)\nRETURN john.name, fof.name\n\n\n\n\n\nData Model\n\n\n\n\nJede Node hat ein Label und ein Set von Properties\n\n\nEdges sind gerichtet, haben einen Namen (meist ein Verb) und ein Set von Properties\n\n\n\n\nCREATE (alice:User {username:\nAlice\n}),\n    (bob:User {username:\nBob\n}),\n    (charlie:User{username:\nCharlie\n}),\n    (davina:User {username:\nDavina\n}),\n    (edward:User {username:\nEdward\n}),\n    (alice)-[:ALIAS_OF]-\n(bob)\n\n\n\n\n\nMap-Reduce\n\n\n\n\nMap()\n macht Filterung und Sortierung in \"Queues\", \nReduce()\n aggregiert die Daten in einer Queue zu einem Ergebnis\n\n\nDie einzelnen Tasks werden m\u00f6glichst parallelisiert / auf einem Cluster ausgef\u00fchrt\n\n\n\n\nBeispiel MongoDB\n\n\n\n\nZiel: Preise nach Kunden gruppieren\n\n\nIm SQL w\u00e4re dies ein einfaches \ngroupby\n, aber beim Schemalosen MongoDB geht das nicht ohne weiteres\n\n\nmapReduce()\n nimmt eine Map und eine Reduce-Funktion als Argumente\n\n\n\n\nvar\n \nemitCustPrice\n \n=\n \nfunction\n()\n \n{\n\n    \nemit\n(\nthis\n.\ncust_id\n,\n \nthis\n.\nprice\n);\n\n\n};\n\n\n\nvar\n \nsumUp\n \n=\n \nfunction\n(\ncustId\n,\n \nprices\n)\n \n{\n\n    \nreturn\n \nArray\n.\nsum\n(\nprices\n);\n\n\n};\n\n\n\ndb\n.\norders\n.\nmapReduce\n(\n\n    \nemitCustPrice\n,\n \nsumUp\n,\n\n    \n{\nout\n:\n \nPurchasesPerCustomer\n \n}\n\n\n);\n\n\n\n\n\n\nPolygot Persistence\n\n\n\n\nVerschiedene Datenbank-Ans\u00e4tze l\u00f6sen verschiedene Probleme\n\n\nMan kann nicht alle Bed\u00fcrfnisse f\u00fcr Geschwindigkeit, Verf\u00fcgbarkeit, Konsistenz, Replication etc. mit einem DB-System erf\u00fcllen\n\n\nTraditionell wurde f\u00fcr alles RDBMS verwendet\n\n\nmit dem \"Polygot\"-Ansatz werden f\u00fcr verschiedene Probleme in einem System verschiedene Datenbanken verwendet\n\n\nz.B. RDBMS f\u00fcr Bestellungen, Key-Value-Stores f\u00fcr Session-Informationen, Graph-Datenbanken f\u00fcr Kunden-Beziehungen, etc.", 
             "title": "12 NoSQL"
         }, 
         {
@@ -244,6 +244,51 @@
             "location": "/Dbs2/12_NoSQL/#consistency", 
             "text": "Ein Replica Set sieht eine Write-Operation als komplett an, wenn eine Mehrheit der Nodes diese geschrieben hat  Read Concern  Local (default): Es wird einfach die neuste Daten der beantworteten Instanz gelesen  Majority: Daten werden  von der beantwortenden Instanz  gelesen, die von einer Mehrheit der Nodes best\u00e4tigt worden ist  Linearizable: Returnierende Daten sind garantiert die neusten, die von einer Mehrheit der Nodes akzeptiert worden ist (\"Majority\" hingegen gilt nur auf lokaler Instanz)", 
             "title": "Consistency"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#column-family-stores", 
+            "text": "Daten mit Key-Value-Mappings  Values sind gruppiert in mehrere Column Families, in einer Family werden Daten zusammengefasst, die oft zusammen benutzt werden  Eine Column Family besteht aus einem Key-Value-Pair, wobei der Key ein name ist und der \"Value\" ein Set von Columns  Analog zu RDBMS ist eine Column Family eine Tabelle und jedes Key-Value Tupel eine Row", 
+            "title": "Column-Family Stores"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#cassandra", 
+            "text": "Im Cassandra ist eine Column ein Key-Value-Pair mit einem Wert als Value  Eine Row ist ein Pair von einem Namen und ein Set von Columns  Eine Column Family ist ein Pair von einem Namen und ein Set von Rows  Bei Replication gibt es keinen Master, alle Nodes sind peers  Partitioning: Mit einem Hash-Algorithmus werden die DAten auf die Nodes verteilt  Jeder Node weiss, welche Hash-Ranges zu welchem Node im Cluster geh\u00f6ren    Mit dem \"Gossip\" Protokoll tauschen die Nodes unterneinander ihren Zustand aus  Der Status des Clusters mit N Nodes ist in  O(log(N))  Runden bekannt  Alle T sekunden sendet ein Node seine Liste zu einem anderen Node im Cluster    Query Syntax ist \u00e4hnlich zu SQL  Use Cases: Event Logging, CMS, Blogs", 
+            "title": "Cassandra"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#graph-datenbanken", 
+            "text": "Daten werden \u00fcber Nodes und Relationships definiert  Beide k\u00f6nnen Properties haben", 
+            "title": "Graph-Datenbanken"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#neo4j", 
+            "text": "Java basierte Graph-DB, z.B. von Facebook verwendet", 
+            "title": "Neo4J"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#cypher-query-syntax", 
+            "text": "Deklarativ   MATCH (john {name:  John })-[:firend]- ()-[:friend]- (fof)\nRETURN john.name, fof.name", 
+            "title": "Cypher Query Syntax"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#data-model", 
+            "text": "Jede Node hat ein Label und ein Set von Properties  Edges sind gerichtet, haben einen Namen (meist ein Verb) und ein Set von Properties   CREATE (alice:User {username: Alice }),\n    (bob:User {username: Bob }),\n    (charlie:User{username: Charlie }),\n    (davina:User {username: Davina }),\n    (edward:User {username: Edward }),\n    (alice)-[:ALIAS_OF]- (bob)", 
+            "title": "Data Model"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#map-reduce", 
+            "text": "Map()  macht Filterung und Sortierung in \"Queues\",  Reduce()  aggregiert die Daten in einer Queue zu einem Ergebnis  Die einzelnen Tasks werden m\u00f6glichst parallelisiert / auf einem Cluster ausgef\u00fchrt", 
+            "title": "Map-Reduce"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#beispiel-mongodb", 
+            "text": "Ziel: Preise nach Kunden gruppieren  Im SQL w\u00e4re dies ein einfaches  groupby , aber beim Schemalosen MongoDB geht das nicht ohne weiteres  mapReduce()  nimmt eine Map und eine Reduce-Funktion als Argumente   var   emitCustPrice   =   function ()   { \n     emit ( this . cust_id ,   this . price );  };  var   sumUp   =   function ( custId ,   prices )   { \n     return   Array . sum ( prices );  };  db . orders . mapReduce ( \n     emitCustPrice ,   sumUp , \n     { out :   PurchasesPerCustomer   }  );", 
+            "title": "Beispiel MongoDB"
+        }, 
+        {
+            "location": "/Dbs2/12_NoSQL/#polygot-persistence", 
+            "text": "Verschiedene Datenbank-Ans\u00e4tze l\u00f6sen verschiedene Probleme  Man kann nicht alle Bed\u00fcrfnisse f\u00fcr Geschwindigkeit, Verf\u00fcgbarkeit, Konsistenz, Replication etc. mit einem DB-System erf\u00fcllen  Traditionell wurde f\u00fcr alles RDBMS verwendet  mit dem \"Polygot\"-Ansatz werden f\u00fcr verschiedene Probleme in einem System verschiedene Datenbanken verwendet  z.B. RDBMS f\u00fcr Bestellungen, Key-Value-Stores f\u00fcr Session-Informationen, Graph-Datenbanken f\u00fcr Kunden-Beziehungen, etc.", 
+            "title": "Polygot Persistence"
         }, 
         {
             "location": "/Dbs2/1_Exam/", 
@@ -936,6 +981,41 @@
             "title": "TLS"
         }, 
         {
+            "location": "/InfSi3/14_Fraud_Detection/", 
+            "text": "Fraud Detection\n\n\n\n\nKreditkarten-Betrug wird momentan meist durch Menschen erkannt, in Zukunft soll vermehrt Monitoring / Machine Learning eingesetzt werden\n\n\n\n\nOnline Fishing\n\n\n\n\nIm Gegensatz zur Offline Attacke werden die Credentials des Opfers z.B. \u00fcber einen Reverse Proxy an den richtigen Dienst weitergeleitet\n\n\nAttacker hat g\u00fcltige Session (Session Hijacking)\n\n\nDadurch kann auch 2FA umgangen werden\n\n\n\n\nMoney Mule\n\n\n\n\nAngreifer greift die Session ab\n\n\nVom Angreifer wird \u00fcber das Konto des Opfers an ein \"Money Mule\" (weiteres Opfer) Geld gesendet\n\n\nMoney Mule wird \u00fcberzeugt, dass das Geld weiter an den Angreifer leitet\n\n\nIst mittlerweile \"outdated\"\n\n\n\n\nFraud Detection System\n\n\n\n\nBank zeichnet Informationen \u00fcber das Login auf (zeit, IP, Browser Fingerprint, Login duration, etc) und h\u00e4lt History \u00fcber fr\u00fchere Sessions\n\n\nAuch Business Transaction werden aufgezeichnet: Wiederholte Zahlungen, Zahlungen an welche Banken, etc.\n\n\nDaraus wird eine Entscheidung gef\u00e4llt, ob die Transatkion ausgef\u00fchrt wird oder nachgefragt werden muss\n\n\n\n\nMarkov Shield (Clickstreaming)\n\n\n\n\nZiel: Verhalten unterscheiden von einem normalen Benutzer und einem infizierten Browser\n\n\nRequests werden von einem REverse Proxy nach Kafka-Server weitergeleitet\n\n\nKritische Requests werden in eine ML-Enginge gef\u00fcttert\n\n\n\n\nAPT Detection\n\n\n\n\nLogs von Diensten im Netzwerk sammeln\n\n\nBlack-Lists beziehen und danach filtern\n\n\nCuckoo Sandbox: Verd\u00e4chtige Executables in Sandbox laufen lassen", 
+            "title": "14 Fraud Detection"
+        }, 
+        {
+            "location": "/InfSi3/14_Fraud_Detection/#fraud-detection", 
+            "text": "Kreditkarten-Betrug wird momentan meist durch Menschen erkannt, in Zukunft soll vermehrt Monitoring / Machine Learning eingesetzt werden", 
+            "title": "Fraud Detection"
+        }, 
+        {
+            "location": "/InfSi3/14_Fraud_Detection/#online-fishing", 
+            "text": "Im Gegensatz zur Offline Attacke werden die Credentials des Opfers z.B. \u00fcber einen Reverse Proxy an den richtigen Dienst weitergeleitet  Attacker hat g\u00fcltige Session (Session Hijacking)  Dadurch kann auch 2FA umgangen werden", 
+            "title": "Online Fishing"
+        }, 
+        {
+            "location": "/InfSi3/14_Fraud_Detection/#money-mule", 
+            "text": "Angreifer greift die Session ab  Vom Angreifer wird \u00fcber das Konto des Opfers an ein \"Money Mule\" (weiteres Opfer) Geld gesendet  Money Mule wird \u00fcberzeugt, dass das Geld weiter an den Angreifer leitet  Ist mittlerweile \"outdated\"", 
+            "title": "Money Mule"
+        }, 
+        {
+            "location": "/InfSi3/14_Fraud_Detection/#fraud-detection-system", 
+            "text": "Bank zeichnet Informationen \u00fcber das Login auf (zeit, IP, Browser Fingerprint, Login duration, etc) und h\u00e4lt History \u00fcber fr\u00fchere Sessions  Auch Business Transaction werden aufgezeichnet: Wiederholte Zahlungen, Zahlungen an welche Banken, etc.  Daraus wird eine Entscheidung gef\u00e4llt, ob die Transatkion ausgef\u00fchrt wird oder nachgefragt werden muss", 
+            "title": "Fraud Detection System"
+        }, 
+        {
+            "location": "/InfSi3/14_Fraud_Detection/#markov-shield-clickstreaming", 
+            "text": "Ziel: Verhalten unterscheiden von einem normalen Benutzer und einem infizierten Browser  Requests werden von einem REverse Proxy nach Kafka-Server weitergeleitet  Kritische Requests werden in eine ML-Enginge gef\u00fcttert", 
+            "title": "Markov Shield (Clickstreaming)"
+        }, 
+        {
+            "location": "/InfSi3/14_Fraud_Detection/#apt-detection", 
+            "text": "Logs von Diensten im Netzwerk sammeln  Black-Lists beziehen und danach filtern  Cuckoo Sandbox: Verd\u00e4chtige Executables in Sandbox laufen lassen", 
+            "title": "APT Detection"
+        }, 
+        {
             "location": "/InfSi3/1_Exam/", 
             "text": "Exam\n\n\n\n\nPr\u00fcfung ohne Unterlagen\n\n\nSelbststudium ist Pr\u00fcfungsstoff!", 
             "title": "1 Exam"
@@ -1372,7 +1452,7 @@
         }, 
         {
             "location": "/ParProg/11_GPU_Parallelisierung/", 
-            "text": "GPU Parallelisierung\n\n\nVorteile Actor Model\n\n\n\n\nKein Shared Memory\n\n\nKeine Data Races\n\n\nDistributed Concurrency - Beliebige Verteilung auf mehrere Systeme\n\n\nParallelisierung ist inh\u00e4rent eingebaut, man braucht keine Synchronisationsprimitiven\n\n\n\n\nZiel\n\n\n\n\nGPUs haben viele Cores, aber sie sind langsam und spezifisch (nicht \"general-purpose)\n\n\nZiel ist also m\u00f6glicht hohe Parallelisierung\n\n\n\n\nGPU Prozessarchitektur\n\n\n\n\nALU f\u00fchrt Rechenoperationen durch\n\n\nIm einer CPU werden relativ wenig Transistoren f\u00fcr die ALU eingesetzt\n\n\nAuf einer GPU ist der gr\u00f6sste Teil Transistoren f\u00fcr ALUs, daf\u00fcr sind diese primitver, z.B. wird nur wenig Caching eingesetzt\n\n\nEine GPU besteht aus mehreren SM (Streaming Multiprocessor), die selbst aus mehreren (z.B. 32 oder 64) Cores bestehen\n\n\ndie Cores in einer SM sind f\u00fcr sich selbst nicht f\u00e4hig f\u00fcr Operationen\n\n\nEine Instruktion wird von einer SM ausgef\u00fchrt, diese wird dann von jedem Core im SM gleichzeitig ausgef\u00fchrt auf unterschiedlichen Datenstellen\n\n\nNormale Operationen werden ausgef\u00fchrt in sequentiellen Reihenfolge fetch - decode - execute - write back\n\n\n\n\n\n\nGPU-Parallelit\u00e4t eignen sich gut f\u00fcr Blockweise Operationen, wenn viele gleiche Berechnungen durchgef\u00fchrt werden, z.B. Video Gaming\n\n\nEignet sich hingegen nicht f\u00fcr komplizierte Verzweigungen, z.B. Schach-Computer\n\n\n\n\n\n\n\n\nNUMA Modell\n\n\n\n\nNon-Uniform Memory Access\n\n\nKein gemeinsamer Speicher zwischen CPU und GPU\n\n\nUnterschiedlicher Instruktionssatz zwischen CPU und CPU\n\n\nCode f\u00fcr GPU und CPU sepparat kompilieren\n\n\n\n\n\n\n\n\nCUDA\n\n\n\n\nPropriet\u00e4re API / Compiler f\u00fcr C/C++ \nf\u00fcr NVIDIA Karten\n\n\n\n\nVideo-Computing und CUDA werden parallel in einem Thread-Pool ausgef\u00fchrt\n\n\n\n\n\n\nCode f\u00fcr GPU wird speziell ausgezeichnet\n\n\n\n\nEin Kernel (Methode) wird von mehreren Threads ausgef\u00fchrt\n\n\nThread-index wird mit \nthreadIdx.x\n abgerufen (\nx\n ist koordinate)\n\n\n\n\n__global__\n\n\nvoid\n \nVectorAddKernel\n(\nfloat\n \n*\nA\n,\n \nfloat\n \n*\nB\n,\n \nfloat\n \n*\nC\n)\n \n{\n\n    \nint\n \ni\n \n=\n \nthreadIdx\n.\nx\n;\n\n    \nC\n[\ni\n]\n \n=\n \nA\n[\ni\n]\n \n+\n \nB\n[\ni\n];\n\n\n}\n\n\n\n\n\n\nThreads\n\n\n\n\nThreads sind gruppiert in Bl\u00f6cke, ein Block ist im Hintergrund immer auf einem Streaming Multiprocessor\n\n\nInnerhalb eines Blocks k\u00f6nnen Threads untereinander kommunizieren\n\n\nEin Thread ist ein virtueller Skalarprozessor\n\n\nThread-Bl\u00f6cke m\u00fcssen unabh\u00e4ngig sein\n\n\nBl\u00f6cke werden mit Thread-Pool auf die verschiedenen Streaming-Prozessoren verteilt\n\n\nEin Block ist quasi ein \"Task\"\n\n\n\n\n\n\nEin Grid ist eine Gruppe von Block, meist ein Programm\n\n\nAufteilung in Blocks und Threads wird vom Programmiere modelliert\n\n\nz.B. globalen Index ermittel mit \ni = threadIdx.x + blockDim.x * blockIdx.x\n\n\nIm Aufruf des Kernels angeben, wie es ausgef\u00fchrt werden soll. \n4, 512\n heisst 4 Bl\u00f6cke zu je 512 Threads\n\n\n\n\n\n\n\n\nAusf\u00fchrung\n\n\n\n\nSpeicher muss auf auch der GPU alloziert werden und hin und her von Host- zu Device-Memory kopiert werden\n\n\nDiese Schritte m\u00fcssen manuell im Code gemacht werden", 
+            "text": "GPU Parallelisierung\n\n\nVorteile Actor Model\n\n\n\n\nKein Shared Memory\n\n\nKeine Data Races\n\n\nDistributed Concurrency - Beliebige Verteilung auf mehrere Systeme\n\n\nParallelisierung ist inh\u00e4rent eingebaut, man braucht keine Synchronisationsprimitiven\n\n\n\n\nZiel\n\n\n\n\nGPUs haben viele Cores, aber sie sind langsam und spezifisch (nicht \"general-purpose)\n\n\nZiel ist also m\u00f6glicht hohe Parallelisierung\n\n\n\n\nGPU Prozessarchitektur\n\n\n\n\nALU f\u00fchrt Rechenoperationen durch\n\n\nIm einer CPU werden relativ wenig Transistoren f\u00fcr die ALU eingesetzt\n\n\nAuf einer GPU ist der gr\u00f6sste Teil Transistoren f\u00fcr ALUs, daf\u00fcr sind diese primitver, z.B. wird nur wenig Caching eingesetzt\n\n\nEine GPU besteht aus mehreren SM (Streaming Multiprocessor), die selbst aus mehreren (z.B. 32 oder 64) Cores bestehen\n\n\ndie Cores in einer SM sind f\u00fcr sich selbst nicht f\u00e4hig f\u00fcr Operationen\n\n\nEine Instruktion wird von einer SM ausgef\u00fchrt, diese wird dann von jedem Core im SM gleichzeitig ausgef\u00fchrt auf unterschiedlichen Datenstellen\n\n\nNormale Operationen werden ausgef\u00fchrt in sequentiellen Reihenfolge fetch - decode - execute - write back\n\n\n\n\n\n\nGPU-Parallelit\u00e4t eignen sich gut f\u00fcr Blockweise Operationen, wenn viele gleiche Berechnungen durchgef\u00fchrt werden, z.B. Video Gaming\n\n\nEignet sich hingegen nicht f\u00fcr komplizierte Verzweigungen, z.B. Schach-Computer\n\n\n\n\n\n\n\n\nNUMA Modell\n\n\n\n\nNon-Uniform Memory Access\n\n\nKein gemeinsamer Speicher zwischen CPU und GPU\n\n\nUnterschiedlicher Instruktionssatz zwischen CPU und CPU\n\n\nCode f\u00fcr GPU und CPU sepparat kompilieren\n\n\n\n\n\n\n\n\nCUDA\n\n\n\n\nPropriet\u00e4re API / Compiler f\u00fcr C/C++ \nf\u00fcr NVIDIA Karten\n\n\n\n\nVideo-Computing und CUDA werden parallel in einem Thread-Pool ausgef\u00fchrt\n\n\n\n\n\n\nCode f\u00fcr GPU wird speziell ausgezeichnet\n\n\n\n\nEin Kernel (Methode) wird von mehreren Threads ausgef\u00fchrt\n\n\nThread-index wird mit \nthreadIdx.x\n abgerufen (\nx\n ist koordinate)\n\n\n\n\n__global__\n\n\nvoid\n \nVectorAddKernel\n(\nfloat\n \n*\nA\n,\n \nfloat\n \n*\nB\n,\n \nfloat\n \n*\nC\n)\n \n{\n\n    \nint\n \ni\n \n=\n \nthreadIdx\n.\nx\n;\n\n    \nC\n[\ni\n]\n \n=\n \nA\n[\ni\n]\n \n+\n \nB\n[\ni\n];\n\n\n}\n\n\n\n\n\n\nThreads\n\n\n\n\nThreads sind gruppiert in Bl\u00f6cke, ein Block ist im Hintergrund immer auf einem Streaming Multiprocessor\n\n\nInnerhalb eines Blocks k\u00f6nnen Threads untereinander kommunizieren\n\n\nEin Thread ist ein virtueller Skalarprozessor\n\n\nThread-Bl\u00f6cke m\u00fcssen unabh\u00e4ngig sein\n\n\nBl\u00f6cke werden mit Thread-Pool auf die verschiedenen Streaming-Prozessoren verteilt\n\n\nEin Block ist quasi ein \"Task\"\n\n\n\n\n\n\nEin Grid ist eine Gruppe von Block, meist ein Programm\n\n\nAufteilung in Blocks und Threads wird vom Programmiere modelliert\n\n\nz.B. globalen Index ermittel mit \ni = threadIdx.x + blockDim.x * blockIdx.x\n\n\nIm Aufruf des Kernels angeben, wie es ausgef\u00fchrt werden soll. \n4, 512\n heisst 4 Bl\u00f6cke zu je 512 Threads\n\n\n\n\n\n\n\n\nAusf\u00fchrung\n\n\n\n\nSpeicher muss auf auch der GPU alloziert werden und hin und her von Host- zu Device-Memory kopiert werden\n\n\nDiese Schritte m\u00fcssen manuell im Code gemacht werden\n\n\nResident Blocks \n Threads: Maximale Anzahl, die gleichzeitig in der GPU geladen werden kann\n\n\n\n\nCUDA Optimierung\n\n\nSpeichermodell\n\n\n\n\nBeispiel Matrixmultiplikation: F\u00fcr jede Zeile in C wird die gleiche Spalte in B verwendet, gleich bei Spalten\n\n\nZugriff auf global Memory ist teuer (600 Zyklen pro Zugriff!)\n\n\n\n\nEffizienz-Steigerung mit Caching\n\n\n\n\n\n\nIm Cuda Speichermodell hat jeder Thread Register zur Verf\u00fcgung (sehr schnell)\n\n\n\n\nThreads im gleichen Block k\u00f6nnen auf ein Shared Memory zugreifen\n\n\n\n\nTiled Matrix Multiplication\n\n\n\n\nProblem bei Tiled Matrix Multiplikation: Es kann sein, dass bei grossen Matrizen nicht mal eine ganze Zeile oder Spalte im Cache platz hat!\n\n\n\n\nL\u00f6sung: In quadratischen Teilen Zwischenresultate berechnen\n\n\n\n\n\n\n__syncthreads()\n dient als Barriere, alle Threads innerhalb eines Blockes werden synchronisiert\n\n\n\n\nJedes \n__syncthreads()\n ist eine eigene Barriere! Aufpassen mit Kontrollstrukturen\n\n\n\n\n\n\nShared-Memory mit \n__shared__\n deklarieren\n\n\nBeispiel in Vorlesung: 7 Sek. ohne Optimierung, 0.3 sek. mit Optimierung! -\n 150x schneller\n\n\n\n\nWarp\n\n\n\n\nEin Block wird intern zu Warps (zu je 32 Threads) zerlegt\n\n\nAlle Threads in einem Warp f\u00fchren gleiche Instruktionen aus (SIMD)\n\n\nEin Block l\u00e4uft immer auf einem Streaming Prozessor\n\n\nFalls ein Warp auf Speicher wartet, f\u00fchrt Streaming Multiprocessor einen anderen Warp aus\n\n\nBei \n__syncthreads()\n m\u00fcssen alle Warps im Block aktiv sein!\n\n\n\n\nDivergenz\n\n\n\n\nTritt auf, wenn es in einem Warp Abzweigungen (z.B. If.. else) gibt, die nicht garantiert auf einem Warp ausgef\u00fchrt werden", 
             "title": "11 GPU Parallelisierung"
         }, 
         {
@@ -1412,8 +1492,33 @@
         }, 
         {
             "location": "/ParProg/11_GPU_Parallelisierung/#ausfuhrung", 
-            "text": "Speicher muss auf auch der GPU alloziert werden und hin und her von Host- zu Device-Memory kopiert werden  Diese Schritte m\u00fcssen manuell im Code gemacht werden", 
+            "text": "Speicher muss auf auch der GPU alloziert werden und hin und her von Host- zu Device-Memory kopiert werden  Diese Schritte m\u00fcssen manuell im Code gemacht werden  Resident Blocks   Threads: Maximale Anzahl, die gleichzeitig in der GPU geladen werden kann", 
             "title": "Ausf\u00fchrung"
+        }, 
+        {
+            "location": "/ParProg/11_GPU_Parallelisierung/#cuda-optimierung", 
+            "text": "", 
+            "title": "CUDA Optimierung"
+        }, 
+        {
+            "location": "/ParProg/11_GPU_Parallelisierung/#speichermodell", 
+            "text": "Beispiel Matrixmultiplikation: F\u00fcr jede Zeile in C wird die gleiche Spalte in B verwendet, gleich bei Spalten  Zugriff auf global Memory ist teuer (600 Zyklen pro Zugriff!)   Effizienz-Steigerung mit Caching    Im Cuda Speichermodell hat jeder Thread Register zur Verf\u00fcgung (sehr schnell)   Threads im gleichen Block k\u00f6nnen auf ein Shared Memory zugreifen", 
+            "title": "Speichermodell"
+        }, 
+        {
+            "location": "/ParProg/11_GPU_Parallelisierung/#tiled-matrix-multiplication", 
+            "text": "Problem bei Tiled Matrix Multiplikation: Es kann sein, dass bei grossen Matrizen nicht mal eine ganze Zeile oder Spalte im Cache platz hat!   L\u00f6sung: In quadratischen Teilen Zwischenresultate berechnen    __syncthreads()  dient als Barriere, alle Threads innerhalb eines Blockes werden synchronisiert   Jedes  __syncthreads()  ist eine eigene Barriere! Aufpassen mit Kontrollstrukturen    Shared-Memory mit  __shared__  deklarieren  Beispiel in Vorlesung: 7 Sek. ohne Optimierung, 0.3 sek. mit Optimierung! -  150x schneller", 
+            "title": "Tiled Matrix Multiplication"
+        }, 
+        {
+            "location": "/ParProg/11_GPU_Parallelisierung/#warp", 
+            "text": "Ein Block wird intern zu Warps (zu je 32 Threads) zerlegt  Alle Threads in einem Warp f\u00fchren gleiche Instruktionen aus (SIMD)  Ein Block l\u00e4uft immer auf einem Streaming Prozessor  Falls ein Warp auf Speicher wartet, f\u00fchrt Streaming Multiprocessor einen anderen Warp aus  Bei  __syncthreads()  m\u00fcssen alle Warps im Block aktiv sein!", 
+            "title": "Warp"
+        }, 
+        {
+            "location": "/ParProg/11_GPU_Parallelisierung/#divergenz", 
+            "text": "Tritt auf, wenn es in einem Warp Abzweigungen (z.B. If.. else) gibt, die nicht garantiert auf einem Warp ausgef\u00fchrt werden", 
+            "title": "Divergenz"
         }, 
         {
             "location": "/ParProg/1_Exam/", 
@@ -1911,6 +2016,41 @@
             "title": "Performance Messungen"
         }, 
         {
+            "location": "/SE2/11_Usability_Testing/", 
+            "text": "Usability Testing\n\n\n\n\nWireframes sollen m\u00f6glichst abstrakt sein, Inhalt lenkt von der Funktionalit\u00e4t und Navigation ab", 
+            "title": "11 Usability Testing"
+        }, 
+        {
+            "location": "/SE2/11_Usability_Testing/#usability-testing", 
+            "text": "Wireframes sollen m\u00f6glichst abstrakt sein, Inhalt lenkt von der Funktionalit\u00e4t und Navigation ab", 
+            "title": "Usability Testing"
+        }, 
+        {
+            "location": "/SE2/12_Software_Architecture/", 
+            "text": "Software Architecture III\n\n\n\n\nDefiniton: \"Beschreibung der einzelnen Komponenten eines Systems und deren Beziehungen untereinander\"\n\n\n\n\nContext Diagramm\n\n\n\n\nWo steht das System in seinem Umfeld?\n\n\nWas sind Schnittstellen zu Umsystemen?\n\n\n\n\nMulti-Prozess-Architektur\n\n\n\n\nStateful-Prozesse sind schwierig wieder aufzusetzen nach einem Ausfall\n\n\nM\u00f6glichst stateless-Prozesse bauen\n\n\n\n\nArchitecture Refactoring\n\n\n\n\nals letzten Schritt partitionieren\n\n\nstrukturierter\n\n\nEinfachere Fehlersuche: Man muss nur in der gleichen Partition suchen\n\n\nBesser testbar\n\n\nEvtl. skalierbar durch Verteilung auf mehrere Tiers", 
+            "title": "12 Software Architecture"
+        }, 
+        {
+            "location": "/SE2/12_Software_Architecture/#software-architecture-iii", 
+            "text": "Definiton: \"Beschreibung der einzelnen Komponenten eines Systems und deren Beziehungen untereinander\"", 
+            "title": "Software Architecture III"
+        }, 
+        {
+            "location": "/SE2/12_Software_Architecture/#context-diagramm", 
+            "text": "Wo steht das System in seinem Umfeld?  Was sind Schnittstellen zu Umsystemen?", 
+            "title": "Context Diagramm"
+        }, 
+        {
+            "location": "/SE2/12_Software_Architecture/#multi-prozess-architektur", 
+            "text": "Stateful-Prozesse sind schwierig wieder aufzusetzen nach einem Ausfall  M\u00f6glichst stateless-Prozesse bauen", 
+            "title": "Multi-Prozess-Architektur"
+        }, 
+        {
+            "location": "/SE2/12_Software_Architecture/#architecture-refactoring", 
+            "text": "als letzten Schritt partitionieren  strukturierter  Einfachere Fehlersuche: Man muss nur in der gleichen Partition suchen  Besser testbar  Evtl. skalierbar durch Verteilung auf mehrere Tiers", 
+            "title": "Architecture Refactoring"
+        }, 
+        {
             "location": "/SE2/1_Exam/", 
             "text": "Some exam notes...", 
             "title": "1 Exam"
@@ -2217,7 +2357,7 @@
         }, 
         {
             "location": "/Vss/10_Naming/", 
-            "text": "Naming\n\n\n\n\nName things to find Resources that interest me\n\n\nAssign names to entities to identify them, e.g. assign phone numbers to customers\n\n\nName Resolution is the problem of accessing a resource using a name\n\n\n\n\nNaming in a Distributed System\n\n\n\n\ne.g. processes on a single computer\n\n\na centralized name resolution for the telephone system would be a single phonebook in existence\n\n\nnot robust (what if you lose it?)\n\n\nnot scalable\n\n\nhigh \"network latency\"\n\n\n\n\n\n\nPossible Solution: Hand everyone a copy -\n Distributed Name Resolution System\n\n\n\n\nTerminology\n\n\n\n\nNormally, each entity (e.g. a person) has an access point (e.g. a phone) through which the entity can be accessed\n\n\nName\n: String to identify an entity\n\n\nEntity\n: Physical or logical object\n\n\nAccess Point\n: Entity that is used to access another entity\n\n\nOften given through physical connection, e.g. a customers owns his phone\n\n\n\n\n\n\nAddress\n: Name of an Access Point\n\n\noften defined at another level, e.g. a MAC-Adress to a NIC\n\n\n\n\n\n\nAdvantages\n\n\nVery flexible: Adress and access points can change, but it is still accessible through it's name\n\n\nEntity can listen to multiple access points\n\n\n\n\n\n\nLocation Independent Name\n: Name is independent of address\n\n\n\n\nNaming Overview\n\n\nFlat Naming\n\n\n\n\nNames are unstructured identifiers\n\n\nNames may have internal structure, but it's not used in name resolution (e.g. IP-Adress)\n\n\nUsed with broadcasting\n\n\nEvery entity knows it's (flat) name and address\n\n\nResolution is done with broadcasting: \"Where is X?\" - X answers with his address\n\n\n\n\n\n\nUsed in ARP\n\n\nPros\n\n\nSimplicity\n\n\nLocation independent\n\n\n\n\n\n\nCons\n\n\nNot scalable, e.g. wouldn't work for a phone system\n\n\nEasy to impersonate someone else\n\n\n\n\n\n\n\n\nStructured Naming\n\n\n\n\nNames are hierarchical structured\n\n\nName represents a path in a tree, e.g. \nunterricht.hsr.ch\n\n\nResolution is split into sepparate layers with different responsibilities\n\n\ne.g. DNS\n\n\nHighly scalable\n\n\n\n\nIterative Resolution\n\n\n\n\nLike DNS, every step the client has to ask first the root, then its child, and so on...\n\n\nUses more resources on the server, but better caching is possible\n\n\n\n\nRecursive Resolution\n\n\n\n\nThe client just sends its request to the root, which then recursively resolves the complete name before returning the result\n\n\n\n\nAttribute-based Naming\n\n\n\n\nThe user searches for entities based on a description\n\n\nSearch is performed with attribute-value-pairs\n\n\nused in Directory Services\n\n\nEach entry is a collection of attributes\n\n\n\n\n\n\nin LDAP, each Entry has a Distinguished Name \nDN\n\n\nentries build ab hierarichal trees\n\n\n\n\n\n\n\n\nCase Study: Bonjour / Zeroconf\n\n\n\n\nAllows to add and use devices in a network without manual configuration\n\n\ncombines various protocols like DHCP, mDNS, SDP (Service Discovery Protocol)\n\n\nOnly works in a local network, users must trust the entire network!\n\n\n\n\n\u00dcbung 10\n\n\n\n\nKE1: Give an example of where an address of an entity E needs to be further resolved into another address to actually access E.\n\n\n\n\nDNS-ARP: A name is resolved to an IP, which needs to be resolved into a MAC-Adress\n\n\n\n\nKE2: Would you consider a URL such as http://www.acme.org/index.html to be location independent? What about http://www.acme.nl/index.html?\n\n\n\n\nNo, they are both not location-independent, because the name contains a structure to determine its location. If it ends in \norg\n or \nnl\n is irrelevant here.\n\n\n\n\nKE3: Give some examples of true identifiers.\n\n\n\n\n- MAC-Adresses (at least in theory)\n\n\n\n\nKE4: Is an identifier allowed to contain information on the entity it refers to?\n\n\n\n\nyes, as long as it is unique\n\n\n\n\nKE5: Outline an efficient implementation of globally unique identifiers.\n\n\nKE6: Consider the Chord system as shown in Fig. 5-4 (ch. 5 in Tannenbaum et al.) and assume that node 7 has just joined the network. What would its finger table be and would there be any changes to other finger tables?\n\n\n\n\n\n\nIts finger table would contain \n{1, 1, 5}\n (same as \np6\n before)\n\n\nThe finger table of \np7\ns predecessor (\np6\n) has to be changed to \n{7, 1, 5}\n\n\n\n\n\n\nKE7: If we insert a node into a Chord system, do we need to instantly update all the finger tables?\n\n\nKE8: High-level name servers in DNS, that is, name servers implementing nodes in the DNS name space that are close to the root, generally do not support recursive name resolution. Can we expect much performance improvement if they did?\n\n\n\n\nNo, this would mean a huge increase in server resource requirement\n\n\n\n\nKE9: Explain how DNS can be used to implement a home-based approach to locating mobile hosts.", 
+            "text": "Naming\n\n\n\n\nName things to find Resources that interest me\n\n\nAssign names to entities to identify them, e.g. assign phone numbers to customers\n\n\nName Resolution is the problem of accessing a resource using a name\n\n\n\n\nNaming in a Distributed System\n\n\n\n\ne.g. processes on a single computer\n\n\na centralized name resolution for the telephone system would be a single phonebook in existence\n\n\nnot robust (what if you lose it?)\n\n\nnot scalable\n\n\nhigh \"network latency\"\n\n\n\n\n\n\nPossible Solution: Hand everyone a copy -\n Distributed Name Resolution System\n\n\n\n\nTerminology\n\n\n\n\nNormally, each entity (e.g. a person) has an access point (e.g. a phone) through which the entity can be accessed\n\n\nName\n: String to identify an entity\n\n\nEntity\n: Physical or logical object\n\n\nAccess Point\n: Entity that is used to access another entity\n\n\nOften given through physical connection, e.g. a customers owns his phone\n\n\n\n\n\n\nAddress\n: Name of an Access Point\n\n\noften defined at another level, e.g. a MAC-Adress to a NIC\n\n\n\n\n\n\nAdvantages\n\n\nVery flexible: Adress and access points can change, but it is still accessible through it's name\n\n\nEntity can listen to multiple access points\n\n\n\n\n\n\nLocation Independent Name\n: Name is independent of address\n\n\n\n\nNaming Overview\n\n\nFlat Naming\n\n\n\n\nNames are unstructured identifiers\n\n\nNames may have internal structure, but it's not used in name resolution (e.g. IP-Adress)\n\n\nUsed with broadcasting\n\n\nEvery entity knows it's (flat) name and address\n\n\nResolution is done with broadcasting: \"Where is X?\" - X answers with his address\n\n\n\n\n\n\nUsed in ARP\n\n\nPros\n\n\nSimplicity\n\n\nLocation independent\n\n\n\n\n\n\nCons\n\n\nNot scalable, e.g. wouldn't work for a phone system\n\n\nEasy to impersonate someone else\n\n\n\n\n\n\n\n\nStructured Naming\n\n\n\n\nNames are hierarchical structured\n\n\nName represents a path in a tree, e.g. \nunterricht.hsr.ch\n\n\nResolution is split into sepparate layers with different responsibilities\n\n\ne.g. DNS\n\n\nHighly scalable\n\n\n\n\nIterative Resolution\n\n\n\n\nLike DNS, every step the client has to ask first the root, then its child, and so on...\n\n\nUses more resources on the server, but better caching is possible\n\n\n\n\nRecursive Resolution\n\n\n\n\nThe client just sends its request to the root, which then recursively resolves the complete name before returning the result\n\n\n\n\nAttribute-based Naming\n\n\n\n\nThe user searches for entities based on a description\n\n\nSearch is performed with attribute-value-pairs\n\n\nused in Directory Services\n\n\nEach entry is a collection of attributes\n\n\n\n\n\n\nin LDAP, each Entry has a Distinguished Name \nDN\n\n\nentries build ab hierarichal trees\n\n\n\n\n\n\n\n\nCase Study: Bonjour / Zeroconf\n\n\n\n\nAllows to add and use devices in a network without manual configuration\n\n\ncombines various protocols like DHCP, mDNS, SDP (Service Discovery Protocol)\n\n\nOnly works in a local network, users must trust the entire network!\n\n\n\n\n\u00dcbung 10\n\n\n\n\nKE1: Give an example of where an address of an entity E needs to be further resolved into another address to actually access E.\n\n\n\n\nDNS-ARP: A name is resolved to an IP, which needs to be resolved into a MAC-Adress\n\n\n\n\nKE2: Would you consider a URL such as http://www.acme.org/index.html to be location independent? What about http://www.acme.nl/index.html?\n\n\n\n\nNo, they are both not location-independent, because the name contains a structure to determine its location. If it ends in \norg\n or \nnl\n is irrelevant here.\n\n\n\n\nKE3: Give some examples of true identifiers.\n\n\n\n\n- MAC-Adresses (at least in theory)\n\n\n\n\nKE4: Is an identifier allowed to contain information on the entity it refers to?\n\n\n\n\nyes, as long as it is unique\n\n\n\n\nKE5: Outline an efficient implementation of globally unique identifiers.\n\n\nKE6: Consider the Chord system as shown in Fig. 5-4 (ch. 5 in Tannenbaum et al.) and assume that node 7 has just joined the network. What would its finger table be and would there be any changes to other finger tables?\n\n\n\n\n\n\nIts finger table would contain \n{1, 1, 5}\n (same as \np6\n before)\n\n\nThe finger table of \np7\ns predecessor (\np6\n) has to be changed to \n{7, 1, 5}\n\n\n\n\n\n\nKE8: High-level name servers in DNS, that is, name servers implementing nodes in the DNS name space that are close to the root, generally do not support recursive name resolution. Can we expect much performance improvement if they did?\n\n\n\n\nNo, this would mean a huge increase in server resource requirement\n\n\n\n\nKE9: Explain how DNS can be used to implement a home-based approach to locating mobile hosts.", 
             "title": "10 Naming"
         }, 
         {
@@ -2277,8 +2417,103 @@
         }, 
         {
             "location": "/Vss/10_Naming/#-mac-adresses-at-least-in-theory", 
-            "text": "KE4: Is an identifier allowed to contain information on the entity it refers to?   yes, as long as it is unique   KE5: Outline an efficient implementation of globally unique identifiers.  KE6: Consider the Chord system as shown in Fig. 5-4 (ch. 5 in Tannenbaum et al.) and assume that node 7 has just joined the network. What would its finger table be and would there be any changes to other finger tables?    Its finger table would contain  {1, 1, 5}  (same as  p6  before)  The finger table of  p7 s predecessor ( p6 ) has to be changed to  {7, 1, 5}    KE7: If we insert a node into a Chord system, do we need to instantly update all the finger tables?  KE8: High-level name servers in DNS, that is, name servers implementing nodes in the DNS name space that are close to the root, generally do not support recursive name resolution. Can we expect much performance improvement if they did?   No, this would mean a huge increase in server resource requirement   KE9: Explain how DNS can be used to implement a home-based approach to locating mobile hosts.", 
+            "text": "KE4: Is an identifier allowed to contain information on the entity it refers to?   yes, as long as it is unique   KE5: Outline an efficient implementation of globally unique identifiers.  KE6: Consider the Chord system as shown in Fig. 5-4 (ch. 5 in Tannenbaum et al.) and assume that node 7 has just joined the network. What would its finger table be and would there be any changes to other finger tables?    Its finger table would contain  {1, 1, 5}  (same as  p6  before)  The finger table of  p7 s predecessor ( p6 ) has to be changed to  {7, 1, 5}    KE8: High-level name servers in DNS, that is, name servers implementing nodes in the DNS name space that are close to the root, generally do not support recursive name resolution. Can we expect much performance improvement if they did?   No, this would mean a huge increase in server resource requirement   KE9: Explain how DNS can be used to implement a home-based approach to locating mobile hosts.", 
             "title": "- MAC-Adresses (at least in theory)"
+        }, 
+        {
+            "location": "/Vss/11_Distributed_Hash_Tables/", 
+            "text": "Distributed Hash Tables\n\n\nChord\n\n\n\n\nEach node is responsible for nodes with values less or equal to itself\n\n\nEach node has a link to its successor node (first node clockwise from p)\n\n\nGoal: \nO(log(n))\n search\n\n\n\n\nFinger Table\n\n\n\n\nStore successor of every next \n2^i\nth node from itself,  e.g. the first, second, fourth, eighth, ...\n\n\nevery finger table has \n2^m\n rows\n\n\n\n\nLookup\n\n\n\n\n\"nearest predecessor\": Why not nearest successor?\n\n\nsuccessor would possibly be too far, since only powers of 2 nodes are stored in the finger table\n\n\nit's better to send it to p's vicinity, since it knows more about closer nodes than nodes far away\n\n\nif the looked up key = p in finger table, the target node could be unavailable, so it is safer to send it \nnear\n this node\n\n\n\n\n\n\n\n\nCorrectness\n\n\n\n\nIf successor pointers are correct, lookup wil always yield the correct result\n\n\neven if not all finger tables are correct, lookup will never fail, it is just more inefficient\n\n\nintiuitive, because the worst case is linear search through each node\n\n\n\n\n\n\nEach node periodically runs a stabilization procedure\n\n\nIn most practical settings, the stabilization \neventually\n leads the newtork to a stable state\n\n\n\n\nStabilization\n\n\n\n\nUpdate node p's successor: If the predecessor of it's current successor is between p and p.successor, this is the new successor of p\n\n\nRepeat this procedure while condition is true\n\n\n\n\n\n\nUpdate predecessor: Each node o notifies p of its existence. if o is between p and p.predecessor, o is the actual new predecessor\n\n\nupdate finger table: take a random entry in the finger table, and update its value (= \nsucc(n+2^{i-1}\n\n\n\n\ncan't be calculated directly, because \nsucc()\n is a global function\n\n\ndone with lookup: \nsuccessor.lookup(n + 2^(i-1), p)\n\n\n\n\n\n\n\n\nFault tolerance\n\n\nLeaving unplanned\n\n\n\n\nResources of node are lost\n\n\nRing is broken\n\n\nWe need redundancy to accept a number of failing nodes\n\n\nidea: store more than 1 successor - still a problem of lost resources\n\n\n\n\nReplication\n\n\n\n\nStore resources on multiple nodes (uniformly distributed)\n\n\nuniform distribution is easy, because hash functions are random\n\n\n\n\nExamples\n\n\n\n\nmemcached: Cache frequently used database queries\n\n\nDynamoDB\n\n\n\n\nExercises\n\n\nKE6: Consider the Chord system as shown in Fig. 5-4 (ch. 5 in Tannenbaum et al.) and assume that node 7 has just joined the network. What would its finger table be and would there be any changes to other finger tables?\n\n\n\n\nIts finger table would be \n{9, 9, 11, 18, 28}\n\n\nEvery finger table entry with the value \n9\n has to be reconsidered\n\n\n4 has an outdated finger table. the new should be \n{7, 7, 9, 14, 20\n}\n\n\n21.finger[5] = 7\n\n\n1.finger[3] = 7\n\n\n\n\n\n\n\n\nKE7: If we insert a node into a Chord system, do we need to instantly update all the finger tables?\n\n\n\n\nNo, we just need to update the successor of the new node's predecessor. If this is correct, every lookup will yield a correct result, worst case is linear search", 
+            "title": "11 Distributed Hash Tables"
+        }, 
+        {
+            "location": "/Vss/11_Distributed_Hash_Tables/#distributed-hash-tables", 
+            "text": "", 
+            "title": "Distributed Hash Tables"
+        }, 
+        {
+            "location": "/Vss/11_Distributed_Hash_Tables/#chord", 
+            "text": "Each node is responsible for nodes with values less or equal to itself  Each node has a link to its successor node (first node clockwise from p)  Goal:  O(log(n))  search", 
+            "title": "Chord"
+        }, 
+        {
+            "location": "/Vss/11_Distributed_Hash_Tables/#finger-table", 
+            "text": "Store successor of every next  2^i th node from itself,  e.g. the first, second, fourth, eighth, ...  every finger table has  2^m  rows", 
+            "title": "Finger Table"
+        }, 
+        {
+            "location": "/Vss/11_Distributed_Hash_Tables/#lookup", 
+            "text": "\"nearest predecessor\": Why not nearest successor?  successor would possibly be too far, since only powers of 2 nodes are stored in the finger table  it's better to send it to p's vicinity, since it knows more about closer nodes than nodes far away  if the looked up key = p in finger table, the target node could be unavailable, so it is safer to send it  near  this node", 
+            "title": "Lookup"
+        }, 
+        {
+            "location": "/Vss/11_Distributed_Hash_Tables/#correctness", 
+            "text": "If successor pointers are correct, lookup wil always yield the correct result  even if not all finger tables are correct, lookup will never fail, it is just more inefficient  intiuitive, because the worst case is linear search through each node    Each node periodically runs a stabilization procedure  In most practical settings, the stabilization  eventually  leads the newtork to a stable state", 
+            "title": "Correctness"
+        }, 
+        {
+            "location": "/Vss/11_Distributed_Hash_Tables/#stabilization", 
+            "text": "Update node p's successor: If the predecessor of it's current successor is between p and p.successor, this is the new successor of p  Repeat this procedure while condition is true    Update predecessor: Each node o notifies p of its existence. if o is between p and p.predecessor, o is the actual new predecessor  update finger table: take a random entry in the finger table, and update its value (=  succ(n+2^{i-1}   can't be calculated directly, because  succ()  is a global function  done with lookup:  successor.lookup(n + 2^(i-1), p)", 
+            "title": "Stabilization"
+        }, 
+        {
+            "location": "/Vss/11_Distributed_Hash_Tables/#fault-tolerance", 
+            "text": "", 
+            "title": "Fault tolerance"
+        }, 
+        {
+            "location": "/Vss/11_Distributed_Hash_Tables/#leaving-unplanned", 
+            "text": "Resources of node are lost  Ring is broken  We need redundancy to accept a number of failing nodes  idea: store more than 1 successor - still a problem of lost resources", 
+            "title": "Leaving unplanned"
+        }, 
+        {
+            "location": "/Vss/11_Distributed_Hash_Tables/#replication", 
+            "text": "Store resources on multiple nodes (uniformly distributed)  uniform distribution is easy, because hash functions are random", 
+            "title": "Replication"
+        }, 
+        {
+            "location": "/Vss/11_Distributed_Hash_Tables/#examples", 
+            "text": "memcached: Cache frequently used database queries  DynamoDB", 
+            "title": "Examples"
+        }, 
+        {
+            "location": "/Vss/11_Distributed_Hash_Tables/#exercises", 
+            "text": "", 
+            "title": "Exercises"
+        }, 
+        {
+            "location": "/Vss/11_Distributed_Hash_Tables/#ke6-consider-the-chord-system-as-shown-in-fig-5-4-ch-5-in-tannenbaum-et-al-and-assume-that-node-7-has-just-joined-the-network-what-would-its-finger-table-be-and-would-there-be-any-changes-to-other-finger-tables", 
+            "text": "Its finger table would be  {9, 9, 11, 18, 28}  Every finger table entry with the value  9  has to be reconsidered  4 has an outdated finger table. the new should be  {7, 7, 9, 14, 20 }  21.finger[5] = 7  1.finger[3] = 7", 
+            "title": "KE6: Consider the Chord system as shown in Fig. 5-4 (ch. 5 in Tannenbaum et al.) and assume that node 7 has just joined the network. What would its finger table be and would there be any changes to other finger tables?"
+        }, 
+        {
+            "location": "/Vss/11_Distributed_Hash_Tables/#ke7-if-we-insert-a-node-into-a-chord-system-do-we-need-to-instantly-update-all-the-finger-tables", 
+            "text": "No, we just need to update the successor of the new node's predecessor. If this is correct, every lookup will yield a correct result, worst case is linear search", 
+            "title": "KE7: If we insert a node into a Chord system, do we need to instantly update all the finger tables?"
+        }, 
+        {
+            "location": "/Vss/12_Synchronization/", 
+            "text": "Synchronization\n\n\nMotivation\n\n\n\n\nSynchronization of time is needed to coordinate events at a global level\n\n\n\n\nPhysical Clocks\n\n\n\n\nBasis is a mechanical or astronomical process\n\n\nhave their limits with accuracy\n\n\nProblematic usage: Leap seconds, time zones, leap years, etc.\n\n\n\n\nExample: SBB Clock\n\n\n\n\nUhr selbst misst keine Zeit\n\n\nJede Minute wird die Zeit synchronisiert", 
+            "title": "12 Synchronization"
+        }, 
+        {
+            "location": "/Vss/12_Synchronization/#synchronization", 
+            "text": "", 
+            "title": "Synchronization"
+        }, 
+        {
+            "location": "/Vss/12_Synchronization/#motivation", 
+            "text": "Synchronization of time is needed to coordinate events at a global level", 
+            "title": "Motivation"
+        }, 
+        {
+            "location": "/Vss/12_Synchronization/#physical-clocks", 
+            "text": "Basis is a mechanical or astronomical process  have their limits with accuracy  Problematic usage: Leap seconds, time zones, leap years, etc.", 
+            "title": "Physical Clocks"
+        }, 
+        {
+            "location": "/Vss/12_Synchronization/#example-sbb-clock", 
+            "text": "Uhr selbst misst keine Zeit  Jede Minute wird die Zeit synchronisiert", 
+            "title": "Example: SBB Clock"
         }, 
         {
             "location": "/Vss/1_Exam/", 
@@ -2742,7 +2977,7 @@
         }, 
         {
             "location": "/Vwl/12_Finanzkrise/", 
-            "text": "Die grosse Finanzkrise\n\n\nImobilienkrise USA 2006\n\n\n\n\n2001: Rezession in der USA (nach Platzen dotCom-Blase)\n\n\nUSA hat Geldmenge erh\u00f6ht, tiefe Zinsen\n\n\nNachfrage nach Hypotheken gingen hinauf\n\n\n\n\n\n\nUnabh\u00e4ngig davon: Neues Finanzinstrument ABS (Asset-backed Securities)\n\n\nHypotheken b\u00fcndeln und als Wertpapier an Investoren verkaufen\n\n\nSichere Wertpapiere, die durch Immobilien gesichert sind\n\n\nInvestoren z.B. Liemann Brothers\n\n\n\n\n\n\nNachfrage an ABS steigt, Banken geben mehr Hypotheken raus\n\n\nHypotheken wurden als Gewinn f\u00fcr Kunden ausgegeben, weil H\u00e4userpreise immer gestiegen sind und Wertsteigerung h\u00f6her war als Zinsen\n\n\nFunktioniert bis 2006, da stiegen H\u00e4userpreise nicht mehr\n\n\nLeute konnten sich die Zinsen nicht leisten, flogen raus\n\n\n\n\n\n\n2004 hat die Zentralbrank die Geldmenge wieder zur\u00fcck genommen, Zinsen gingen wieder rauf\n\n\nDadurch weniger Nachfrage, grosses Angebot an Immobilien -\n  Druck auf Preise\n\n\nDadurch zur\u00fcckgehende Nachfrage, ABS-Preise sanken ins bodenlose ab\n\n\nDas hat dem Vertrauen der Banken geschadet, dadurch ist auch Interbankengesch\u00e4ft zusammen gebrochen\n\n\nDurch die \"Panikverk\u00e4ufe\" von ABS, um Liquidit\u00e4t zu erhalten, lassen die ABS-Preise weiter fallen. Dadurch sanken ABS-Preise weiter, noch gr\u00f6ssere Verluste, usw...\n\n\nDie Zentralbanken mussten eingreifen\n\n\nBanken haben zuvor noch Kredite aufgenommen, um ABS zu kaufen\n\n\nWenn Wertverlust ABS gr\u00f6sser als das Eigenkapital ist, geht Bank konkurs\n\n\nDa Banken nicht voneinander wissen, wieviel ABS die anderen haben, gaben sie keine Kredite mehr\n\n\n\n\nBankenkrise 2008\n\n\nEurokrise seit 2010", 
+            "text": "Die grosse Finanzkrise\n\n\nImobilienkrise USA 2006\n\n\n\n\n2001: Rezession in der USA (nach Platzen dotCom-Blase)\n\n\nUSA hat Geldmenge erh\u00f6ht, tiefe Zinsen\n\n\nNachfrage nach Hypotheken gingen hinauf\n\n\n\n\n\n\nUnabh\u00e4ngig davon: Neues Finanzinstrument ABS (Asset-backed Securities)\n\n\nHypotheken b\u00fcndeln und als Wertpapier an Investoren verkaufen\n\n\nSichere Wertpapiere, die durch Immobilien gesichert sind\n\n\nInvestoren z.B. Liemann Brothers\n\n\n\n\n\n\nNachfrage an ABS steigt, Banken geben mehr Hypotheken raus\n\n\nHypotheken wurden als Gewinn f\u00fcr Kunden ausgegeben, weil H\u00e4userpreise immer gestiegen sind und Wertsteigerung h\u00f6her war als Zinsen\n\n\nFunktioniert bis 2006, da stiegen H\u00e4userpreise nicht mehr\n\n\nLeute konnten sich die Zinsen nicht leisten, flogen raus\n\n\n\n\n\n\n2004 hat die Zentralbrank die Geldmenge wieder zur\u00fcck genommen, Zinsen gingen wieder rauf\n\n\nDadurch weniger Nachfrage, grosses Angebot an Immobilien -\n  Druck auf Preise\n\n\nDadurch zur\u00fcckgehende Nachfrage, ABS-Preise sanken ins bodenlose ab\n\n\nDas hat dem Vertrauen der Banken geschadet, dadurch ist auch Interbankengesch\u00e4ft zusammen gebrochen\n\n\nDurch die \"Panikverk\u00e4ufe\" von ABS, um Liquidit\u00e4t zu erhalten, lassen die ABS-Preise weiter fallen. Dadurch sanken ABS-Preise weiter, noch gr\u00f6ssere Verluste, usw...\n\n\nDie Zentralbanken mussten eingreifen\n\n\nBanken haben zuvor noch Kredite aufgenommen, um ABS zu kaufen\n\n\nWenn Wertverlust ABS gr\u00f6sser als das Eigenkapital ist, geht Bank konkurs\n\n\nDa Banken nicht voneinander wissen, wieviel ABS die anderen haben, gaben sie untereinander keihe Kredite mehr\n\n\n\n\nBankenkrise 2008\n\n\nEurokrise seit 2010\n\n\n\n\nStatt Probleme mit ABS haben Banken nun Probleme mit Staatsschulden (z.b. von Griechenland)\n\n\nFehlende Liquidit\u00e4t: Zentralbanken griffen ein, obwohl das eigentlich nicht ihre Aufgabe ist. Banken waren aber too big to fail.\n\n\n\n\nRettung der UBS\n\n\n\n\nUBS war hochverschuldet durch ABS\n\n\n2008 hat Bundesrat beschlossen, dass die SNB \"faule\" Wertpapier der UBS \u00fcbernimmt\n\n\nDer Bund hat 6 Mia. in Darlehen investiert und 2009 mit 1.2 Mia. Gewinn wieder verkauft\n\n\nDie SNB hat 37.5 Mia. der faulen Wertpapiere \u00fcbernommen\n\n\nSchlussendlich war es ein Gewinn f\u00fcr SNB und Bund, da sich die UBS und die ABS-Anteile wieder langsam erholt haben\n\n\nDie UBS-Aktien ist heute auf ca. 15.-, vor der Krise auf 80.-\n\n\nHeute w\u00fcrde man diese Rettung wohl nicht mehr machen (siehe letzte Vorlesung zu \"too big to fail\")\n\n\nWegen den ABS-Gesch\u00e4ften zahlt aber die UBS noch Strafe an die USA und Frankreich\n\n\n\n\nFall Irland\n\n\n\n\nGleiches Problem mit ABS wie in den USA\n\n\nDer Staat hat teile der Gesch\u00e4ftsbanken in Krisen verstaatlicht, dadurch waren sie nah an einem Staatsbankrott\n\n\nHeute ist die Staatsverschuldung Irlands bei 86% des BIP\n\n\n\n\nWie geht es weiter in der EU-Zone?\n\n\n\n\nViele L\u00e4nder wachsen stetig bez\u00fcglich auf das BIP, aber finanzieren es durch Verschuldung\n\n\nDie Arbeitslosenquoten sinken nur wenig\n\n\nNach EU-Recht d\u00fcrfte kein Land \u00fcber 60% sein(!)\n\n\n(Schweizer Staats-Schulden (Bund und Kantone) sind ca. 33% BIP)", 
             "title": "12 Finanzkrise"
         }, 
         {
@@ -2752,7 +2987,7 @@
         }, 
         {
             "location": "/Vwl/12_Finanzkrise/#imobilienkrise-usa-2006", 
-            "text": "2001: Rezession in der USA (nach Platzen dotCom-Blase)  USA hat Geldmenge erh\u00f6ht, tiefe Zinsen  Nachfrage nach Hypotheken gingen hinauf    Unabh\u00e4ngig davon: Neues Finanzinstrument ABS (Asset-backed Securities)  Hypotheken b\u00fcndeln und als Wertpapier an Investoren verkaufen  Sichere Wertpapiere, die durch Immobilien gesichert sind  Investoren z.B. Liemann Brothers    Nachfrage an ABS steigt, Banken geben mehr Hypotheken raus  Hypotheken wurden als Gewinn f\u00fcr Kunden ausgegeben, weil H\u00e4userpreise immer gestiegen sind und Wertsteigerung h\u00f6her war als Zinsen  Funktioniert bis 2006, da stiegen H\u00e4userpreise nicht mehr  Leute konnten sich die Zinsen nicht leisten, flogen raus    2004 hat die Zentralbrank die Geldmenge wieder zur\u00fcck genommen, Zinsen gingen wieder rauf  Dadurch weniger Nachfrage, grosses Angebot an Immobilien -   Druck auf Preise  Dadurch zur\u00fcckgehende Nachfrage, ABS-Preise sanken ins bodenlose ab  Das hat dem Vertrauen der Banken geschadet, dadurch ist auch Interbankengesch\u00e4ft zusammen gebrochen  Durch die \"Panikverk\u00e4ufe\" von ABS, um Liquidit\u00e4t zu erhalten, lassen die ABS-Preise weiter fallen. Dadurch sanken ABS-Preise weiter, noch gr\u00f6ssere Verluste, usw...  Die Zentralbanken mussten eingreifen  Banken haben zuvor noch Kredite aufgenommen, um ABS zu kaufen  Wenn Wertverlust ABS gr\u00f6sser als das Eigenkapital ist, geht Bank konkurs  Da Banken nicht voneinander wissen, wieviel ABS die anderen haben, gaben sie keine Kredite mehr", 
+            "text": "2001: Rezession in der USA (nach Platzen dotCom-Blase)  USA hat Geldmenge erh\u00f6ht, tiefe Zinsen  Nachfrage nach Hypotheken gingen hinauf    Unabh\u00e4ngig davon: Neues Finanzinstrument ABS (Asset-backed Securities)  Hypotheken b\u00fcndeln und als Wertpapier an Investoren verkaufen  Sichere Wertpapiere, die durch Immobilien gesichert sind  Investoren z.B. Liemann Brothers    Nachfrage an ABS steigt, Banken geben mehr Hypotheken raus  Hypotheken wurden als Gewinn f\u00fcr Kunden ausgegeben, weil H\u00e4userpreise immer gestiegen sind und Wertsteigerung h\u00f6her war als Zinsen  Funktioniert bis 2006, da stiegen H\u00e4userpreise nicht mehr  Leute konnten sich die Zinsen nicht leisten, flogen raus    2004 hat die Zentralbrank die Geldmenge wieder zur\u00fcck genommen, Zinsen gingen wieder rauf  Dadurch weniger Nachfrage, grosses Angebot an Immobilien -   Druck auf Preise  Dadurch zur\u00fcckgehende Nachfrage, ABS-Preise sanken ins bodenlose ab  Das hat dem Vertrauen der Banken geschadet, dadurch ist auch Interbankengesch\u00e4ft zusammen gebrochen  Durch die \"Panikverk\u00e4ufe\" von ABS, um Liquidit\u00e4t zu erhalten, lassen die ABS-Preise weiter fallen. Dadurch sanken ABS-Preise weiter, noch gr\u00f6ssere Verluste, usw...  Die Zentralbanken mussten eingreifen  Banken haben zuvor noch Kredite aufgenommen, um ABS zu kaufen  Wenn Wertverlust ABS gr\u00f6sser als das Eigenkapital ist, geht Bank konkurs  Da Banken nicht voneinander wissen, wieviel ABS die anderen haben, gaben sie untereinander keihe Kredite mehr", 
             "title": "Imobilienkrise USA 2006"
         }, 
         {
@@ -2762,8 +2997,53 @@
         }, 
         {
             "location": "/Vwl/12_Finanzkrise/#eurokrise-seit-2010", 
-            "text": "", 
+            "text": "Statt Probleme mit ABS haben Banken nun Probleme mit Staatsschulden (z.b. von Griechenland)  Fehlende Liquidit\u00e4t: Zentralbanken griffen ein, obwohl das eigentlich nicht ihre Aufgabe ist. Banken waren aber too big to fail.", 
             "title": "Eurokrise seit 2010"
+        }, 
+        {
+            "location": "/Vwl/12_Finanzkrise/#rettung-der-ubs", 
+            "text": "UBS war hochverschuldet durch ABS  2008 hat Bundesrat beschlossen, dass die SNB \"faule\" Wertpapier der UBS \u00fcbernimmt  Der Bund hat 6 Mia. in Darlehen investiert und 2009 mit 1.2 Mia. Gewinn wieder verkauft  Die SNB hat 37.5 Mia. der faulen Wertpapiere \u00fcbernommen  Schlussendlich war es ein Gewinn f\u00fcr SNB und Bund, da sich die UBS und die ABS-Anteile wieder langsam erholt haben  Die UBS-Aktien ist heute auf ca. 15.-, vor der Krise auf 80.-  Heute w\u00fcrde man diese Rettung wohl nicht mehr machen (siehe letzte Vorlesung zu \"too big to fail\")  Wegen den ABS-Gesch\u00e4ften zahlt aber die UBS noch Strafe an die USA und Frankreich", 
+            "title": "Rettung der UBS"
+        }, 
+        {
+            "location": "/Vwl/12_Finanzkrise/#fall-irland", 
+            "text": "Gleiches Problem mit ABS wie in den USA  Der Staat hat teile der Gesch\u00e4ftsbanken in Krisen verstaatlicht, dadurch waren sie nah an einem Staatsbankrott  Heute ist die Staatsverschuldung Irlands bei 86% des BIP", 
+            "title": "Fall Irland"
+        }, 
+        {
+            "location": "/Vwl/12_Finanzkrise/#wie-geht-es-weiter-in-der-eu-zone", 
+            "text": "Viele L\u00e4nder wachsen stetig bez\u00fcglich auf das BIP, aber finanzieren es durch Verschuldung  Die Arbeitslosenquoten sinken nur wenig  Nach EU-Recht d\u00fcrfte kein Land \u00fcber 60% sein(!)  (Schweizer Staats-Schulden (Bund und Kantone) sind ca. 33% BIP)", 
+            "title": "Wie geht es weiter in der EU-Zone?"
+        }, 
+        {
+            "location": "/Vwl/13_Markt_und_Preise/", 
+            "text": "Markt und Preise\n\n\nAxiome der Volkswirtschaft\n\n\n\n\nUnbeschr\u00e4nkte Bed\u00fcrfnisse stehen begrenzen Ressourcen gegen\u00fcber\n\n\nHeisst: Man muss st\u00e4ndig entscheiden, was man mit den Ressourcen anstellt\n\n\n\n\nOpportunit\u00e4tskosten\n: Kosten, die anfallen, weil man nicht die alternative w\u00e4hlt, die Kosten des Verzichts der Alternative\n\n\n\n\nBestimmt Preis: Opportunit\u00e4tskosten bei einem Kauf ist der Preis (alternative w\u00e4re Verzicht auf Konsum)\n\n\n\n\n\n\n\n\nPlanwirtschaft\n: Ressourcen geh\u00f6ren dem Staat, der dessen Einsatz lenkt\n\n\n\n\nMarktwirtschaft\n: Markt regelt die Preise durch Angebot / Nachfrage\n\n\n\n\nMikro\u00f6knomisches Grundmodell\n\n\n\n\nAnnahmen (unrealistisch)\n\n\nNur ein Gut wird betrachtet (genau gleiche Eigenschaften), dass von allen Konkurrenten genau gleich hergestellt wird. Nur der Preis ist unterschiedlich.\n\n\nGrosse Anzahl von Anbietern und Nachfrager\n\n\nKeine Monopole, Transportkosten, etc.\n\n\nAlle sind \u00fcber Mengen und Preise vollst\u00e4ndig informiert\n\n\n\n\n\n\nModell ist also sehr stark vereinfacht\n\n\nKonsumentenrente: Differenz zwischen Zahlungsbereitschaft (w\u00fcrden Konsumenten den Preis nicht kennen) und effektiver Preis (rente = \"geschenk\")\n\n\nProduzentenrente\n: Gleiches Prinzip f\u00fcr Produzenten, sie w\u00fcrden das Gut f\u00fcr weniger anbieten, als es n\u00f6tig ist\n\n\n*Wohlfahrt: Gesamtrente. Diese soll maximiert werden\n\n\n\n\nPreiseingriffe\n\n\n\n\nMindestpreis: Konsumentenrente sinkt, Produzentenrente steigt, Anfrage sinkt, Angebot steigt\n\n\nInsgesamt ist Wohlfahrt gesunken\n\n\n\n\n\n\nGenau gleich, aber umgekehrt beim H\u00f6chstpreis\n\n\nProblem in Venezuela, es gibt ein Nachfrage\u00fcberschuss\n\n\n\n\n\n\nAuch \"Slope\" der Kurve ist relevant\n\n\nUnelastische Nachfrage: Steile Nachfrage-Kurve, z.B. Medikamente\n\n\nWenn es wenig Alternativen gibt, oder das Gut lebensnotwendig ist\n\n\n\n\n\n\nElastische Nachfrage: Flache Nachfrage-Kurve, Preise \u00e4ndern sich schnell, z.B. Luxusprodukte\n\n\nPreiselastizit\u00e4t des Angebots\n: Ver\u00e4nderung der angebotenen Menge / Ver\u00e4nderung des Preises\n\n\nunealstisch, wenn gut weniger haltbar ist\n\n\n\n\n\n\nEinkommenselastizit\u00e4t\n: Ver\u00e4nderung der Nachfrage / Ver\u00e4nderung des Einkommens\n\n\nKann auch negativ sein f\u00fcr G\u00fcter - je mehr man verdient, desto weniger davon konsumiert man\n\n\n\n\n\n\n\n\nBeitrag des Staates\n\n\n\n\nNach Theorie schadet Eingriff des Staates\n\n\nStaat braucht aber trotzdem Eingriffe\n\n\nRechtssystem f\u00fcr Eigentum- und Vertragsrechte\n\n\nMarktversagen korrigieren: z.B. Monopole verhindern (Wettbewerbsrecht)\n\n\nAusgestaltung gew\u00fcnschter Regulierungen", 
+            "title": "13 Markt und Preise"
+        }, 
+        {
+            "location": "/Vwl/13_Markt_und_Preise/#markt-und-preise", 
+            "text": "", 
+            "title": "Markt und Preise"
+        }, 
+        {
+            "location": "/Vwl/13_Markt_und_Preise/#axiome-der-volkswirtschaft", 
+            "text": "Unbeschr\u00e4nkte Bed\u00fcrfnisse stehen begrenzen Ressourcen gegen\u00fcber  Heisst: Man muss st\u00e4ndig entscheiden, was man mit den Ressourcen anstellt   Opportunit\u00e4tskosten : Kosten, die anfallen, weil man nicht die alternative w\u00e4hlt, die Kosten des Verzichts der Alternative   Bestimmt Preis: Opportunit\u00e4tskosten bei einem Kauf ist der Preis (alternative w\u00e4re Verzicht auf Konsum)     Planwirtschaft : Ressourcen geh\u00f6ren dem Staat, der dessen Einsatz lenkt   Marktwirtschaft : Markt regelt die Preise durch Angebot / Nachfrage", 
+            "title": "Axiome der Volkswirtschaft"
+        }, 
+        {
+            "location": "/Vwl/13_Markt_und_Preise/#mikrooknomisches-grundmodell", 
+            "text": "Annahmen (unrealistisch)  Nur ein Gut wird betrachtet (genau gleiche Eigenschaften), dass von allen Konkurrenten genau gleich hergestellt wird. Nur der Preis ist unterschiedlich.  Grosse Anzahl von Anbietern und Nachfrager  Keine Monopole, Transportkosten, etc.  Alle sind \u00fcber Mengen und Preise vollst\u00e4ndig informiert    Modell ist also sehr stark vereinfacht  Konsumentenrente: Differenz zwischen Zahlungsbereitschaft (w\u00fcrden Konsumenten den Preis nicht kennen) und effektiver Preis (rente = \"geschenk\")  Produzentenrente : Gleiches Prinzip f\u00fcr Produzenten, sie w\u00fcrden das Gut f\u00fcr weniger anbieten, als es n\u00f6tig ist  *Wohlfahrt: Gesamtrente. Diese soll maximiert werden", 
+            "title": "Mikro\u00f6knomisches Grundmodell"
+        }, 
+        {
+            "location": "/Vwl/13_Markt_und_Preise/#preiseingriffe", 
+            "text": "Mindestpreis: Konsumentenrente sinkt, Produzentenrente steigt, Anfrage sinkt, Angebot steigt  Insgesamt ist Wohlfahrt gesunken    Genau gleich, aber umgekehrt beim H\u00f6chstpreis  Problem in Venezuela, es gibt ein Nachfrage\u00fcberschuss    Auch \"Slope\" der Kurve ist relevant  Unelastische Nachfrage: Steile Nachfrage-Kurve, z.B. Medikamente  Wenn es wenig Alternativen gibt, oder das Gut lebensnotwendig ist    Elastische Nachfrage: Flache Nachfrage-Kurve, Preise \u00e4ndern sich schnell, z.B. Luxusprodukte  Preiselastizit\u00e4t des Angebots : Ver\u00e4nderung der angebotenen Menge / Ver\u00e4nderung des Preises  unealstisch, wenn gut weniger haltbar ist    Einkommenselastizit\u00e4t : Ver\u00e4nderung der Nachfrage / Ver\u00e4nderung des Einkommens  Kann auch negativ sein f\u00fcr G\u00fcter - je mehr man verdient, desto weniger davon konsumiert man", 
+            "title": "Preiseingriffe"
+        }, 
+        {
+            "location": "/Vwl/13_Markt_und_Preise/#beitrag-des-staates", 
+            "text": "Nach Theorie schadet Eingriff des Staates  Staat braucht aber trotzdem Eingriffe  Rechtssystem f\u00fcr Eigentum- und Vertragsrechte  Marktversagen korrigieren: z.B. Monopole verhindern (Wettbewerbsrecht)  Ausgestaltung gew\u00fcnschter Regulierungen", 
+            "title": "Beitrag des Staates"
         }, 
         {
             "location": "/Vwl/1_Exam/", 
