@@ -53,3 +53,82 @@
     - Local (default): Es wird einfach die neuste Daten der beantworteten Instanz gelesen
     - Majority: Daten werden *von der beantwortenden Instanz* gelesen, die von einer Mehrheit der Nodes bestätigt worden ist
     - Linearizable: Returnierende Daten sind garantiert die neusten, die von einer Mehrheit der Nodes akzeptiert worden ist ("Majority" hingegen gilt nur auf lokaler Instanz)
+
+
+## Column-Family Stores
+- Daten mit Key-Value-Mappings
+- Values sind gruppiert in mehrere Column Families, in einer Family werden Daten zusammengefasst, die oft zusammen benutzt werden
+- Eine Column Family besteht aus einem Key-Value-Pair, wobei der Key ein name ist und der "Value" ein Set von Columns
+- Analog zu RDBMS ist eine Column Family eine Tabelle und jedes Key-Value Tupel eine Row
+
+### Cassandra
+- Im Cassandra ist eine Column ein Key-Value-Pair mit einem Wert als Value
+- Eine Row ist ein Pair von einem Namen und ein Set von Columns
+- Eine Column Family ist ein Pair von einem Namen und ein Set von Rows
+- Bei Replication gibt es keinen Master, alle Nodes sind peers
+- Partitioning: Mit einem Hash-Algorithmus werden die DAten auf die Nodes verteilt
+    - Jeder Node weiss, welche Hash-Ranges zu welchem Node im Cluster gehören
+- Mit dem "Gossip" Protokoll tauschen die Nodes unterneinander ihren Zustand aus
+    - Der Status des Clusters mit N Nodes ist in \(O(log(N))\) Runden bekannt
+    - Alle T sekunden sendet ein Node seine Liste zu einem anderen Node im Cluster
+- Query Syntax ist ähnlich zu SQL
+- Use Cases: Event Logging, CMS, Blogs
+
+## Graph-Datenbanken
+- Daten werden über Nodes und Relationships definiert
+    - Beide können Properties haben
+
+### Neo4J
+- Java basierte Graph-DB, z.B. von Facebook verwendet
+
+#### Cypher Query Syntax
+- Deklarativ
+
+```
+MATCH (john {name: 'John'})-[:firend]->()-[:friend]->(fof)
+RETURN john.name, fof.name
+```
+#### Data Model
+- Jede Node hat ein Label und ein Set von Properties
+- Edges sind gerichtet, haben einen Namen (meist ein Verb) und ein Set von Properties
+
+```
+CREATE (alice:User {username:'Alice'}),
+    (bob:User {username:'Bob'}),
+    (charlie:User{username:'Charlie'}),
+    (davina:User {username:'Davina'}),
+    (edward:User {username:'Edward'}),
+    (alice)-[:ALIAS_OF]->(bob)
+```
+
+## Map-Reduce
+- `Map()` macht Filterung und Sortierung in "Queues", `Reduce()` aggregiert die Daten in einer Queue zu einem Ergebnis
+- Die einzelnen Tasks werden möglichst parallelisiert / auf einem Cluster ausgeführt
+
+### Beispiel MongoDB
+- Ziel: Preise nach Kunden gruppieren
+- Im SQL wäre dies ein einfaches `groupby`, aber beim Schemalosen MongoDB geht das nicht ohne weiteres
+- `mapReduce()` nimmt eine Map und eine Reduce-Funktion als Argumente
+
+```javascript
+var emitCustPrice = function() {
+    emit(this.cust_id, this.price);
+};
+
+var sumUp = function(custId, prices) {
+    return Array.sum(prices);
+};
+
+db.orders.mapReduce(
+    emitCustPrice, sumUp,
+    {out: "PurchasesPerCustomer" }
+);
+```
+
+
+## Polygot Persistence
+- Verschiedene Datenbank-Ansätze lösen verschiedene Probleme
+- Man kann nicht alle Bedürfnisse für Geschwindigkeit, Verfügbarkeit, Konsistenz, Replication etc. mit einem DB-System erfüllen
+- Traditionell wurde für alles RDBMS verwendet
+- mit dem "Polygot"-Ansatz werden für verschiedene Probleme in einem System verschiedene Datenbanken verwendet
+    - z.B. RDBMS für Bestellungen, Key-Value-Stores für Session-Informationen, Graph-Datenbanken für Kunden-Beziehungen, etc.

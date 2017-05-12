@@ -94,11 +94,8 @@ yes, as long as it is unique
 - Its finger table would contain `{1, 1, 5}` (same as `p6` before)
 - The finger table of `p7`s predecessor (`p6`) has to be changed to `{7, 1, 5}`
 
-> KE7: If we insert a node into a Chord system, do we need to instantly update all the finger tables?
-
-
-
 > KE8: High-level name servers in DNS, that is, name servers implementing nodes in the DNS name space that are close to the root, generally do not support recursive name resolution. Can we expect much performance improvement if they did?
+
 
 No, this would mean a huge increase in server resource requirement
 

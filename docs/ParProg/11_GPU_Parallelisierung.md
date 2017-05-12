@@ -57,3 +57,33 @@ void VectorAddKernel(float *A, float *B, float *C) {
 ### Ausführung
 - Speicher muss auf auch der GPU alloziert werden und hin und her von Host- zu Device-Memory kopiert werden
 - Diese Schritte müssen manuell im Code gemacht werden
+- Resident Blocks & Threads: Maximale Anzahl, die gleichzeitig in der GPU geladen werden kann
+
+## CUDA Optimierung
+
+### Speichermodell
+- Beispiel Matrixmultiplikation: Für jede Zeile in C wird die gleiche Spalte in B verwendet, gleich bei Spalten
+- Zugriff auf global Memory ist teuer (600 Zyklen pro Zugriff!)
+- Effizienz-Steigerung mit Caching
+
+- Im Cuda Speichermodell hat jeder Thread Register zur Verfügung (sehr schnell)
+- Threads im gleichen Block können auf ein Shared Memory zugreifen
+
+### Tiled Matrix Multiplication
+- Problem bei Tiled Matrix Multiplikation: Es kann sein, dass bei grossen Matrizen nicht mal eine ganze Zeile oder Spalte im Cache platz hat!
+- Lösung: In quadratischen Teilen Zwischenresultate berechnen
+
+- `__syncthreads()` dient als Barriere, alle Threads innerhalb eines Blockes werden synchronisiert
+    - Jedes `__syncthreads()` ist eine eigene Barriere! Aufpassen mit Kontrollstrukturen
+- Shared-Memory mit `__shared__` deklarieren
+- Beispiel in Vorlesung: 7 Sek. ohne Optimierung, 0.3 sek. mit Optimierung! -> 150x schneller
+
+### Warp
+- Ein Block wird intern zu Warps (zu je 32 Threads) zerlegt
+- Alle Threads in einem Warp führen gleiche Instruktionen aus (SIMD)
+- Ein Block läuft immer auf einem Streaming Prozessor
+- Falls ein Warp auf Speicher wartet, führt Streaming Multiprocessor einen anderen Warp aus
+- Bei `__syncthreads()` müssen alle Warps im Block aktiv sein!
+
+### Divergenz
+- Tritt auf, wenn es in einem Warp Abzweigungen (z.B. If.. else) gibt, die nicht garantiert auf einem Warp ausgeführt werden
