@@ -291,6 +291,56 @@
             "title": "Polygot Persistence"
         }, 
         {
+            "location": "/Dbs2/13_ObjectDBMS/", 
+            "text": "Objektorientierte DBMS\n\n\n\n\nNimmt OO-Konzepte und erweitert sie um DB-Konzepte\n\n\nAnforderungen: OO-Modell (Complex Objects, inheritance, overriding, etc.) mit ACID-Kriterien auf der Datenbank\n\n\n\n\nSpeicherstrukturen\n\n\n\n\nIm Gegensatz zu RDBMS m\u00fcssen Objekte nun nicht mehr in ein relationales Schema \u00fcbersetzt werden, der Datentransfer ist \"direkt\"\n\n\nDer Query-Code ist nun Aufgabe des Clients, von der Datenbank werden nur noch die Daten zur\u00fcck gegeben\n\n\nProgrammiersprache und OODBMS arbeiten mit dem gleichen Typensystem\n\n\nClustering: Komplexe Objekte sollten m\u00f6glichst auf der gleichen Page liegen, damit die Abfrage effizient ist\n\n\n\n\nVor- und Nachteile\n\n\n\n\nNur noch ein Datenschema notwendig\n\n\nDatentypen m\u00fcssen nicht mehr gemappt werden, sollten identisch sein\n\n\nNeue Technologien: Objektversionierung, Array-Datentypen\n\n\n\n\nNachteile:\n- Query Language oft primitiver als SQL\n- Mangel an \"kommerziellen\" Datentypen wie Datum / Zeit\n- Wenig ausgereift\n\n\nODMG-Standard\n\n\n\n\nStandardisierung der \nObject Database Management Group\n\n\nDefiniert Standards f\u00fcr das Object Model, ODL, Query Language, Bindings f\u00fcr Java / C++ etc.\n\n\nLetzte Version 3.0, in Java von \nJava Data Objects\n abgel\u00f6st\n\n\nODL definiert eine Sprache zur Beschreibung des Datenmodells\n\n\nOQL operieren auf Collections (SQL: Menge von Tupels)\n\n\nSprache \u00e4hnlich wie SQL\n\n\n\n\n\n\n\n\nPersistence\n\n\n\n\n\"Persistence by Reachability\"\n\n\nWenn ein Objekt geladen oder persistiert wird, geh\u00f6ren alle Objekte dazu, die irgendwie von diesem \"Root\" Objekt aus erreichbar sind\n\n\n\"If Object A references Object B, and Object A is persistent \u2026 then Object B becomes persistent automatically.\"\n\n\nDie maximale \"Tiefe\" ist konfigurierbar\n\n\nVorteil: Grosse Objektb\u00e4ume k\u00f6nnen mit einem Aufruf geladen werden\n\n\n\n\nWhen to use ODBMS\n\n\n\n\nhttp://www.odbms.org/introduction-to-odbms/when-to-use-an-odbms/\n\n\nMobile Clients (Zugriffe einfach und g\u00fcnstig)\n\n\nKomplexe Relationen, die schwer mit RDBs zu modellieren sind\n\n\nTiefe Objektstrukturen, die z.B. komplexe B\u00e4ume darstellen\n\n\nIn einer OO-Umgebung - Kein mapping mehr\n\n\nDatenzugriff \u00fcber Navigation: Navigieren durch die Objektstruktur ist g\u00fcnstig, es braucht keine Joins", 
+            "title": "13 ObjectDBMS"
+        }, 
+        {
+            "location": "/Dbs2/13_ObjectDBMS/#objektorientierte-dbms", 
+            "text": "Nimmt OO-Konzepte und erweitert sie um DB-Konzepte  Anforderungen: OO-Modell (Complex Objects, inheritance, overriding, etc.) mit ACID-Kriterien auf der Datenbank", 
+            "title": "Objektorientierte DBMS"
+        }, 
+        {
+            "location": "/Dbs2/13_ObjectDBMS/#speicherstrukturen", 
+            "text": "Im Gegensatz zu RDBMS m\u00fcssen Objekte nun nicht mehr in ein relationales Schema \u00fcbersetzt werden, der Datentransfer ist \"direkt\"  Der Query-Code ist nun Aufgabe des Clients, von der Datenbank werden nur noch die Daten zur\u00fcck gegeben  Programmiersprache und OODBMS arbeiten mit dem gleichen Typensystem  Clustering: Komplexe Objekte sollten m\u00f6glichst auf der gleichen Page liegen, damit die Abfrage effizient ist", 
+            "title": "Speicherstrukturen"
+        }, 
+        {
+            "location": "/Dbs2/13_ObjectDBMS/#vor-und-nachteile", 
+            "text": "Nur noch ein Datenschema notwendig  Datentypen m\u00fcssen nicht mehr gemappt werden, sollten identisch sein  Neue Technologien: Objektversionierung, Array-Datentypen   Nachteile:\n- Query Language oft primitiver als SQL\n- Mangel an \"kommerziellen\" Datentypen wie Datum / Zeit\n- Wenig ausgereift", 
+            "title": "Vor- und Nachteile"
+        }, 
+        {
+            "location": "/Dbs2/13_ObjectDBMS/#odmg-standard", 
+            "text": "Standardisierung der  Object Database Management Group  Definiert Standards f\u00fcr das Object Model, ODL, Query Language, Bindings f\u00fcr Java / C++ etc.  Letzte Version 3.0, in Java von  Java Data Objects  abgel\u00f6st  ODL definiert eine Sprache zur Beschreibung des Datenmodells  OQL operieren auf Collections (SQL: Menge von Tupels)  Sprache \u00e4hnlich wie SQL", 
+            "title": "ODMG-Standard"
+        }, 
+        {
+            "location": "/Dbs2/13_ObjectDBMS/#persistence", 
+            "text": "\"Persistence by Reachability\"  Wenn ein Objekt geladen oder persistiert wird, geh\u00f6ren alle Objekte dazu, die irgendwie von diesem \"Root\" Objekt aus erreichbar sind  \"If Object A references Object B, and Object A is persistent \u2026 then Object B becomes persistent automatically.\"  Die maximale \"Tiefe\" ist konfigurierbar  Vorteil: Grosse Objektb\u00e4ume k\u00f6nnen mit einem Aufruf geladen werden", 
+            "title": "Persistence"
+        }, 
+        {
+            "location": "/Dbs2/13_ObjectDBMS/#when-to-use-odbms", 
+            "text": "http://www.odbms.org/introduction-to-odbms/when-to-use-an-odbms/  Mobile Clients (Zugriffe einfach und g\u00fcnstig)  Komplexe Relationen, die schwer mit RDBs zu modellieren sind  Tiefe Objektstrukturen, die z.B. komplexe B\u00e4ume darstellen  In einer OO-Umgebung - Kein mapping mehr  Datenzugriff \u00fcber Navigation: Navigieren durch die Objektstruktur ist g\u00fcnstig, es braucht keine Joins", 
+            "title": "When to use ODBMS"
+        }, 
+        {
+            "location": "/Dbs2/14_OR-DBMS/", 
+            "text": "Objektrelatione DBMS\n\n\n\n\nErweitert Relationale DBMS um OO-Konzepte\n\n\nKennt komplexe Typen: Einem Attribut kann eine Menge von Werten zugeordnet werden\n\n\nAttribute k\u00f6nnen selbst Relationen sein\n\n\nUnterst\u00fctzen anwendungsspezfische Typen (User defined types)\n\n\nKomplexe Typen k\u00f6nnen von Obertyp erben, genauso k\u00f6nnen Relationen vererbt werden\n\n\n\n\nStandardisierung\n\n\n\n\nSQL-Standard 1999 beinhaltet objekt-relatione Erweiterungen\n\n\nDefiniert auch neue Basisdatentypen: BLOBs, CLOBs (Character large object), BFILE\n\n\nRow Types\n k\u00f6nnen mehrere Attribute in einem Attribut vereinen\n\n\nBsp: Attribut \naddress\n beinhaltet \nNumber, Street, ZIP\n\n\nZugriff \u00fcber den Pfad: \naddress.number\n\n\n\n\n\n\nArrays m\u00f6glich (\narray[n]\n)\n\n\nRow-Types und Arrays k\u00f6nnen verschachtelt werden\n\n\nCollection: \nlistof(type)\n, \nsetof(type)\n, \nbagof(type)\n (Bag erlaubt im Gegensatz zu einem Set Duplikate)", 
+            "title": "14 OR DBMS"
+        }, 
+        {
+            "location": "/Dbs2/14_OR-DBMS/#objektrelatione-dbms", 
+            "text": "Erweitert Relationale DBMS um OO-Konzepte  Kennt komplexe Typen: Einem Attribut kann eine Menge von Werten zugeordnet werden  Attribute k\u00f6nnen selbst Relationen sein  Unterst\u00fctzen anwendungsspezfische Typen (User defined types)  Komplexe Typen k\u00f6nnen von Obertyp erben, genauso k\u00f6nnen Relationen vererbt werden", 
+            "title": "Objektrelatione DBMS"
+        }, 
+        {
+            "location": "/Dbs2/14_OR-DBMS/#standardisierung", 
+            "text": "SQL-Standard 1999 beinhaltet objekt-relatione Erweiterungen  Definiert auch neue Basisdatentypen: BLOBs, CLOBs (Character large object), BFILE  Row Types  k\u00f6nnen mehrere Attribute in einem Attribut vereinen  Bsp: Attribut  address  beinhaltet  Number, Street, ZIP  Zugriff \u00fcber den Pfad:  address.number    Arrays m\u00f6glich ( array[n] )  Row-Types und Arrays k\u00f6nnen verschachtelt werden  Collection:  listof(type) ,  setof(type) ,  bagof(type)  (Bag erlaubt im Gegensatz zu einem Set Duplikate)", 
+            "title": "Standardisierung"
+        }, 
+        {
             "location": "/Dbs2/1_Exam/", 
             "text": "Some exam notes...", 
             "title": "1 Exam"
@@ -1016,6 +1066,16 @@
             "title": "APT Detection"
         }, 
         {
+            "location": "/InfSi3/15_Security-Testing/", 
+            "text": "Security Testing\n\n\n\n\nJe besser der Kunde weiss, was er will, desto besser kann man arbeiten\n\n\nSecurity Testing erstellt nur einen Report, fixt die Probleme nicht selbst\n\n\nGleich wie bei Revision einer AG\n\n\nGlaubw\u00fcrdikeit w\u00fcrde verloren gehen\n\n\n\n\n\n\nWarum wird getestet?\n\n\nIntrinsische Motivation: Firma m\u00f6chte Sicherheit bieten\n\n\nGesetze (z.B. f\u00fcr Paypment-Processor) - Compliance\n\n\nISMS: ISO-Standard Ged\u00f6ns\n\n\n\n\n\n\nNicht nur negative Testf\u00e4lle dokumentieren!\n\n\nDass man z.B. nachweisen kann, wie der Zustand der Software zum Zeitpunkt des Tests ist\n\n\n\n\n\n\nSecurity Tester macht keine Risikobeurteilung! -\n Er sch\u00e4tzt nicht potentielle Sch\u00e4den, daf\u00fcr m\u00fcsste er das Business verstehen\n\n\nNur gewichtete Schwachstellen\n\n\nKunde macht Risikosch\u00e4tzung (ISMS)\n\n\n\n\n\n\nReview: Informationen offenlegen (z.B. Firewall-config) und pr\u00fcfen, anstatt von aussen die Firewall zu testen ohne Vorwissen\n\n\nSocial Engineering Test: Wieviele % fallen herein?", 
+            "title": "15 Security Testing"
+        }, 
+        {
+            "location": "/InfSi3/15_Security-Testing/#security-testing", 
+            "text": "Je besser der Kunde weiss, was er will, desto besser kann man arbeiten  Security Testing erstellt nur einen Report, fixt die Probleme nicht selbst  Gleich wie bei Revision einer AG  Glaubw\u00fcrdikeit w\u00fcrde verloren gehen    Warum wird getestet?  Intrinsische Motivation: Firma m\u00f6chte Sicherheit bieten  Gesetze (z.B. f\u00fcr Paypment-Processor) - Compliance  ISMS: ISO-Standard Ged\u00f6ns    Nicht nur negative Testf\u00e4lle dokumentieren!  Dass man z.B. nachweisen kann, wie der Zustand der Software zum Zeitpunkt des Tests ist    Security Tester macht keine Risikobeurteilung! -  Er sch\u00e4tzt nicht potentielle Sch\u00e4den, daf\u00fcr m\u00fcsste er das Business verstehen  Nur gewichtete Schwachstellen  Kunde macht Risikosch\u00e4tzung (ISMS)    Review: Informationen offenlegen (z.B. Firewall-config) und pr\u00fcfen, anstatt von aussen die Firewall zu testen ohne Vorwissen  Social Engineering Test: Wieviele % fallen herein?", 
+            "title": "Security Testing"
+        }, 
+        {
             "location": "/InfSi3/1_Exam/", 
             "text": "Exam\n\n\n\n\nPr\u00fcfung ohne Unterlagen\n\n\nSelbststudium ist Pr\u00fcfungsstoff!", 
             "title": "1 Exam"
@@ -1452,7 +1512,7 @@
         }, 
         {
             "location": "/ParProg/11_GPU_Parallelisierung/", 
-            "text": "GPU Parallelisierung\n\n\nVorteile Actor Model\n\n\n\n\nKein Shared Memory\n\n\nKeine Data Races\n\n\nDistributed Concurrency - Beliebige Verteilung auf mehrere Systeme\n\n\nParallelisierung ist inh\u00e4rent eingebaut, man braucht keine Synchronisationsprimitiven\n\n\n\n\nZiel\n\n\n\n\nGPUs haben viele Cores, aber sie sind langsam und spezifisch (nicht \"general-purpose)\n\n\nZiel ist also m\u00f6glicht hohe Parallelisierung\n\n\n\n\nGPU Prozessarchitektur\n\n\n\n\nALU f\u00fchrt Rechenoperationen durch\n\n\nIm einer CPU werden relativ wenig Transistoren f\u00fcr die ALU eingesetzt\n\n\nAuf einer GPU ist der gr\u00f6sste Teil Transistoren f\u00fcr ALUs, daf\u00fcr sind diese primitver, z.B. wird nur wenig Caching eingesetzt\n\n\nEine GPU besteht aus mehreren SM (Streaming Multiprocessor), die selbst aus mehreren (z.B. 32 oder 64) Cores bestehen\n\n\ndie Cores in einer SM sind f\u00fcr sich selbst nicht f\u00e4hig f\u00fcr Operationen\n\n\nEine Instruktion wird von einer SM ausgef\u00fchrt, diese wird dann von jedem Core im SM gleichzeitig ausgef\u00fchrt auf unterschiedlichen Datenstellen\n\n\nNormale Operationen werden ausgef\u00fchrt in sequentiellen Reihenfolge fetch - decode - execute - write back\n\n\n\n\n\n\nGPU-Parallelit\u00e4t eignen sich gut f\u00fcr Blockweise Operationen, wenn viele gleiche Berechnungen durchgef\u00fchrt werden, z.B. Video Gaming\n\n\nEignet sich hingegen nicht f\u00fcr komplizierte Verzweigungen, z.B. Schach-Computer\n\n\n\n\n\n\n\n\nNUMA Modell\n\n\n\n\nNon-Uniform Memory Access\n\n\nKein gemeinsamer Speicher zwischen CPU und GPU\n\n\nUnterschiedlicher Instruktionssatz zwischen CPU und CPU\n\n\nCode f\u00fcr GPU und CPU sepparat kompilieren\n\n\n\n\n\n\n\n\nCUDA\n\n\n\n\nPropriet\u00e4re API / Compiler f\u00fcr C/C++ \nf\u00fcr NVIDIA Karten\n\n\n\n\nVideo-Computing und CUDA werden parallel in einem Thread-Pool ausgef\u00fchrt\n\n\n\n\n\n\nCode f\u00fcr GPU wird speziell ausgezeichnet\n\n\n\n\nEin Kernel (Methode) wird von mehreren Threads ausgef\u00fchrt\n\n\nThread-index wird mit \nthreadIdx.x\n abgerufen (\nx\n ist koordinate)\n\n\n\n\n__global__\n\n\nvoid\n \nVectorAddKernel\n(\nfloat\n \n*\nA\n,\n \nfloat\n \n*\nB\n,\n \nfloat\n \n*\nC\n)\n \n{\n\n    \nint\n \ni\n \n=\n \nthreadIdx\n.\nx\n;\n\n    \nC\n[\ni\n]\n \n=\n \nA\n[\ni\n]\n \n+\n \nB\n[\ni\n];\n\n\n}\n\n\n\n\n\n\nThreads\n\n\n\n\nThreads sind gruppiert in Bl\u00f6cke, ein Block ist im Hintergrund immer auf einem Streaming Multiprocessor\n\n\nInnerhalb eines Blocks k\u00f6nnen Threads untereinander kommunizieren\n\n\nEin Thread ist ein virtueller Skalarprozessor\n\n\nThread-Bl\u00f6cke m\u00fcssen unabh\u00e4ngig sein\n\n\nBl\u00f6cke werden mit Thread-Pool auf die verschiedenen Streaming-Prozessoren verteilt\n\n\nEin Block ist quasi ein \"Task\"\n\n\n\n\n\n\nEin Grid ist eine Gruppe von Block, meist ein Programm\n\n\nAufteilung in Blocks und Threads wird vom Programmiere modelliert\n\n\nz.B. globalen Index ermittel mit \ni = threadIdx.x + blockDim.x * blockIdx.x\n\n\nIm Aufruf des Kernels angeben, wie es ausgef\u00fchrt werden soll. \n4, 512\n heisst 4 Bl\u00f6cke zu je 512 Threads\n\n\n\n\n\n\n\n\nAusf\u00fchrung\n\n\n\n\nSpeicher muss auf auch der GPU alloziert werden und hin und her von Host- zu Device-Memory kopiert werden\n\n\nDiese Schritte m\u00fcssen manuell im Code gemacht werden\n\n\nResident Blocks \n Threads: Maximale Anzahl, die gleichzeitig in der GPU geladen werden kann\n\n\n\n\nCUDA Optimierung\n\n\nSpeichermodell\n\n\n\n\nBeispiel Matrixmultiplikation: F\u00fcr jede Zeile in C wird die gleiche Spalte in B verwendet, gleich bei Spalten\n\n\nZugriff auf global Memory ist teuer (600 Zyklen pro Zugriff!)\n\n\n\n\nEffizienz-Steigerung mit Caching\n\n\n\n\n\n\nIm Cuda Speichermodell hat jeder Thread Register zur Verf\u00fcgung (sehr schnell)\n\n\n\n\nThreads im gleichen Block k\u00f6nnen auf ein Shared Memory zugreifen\n\n\n\n\nTiled Matrix Multiplication\n\n\n\n\nProblem bei Tiled Matrix Multiplikation: Es kann sein, dass bei grossen Matrizen nicht mal eine ganze Zeile oder Spalte im Cache platz hat!\n\n\n\n\nL\u00f6sung: In quadratischen Teilen Zwischenresultate berechnen\n\n\n\n\n\n\n__syncthreads()\n dient als Barriere, alle Threads innerhalb eines Blockes werden synchronisiert\n\n\n\n\nJedes \n__syncthreads()\n ist eine eigene Barriere! Aufpassen mit Kontrollstrukturen\n\n\n\n\n\n\nShared-Memory mit \n__shared__\n deklarieren\n\n\nBeispiel in Vorlesung: 7 Sek. ohne Optimierung, 0.3 sek. mit Optimierung! -\n 150x schneller\n\n\n\n\nWarp\n\n\n\n\nEin Block wird intern zu Warps (zu je 32 Threads) zerlegt\n\n\nAlle Threads in einem Warp f\u00fchren gleiche Instruktionen aus (SIMD)\n\n\nEin Block l\u00e4uft immer auf einem Streaming Prozessor\n\n\nFalls ein Warp auf Speicher wartet, f\u00fchrt Streaming Multiprocessor einen anderen Warp aus\n\n\nBei \n__syncthreads()\n m\u00fcssen alle Warps im Block aktiv sein!\n\n\n\n\nDivergenz\n\n\n\n\nTritt auf, wenn es in einem Warp Abzweigungen (z.B. If.. else) gibt, die nicht garantiert auf einem Warp ausgef\u00fchrt werden", 
+            "text": "GPU Parallelisierung\n\n\nVorteile Actor Model\n\n\n\n\nKein Shared Memory\n\n\nKeine Data Races\n\n\nDistributed Concurrency - Beliebige Verteilung auf mehrere Systeme\n\n\nParallelisierung ist inh\u00e4rent eingebaut, man braucht keine Synchronisationsprimitiven\n\n\n\n\nZiel\n\n\n\n\nGPUs haben viele Cores, aber sie sind langsam und spezifisch (nicht \"general-purpose)\n\n\nZiel ist also m\u00f6glicht hohe Parallelisierung\n\n\n\n\nGPU Prozessarchitektur\n\n\n\n\nALU f\u00fchrt Rechenoperationen durch\n\n\nIm einer CPU werden relativ wenig Transistoren f\u00fcr die ALU eingesetzt\n\n\nAuf einer GPU ist der gr\u00f6sste Teil Transistoren f\u00fcr ALUs, daf\u00fcr sind diese primitver, z.B. wird nur wenig Caching eingesetzt\n\n\nEine GPU besteht aus mehreren SM (Streaming Multiprocessor), die selbst aus mehreren (z.B. 32 oder 64) Cores bestehen\n\n\ndie Cores in einer SM sind f\u00fcr sich selbst nicht f\u00e4hig f\u00fcr Operationen\n\n\nEine Instruktion wird von einer SM ausgef\u00fchrt, diese wird dann von jedem Core im SM gleichzeitig ausgef\u00fchrt auf unterschiedlichen Datenstellen\n\n\nNormale Operationen werden ausgef\u00fchrt in sequentiellen Reihenfolge fetch - decode - execute - write back\n\n\n\n\n\n\nGPU-Parallelit\u00e4t eignen sich gut f\u00fcr Blockweise Operationen, wenn viele gleiche Berechnungen durchgef\u00fchrt werden, z.B. Video Gaming\n\n\nEignet sich hingegen nicht f\u00fcr komplizierte Verzweigungen, z.B. Schach-Computer\n\n\n\n\n\n\n\n\nNUMA Modell\n\n\n\n\nNon-Uniform Memory Access\n\n\nKein gemeinsamer Speicher zwischen CPU und GPU\n\n\nUnterschiedlicher Instruktionssatz zwischen CPU und CPU\n\n\nCode f\u00fcr GPU und CPU sepparat kompilieren\n\n\n\n\n\n\n\n\nCUDA\n\n\n\n\nPropriet\u00e4re API / Compiler f\u00fcr C/C++ \nf\u00fcr NVIDIA Karten\n\n\n\n\nVideo-Computing und CUDA werden parallel in einem Thread-Pool ausgef\u00fchrt\n\n\n\n\n\n\nCode f\u00fcr GPU wird speziell ausgezeichnet\n\n\n\n\nEin Kernel (Methode) wird von mehreren Threads ausgef\u00fchrt\n\n\nThread-index wird mit \nthreadIdx.x\n abgerufen (\nx\n ist koordinate)\n\n\n\n\n__global__\n\n\nvoid\n \nVectorAddKernel\n(\nfloat\n \n*\nA\n,\n \nfloat\n \n*\nB\n,\n \nfloat\n \n*\nC\n)\n \n{\n\n    \nint\n \ni\n \n=\n \nthreadIdx\n.\nx\n;\n\n    \nC\n[\ni\n]\n \n=\n \nA\n[\ni\n]\n \n+\n \nB\n[\ni\n];\n\n\n}\n\n\n\n\n\n\nThreads\n\n\n\n\nThreads sind gruppiert in Bl\u00f6cke, ein Block ist im Hintergrund immer auf einem Streaming Multiprocessor\n\n\nInnerhalb eines Blocks k\u00f6nnen Threads untereinander kommunizieren\n\n\nEin Thread ist ein virtueller Skalarprozessor\n\n\nThread-Bl\u00f6cke m\u00fcssen unabh\u00e4ngig sein\n\n\nBl\u00f6cke werden mit Thread-Pool auf die verschiedenen Streaming-Prozessoren verteilt\n\n\nEin Block ist quasi ein \"Task\"\n\n\n\n\n\n\nEin Grid ist eine Gruppe von Block, meist ein Programm\n\n\nAufteilung in Blocks und Threads wird vom Programmiere modelliert\n\n\nz.B. globalen Index ermittel mit \ni = threadIdx.x + blockDim.x * blockIdx.x\n\n\nIm Aufruf des Kernels angeben, wie es ausgef\u00fchrt werden soll. \n4, 512\n heisst 4 Bl\u00f6cke zu je 512 Threads\n\n\n\n\n\n\n\n\nAusf\u00fchrung\n\n\n\n\nSpeicher muss auf auch der GPU alloziert werden und hin und her von Host- zu Device-Memory kopiert werden\n\n\nDiese Schritte m\u00fcssen manuell im Code gemacht werden\n\n\nResident Blocks \n Threads: Maximale Anzahl, die gleichzeitig in der GPU geladen werden kann\n\n\n\n\nCUDA Optimierung\n\n\nSpeichermodell\n\n\n\n\nBeispiel Matrixmultiplikation: F\u00fcr jede Zeile in C wird die gleiche Spalte in B verwendet, gleich bei Spalten\n\n\nZugriff auf global Memory ist teuer (600 Zyklen pro Zugriff!)\n\n\n\n\nEffizienz-Steigerung mit Caching\n\n\n\n\n\n\nIm Cuda Speichermodell hat jeder Thread Register zur Verf\u00fcgung (sehr schnell)\n\n\n\n\nThreads im gleichen Block k\u00f6nnen auf ein Shared Memory zugreifen\n\n\n\n\nTiled Matrix Multiplication\n\n\n\n\nProblem bei Tiled Matrix Multiplikation: Es kann sein, dass bei grossen Matrizen nicht mal eine ganze Zeile oder Spalte im Cache platz hat!\n\n\n\n\nL\u00f6sung: In quadratischen Teilen Zwischenresultate berechnen\n\n\n\n\n\n\n__syncthreads()\n dient als Barriere, alle Threads innerhalb eines Blockes werden synchronisiert\n\n\n\n\nJedes \n__syncthreads()\n ist eine eigene Barriere! Aufpassen mit Kontrollstrukturen\n\n\n\n\n\n\nShared-Memory mit \n__shared__\n deklarieren\n\n\nBeispiel in Vorlesung: 7 Sek. ohne Optimierung, 0.3 sek. mit Optimierung! -\n 150x schneller\n\n\n\n\nWarp\n\n\n\n\nEin Block wird intern zu Warps (zu je 32 Threads) zerlegt\n\n\nAlle Threads in einem Warp f\u00fchren gleiche Instruktionen aus (SIMD)\n\n\nEin Block l\u00e4uft immer auf einem Streaming Prozessor\n\n\nFalls ein Warp auf Speicher wartet, f\u00fchrt Streaming Multiprocessor einen anderen Warp aus\n\n\nBei \n__syncthreads()\n m\u00fcssen alle Warps im Block aktiv sein!\n\n\n\n\nDivergenz\n\n\n\n\nTritt auf, wenn es in einem Warp Abzweigungen (z.B. If.. else) gibt, die nicht garantiert auf einem Warp ausgef\u00fchrt werden\n\n\n\n\nMemory Coalescing\n\n\n\n\nZugriff auf aufeinanderfolgende Daten im Memory werden in einer Transaktion ausgef\u00fchrt (Memory Burst)\n\n\nEin Memory Burst kann auch von mehreren Threads benutzt werden\n\n\nAnwendung: Zugriffe m\u00f6glichst im Speicher nacheinander ausf\u00fchren (achten bei Matrix-Multiplikation: Nach Zeilen oder Spalten berechnen)\n\n\nAls Offset m\u00f6glichst den Thread-Index verwenden-", 
             "title": "11 GPU Parallelisierung"
         }, 
         {
@@ -1519,6 +1579,41 @@
             "location": "/ParProg/11_GPU_Parallelisierung/#divergenz", 
             "text": "Tritt auf, wenn es in einem Warp Abzweigungen (z.B. If.. else) gibt, die nicht garantiert auf einem Warp ausgef\u00fchrt werden", 
             "title": "Divergenz"
+        }, 
+        {
+            "location": "/ParProg/11_GPU_Parallelisierung/#memory-coalescing", 
+            "text": "Zugriff auf aufeinanderfolgende Daten im Memory werden in einer Transaktion ausgef\u00fchrt (Memory Burst)  Ein Memory Burst kann auch von mehreren Threads benutzt werden  Anwendung: Zugriffe m\u00f6glichst im Speicher nacheinander ausf\u00fchren (achten bei Matrix-Multiplikation: Nach Zeilen oder Spalten berechnen)  Als Offset m\u00f6glichst den Thread-Index verwenden-", 
+            "title": "Memory Coalescing"
+        }, 
+        {
+            "location": "/ParProg/12_Cluster_Parallelisierung/", 
+            "text": "Cluster Parallelisierung\n\n\nHPC Cluster Architektur\n\n\n\n\nAnwendung. Wissenschaftliches Rechnen, Simulationen\n\n\nCores in einem Cluster sind normale CPU-Cores (General Purpose)\n\n\nGleichartige Rechenknoten an einem Standord fest verbunden, mit schnellem \"Interconnent\" (z.B. 60GBit/s)\n\n\nEin \nHead\n-Node koordiniert die Jobs und ist nach Aussen verbunden. Die restlichen Knoten sind \ncompute\n-Nodes (hinter der Firewall)\n\n\nI/O wird \u00fcber File-Shares abgewickelt\n\n\nZiel: Ein Programm auf mehreren Nodes ausf\u00fchren -\n z.B. Actor Model\n\n\n\n\nVerteiltes Programmiermodel - MPI\n\n\n\n\nKeine Shared Memory zwischen Nodes\n\n\nZiel: Nachrichtenaustausch zwischen Prozessen (und Nodes)\n\n\nMPI: Message Passing Interface\n\n\n\"Standard\" wie JPA\n\n\n\n\n\n\nJeder Prozess hat eine Nummerierung (Rank)\n\n\nC Interface, kann aber auch in .NET verwendet werden\n\n\n\n\nusing (new MPI.Environment(ref args)) {\n    int rank = Communicator.world.Rank;\n    Console.WriteLine(\nMPI process {0} \n, rank);\n}\n\n\n\n\n\n\n\nAusf\u00fchrung mit \nmpiexec -n \nnof processes\n \nexecutable\n\n\nWird automatisch auf HPC-Nodes verteilt\n\n\nAuf einem Node k\u00f6nnen auch mehrere Instanzen (Prozesse) des Programms laufen\n\n\n\n\n\n\nSynchronisation \u00fcber Barrieren (Initialize und Finalize sind Barrieren)\n\n\n\n\nCommunicator\n\n\n\n\nErlaubt Kommunikation zwischen Prozessen\n\n\nRank ist Nummer innerhalb einer Gruppe, Eindeutige Id ist Rank + Communicator\n\n\nAlle Prozesse sind in Communicator-Gruppe \"World\"\n\n\nSenden: \nworld.send(value, receiverRank, messageTag)\n\n\nEmpfangen: \nworld.Receive(senderRank, messageTag, out value)\n\n\nworld\n ist Communicator-Gruppe, message-Tag frei w\u00e4hlb\u00e4re Nummer \n= 0\n\n\nCommunicator.world.Barrier()\n ist eine Barriere, die auf alle Prozesse wartet\n\n\nworld.Allreduce(value, fn)\n reduziert mehrere Werte mit einer Aggregations-Funktion auf einen einzelnen Wert\n\n\n\n\nMonte Carlo Pi Simulation\n\n\n\n\nErwartungswert Punkt im Kreis: \n\\frac{Kreisfl\u00e4che}{Quadratfl\u00e4che}\n\n\n\n\nQuadratfl\u00e4che \n= 2*2 = 4\n, Kreisfl\u00e4che \n = r^2 * \\pi = \\pi\n\n\n\n\nAnnh\u00e4herung \n\\pi = 4 \\cdot \\frac{\\text{# Hits}}{\\text{# Points}}\n\n\n\n\nJeder Prozess rechnet einen Teil der Punkte, am Schluss wird die Summe der Hits aggregiert\n\n\nworld.Reduce(hits, (a, b) =\n a + b, 0);\n, das Resultat wird an Prozess 0 gesendet\n\n\nDemo auf Cluster:\n\n\n30s auf einem Node\n\n\n8.4s auf 4 Nodes\n\n\n0.9s auf 40 Nodes\n\n\n0.4s auf 80 Nodes", 
+            "title": "12 Cluster Parallelisierung"
+        }, 
+        {
+            "location": "/ParProg/12_Cluster_Parallelisierung/#cluster-parallelisierung", 
+            "text": "", 
+            "title": "Cluster Parallelisierung"
+        }, 
+        {
+            "location": "/ParProg/12_Cluster_Parallelisierung/#hpc-cluster-architektur", 
+            "text": "Anwendung. Wissenschaftliches Rechnen, Simulationen  Cores in einem Cluster sind normale CPU-Cores (General Purpose)  Gleichartige Rechenknoten an einem Standord fest verbunden, mit schnellem \"Interconnent\" (z.B. 60GBit/s)  Ein  Head -Node koordiniert die Jobs und ist nach Aussen verbunden. Die restlichen Knoten sind  compute -Nodes (hinter der Firewall)  I/O wird \u00fcber File-Shares abgewickelt  Ziel: Ein Programm auf mehreren Nodes ausf\u00fchren -  z.B. Actor Model", 
+            "title": "HPC Cluster Architektur"
+        }, 
+        {
+            "location": "/ParProg/12_Cluster_Parallelisierung/#verteiltes-programmiermodel-mpi", 
+            "text": "Keine Shared Memory zwischen Nodes  Ziel: Nachrichtenaustausch zwischen Prozessen (und Nodes)  MPI: Message Passing Interface  \"Standard\" wie JPA    Jeder Prozess hat eine Nummerierung (Rank)  C Interface, kann aber auch in .NET verwendet werden   using (new MPI.Environment(ref args)) {\n    int rank = Communicator.world.Rank;\n    Console.WriteLine( MPI process {0}  , rank);\n}   Ausf\u00fchrung mit  mpiexec -n  nof processes   executable  Wird automatisch auf HPC-Nodes verteilt  Auf einem Node k\u00f6nnen auch mehrere Instanzen (Prozesse) des Programms laufen    Synchronisation \u00fcber Barrieren (Initialize und Finalize sind Barrieren)", 
+            "title": "Verteiltes Programmiermodel - MPI"
+        }, 
+        {
+            "location": "/ParProg/12_Cluster_Parallelisierung/#communicator", 
+            "text": "Erlaubt Kommunikation zwischen Prozessen  Rank ist Nummer innerhalb einer Gruppe, Eindeutige Id ist Rank + Communicator  Alle Prozesse sind in Communicator-Gruppe \"World\"  Senden:  world.send(value, receiverRank, messageTag)  Empfangen:  world.Receive(senderRank, messageTag, out value)  world  ist Communicator-Gruppe, message-Tag frei w\u00e4hlb\u00e4re Nummer  = 0  Communicator.world.Barrier()  ist eine Barriere, die auf alle Prozesse wartet  world.Allreduce(value, fn)  reduziert mehrere Werte mit einer Aggregations-Funktion auf einen einzelnen Wert", 
+            "title": "Communicator"
+        }, 
+        {
+            "location": "/ParProg/12_Cluster_Parallelisierung/#monte-carlo-pi-simulation", 
+            "text": "Erwartungswert Punkt im Kreis:  \\frac{Kreisfl\u00e4che}{Quadratfl\u00e4che}   Quadratfl\u00e4che  = 2*2 = 4 , Kreisfl\u00e4che   = r^2 * \\pi = \\pi   Annh\u00e4herung  \\pi = 4 \\cdot \\frac{\\text{# Hits}}{\\text{# Points}}   Jeder Prozess rechnet einen Teil der Punkte, am Schluss wird die Summe der Hits aggregiert  world.Reduce(hits, (a, b) =  a + b, 0); , das Resultat wird an Prozess 0 gesendet  Demo auf Cluster:  30s auf einem Node  8.4s auf 4 Nodes  0.9s auf 40 Nodes  0.4s auf 80 Nodes", 
+            "title": "Monte Carlo Pi Simulation"
         }, 
         {
             "location": "/ParProg/1_Exam/", 
@@ -2051,6 +2146,26 @@
             "title": "Architecture Refactoring"
         }, 
         {
+            "location": "/SE2/13_Scrum_2/", 
+            "text": "Scrum 2\n\n\n\n\n\"H\u00f6here Abstraktionsebene zu User Stories\": Kunden-orientiert, definiert Scope und Kontext\n\n\nz.B. Use Cases, Domain Model, Personas, NFR\n\n\nDiese Anforderungen in Entwicklungsorientierte Arbeitspakete abbilden\n\n\n\n\n\n\nProduct Owner vertritt Kunden und weiss, welche Features ben\u00f6tigt werden\n\n\nUltimativ ist der Product Owner f\u00fcr den Backlog verantwortlich\n\n\nBacklog refinement normalerweise von Team und PO zusammen\n\n\n\n\n\n\n\n\nImpediments\n: Hindernis / H\u00fcrde, das nicht in der Verantwortung des Scrum-Teams liegt und von ausserhalb gel\u00f6st werden muss", 
+            "title": "13 Scrum 2"
+        }, 
+        {
+            "location": "/SE2/13_Scrum_2/#scrum-2", 
+            "text": "\"H\u00f6here Abstraktionsebene zu User Stories\": Kunden-orientiert, definiert Scope und Kontext  z.B. Use Cases, Domain Model, Personas, NFR  Diese Anforderungen in Entwicklungsorientierte Arbeitspakete abbilden    Product Owner vertritt Kunden und weiss, welche Features ben\u00f6tigt werden  Ultimativ ist der Product Owner f\u00fcr den Backlog verantwortlich  Backlog refinement normalerweise von Team und PO zusammen", 
+            "title": "Scrum 2"
+        }, 
+        {
+            "location": "/SE2/13_Scrum_2/#impediments-hindernis-hurde-das-nicht-in-der-verantwortung-des-scrum-teams-liegt-und-von-ausserhalb-gelost-werden-muss", 
+            "text": "", 
+            "title": "Impediments: Hindernis / H\u00fcrde, das nicht in der Verantwortung des Scrum-Teams liegt und von ausserhalb gel\u00f6st werden muss"
+        }, 
+        {
+            "location": "/SE2/14_Projektmanagement_2/", 
+            "text": "", 
+            "title": "14 Projektmanagement 2"
+        }, 
+        {
             "location": "/SE2/1_Exam/", 
             "text": "Some exam notes...", 
             "title": "1 Exam"
@@ -2492,7 +2607,7 @@
         }, 
         {
             "location": "/Vss/12_Synchronization/", 
-            "text": "Synchronization\n\n\nMotivation\n\n\n\n\nSynchronization of time is needed to coordinate events at a global level\n\n\n\n\nPhysical Clocks\n\n\n\n\nBasis is a mechanical or astronomical process\n\n\nhave their limits with accuracy\n\n\nProblematic usage: Leap seconds, time zones, leap years, etc.\n\n\n\n\nExample: SBB Clock\n\n\n\n\nUhr selbst misst keine Zeit\n\n\nJede Minute wird die Zeit synchronisiert", 
+            "text": "Synchronization\n\n\nMotivation\n\n\n\n\nSynchronization of time is needed to coordinate events at a global level\n\n\n\n\nPhysical Clocks\n\n\n\n\nBasis is a mechanical or astronomical process\n\n\nhave their limits with accuracy\n\n\nProblematic usage: Leap seconds, time zones, leap years, etc.\n\n\n\n\nExample: SBB Clock\n\n\n\n\nUhr selbst misst keine Zeit\n\n\nJede Minute wird die Zeit synchronisiert\n\n\n\n\nOne-sided Update\n\n\n\n\nProblem: Network Latency creates an offset on the client\n\n\nEstimation of latency is difficult, we don't have enough data\n\n\n\n\nNTP\n\n\n\n\nTries to measure the network latency using the round-trip time\n\n\nServer sends back original request (\nCs\n)\n\n\nCompute RTT with (Cr - Cs) - (Ss - Sr), client knows all of these\n\n\nClient can either update its time immediately or adjust the speed to gradually adjust to the correct time\n\n\nNTP adjusts gradually. Immediate update would lead to a \"jump\", mayble a scheduled task is in the gap and wouldn't be executed. (Time must be continous)\n\n\n\n\n\n\n\n\nLogical Clocks\n\n\nDatabase Replication Example\n\n\n\n\nProblem: Lost updates\n\n\nSolution: Nodes must acknowledge updates, only perform update if it is acknowledged by all nodes\n\n\nProblem: Order of updates is not guaranteed\n\n\nSolution: Chronological Ordering with timestamps\n\n\nProblem: Time has to be synchronized between the nodes\n\n\nSolution: NTP\n\n\nProblem: Physical time has an arbitrary precision, updates could still have the same timestamp\n\n\n\n\nMotivation\n\n\n\n\nIt's often more important that processes agree on an order of events (causality) rather than an exact point in time (physical clock)\n\n\nPhysical clocks have a limited, arbitrary resolution (accuracy)\n\n\n\n\nCausality\n\n\n\n\nEvent a happens before b - \na \\rightarrow b\n\n\n\n\nCan be reflexive (think DAG) - \na \\rightarrow x \\rightarrow b\n\n\n\n\nConcurrent Relation: \na || b \n\n\n\n\n\n\na\n and \nb\n are not causally related\n\n\n\n\n\n\nNot enough for Database replication: We still need an (arbitrary) order for concurrent events, a \nstrict total ordering\n -\n Lamport's Logical Clock\n\n\n\n\nLamport's Logical Clock\n\n\n\n\nEach process maintains an internal counter for all events occuring in its process\n\n\nThe current value of the counter is sent with each message\n\n\nThe receiver updates its counter to the max of the sender and receiver-counter (respectively) and increments it", 
             "title": "12 Synchronization"
         }, 
         {
@@ -2514,6 +2629,41 @@
             "location": "/Vss/12_Synchronization/#example-sbb-clock", 
             "text": "Uhr selbst misst keine Zeit  Jede Minute wird die Zeit synchronisiert", 
             "title": "Example: SBB Clock"
+        }, 
+        {
+            "location": "/Vss/12_Synchronization/#one-sided-update", 
+            "text": "Problem: Network Latency creates an offset on the client  Estimation of latency is difficult, we don't have enough data", 
+            "title": "One-sided Update"
+        }, 
+        {
+            "location": "/Vss/12_Synchronization/#ntp", 
+            "text": "Tries to measure the network latency using the round-trip time  Server sends back original request ( Cs )  Compute RTT with (Cr - Cs) - (Ss - Sr), client knows all of these  Client can either update its time immediately or adjust the speed to gradually adjust to the correct time  NTP adjusts gradually. Immediate update would lead to a \"jump\", mayble a scheduled task is in the gap and wouldn't be executed. (Time must be continous)", 
+            "title": "NTP"
+        }, 
+        {
+            "location": "/Vss/12_Synchronization/#logical-clocks", 
+            "text": "", 
+            "title": "Logical Clocks"
+        }, 
+        {
+            "location": "/Vss/12_Synchronization/#database-replication-example", 
+            "text": "Problem: Lost updates  Solution: Nodes must acknowledge updates, only perform update if it is acknowledged by all nodes  Problem: Order of updates is not guaranteed  Solution: Chronological Ordering with timestamps  Problem: Time has to be synchronized between the nodes  Solution: NTP  Problem: Physical time has an arbitrary precision, updates could still have the same timestamp", 
+            "title": "Database Replication Example"
+        }, 
+        {
+            "location": "/Vss/12_Synchronization/#motivation_1", 
+            "text": "It's often more important that processes agree on an order of events (causality) rather than an exact point in time (physical clock)  Physical clocks have a limited, arbitrary resolution (accuracy)", 
+            "title": "Motivation"
+        }, 
+        {
+            "location": "/Vss/12_Synchronization/#causality", 
+            "text": "Event a happens before b -  a \\rightarrow b   Can be reflexive (think DAG) -  a \\rightarrow x \\rightarrow b   Concurrent Relation:  a || b     a  and  b  are not causally related    Not enough for Database replication: We still need an (arbitrary) order for concurrent events, a  strict total ordering  -  Lamport's Logical Clock", 
+            "title": "Causality"
+        }, 
+        {
+            "location": "/Vss/12_Synchronization/#lamports-logical-clock", 
+            "text": "Each process maintains an internal counter for all events occuring in its process  The current value of the counter is sent with each message  The receiver updates its counter to the max of the sender and receiver-counter (respectively) and increments it", 
+            "title": "Lamport's Logical Clock"
         }, 
         {
             "location": "/Vss/1_Exam/", 
@@ -3044,6 +3194,86 @@
             "location": "/Vwl/13_Markt_und_Preise/#beitrag-des-staates", 
             "text": "Nach Theorie schadet Eingriff des Staates  Staat braucht aber trotzdem Eingriffe  Rechtssystem f\u00fcr Eigentum- und Vertragsrechte  Marktversagen korrigieren: z.B. Monopole verhindern (Wettbewerbsrecht)  Ausgestaltung gew\u00fcnschter Regulierungen", 
             "title": "Beitrag des Staates"
+        }, 
+        {
+            "location": "/Vwl/14_Arbeitsteilung/", 
+            "text": "Internationale Arbeitsteilung\n\n\nKomparativer Kostenvorteil\n\n\n\n\nAusgangslage: Land A ist effizienter in der Produktion gleicher G\u00fcter\n\n\nTrotzdem lohnt es sich, gegenseitig Handel zu treiben\n\n\nWenn Insel A auf Insel B Bananen produzieren, bekommt sie 4 Bananen (=Opportunit\u00e4tskosten Insel B), aber hat nur \"Kosten\" von 3.3 Bananen\n\n\n\n\nEs kommt auf das Verh\u00e4ltnis an: \n\\frac{3.3}{0.3} \\notequals \\frac{4}{0.25}\n\n\n\n\n\n\n\n\nWenn Weltmarktpreis h\u00f6her ist als Inlandpreis:\n\n\n\n\nEs wird nun mehr produziert als angefragt\n\n\nDieser \u00dcberschuss wird exportiert\n\n\nMehr Wohlstand der Produzenten auf Kosten der Konsumenten\n\n\n\n\n\n\nGenau umgekehrt bei Weltmarktpreis \n Inlandpreis: Mehr Wohlfahrt, aber f\u00fcr Konsumenten\n\n\nBei beiden Szenarien gibt es im Total mehr Wohlfahrt, es wird nur anders verteilt zwischen Konsumenten und Produzenten\n\n\n\n\nProtektionismus\n\n\n\n\nImportz\u00f6lle: Preis im Inland wird erh\u00f6ht\n\n\nKonsumentenrente wird kleiner, Produzentenrente gr\u00f6sser\n\n\nInl\u00e4ndische Produzenten machen mehr Gewinn, sie k\u00f6nnen im Rahmen der IMportz\u00f6lle ihre Preise erh\u00f6hen\n\n\nErh\u00f6ht Staatsrenten (Z\u00f6lle), aber insgesamt geht Wohlfahrt verloren\n\n\nHersteller haben hohes Interesse an Importz\u00f6llen, auch wenn Konsumenten es wenig interessiert (z.B. Bleistife, eine Preiserh\u00f6hung von 100% w\u00fcrde nicht viel am Angebot \u00e4ndern)\n\n\nHeute werden viele \"nichttarif\u00e4re\" Massnahmen getroffen, z.B. Importquoten oder spezielle Regulierungen, um den Handel zu erschweren\n\n\n\n\nFormen der Handelsliberalisierung\n\n\n\n\nMultilaterale Handelsliberalisierung (WTO)\n\n\nRegionele Handelsliberalisierung (EU) - im kleineren Rahmen\n\n\nBilaterale Handelsliberalisierung (Zwischen zwei L\u00e4ndern, v.a. in der Schweiz)\n\n\n\n\nRegionale Integrationsr\u00e4ume\n\n\n\n\nDiskriminierung der L\u00e4nder, die nicht im Abkommen dabei sind\n\n\nGeneriert mehr Handel, verzerrt aber den Markt\n\n\nLohnt sich nur, wenn Wohlfahrtsgewinn \n Wohlfahrtsverlust durch das Abkommen ist\n\n\n\n\nHandelsumlenkung\n\n\n\n\nDas Land mit dem Handelsabkommen bevorteilt, Konkurrenten aus anderen L\u00e4ndern benachteiligt\n\n\nDer Markt wird auf das Land mit dem Abkommen \"umgelenkt\"\n\n\n\n\nHandelsschaffung\n\n\n\n\nDurch das Abkommen werden evtl. Steuern abgeschafft aus diesem Land, dadurch steigt die Nachfrage\n\n\n-\n Es wird Handel geschaffen\n\n\n\n\nInternationale Wirtschaftsorganisationen\n\n\nIWF\n\n\n\n\n(Internationale W\u00e4hrungsfond)\n\n\nSonderorganisation der UNO, Hauptsitz Washington D.C.\n\n\nSteuerung Wechselkurse, Geldpolitik\n\n\nGibt Kredite mit wirtschaftspolitischen Auflagen\n\n\nSchlechter Ruf in linker Politik\n\n\n\n\n\n\nUSA hat gr\u00f6ssten Stimmanteil, China nur wenig\n\n\nUSA oder EU kann jeden Entscheid blockieren\n\n\nD.h. westlich dominiert\n\n\n\n\n\n\n\n\nWorld Bank\n\n\n\n\nMultinationale Entwicklungsbank\n\n\nB\u00fcndel von 5 Organisationen, vor allem \"Wiederaufbau und Entwicklung\"\n\n\nGutes Image\n\n\nBekommen nicht alle Kredite zur\u00fcck\n\n\n\u00e4hnlich westlich dominiert wie IWF\n\n\n\n\nWTO\n\n\n\n\nSitz in Genf\n\n\nM\u00f6chte Freihandel schaffen\n\n\nAbbau von Handelshemnissen, Liberalisierung des internationalen Handels\n\n\nSehr gross (164 Staaten)\n\n\nNicht mehr handlungsf\u00e4hig, da zu gross, es kann kein Entscheid durchgebracht werden\n\n\n\n\n\n\nAlle Vorteile und Beg\u00fcnstigung, die ein Land mit einem anderen abschliesst, m\u00fcssen auch f\u00fcr andere WTO-Mitglieder gelten (Ausnahme z.B. Zollunion, EU)\n\n\nDurch die Doha-Runde \"versickern\" neue Handelsabkommen, daraus entstand TTP, TTIP, etc.\n\n\n\n\nOECD\n\n\n\n\nFokus auf kapitalistisches System (westliche Wirtschaft)\n\n\nWirtschaftswachstum f\u00f6rdern\n\n\nNur 35 Mitglieder (v.a. aus Marshall-Plan nach 2. WK)\n\n\n\n\nUNCTAD\n\n\n\n\nVereinte nationen f\u00fcr Handel und Entwicklung\n\n\nHandel zwischen Industriel\u00e4ndern und Entwicklungsl\u00e4ndern\n\n\nNicht beliebt f\u00fcr westliche L\u00e4ndern, es bewegt sich nicht viel\n\n\n\n\nG7\n\n\n\n\n7 gr\u00f6sste Industrienationen\n\n\nDE, F, Italien, Japan, Kanada, UK, USA\n\n\nOhne China\n\n\nRussland wurde eingeladen (G8) und 2014 wieder ausgeschlossen\n\n\n\n\nG20\n\n\n\n\n\"Diejenigen, die nicht in G7 sind\"\n\n\nGegenveranstaltung zu G7", 
+            "title": "14 Arbeitsteilung"
+        }, 
+        {
+            "location": "/Vwl/14_Arbeitsteilung/#internationale-arbeitsteilung", 
+            "text": "", 
+            "title": "Internationale Arbeitsteilung"
+        }, 
+        {
+            "location": "/Vwl/14_Arbeitsteilung/#komparativer-kostenvorteil", 
+            "text": "Ausgangslage: Land A ist effizienter in der Produktion gleicher G\u00fcter  Trotzdem lohnt es sich, gegenseitig Handel zu treiben  Wenn Insel A auf Insel B Bananen produzieren, bekommt sie 4 Bananen (=Opportunit\u00e4tskosten Insel B), aber hat nur \"Kosten\" von 3.3 Bananen   Es kommt auf das Verh\u00e4ltnis an:  \\frac{3.3}{0.3} \\notequals \\frac{4}{0.25}     Wenn Weltmarktpreis h\u00f6her ist als Inlandpreis:   Es wird nun mehr produziert als angefragt  Dieser \u00dcberschuss wird exportiert  Mehr Wohlstand der Produzenten auf Kosten der Konsumenten    Genau umgekehrt bei Weltmarktpreis   Inlandpreis: Mehr Wohlfahrt, aber f\u00fcr Konsumenten  Bei beiden Szenarien gibt es im Total mehr Wohlfahrt, es wird nur anders verteilt zwischen Konsumenten und Produzenten", 
+            "title": "Komparativer Kostenvorteil"
+        }, 
+        {
+            "location": "/Vwl/14_Arbeitsteilung/#protektionismus", 
+            "text": "Importz\u00f6lle: Preis im Inland wird erh\u00f6ht  Konsumentenrente wird kleiner, Produzentenrente gr\u00f6sser  Inl\u00e4ndische Produzenten machen mehr Gewinn, sie k\u00f6nnen im Rahmen der IMportz\u00f6lle ihre Preise erh\u00f6hen  Erh\u00f6ht Staatsrenten (Z\u00f6lle), aber insgesamt geht Wohlfahrt verloren  Hersteller haben hohes Interesse an Importz\u00f6llen, auch wenn Konsumenten es wenig interessiert (z.B. Bleistife, eine Preiserh\u00f6hung von 100% w\u00fcrde nicht viel am Angebot \u00e4ndern)  Heute werden viele \"nichttarif\u00e4re\" Massnahmen getroffen, z.B. Importquoten oder spezielle Regulierungen, um den Handel zu erschweren", 
+            "title": "Protektionismus"
+        }, 
+        {
+            "location": "/Vwl/14_Arbeitsteilung/#formen-der-handelsliberalisierung", 
+            "text": "Multilaterale Handelsliberalisierung (WTO)  Regionele Handelsliberalisierung (EU) - im kleineren Rahmen  Bilaterale Handelsliberalisierung (Zwischen zwei L\u00e4ndern, v.a. in der Schweiz)", 
+            "title": "Formen der Handelsliberalisierung"
+        }, 
+        {
+            "location": "/Vwl/14_Arbeitsteilung/#regionale-integrationsraume", 
+            "text": "Diskriminierung der L\u00e4nder, die nicht im Abkommen dabei sind  Generiert mehr Handel, verzerrt aber den Markt  Lohnt sich nur, wenn Wohlfahrtsgewinn   Wohlfahrtsverlust durch das Abkommen ist", 
+            "title": "Regionale Integrationsr\u00e4ume"
+        }, 
+        {
+            "location": "/Vwl/14_Arbeitsteilung/#handelsumlenkung", 
+            "text": "Das Land mit dem Handelsabkommen bevorteilt, Konkurrenten aus anderen L\u00e4ndern benachteiligt  Der Markt wird auf das Land mit dem Abkommen \"umgelenkt\"", 
+            "title": "Handelsumlenkung"
+        }, 
+        {
+            "location": "/Vwl/14_Arbeitsteilung/#handelsschaffung", 
+            "text": "Durch das Abkommen werden evtl. Steuern abgeschafft aus diesem Land, dadurch steigt die Nachfrage  -  Es wird Handel geschaffen", 
+            "title": "Handelsschaffung"
+        }, 
+        {
+            "location": "/Vwl/14_Arbeitsteilung/#internationale-wirtschaftsorganisationen", 
+            "text": "", 
+            "title": "Internationale Wirtschaftsorganisationen"
+        }, 
+        {
+            "location": "/Vwl/14_Arbeitsteilung/#iwf", 
+            "text": "(Internationale W\u00e4hrungsfond)  Sonderorganisation der UNO, Hauptsitz Washington D.C.  Steuerung Wechselkurse, Geldpolitik  Gibt Kredite mit wirtschaftspolitischen Auflagen  Schlechter Ruf in linker Politik    USA hat gr\u00f6ssten Stimmanteil, China nur wenig  USA oder EU kann jeden Entscheid blockieren  D.h. westlich dominiert", 
+            "title": "IWF"
+        }, 
+        {
+            "location": "/Vwl/14_Arbeitsteilung/#world-bank", 
+            "text": "Multinationale Entwicklungsbank  B\u00fcndel von 5 Organisationen, vor allem \"Wiederaufbau und Entwicklung\"  Gutes Image  Bekommen nicht alle Kredite zur\u00fcck  \u00e4hnlich westlich dominiert wie IWF", 
+            "title": "World Bank"
+        }, 
+        {
+            "location": "/Vwl/14_Arbeitsteilung/#wto", 
+            "text": "Sitz in Genf  M\u00f6chte Freihandel schaffen  Abbau von Handelshemnissen, Liberalisierung des internationalen Handels  Sehr gross (164 Staaten)  Nicht mehr handlungsf\u00e4hig, da zu gross, es kann kein Entscheid durchgebracht werden    Alle Vorteile und Beg\u00fcnstigung, die ein Land mit einem anderen abschliesst, m\u00fcssen auch f\u00fcr andere WTO-Mitglieder gelten (Ausnahme z.B. Zollunion, EU)  Durch die Doha-Runde \"versickern\" neue Handelsabkommen, daraus entstand TTP, TTIP, etc.", 
+            "title": "WTO"
+        }, 
+        {
+            "location": "/Vwl/14_Arbeitsteilung/#oecd", 
+            "text": "Fokus auf kapitalistisches System (westliche Wirtschaft)  Wirtschaftswachstum f\u00f6rdern  Nur 35 Mitglieder (v.a. aus Marshall-Plan nach 2. WK)", 
+            "title": "OECD"
+        }, 
+        {
+            "location": "/Vwl/14_Arbeitsteilung/#unctad", 
+            "text": "Vereinte nationen f\u00fcr Handel und Entwicklung  Handel zwischen Industriel\u00e4ndern und Entwicklungsl\u00e4ndern  Nicht beliebt f\u00fcr westliche L\u00e4ndern, es bewegt sich nicht viel", 
+            "title": "UNCTAD"
+        }, 
+        {
+            "location": "/Vwl/14_Arbeitsteilung/#g7", 
+            "text": "7 gr\u00f6sste Industrienationen  DE, F, Italien, Japan, Kanada, UK, USA  Ohne China  Russland wurde eingeladen (G8) und 2014 wieder ausgeschlossen", 
+            "title": "G7"
+        }, 
+        {
+            "location": "/Vwl/14_Arbeitsteilung/#g20", 
+            "text": "\"Diejenigen, die nicht in G7 sind\"  Gegenveranstaltung zu G7", 
+            "title": "G20"
         }, 
         {
             "location": "/Vwl/1_Exam/", 
