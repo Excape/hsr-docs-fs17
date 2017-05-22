@@ -87,3 +87,9 @@ void VectorAddKernel(float *A, float *B, float *C) {
 
 ### Divergenz
 - Tritt auf, wenn es in einem Warp Abzweigungen (z.B. If.. else) gibt, die nicht garantiert auf einem Warp ausgeführt werden
+
+### Memory Coalescing
+- Zugriff auf aufeinanderfolgende Daten im Memory werden in einer Transaktion ausgeführt (Memory Burst)
+- Ein Memory Burst kann auch von mehreren Threads benutzt werden
+- Anwendung: Zugriffe möglichst im Speicher nacheinander ausführen (achten bei Matrix-Multiplikation: Nach Zeilen oder Spalten berechnen)
+    - Als Offset möglichst den Thread-Index verwenden-

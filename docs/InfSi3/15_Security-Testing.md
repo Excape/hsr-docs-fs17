@@ -1,0 +1,16 @@
+# Security Testing
+- Je besser der Kunde weiss, was er will, desto besser kann man arbeiten
+- Security Testing erstellt nur einen Report, fixt die Probleme nicht selbst
+    - Gleich wie bei Revision einer AG
+    - Glaubwürdikeit würde verloren gehen
+- Warum wird getestet?
+    - Intrinsische Motivation: Firma möchte Sicherheit bieten
+    - Gesetze (z.B. für Paypment-Processor) - Compliance
+    - ISMS: ISO-Standard Gedöns
+- Nicht nur negative Testfälle dokumentieren!
+    - Dass man z.B. nachweisen kann, wie der Zustand der Software zum Zeitpunkt des Tests ist
+- Security Tester macht keine Risikobeurteilung! -> Er schätzt nicht potentielle Schäden, dafür müsste er das Business verstehen
+    - Nur gewichtete Schwachstellen
+    - Kunde macht Risikoschätzung (ISMS)
+- Review: Informationen offenlegen (z.B. Firewall-config) und prüfen, anstatt von aussen die Firewall zu testen ohne Vorwissen
+- Social Engineering Test: Wieviele % fallen herein?
