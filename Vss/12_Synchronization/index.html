@@ -310,6 +310,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Dbs2/15_Column-Store_DBMS/" title="15 Column Store DBMS" class="md-nav__link">
+      15 Column Store DBMS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Dbs2/1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
@@ -622,6 +634,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../InfSi3/16_IAM/" title="16 IAM" class="md-nav__link">
+      16 IAM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../InfSi3/1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
@@ -731,13 +755,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-17" type="checkbox" id="nav-6-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-18" type="checkbox" id="nav-6-18">
     
-    <label class="md-nav__link" for="nav-6-17">
+    <label class="md-nav__link" for="nav-6-18">
       Hacking lab
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-17">
+      <label class="md-nav__title" for="nav-6-18">
         Hacking lab
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -924,6 +948,18 @@
   <li class="md-nav__item">
     <a href="../../ParProg/12_Cluster_Parallelisierung/" title="12 Cluster Parallelisierung" class="md-nav__link">
       12 Cluster Parallelisierung
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ParProg/13_Reactive_Programming/" title="13 Reactive Programming" class="md-nav__link">
+      13 Reactive Programming
     </a>
   </li>
 
@@ -1176,6 +1212,18 @@
   <li class="md-nav__item">
     <a href="../../SE2/14_Projektmanagement_2/" title="14 Projektmanagement 2" class="md-nav__link">
       14 Projektmanagement 2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/15_Correctness/" title="15 Correctness" class="md-nav__link">
+      15 Correctness
     </a>
   </li>
 
@@ -1459,6 +1507,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#vector-clocks" title="Vector Clocks" class="md-nav__link">
+    Vector Clocks
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1470,6 +1525,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../13_Bitcoin/" title="13 Bitcoin" class="md-nav__link">
+      13 Bitcoin
+    </a>
   </li>
 
         
@@ -1673,6 +1740,18 @@
   <li class="md-nav__item">
     <a href="../../Vwl/14_Arbeitsteilung/" title="14 Arbeitsteilung" class="md-nav__link">
       14 Arbeitsteilung
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/15_Europäische_Integration/" title="15 Europäische Integration" class="md-nav__link">
+      15 Europäische Integration
     </a>
   </li>
 
@@ -1887,6 +1966,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#vector-clocks" title="Vector Clocks" class="md-nav__link">
+    Vector Clocks
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1975,6 +2061,25 @@
 <li>Each process maintains an internal counter for all events occuring in its process</li>
 <li>The current value of the counter is sent with each message</li>
 <li>The receiver updates its counter to the max of the sender and receiver-counter (respectively) and increments it</li>
+<li>Not totally ordered: There are identical counters on different processes, we can't define a "linked-list" order<ul>
+<li>If we use the process id, we can order these concurrent events -&gt; total order</li>
+<li>Use lexicographical ordering over <code>(eventid, processid)</code></li>
+</ul>
+</li>
+<li>Lamport's Clock implementation is usually embedded in the middleware and provided by a library</li>
+<li>see also Lamport's paper: <a href="http://lamport.azurewebsites.net/pubs/time-clocks.pdf">http://lamport.azurewebsites.net/pubs/time-clocks.pdf</a></li>
+<li>Problem: Not fault tolerant, a failure of a node would halt the distributed system</li>
+</ul>
+<h3 id="vector-clocks">Vector Clocks</h3>
+<ul>
+<li>Track causality exactly: <script type="math/tex">a \rightarrow b = V(a) < V(b)</script>
+</li>
+<li>Lamports clock only works in one direction, Vector clocks in both</li>
+<li>Each process maintains an internal Vector <script type="math/tex">V_i</script> with the length = number of processes</li>
+<li>The dimensions correspond to the processes, first = P1, second = P2, etc.</li>
+<li>Update vector: When receiving a message, set each index to the max of the sender and receiver</li>
+<li>comparison: each index is equal or less than the other, and at least one is less than the other</li>
+<li>Problem: What if number of nodes in system changes? Vector dimension is the size of the network</li>
 </ul>
                 
                   
@@ -2009,13 +2114,13 @@
           </a>
         
         
-          <a href="../1_Exam/" title="1 Exam" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../13_Bitcoin/" title="13 Bitcoin" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                1 Exam
+                13 Bitcoin
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

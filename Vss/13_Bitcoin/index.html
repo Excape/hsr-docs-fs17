@@ -1,0 +1,1948 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="HSR Study Documentation FS16">
+      
+      
+        <link rel="canonical" href="https://doc.robinsuter.ch/Vss/13_Bitcoin/">
+      
+      
+        <meta name="author" content="Robin Suter">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.3">
+    
+    
+      
+        <title>13 Bitcoin - HSR Notizen FS17</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-e2807e330f.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-f78e5cb881.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../../extra.css">
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="red" data-md-color-accent="amber">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="https://doc.robinsuter.ch" title="HSR Notizen FS17" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Vss
+                </span>
+              
+            
+            13 Bitcoin
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          
+            
+
+
+  
+
+
+  <a href="https://github.com/Excape/hsr-docs-fs17" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
+    HSR Notizen FS17
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Excape/hsr-docs-fs17" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../playground/" title="Playground" class="md-nav__link">
+      Playground
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Dbs2
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Dbs2
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Dbs2/0_Index/" title="0 Index" class="md-nav__link">
+      0 Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Dbs2/10_Verteilte_DB/" title="10 Verteilte DB" class="md-nav__link">
+      10 Verteilte DB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Dbs2/11_Replikation/" title="11 Replikation" class="md-nav__link">
+      11 Replikation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Dbs2/12_NoSQL/" title="12 NoSQL" class="md-nav__link">
+      12 NoSQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Dbs2/13_ObjectDBMS/" title="13 ObjectDBMS" class="md-nav__link">
+      13 ObjectDBMS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Dbs2/14_OR-DBMS/" title="14 OR DBMS" class="md-nav__link">
+      14 OR DBMS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Dbs2/15_Column-Store_DBMS/" title="15 Column Store DBMS" class="md-nav__link">
+      15 Column Store DBMS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Dbs2/1_Exam/" title="1 Exam" class="md-nav__link">
+      1 Exam
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Dbs2/2_OR-Mapping/" title="2 OR Mapping" class="md-nav__link">
+      2 OR Mapping
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Dbs2/3_Stored_Procedures/" title="3 Stored Procedures" class="md-nav__link">
+      3 Stored Procedures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Dbs2/4_Triggers/" title="4 Triggers" class="md-nav__link">
+      4 Triggers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Dbs2/5_Views/" title="5 Views" class="md-nav__link">
+      5 Views
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Dbs2/6_Datenstrukturen/" title="6 Datenstrukturen" class="md-nav__link">
+      6 Datenstrukturen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Dbs2/8_Interne_Ebene/" title="8 Interne Ebene" class="md-nav__link">
+      8 Interne Ebene
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Dbs2/9_Optimierung/" title="9 Optimierung" class="md-nav__link">
+      9 Optimierung
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      EPJ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        EPJ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../EPJ/0_Index/" title="0 Index" class="md-nav__link">
+      0 Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../EPJ/1_Projektplan/" title="1 Projektplan" class="md-nav__link">
+      1 Projektplan
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      ITBus
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        ITBus
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ITBus/0_Index/" title="0 Index" class="md-nav__link">
+      0 Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ITBus/1_Exam/" title="1 Exam" class="md-nav__link">
+      1 Exam
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ITBus/2_Informationssysteme/" title="2 Informationssysteme" class="md-nav__link">
+      2 Informationssysteme
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      InfSi3
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        InfSi3
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/0_Index/" title="0 Index" class="md-nav__link">
+      0 Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/10_CSRF/" title="10 CSRF" class="md-nav__link">
+      10 CSRF
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/11_Mobile_Security/" title="11 Mobile Security" class="md-nav__link">
+      11 Mobile Security
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/12_Web_App_Firewall/" title="12 Web App Firewall" class="md-nav__link">
+      12 Web App Firewall
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/13_Server_Security/" title="13 Server Security" class="md-nav__link">
+      13 Server Security
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/14_Fraud_Detection/" title="14 Fraud Detection" class="md-nav__link">
+      14 Fraud Detection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/15_Security-Testing/" title="15 Security Testing" class="md-nav__link">
+      15 Security Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/16_IAM/" title="16 IAM" class="md-nav__link">
+      16 IAM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/1_Exam/" title="1 Exam" class="md-nav__link">
+      1 Exam
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/2_Overview/" title="2 Overview" class="md-nav__link">
+      2 Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/3_Software_Security/" title="3 Software Security" class="md-nav__link">
+      3 Software Security
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/4_Application_Security_Basics/" title="4 Application Security Basics" class="md-nav__link">
+      4 Application Security Basics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/5_SQL_Injection/" title="5 SQL Injection" class="md-nav__link">
+      5 SQL Injection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/6_XSS/" title="6 XSS" class="md-nav__link">
+      6 XSS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/7_CORS/" title="7 CORS" class="md-nav__link">
+      7 CORS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/8_CSP/" title="8 CSP" class="md-nav__link">
+      8 CSP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/9_JSON_Hijacking/" title="9 JSON Hijacking" class="md-nav__link">
+      9 JSON Hijacking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-18" type="checkbox" id="nav-6-18">
+    
+    <label class="md-nav__link" for="nav-6-18">
+      Hacking lab
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-18">
+        Hacking lab
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/hacking-lab/2600_XML-Path-Traversal/" title="2600 XML Path Traversal" class="md-nav__link">
+      2600 XML Path Traversal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/hacking-lab/2651_CSRF/" title="2651 CSRF" class="md-nav__link">
+      2651 CSRF
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/hacking-lab/4216_Folklore_App/" title="4216 Folklore App" class="md-nav__link">
+      4216 Folklore App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/hacking-lab/4250_M2/" title="4250 M2" class="md-nav__link">
+      4250 M2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/hacking-lab/4251_M7/" title="4251 M7" class="md-nav__link">
+      4251 M7
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/hacking-lab/4252_M2/" title="4252 M2" class="md-nav__link">
+      4252 M2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/hacking-lab/5102_Wireshark_SSL/" title="5102 Wireshark SSL" class="md-nav__link">
+      5102 Wireshark SSL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/hacking-lab/7002_GotRoot/" title="7002 GotRoot" class="md-nav__link">
+      7002 GotRoot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../InfSi3/hacking-lab/7030_LinkSys_SSL_Break/" title="7030 LinkSys SSL Break" class="md-nav__link">
+      7030 LinkSys SSL Break
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      ParProg
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        ParProg
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ParProg/0_Index/" title="0 Index" class="md-nav__link">
+      0 Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ParProg/10_Actor_Model/" title="10 Actor Model" class="md-nav__link">
+      10 Actor Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ParProg/11_GPU_Parallelisierung/" title="11 GPU Parallelisierung" class="md-nav__link">
+      11 GPU Parallelisierung
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ParProg/12_Cluster_Parallelisierung/" title="12 Cluster Parallelisierung" class="md-nav__link">
+      12 Cluster Parallelisierung
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ParProg/13_Reactive_Programming/" title="13 Reactive Programming" class="md-nav__link">
+      13 Reactive Programming
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ParProg/1_Exam/" title="1 Exam" class="md-nav__link">
+      1 Exam
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ParProg/2_Multi-Threading_Grundlagen/" title="2 Multi Threading Grundlagen" class="md-nav__link">
+      2 Multi Threading Grundlagen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ParProg/3_Thread-Synchronisation/" title="3 Thread Synchronisation" class="md-nav__link">
+      3 Thread Synchronisation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ParProg/4_Synchronisationsprimitiven/" title="4 Synchronisationsprimitiven" class="md-nav__link">
+      4 Synchronisationsprimitiven
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ParProg/5_Gefahren/" title="5 Gefahren" class="md-nav__link">
+      5 Gefahren
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ParProg/6_Thread_Pools/" title="6 Thread Pools" class="md-nav__link">
+      6 Thread Pools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ParProg/7_Task_Parallel_Library/" title="7 Task Parallel Library" class="md-nav__link">
+      7 Task Parallel Library
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ParProg/8_GUI_Threading/" title="8 GUI Threading" class="md-nav__link">
+      8 GUI Threading
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ParProg/9_Memory_Models/" title="9 Memory Models" class="md-nav__link">
+      9 Memory Models
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      PhAI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        PhAI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PhAI/0_Index/" title="0 Index" class="md-nav__link">
+      0 Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../PhAI/1_Exam/" title="1 Exam" class="md-nav__link">
+      1 Exam
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      SE2
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        SE2
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/0_Index/" title="0 Index" class="md-nav__link">
+      0 Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/10_Performance-Messungen/" title="10 Performance Messungen" class="md-nav__link">
+      10 Performance Messungen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/11_Usability_Testing/" title="11 Usability Testing" class="md-nav__link">
+      11 Usability Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/12_Software_Architecture/" title="12 Software Architecture" class="md-nav__link">
+      12 Software Architecture
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/13_Scrum_2/" title="13 Scrum 2" class="md-nav__link">
+      13 Scrum 2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/14_Projektmanagement_2/" title="14 Projektmanagement 2" class="md-nav__link">
+      14 Projektmanagement 2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/15_Correctness/" title="15 Correctness" class="md-nav__link">
+      15 Correctness
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/1_Exam/" title="1 Exam" class="md-nav__link">
+      1 Exam
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/2_Project_Automation/" title="2 Project Automation" class="md-nav__link">
+      2 Project Automation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/3_SE_Practises/" title="3 SE Practises" class="md-nav__link">
+      3 SE Practises
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/4_Error_Handling_Design/" title="4 Error Handling Design" class="md-nav__link">
+      4 Error Handling Design
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/5_Design_by_Contract/" title="5 Design by Contract" class="md-nav__link">
+      5 Design by Contract
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/6_Story_Splitting/" title="6 Story Splitting" class="md-nav__link">
+      6 Story Splitting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/7_Testing/" title="7 Testing" class="md-nav__link">
+      7 Testing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/8_Metriken/" title="8 Metriken" class="md-nav__link">
+      8 Metriken
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../SE2/9_Code_Reviews/" title="9 Code Reviews" class="md-nav__link">
+      9 Code Reviews
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" checked>
+    
+    <label class="md-nav__link" for="nav-10">
+      Vss
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Vss
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../0_Index/" title="0 Index" class="md-nav__link">
+      0 Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../10_Naming/" title="10 Naming" class="md-nav__link">
+      10 Naming
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../11_Distributed_Hash_Tables/" title="11 Distributed Hash Tables" class="md-nav__link">
+      11 Distributed Hash Tables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../12_Synchronization/" title="12 Synchronization" class="md-nav__link">
+      12 Synchronization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        13 Bitcoin
+      </label>
+    
+    <a href="./" title="13 Bitcoin" class="md-nav__link md-nav__link--active">
+      13 Bitcoin
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conensus-protocol" title="Conensus Protocol" class="md-nav__link">
+    Conensus Protocol
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#approach-use-a-random-hash-function-where-it-is-extremely-hard-to-find-a-collision" title="approach: use a random hash function, where it is extremely hard to find a collision" class="md-nav__link">
+    approach: use a random hash function, where it is extremely hard to find a collision
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
+      1 Exam
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2_Introduction/" title="2 Introduction" class="md-nav__link">
+      2 Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../3_socket_programmierung/" title="3 socket programmierung" class="md-nav__link">
+      3 socket programmierung
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../4_Asynchronous_Messaging/" title="4 Asynchronous Messaging" class="md-nav__link">
+      4 Asynchronous Messaging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../5_RMI_Web-Services/" title="5 RMI Web Services" class="md-nav__link">
+      5 RMI Web Services
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../6_Design_for_Performance/" title="6 Design for Performance" class="md-nav__link">
+      6 Design for Performance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../7_Scalability_Availability/" title="7 Scalability Availability" class="md-nav__link">
+      7 Scalability Availability
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../8_Vss_Management/" title="8 Vss Management" class="md-nav__link">
+      8 Vss Management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../9_CFIA/" title="9 CFIA" class="md-nav__link">
+      9 CFIA
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      Vwl
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        Vwl
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/0_Index/" title="0 Index" class="md-nav__link">
+      0 Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/10_Staatsfinanzen/" title="10 Staatsfinanzen" class="md-nav__link">
+      10 Staatsfinanzen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/11_Banken/" title="11 Banken" class="md-nav__link">
+      11 Banken
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/12_Finanzkrise/" title="12 Finanzkrise" class="md-nav__link">
+      12 Finanzkrise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/13_Markt_und_Preise/" title="13 Markt und Preise" class="md-nav__link">
+      13 Markt und Preise
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/14_Arbeitsteilung/" title="14 Arbeitsteilung" class="md-nav__link">
+      14 Arbeitsteilung
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/15_Europäische_Integration/" title="15 Europäische Integration" class="md-nav__link">
+      15 Europäische Integration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/1_Exam/" title="1 Exam" class="md-nav__link">
+      1 Exam
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/2_Wohlstand/" title="2 Wohlstand" class="md-nav__link">
+      2 Wohlstand
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/3_Einkommensverteilung_und_Sozialwerke/" title="3 Einkommensverteilung und Sozialwerke" class="md-nav__link">
+      3 Einkommensverteilung und Sozialwerke
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/4_Wachstum/" title="4 Wachstum" class="md-nav__link">
+      4 Wachstum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/5_Arbeitsmarkt/" title="5 Arbeitsmarkt" class="md-nav__link">
+      5 Arbeitsmarkt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/6_Konjuktur/" title="6 Konjuktur" class="md-nav__link">
+      6 Konjuktur
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/7_Preisstabilität/" title="7 Preisstabilität" class="md-nav__link">
+      7 Preisstabilität
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/8_Geld/" title="8 Geld" class="md-nav__link">
+      8 Geld
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Vwl/9_Wechselkurse/" title="9 Wechselkurse" class="md-nav__link">
+      9 Wechselkurse
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conensus-protocol" title="Conensus Protocol" class="md-nav__link">
+    Conensus Protocol
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#approach-use-a-random-hash-function-where-it-is-extremely-hard-to-find-a-collision" title="approach: use a random hash function, where it is extremely hard to find a collision" class="md-nav__link">
+    approach: use a random hash function, where it is extremely hard to find a collision
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/Vss/13_Bitcoin.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                
+                
+                <h1 id="consesus-with-the-bitcoin-system">Consesus with the Bitcoin system</h1>
+<ul>
+<li>Properties of money: Trust, store of value, acceptance</li>
+<li>requirement: all computers must have the same "table" of who owns what</li>
+<li>Double-spending attack: attacker sends two transactions to two different people to different nodes. if they just replicate, there is no way of knowing what the correct "state" of the network is</li>
+<li>We need a Consesus Protocol</li>
+</ul>
+<h2 id="conensus-protocol">Conensus Protocol</h2>
+<ul>
+<li>Main idea: Agree on the majority<ul>
+<li>But most participants would need to be "friendly"</li>
+</ul>
+</li>
+<li>
+<h2 id="approach-use-a-random-hash-function-where-it-is-extremely-hard-to-find-a-collision">approach: use a random hash function, where it is extremely hard to find a collision</h2>
+</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../12_Synchronization/" title="12 Synchronization" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                12 Synchronization
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../1_Exam/" title="1 Exam" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                1 Exam
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright (c) 2017 Robin Suter
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-6b4ff16fa7.js"></script>
+      <script>app.initialize({url:{base:"../.."}})</script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

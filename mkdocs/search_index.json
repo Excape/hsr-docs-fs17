@@ -341,6 +341,46 @@
             "title": "Standardisierung"
         }, 
         {
+            "location": "/Dbs2/15_Column-Store_DBMS/", 
+            "text": "Column-Store Database System\n\n\nRow vs. Column Store\n\n\n\n\nIm Gegensatz zu Row-Stores werden bei Column-Store die Daten Spalte f\u00fcr Spalte abgelegt\n\n\nMotivation: Tabellen mit vielen Spalten, queries selektieren meist nur einige Attribute. Dann ist query-store I/O effizienter\n\n\nNachteil: Daten schreiben ist langsam\n\n\nDa gleiche Daten zusammen in einer Spalte sind, ist Compression und Bitmap Encoding effizienter\n\n\nVor allem, wenn Datenbereich klein ist\n\n\n\n\n\n\n\n\nMaterialization\n\n\n\n\nDas Erstellen der Tupel aus den Columns w\u00e4hrend einer Query\n\n\n\n\nEarly Materialization\n\n\n\n\nGleich zu Beginn Columns lesen und zu Tuples zusammensetzen\n\n\nNoch \nbevor\n einer Filterung (\nWHERE\n)\n\n\nEs m\u00fcssen alle Tuples zusammengesetzt werden, braucht viel Memory\n\n\nLangsam f\u00fcr Filter, Aggregationen, etc.\n\n\nAber schneller als Late Materialization bei \nJoins\n\n\n\n\nLate Materialization\n\n\n\n\nM\u00f6glichst lange warten, bis Tupel zusammengesetzt werden\n\n\nFilter werden auf der entsprechenden Columns angewendet\n\n\nErst ganz am Schluss werden die Tupels zusammen gesetzt\n\n\nSchnell f\u00fcr Queries ohne Joins\n\n\n\n\n\n\nNote\n\n\nTODO\n\n\n\n\nC-Store Architecture\n\n\nIn-Memory Data Warehouse\n\n\n\n\nZiel: M\u00f6glichst wenig I/O, nur die n\u00f6tigsten Daten laden", 
+            "title": "15 Column Store DBMS"
+        }, 
+        {
+            "location": "/Dbs2/15_Column-Store_DBMS/#column-store-database-system", 
+            "text": "", 
+            "title": "Column-Store Database System"
+        }, 
+        {
+            "location": "/Dbs2/15_Column-Store_DBMS/#row-vs-column-store", 
+            "text": "Im Gegensatz zu Row-Stores werden bei Column-Store die Daten Spalte f\u00fcr Spalte abgelegt  Motivation: Tabellen mit vielen Spalten, queries selektieren meist nur einige Attribute. Dann ist query-store I/O effizienter  Nachteil: Daten schreiben ist langsam  Da gleiche Daten zusammen in einer Spalte sind, ist Compression und Bitmap Encoding effizienter  Vor allem, wenn Datenbereich klein ist", 
+            "title": "Row vs. Column Store"
+        }, 
+        {
+            "location": "/Dbs2/15_Column-Store_DBMS/#materialization", 
+            "text": "Das Erstellen der Tupel aus den Columns w\u00e4hrend einer Query", 
+            "title": "Materialization"
+        }, 
+        {
+            "location": "/Dbs2/15_Column-Store_DBMS/#early-materialization", 
+            "text": "Gleich zu Beginn Columns lesen und zu Tuples zusammensetzen  Noch  bevor  einer Filterung ( WHERE )  Es m\u00fcssen alle Tuples zusammengesetzt werden, braucht viel Memory  Langsam f\u00fcr Filter, Aggregationen, etc.  Aber schneller als Late Materialization bei  Joins", 
+            "title": "Early Materialization"
+        }, 
+        {
+            "location": "/Dbs2/15_Column-Store_DBMS/#late-materialization", 
+            "text": "M\u00f6glichst lange warten, bis Tupel zusammengesetzt werden  Filter werden auf der entsprechenden Columns angewendet  Erst ganz am Schluss werden die Tupels zusammen gesetzt  Schnell f\u00fcr Queries ohne Joins    Note  TODO", 
+            "title": "Late Materialization"
+        }, 
+        {
+            "location": "/Dbs2/15_Column-Store_DBMS/#c-store-architecture", 
+            "text": "", 
+            "title": "C-Store Architecture"
+        }, 
+        {
+            "location": "/Dbs2/15_Column-Store_DBMS/#in-memory-data-warehouse", 
+            "text": "Ziel: M\u00f6glichst wenig I/O, nur die n\u00f6tigsten Daten laden", 
+            "title": "In-Memory Data Warehouse"
+        }, 
+        {
             "location": "/Dbs2/1_Exam/", 
             "text": "Some exam notes...", 
             "title": "1 Exam"
@@ -1076,6 +1116,51 @@
             "title": "Security Testing"
         }, 
         {
+            "location": "/InfSi3/16_IAM/", 
+            "text": "IAM\n\n\n\n\nIdentity (User name, User attribute)\n\n\nAuthentisierung\n\n\nAutorisierung\n\n\nInfSi1: IAM im Intranet (AD, Kerberos ticket)\n\n\nZiel: Single-Sign-On\n\n\n\n\n\n\nHeute: Internet\n\n\nZiel: Single-Sign-on im Internet\n\n\n\n\n\n\n\n\nFederations\n\n\n\n\nVerbund lose gekoppelten Organisationen (vgl. Schweiz)\n\n\n\"make identity and entitlements \nportable\n across autonomous identity domains\"\n\n\n\"disparate systems\": Unterschiedliche Systeme arbeiten auf Security-Ebene zusammen\n\n\nFederation sollte Sicherheitsstandards erf\u00fcllen, die die Identity Provder erf\u00fcllen sollen\n\n\n\n\nAuthentication \n Authorization Infrastructure (AAI)\n\n\n\n\nOhne AAI macht jeder Service eigene Authentiation und Authorization\n\n\nMit AAI: In der \"Federation\" gibt es mehrere Identity Provider\n\n\nHSR hat einen Identity Provider, Universit\u00e4ten zusammen sind Federation\n\n\n\n\n\n\nService Provider machen nur noch Autorisierung\n\n\nDer Benutzer meldet sich nur noch bei seinem Identity Provider an\n\n\nDie Service Provider wissen nichts \u00fcber die Identit\u00e4t, er kann nur Benutzer-Attribute anfodern\n\n\nIdentity Provider haben Zertifikate von Service Providern\n\n\n\n\nShibboleth\n\n\n\n\nOpen Source Middleware zur Implementation von Federations\n\n\nF\u00fcr Web-Anwendungen (HTTP), basierend auf Redirections\n\n\nAuch \u00fcber HTTP sicher\n\n\n\n\n\n\nUser Attribute werden SAML-Verschl\u00fcsselt im Header \u00fcbertragen\n\n\nIdPs k\u00f6nnen Pseudonyme ausgeben (zuf\u00e4llige ID), die f\u00fcr verschiedene Service Provider unterschiedlich sind\n\n\n\n\n\n\nUser greift auf Ressource zu\n\n\nUmleitung auf Discovery Service (z.B. Auswahl Schule)\n\n\nUmleitung wieder auf Ressource-Server (Dieser kennt den IdP)\n\n\nRessource schickt Authentication Request an IdP\n\n\nUser authentisiert sich bei IdP mit User Credentials\n\n\nIdP stellt Identit\u00e4t aus (zeitbegrenzt)\n\n\nMit dieser Identit\u00e4t kann der User auf die Ressource zugreifen\n\n\n\n\n\n\nDaten werden \u00fcber XML \u00fcbertragen\n\n\nIdentit\u00e4t wird mit SAML 2.0 beschrieben\n\n\nZiel: XML sch\u00fctzen\n\n\nEs gibt W3C Standards f\u00fcr Signierung und Verschl\u00fcsselung\n\n\n\n\nSAML\n\n\n\n\nSecure Assertion Markup Language\n\n\n\"Eierlegende Wollmilchsau\"\n\n\n\n\nSuisseID\n\n\n\n\nSAML 2.0 Application\n\n\n\"Qualifizierte Signatur\"\n\n\nSwissSign und QuoVadis sind IdPs\n\n\nIm Zertifikat sind nur die n\u00f6tigsten Infos drin (Name, Firma, Seriennummer)\n\n\nRestliche Daten sind als Attribute hinterlegt\n\n\n\n\nOAuth2\n\n\n\n\nAutorisierungs\n-Protokoll, macht nicht Authentication!\n\n\nUser (Resource Owner) gibt einer dritten Stelle (client) das Recht, auf eine Ressource (Resource Server) zuzugreifen\n\n\nOhne Crypto built-in, Sicherheit vertraut auf TLS\n\n\nAuthentication und Schutz gegen MitM fehlt\n\n\n\n\nOpenID Connect\n\n\n\n\nAuthentication Layer on Top of OAuth2\n\n\nREST statt SOAP, JSON statt XML\n\n\nSignaturen mit JWS (JSON Web Signature)\n\n\nEncryption mit JWE (JSON Web Encryption)", 
+            "title": "16 IAM"
+        }, 
+        {
+            "location": "/InfSi3/16_IAM/#iam", 
+            "text": "Identity (User name, User attribute)  Authentisierung  Autorisierung  InfSi1: IAM im Intranet (AD, Kerberos ticket)  Ziel: Single-Sign-On    Heute: Internet  Ziel: Single-Sign-on im Internet", 
+            "title": "IAM"
+        }, 
+        {
+            "location": "/InfSi3/16_IAM/#federations", 
+            "text": "Verbund lose gekoppelten Organisationen (vgl. Schweiz)  \"make identity and entitlements  portable  across autonomous identity domains\"  \"disparate systems\": Unterschiedliche Systeme arbeiten auf Security-Ebene zusammen  Federation sollte Sicherheitsstandards erf\u00fcllen, die die Identity Provder erf\u00fcllen sollen", 
+            "title": "Federations"
+        }, 
+        {
+            "location": "/InfSi3/16_IAM/#authentication-authorization-infrastructure-aai", 
+            "text": "Ohne AAI macht jeder Service eigene Authentiation und Authorization  Mit AAI: In der \"Federation\" gibt es mehrere Identity Provider  HSR hat einen Identity Provider, Universit\u00e4ten zusammen sind Federation    Service Provider machen nur noch Autorisierung  Der Benutzer meldet sich nur noch bei seinem Identity Provider an  Die Service Provider wissen nichts \u00fcber die Identit\u00e4t, er kann nur Benutzer-Attribute anfodern  Identity Provider haben Zertifikate von Service Providern", 
+            "title": "Authentication &amp; Authorization Infrastructure (AAI)"
+        }, 
+        {
+            "location": "/InfSi3/16_IAM/#shibboleth", 
+            "text": "Open Source Middleware zur Implementation von Federations  F\u00fcr Web-Anwendungen (HTTP), basierend auf Redirections  Auch \u00fcber HTTP sicher    User Attribute werden SAML-Verschl\u00fcsselt im Header \u00fcbertragen  IdPs k\u00f6nnen Pseudonyme ausgeben (zuf\u00e4llige ID), die f\u00fcr verschiedene Service Provider unterschiedlich sind    User greift auf Ressource zu  Umleitung auf Discovery Service (z.B. Auswahl Schule)  Umleitung wieder auf Ressource-Server (Dieser kennt den IdP)  Ressource schickt Authentication Request an IdP  User authentisiert sich bei IdP mit User Credentials  IdP stellt Identit\u00e4t aus (zeitbegrenzt)  Mit dieser Identit\u00e4t kann der User auf die Ressource zugreifen    Daten werden \u00fcber XML \u00fcbertragen  Identit\u00e4t wird mit SAML 2.0 beschrieben  Ziel: XML sch\u00fctzen  Es gibt W3C Standards f\u00fcr Signierung und Verschl\u00fcsselung", 
+            "title": "Shibboleth"
+        }, 
+        {
+            "location": "/InfSi3/16_IAM/#saml", 
+            "text": "Secure Assertion Markup Language  \"Eierlegende Wollmilchsau\"", 
+            "title": "SAML"
+        }, 
+        {
+            "location": "/InfSi3/16_IAM/#suisseid", 
+            "text": "SAML 2.0 Application  \"Qualifizierte Signatur\"  SwissSign und QuoVadis sind IdPs  Im Zertifikat sind nur die n\u00f6tigsten Infos drin (Name, Firma, Seriennummer)  Restliche Daten sind als Attribute hinterlegt", 
+            "title": "SuisseID"
+        }, 
+        {
+            "location": "/InfSi3/16_IAM/#oauth2", 
+            "text": "Autorisierungs -Protokoll, macht nicht Authentication!  User (Resource Owner) gibt einer dritten Stelle (client) das Recht, auf eine Ressource (Resource Server) zuzugreifen  Ohne Crypto built-in, Sicherheit vertraut auf TLS  Authentication und Schutz gegen MitM fehlt", 
+            "title": "OAuth2"
+        }, 
+        {
+            "location": "/InfSi3/16_IAM/#openid-connect", 
+            "text": "Authentication Layer on Top of OAuth2  REST statt SOAP, JSON statt XML  Signaturen mit JWS (JSON Web Signature)  Encryption mit JWE (JSON Web Encryption)", 
+            "title": "OpenID Connect"
+        }, 
+        {
             "location": "/InfSi3/1_Exam/", 
             "text": "Exam\n\n\n\n\nPr\u00fcfung ohne Unterlagen\n\n\nSelbststudium ist Pr\u00fcfungsstoff!", 
             "title": "1 Exam"
@@ -1614,6 +1699,61 @@
             "location": "/ParProg/12_Cluster_Parallelisierung/#monte-carlo-pi-simulation", 
             "text": "Erwartungswert Punkt im Kreis:  \\frac{Kreisfl\u00e4che}{Quadratfl\u00e4che}   Quadratfl\u00e4che  = 2*2 = 4 , Kreisfl\u00e4che   = r^2 * \\pi = \\pi   Annh\u00e4herung  \\pi = 4 \\cdot \\frac{\\text{# Hits}}{\\text{# Points}}   Jeder Prozess rechnet einen Teil der Punkte, am Schluss wird die Summe der Hits aggregiert  world.Reduce(hits, (a, b) =  a + b, 0); , das Resultat wird an Prozess 0 gesendet  Demo auf Cluster:  30s auf einem Node  8.4s auf 4 Nodes  0.9s auf 40 Nodes  0.4s auf 80 Nodes", 
             "title": "Monte Carlo Pi Simulation"
+        }, 
+        {
+            "location": "/ParProg/13_Reactive_Programming/", 
+            "text": "Reactive Programming\n\n\nQuiz letzte Vorlesung\n\n\n\n\nAusgabe nicht-deterministisch\n\n\nsend()\n muss non-blocking sein, ist bei mpi aber nicht spezifiziert!\n\n\nEs gibt garantiert non-blocking send Funktion: \nimmediateSend()\n\n\n\n\nDatenfl\u00fcsse\n\n\n\n\nWir wollen Programme deskriptiv schreiben (\nwas\n tun, nicht \nwie\n)\n\n\nDaten kommen mit Daten-Streams hinein (Iteratoren) und werden gejoined, gruppiert, gefiltert, etc.\n\n\nHorizontal parallelisieren: z.B. mit einem Thread jeweils ein Datenpunkt durch die ganze Pipeline schlaufen, parallele Pipeline\n\n\nVertikal parallelisieren: Innerhalb einer Box parallelisieren\n\n\n\n\nLINQ\n\n\nfrom entry in\n    salesEurope.AsParallel()\n    Union(salesAsia.AsParallel()).\n    Union(salesAmerica.AsParallel())\n// group ... select ...\n\n\n\n\n\n\n\nEvaluation ersten bei Iteration\n\n\nVorraussetzung: Daten m\u00fcssen vollst\u00e4ndig vorliegen (passiv)\n\n\nGeht nicht, wenn Daten sukzessive ankommen\n\n\n\n\nReactive Push-Mechanismus\n\n\n\n\nIm Gegensatz zum Pull-Modell\n\n\nPro ankommender Wert muss ein Ereignis ausgel\u00f6st werden (Observer Pattern)\n\n\nVerkettung der Schritte: Nachfolge-Schritt abonnniert Events des Vorg\u00e4ngers\n\n\n\n\nRx.NET\n\n\nPipelining\n\n\n\n\nJeder Zwischenschritt spielt gleichzeitig Observer des Vorg\u00e4ngers und Observable des Nachfolgers. Diese Objekte sind \nSubjects\n (Promises)\n\n\nBei \nonComplete()\n wird der Observer de-registriert\n\n\nEin \nReplaySubject\n sendet auch Daten an Subscribers, die sich erst sp\u00e4ter registiert haben\n\n\n\n\nCollections zu Observables\n\n\n\n\nMit \nmyCollection.ToObservable()\n eine Collection f\u00fcr Rx.NET erstellen\n\n\nAuf dieser Collection \nsubscribe()\n aufrufen, dessen Funktion dann f\u00fcr jedes Element aufgerufen wird\n\n\n\n\nRx und Concurrency\n\n\n\n\nDefault: Alles sequentiell\n\n\nConcurrency \"einschalten\": \nobservable.ObserveOn(TaskPoolScheduler.Default).Subscribe(...)\n\n\nMit WPF \nDispatcherScheduler.Current\n verwenden, um den GUI-Thread zu benachrichtigen (Zugriff von anderem Thread ist verboten)\n\n\n\n\nConcurrency Fehler\n\n\n\n\n\n\nNie \nfirst()\n oder \nlast()\n verwendet, diese warten auf alle Daten und blockieren!\n\n\n\n\n\n\nAufpassen bei Aggregationen: Man muss auf alle Daten warten (\nonComplete()\n), bis die Aggregation vervollst\u00e4ndigt wird", 
+            "title": "13 Reactive Programming"
+        }, 
+        {
+            "location": "/ParProg/13_Reactive_Programming/#reactive-programming", 
+            "text": "", 
+            "title": "Reactive Programming"
+        }, 
+        {
+            "location": "/ParProg/13_Reactive_Programming/#quiz-letzte-vorlesung", 
+            "text": "Ausgabe nicht-deterministisch  send()  muss non-blocking sein, ist bei mpi aber nicht spezifiziert!  Es gibt garantiert non-blocking send Funktion:  immediateSend()", 
+            "title": "Quiz letzte Vorlesung"
+        }, 
+        {
+            "location": "/ParProg/13_Reactive_Programming/#datenflusse", 
+            "text": "Wir wollen Programme deskriptiv schreiben ( was  tun, nicht  wie )  Daten kommen mit Daten-Streams hinein (Iteratoren) und werden gejoined, gruppiert, gefiltert, etc.  Horizontal parallelisieren: z.B. mit einem Thread jeweils ein Datenpunkt durch die ganze Pipeline schlaufen, parallele Pipeline  Vertikal parallelisieren: Innerhalb einer Box parallelisieren", 
+            "title": "Datenfl\u00fcsse"
+        }, 
+        {
+            "location": "/ParProg/13_Reactive_Programming/#linq", 
+            "text": "from entry in\n    salesEurope.AsParallel()\n    Union(salesAsia.AsParallel()).\n    Union(salesAmerica.AsParallel())\n// group ... select ...   Evaluation ersten bei Iteration  Vorraussetzung: Daten m\u00fcssen vollst\u00e4ndig vorliegen (passiv)  Geht nicht, wenn Daten sukzessive ankommen", 
+            "title": "LINQ"
+        }, 
+        {
+            "location": "/ParProg/13_Reactive_Programming/#reactive-push-mechanismus", 
+            "text": "Im Gegensatz zum Pull-Modell  Pro ankommender Wert muss ein Ereignis ausgel\u00f6st werden (Observer Pattern)  Verkettung der Schritte: Nachfolge-Schritt abonnniert Events des Vorg\u00e4ngers", 
+            "title": "Reactive Push-Mechanismus"
+        }, 
+        {
+            "location": "/ParProg/13_Reactive_Programming/#rxnet", 
+            "text": "", 
+            "title": "Rx.NET"
+        }, 
+        {
+            "location": "/ParProg/13_Reactive_Programming/#pipelining", 
+            "text": "Jeder Zwischenschritt spielt gleichzeitig Observer des Vorg\u00e4ngers und Observable des Nachfolgers. Diese Objekte sind  Subjects  (Promises)  Bei  onComplete()  wird der Observer de-registriert  Ein  ReplaySubject  sendet auch Daten an Subscribers, die sich erst sp\u00e4ter registiert haben", 
+            "title": "Pipelining"
+        }, 
+        {
+            "location": "/ParProg/13_Reactive_Programming/#collections-zu-observables", 
+            "text": "Mit  myCollection.ToObservable()  eine Collection f\u00fcr Rx.NET erstellen  Auf dieser Collection  subscribe()  aufrufen, dessen Funktion dann f\u00fcr jedes Element aufgerufen wird", 
+            "title": "Collections zu Observables"
+        }, 
+        {
+            "location": "/ParProg/13_Reactive_Programming/#rx-und-concurrency", 
+            "text": "Default: Alles sequentiell  Concurrency \"einschalten\":  observable.ObserveOn(TaskPoolScheduler.Default).Subscribe(...)  Mit WPF  DispatcherScheduler.Current  verwenden, um den GUI-Thread zu benachrichtigen (Zugriff von anderem Thread ist verboten)", 
+            "title": "Rx und Concurrency"
+        }, 
+        {
+            "location": "/ParProg/13_Reactive_Programming/#concurrency-fehler", 
+            "text": "Nie  first()  oder  last()  verwendet, diese warten auf alle Daten und blockieren!    Aufpassen bei Aggregationen: Man muss auf alle Daten warten ( onComplete() ), bis die Aggregation vervollst\u00e4ndigt wird", 
+            "title": "Concurrency Fehler"
         }, 
         {
             "location": "/ParProg/1_Exam/", 
@@ -2166,6 +2306,31 @@
             "title": "14 Projektmanagement 2"
         }, 
         {
+            "location": "/SE2/15_Correctness/", 
+            "text": "Proving Programs Correct\n\n\n\n\nBis jetzt: Unit testing, um Korrektheit zu pr\u00fcfen\n\n\nKann nicht alle Bugs finden: Wie weiss man, welche Tests \"gut genug\" sind?\n\n\nZiel: Programm wie eine mathematische Formel formell beweisen\n\n\nScope dieser Vorlesung: Imperative single-thread Programme\n\n\nAnsatz in Dafny: \"Desing-by-Contract\", man definiert Post-conditions, die vom Compiler \u00fcberpr\u00fcft werden\n\n\n\n\nHoare Triples\n\n\n\n\n\n\n{P} C {Q}\n\n\n\n\n\n\nP\n ist Precondition, \nC\n Programm / Command, \nQ\n ist Postcondition\n\n\nCorrectness-Aussage: Wenn \nP\n erf\u00fcllt ist, wird durch \nC\n die Postcondition \nQ\n erf\u00fcllt\n\n\n\n\nDiese Aussage ist selbst ein \"boolean\" (Predicate): Kann wahr oder falsch sein\n\n\n\n\n\n\nInference Rules\n\n\n\n\n\n\n[x := E\n -\n \nx\n wird durch \nE\n ersetzt", 
+            "title": "15 Correctness"
+        }, 
+        {
+            "location": "/SE2/15_Correctness/#proving-programs-correct", 
+            "text": "Bis jetzt: Unit testing, um Korrektheit zu pr\u00fcfen  Kann nicht alle Bugs finden: Wie weiss man, welche Tests \"gut genug\" sind?  Ziel: Programm wie eine mathematische Formel formell beweisen  Scope dieser Vorlesung: Imperative single-thread Programme  Ansatz in Dafny: \"Desing-by-Contract\", man definiert Post-conditions, die vom Compiler \u00fcberpr\u00fcft werden", 
+            "title": "Proving Programs Correct"
+        }, 
+        {
+            "location": "/SE2/15_Correctness/#hoare-triples", 
+            "text": "{P} C {Q}    P  ist Precondition,  C  Programm / Command,  Q  ist Postcondition  Correctness-Aussage: Wenn  P  erf\u00fcllt ist, wird durch  C  die Postcondition  Q  erf\u00fcllt", 
+            "title": "Hoare Triples"
+        }, 
+        {
+            "location": "/SE2/15_Correctness/#diese-aussage-ist-selbst-ein-boolean-predicate-kann-wahr-oder-falsch-sein", 
+            "text": "", 
+            "title": "Diese Aussage ist selbst ein \"boolean\" (Predicate): Kann wahr oder falsch sein"
+        }, 
+        {
+            "location": "/SE2/15_Correctness/#inference-rules", 
+            "text": "[x := E  -   x  wird durch  E  ersetzt", 
+            "title": "Inference Rules"
+        }, 
+        {
             "location": "/SE2/1_Exam/", 
             "text": "Some exam notes...", 
             "title": "1 Exam"
@@ -2607,7 +2772,7 @@
         }, 
         {
             "location": "/Vss/12_Synchronization/", 
-            "text": "Synchronization\n\n\nMotivation\n\n\n\n\nSynchronization of time is needed to coordinate events at a global level\n\n\n\n\nPhysical Clocks\n\n\n\n\nBasis is a mechanical or astronomical process\n\n\nhave their limits with accuracy\n\n\nProblematic usage: Leap seconds, time zones, leap years, etc.\n\n\n\n\nExample: SBB Clock\n\n\n\n\nUhr selbst misst keine Zeit\n\n\nJede Minute wird die Zeit synchronisiert\n\n\n\n\nOne-sided Update\n\n\n\n\nProblem: Network Latency creates an offset on the client\n\n\nEstimation of latency is difficult, we don't have enough data\n\n\n\n\nNTP\n\n\n\n\nTries to measure the network latency using the round-trip time\n\n\nServer sends back original request (\nCs\n)\n\n\nCompute RTT with (Cr - Cs) - (Ss - Sr), client knows all of these\n\n\nClient can either update its time immediately or adjust the speed to gradually adjust to the correct time\n\n\nNTP adjusts gradually. Immediate update would lead to a \"jump\", mayble a scheduled task is in the gap and wouldn't be executed. (Time must be continous)\n\n\n\n\n\n\n\n\nLogical Clocks\n\n\nDatabase Replication Example\n\n\n\n\nProblem: Lost updates\n\n\nSolution: Nodes must acknowledge updates, only perform update if it is acknowledged by all nodes\n\n\nProblem: Order of updates is not guaranteed\n\n\nSolution: Chronological Ordering with timestamps\n\n\nProblem: Time has to be synchronized between the nodes\n\n\nSolution: NTP\n\n\nProblem: Physical time has an arbitrary precision, updates could still have the same timestamp\n\n\n\n\nMotivation\n\n\n\n\nIt's often more important that processes agree on an order of events (causality) rather than an exact point in time (physical clock)\n\n\nPhysical clocks have a limited, arbitrary resolution (accuracy)\n\n\n\n\nCausality\n\n\n\n\nEvent a happens before b - \na \\rightarrow b\n\n\n\n\nCan be reflexive (think DAG) - \na \\rightarrow x \\rightarrow b\n\n\n\n\nConcurrent Relation: \na || b \n\n\n\n\n\n\na\n and \nb\n are not causally related\n\n\n\n\n\n\nNot enough for Database replication: We still need an (arbitrary) order for concurrent events, a \nstrict total ordering\n -\n Lamport's Logical Clock\n\n\n\n\nLamport's Logical Clock\n\n\n\n\nEach process maintains an internal counter for all events occuring in its process\n\n\nThe current value of the counter is sent with each message\n\n\nThe receiver updates its counter to the max of the sender and receiver-counter (respectively) and increments it", 
+            "text": "Synchronization\n\n\nMotivation\n\n\n\n\nSynchronization of time is needed to coordinate events at a global level\n\n\n\n\nPhysical Clocks\n\n\n\n\nBasis is a mechanical or astronomical process\n\n\nhave their limits with accuracy\n\n\nProblematic usage: Leap seconds, time zones, leap years, etc.\n\n\n\n\nExample: SBB Clock\n\n\n\n\nUhr selbst misst keine Zeit\n\n\nJede Minute wird die Zeit synchronisiert\n\n\n\n\nOne-sided Update\n\n\n\n\nProblem: Network Latency creates an offset on the client\n\n\nEstimation of latency is difficult, we don't have enough data\n\n\n\n\nNTP\n\n\n\n\nTries to measure the network latency using the round-trip time\n\n\nServer sends back original request (\nCs\n)\n\n\nCompute RTT with (Cr - Cs) - (Ss - Sr), client knows all of these\n\n\nClient can either update its time immediately or adjust the speed to gradually adjust to the correct time\n\n\nNTP adjusts gradually. Immediate update would lead to a \"jump\", mayble a scheduled task is in the gap and wouldn't be executed. (Time must be continous)\n\n\n\n\n\n\n\n\nLogical Clocks\n\n\nDatabase Replication Example\n\n\n\n\nProblem: Lost updates\n\n\nSolution: Nodes must acknowledge updates, only perform update if it is acknowledged by all nodes\n\n\nProblem: Order of updates is not guaranteed\n\n\nSolution: Chronological Ordering with timestamps\n\n\nProblem: Time has to be synchronized between the nodes\n\n\nSolution: NTP\n\n\nProblem: Physical time has an arbitrary precision, updates could still have the same timestamp\n\n\n\n\nMotivation\n\n\n\n\nIt's often more important that processes agree on an order of events (causality) rather than an exact point in time (physical clock)\n\n\nPhysical clocks have a limited, arbitrary resolution (accuracy)\n\n\n\n\nCausality\n\n\n\n\nEvent a happens before b - \na \\rightarrow b\n\n\n\n\nCan be reflexive (think DAG) - \na \\rightarrow x \\rightarrow b\n\n\n\n\nConcurrent Relation: \na || b \n\n\n\n\n\n\na\n and \nb\n are not causally related\n\n\n\n\n\n\nNot enough for Database replication: We still need an (arbitrary) order for concurrent events, a \nstrict total ordering\n -\n Lamport's Logical Clock\n\n\n\n\nLamport's Logical Clock\n\n\n\n\nEach process maintains an internal counter for all events occuring in its process\n\n\nThe current value of the counter is sent with each message\n\n\nThe receiver updates its counter to the max of the sender and receiver-counter (respectively) and increments it\n\n\nNot totally ordered: There are identical counters on different processes, we can't define a \"linked-list\" order\n\n\nIf we use the process id, we can order these concurrent events -\n total order\n\n\nUse lexicographical ordering over \n(eventid, processid)\n\n\n\n\n\n\nLamport's Clock implementation is usually embedded in the middleware and provided by a library\n\n\nsee also Lamport's paper: \nhttp://lamport.azurewebsites.net/pubs/time-clocks.pdf\n\n\nProblem: Not fault tolerant, a failure of a node would halt the distributed system\n\n\n\n\nVector Clocks\n\n\n\n\nTrack causality exactly: \na \\rightarrow b = V(a) < V(b)\n\n\n\n\nLamports clock only works in one direction, Vector clocks in both\n\n\nEach process maintains an internal Vector \nV_i\n with the length = number of processes\n\n\nThe dimensions correspond to the processes, first = P1, second = P2, etc.\n\n\nUpdate vector: When receiving a message, set each index to the max of the sender and receiver\n\n\ncomparison: each index is equal or less than the other, and at least one is less than the other\n\n\nProblem: What if number of nodes in system changes? Vector dimension is the size of the network", 
             "title": "12 Synchronization"
         }, 
         {
@@ -2662,8 +2827,33 @@
         }, 
         {
             "location": "/Vss/12_Synchronization/#lamports-logical-clock", 
-            "text": "Each process maintains an internal counter for all events occuring in its process  The current value of the counter is sent with each message  The receiver updates its counter to the max of the sender and receiver-counter (respectively) and increments it", 
+            "text": "Each process maintains an internal counter for all events occuring in its process  The current value of the counter is sent with each message  The receiver updates its counter to the max of the sender and receiver-counter (respectively) and increments it  Not totally ordered: There are identical counters on different processes, we can't define a \"linked-list\" order  If we use the process id, we can order these concurrent events -  total order  Use lexicographical ordering over  (eventid, processid)    Lamport's Clock implementation is usually embedded in the middleware and provided by a library  see also Lamport's paper:  http://lamport.azurewebsites.net/pubs/time-clocks.pdf  Problem: Not fault tolerant, a failure of a node would halt the distributed system", 
             "title": "Lamport's Logical Clock"
+        }, 
+        {
+            "location": "/Vss/12_Synchronization/#vector-clocks", 
+            "text": "Track causality exactly:  a \\rightarrow b = V(a) < V(b)   Lamports clock only works in one direction, Vector clocks in both  Each process maintains an internal Vector  V_i  with the length = number of processes  The dimensions correspond to the processes, first = P1, second = P2, etc.  Update vector: When receiving a message, set each index to the max of the sender and receiver  comparison: each index is equal or less than the other, and at least one is less than the other  Problem: What if number of nodes in system changes? Vector dimension is the size of the network", 
+            "title": "Vector Clocks"
+        }, 
+        {
+            "location": "/Vss/13_Bitcoin/", 
+            "text": "Consesus with the Bitcoin system\n\n\n\n\nProperties of money: Trust, store of value, acceptance\n\n\nrequirement: all computers must have the same \"table\" of who owns what\n\n\nDouble-spending attack: attacker sends two transactions to two different people to different nodes. if they just replicate, there is no way of knowing what the correct \"state\" of the network is\n\n\nWe need a Consesus Protocol\n\n\n\n\nConensus Protocol\n\n\n\n\nMain idea: Agree on the majority\n\n\nBut most participants would need to be \"friendly\"\n\n\n\n\n\n\n\n\napproach: use a random hash function, where it is extremely hard to find a collision", 
+            "title": "13 Bitcoin"
+        }, 
+        {
+            "location": "/Vss/13_Bitcoin/#consesus-with-the-bitcoin-system", 
+            "text": "Properties of money: Trust, store of value, acceptance  requirement: all computers must have the same \"table\" of who owns what  Double-spending attack: attacker sends two transactions to two different people to different nodes. if they just replicate, there is no way of knowing what the correct \"state\" of the network is  We need a Consesus Protocol", 
+            "title": "Consesus with the Bitcoin system"
+        }, 
+        {
+            "location": "/Vss/13_Bitcoin/#conensus-protocol", 
+            "text": "Main idea: Agree on the majority  But most participants would need to be \"friendly\"", 
+            "title": "Conensus Protocol"
+        }, 
+        {
+            "location": "/Vss/13_Bitcoin/#approach-use-a-random-hash-function-where-it-is-extremely-hard-to-find-a-collision", 
+            "text": "", 
+            "title": "approach: use a random hash function, where it is extremely hard to find a collision"
         }, 
         {
             "location": "/Vss/1_Exam/", 
@@ -3274,6 +3464,46 @@
             "location": "/Vwl/14_Arbeitsteilung/#g20", 
             "text": "\"Diejenigen, die nicht in G7 sind\"  Gegenveranstaltung zu G7", 
             "title": "G20"
+        }, 
+        {
+            "location": "/Vwl/15_Europ\u00e4ische_Integration/", 
+            "text": "Europ\u00e4ische Integration\n\n\nEntwicklung\n\n\n\n\nNeuordnung der Weltwirtschaft nach 2. WK (Bretton Woods-Konferenz)\n\n\nAmerikanisch orientiert\n\n\n\n\n\n\nIdee: Krieg-Ausl\u00f6ser von Europa aus verhindern\n\n\nGr\u00fcndung 1951 von Be, De, F, I, Lu, NL\n\n\nEGKS: Zollunion f\u00fcr Kohle und Stahl\n\n\n1957 Zollunion EWG und Abkommen f\u00fcr Atomenergie, etc.\n\n\n\n\n\n\n1959: EFTA Freihandelsabkommen, Schweiz dabei\n\n\n1973: D\u00e4nemark, Irland, UK kommt hinzu\n\n\n1981: Griechenland (In Eurozone von Anfang an dabei)\n\n\n1986: EG wird Binnenmarkt (Arbeitsrecht in allen L\u00e4ndern)\n\n\n1992: Maastricht-Vertrag: Wirtschafts- und W\u00e4hrungsunion \nEU\n, Euro-Einf\u00fchrung 2001\n\n\n1994: Gr\u00fcndung EWR (Binnenmarkt zwischen EU und EFTA) \nohne Schweiz\n\n\nWege \"trennen sich\" zwischen CH und EU\n\n\n\n\n\n\n1999: Gr\u00fcndung Euro-Zone (im Maastricht Vertrag festgelegt)\n\n\nJedes Land hat Vetorecht, Zutritt braucht Einstimmigkeit\n\n\nT\u00fcrkei will man nicht aufnehmen, u.a. wegen Grenze zu Syrien (EU w\u00fcrde zu Kriegspartei werden)\n\n\nKosovo z.B. ist nicht von allen anderen Staaten als Staat annerkannt\n\n\nIsland und Norwegen sind in EWR, aber nicht in EU\n\n\nIsland ist Beitrittskandiat, Norwegen hat \"genug Geld\"\n\n\n\n\n\n\n\n\nEurop\u00e4ische Verfassung\n\n\n\n\nZiel: \"Vereinigte Staaten von Europa\"\n\n\nProblem: Demokratisches Eintreten (Volksabstimmung), danach aber fast nur noch parlamentarische Entscheidungen\n\n\n2005: Versuch, Verfassung einzuf\u00fchren, von Frankreich und NL je von einer Volksabstimmung abgelehnt (Parlamente haben angenommen)\n\n\n2009: Vertrag von Lissabon - Verfassungstext weitgehend \u00fcbernommen, wurde von allen Parlamenten angenommen\n\n\n\n\nKrise\n\n\n\n\n2011: Eurokrise\n\n\n2012: Europ\u00e4ischer Fiskalpakt: L\u00e4nder m\u00fcssen Budgets der EU vorlegen\n\n\n2012: Friedensnobelpreis\n\n\n\n\nVerh\u00e4ltnis Schweiz zu Europa\n\n\n\n\nVerhandlungen nicht auf Augenh\u00f6he, Schweiz ist viel zu klein\n\n\n1992: EWG ganz knapp abgelehnt (78% Wahlbeteiligung!)\n\n\n1997: \"Beitrittsverhandlungen\" mit 74% abgelehnt\n    \u207b Innerhalb 5 Jahren starke Ver\u00e4nderung durch SVP, AUNS, etc.\n\n\n2001 nochmals Abstimmung \u00fcber Beitritt, wieder klar abgelehnt\n\n\n2000 und 2005: Bilateralen I und II, mit 67% und 54% angenommen\n\n\nSchweiz kann \"cherry-picken\"\n\n\nPersonenfreiz\u00fcgigkeit in I und Schengen-Abkommen in II\n\n\n\n\n\n\n2005: Bilateralen mit neu eingetretenen EU-Mitglieder\n\n\nSchweiz musste als \"Strafe\" Erweiterungsbeitrag und Osthilfe bezahlen\n\n\n\n\n\n\n2014: Masseneinwanderungsinitive ganz knapp angenommen (gleich wie 1992!)\n\n\nWiderspruch zur Bilateralen I\n\n\nEU verbietet Mitgliedsstaaten, direkt mit der Schweiz zu verhandeln\n\n\nKroatien ist beigetreten, Schweiz kann wegen MEI keine neue Bilateralen mehr verhandeln\n\n\n\n\n\n\nVerhandlungsangebot EU: Automatische \u00dcbernahme des EU-Rechts (kann Schweiz nicht annehmen)\n\n\nVentilklausel Rum\u00e4nien und Bulgarien - Maximale Zuwanderung (Provokation an EU)\n\n\n\n\nBilaterale Vertr\u00e4ge (sepparates PDF)\n\n\n1972 - 1990: Freihandelsabkommen f\u00fcr Industrieprodukte, Versicherungen und Zollerleichterungen\n- 1999: Bilateralen I\n    - Personenfreiz\u00fcgigkeit\n    - Handelshemnisse, Landwirtschaft, Forschung, Luftverkehr, Landverkehr\n        - \"Cherry-picking\"\n- 2004: Bilateralen II\n    - Schengen-Dublin: Aufhebung Personenkontrolle (ohne UK)\n    - Dublin: Nationale Zust\u00e4ndigkeit f\u00fcr Asyl-Verfahren\n    - Filmf\u00f6rderungsprogramm MEDIA\n    - Teilnahme an Eu. Umweltagentur\n    - Erasmus: Gek\u00fcndigt von EU 2014, \u00dcbergangsl\u00f6sung bis Ende 2017\n- Europol: EU-Strafverfolgungsbeh\u00f6rde\n- EVA: Europ\u00e4ische Verteidugunsagentur (R\u00fcstungsabkommen)\n- Zusammenarbeit Wettbewerbsbeh\u00f6rden\n- Satellitennavigation: GPS-Konkurrenz Galileo\n\n\nWie geht es weiter?", 
+            "title": "15 Europ\u00e4ische Integration"
+        }, 
+        {
+            "location": "/Vwl/15_Europ\u00e4ische_Integration/#europaische-integration", 
+            "text": "", 
+            "title": "Europ\u00e4ische Integration"
+        }, 
+        {
+            "location": "/Vwl/15_Europ\u00e4ische_Integration/#entwicklung", 
+            "text": "Neuordnung der Weltwirtschaft nach 2. WK (Bretton Woods-Konferenz)  Amerikanisch orientiert    Idee: Krieg-Ausl\u00f6ser von Europa aus verhindern  Gr\u00fcndung 1951 von Be, De, F, I, Lu, NL  EGKS: Zollunion f\u00fcr Kohle und Stahl  1957 Zollunion EWG und Abkommen f\u00fcr Atomenergie, etc.    1959: EFTA Freihandelsabkommen, Schweiz dabei  1973: D\u00e4nemark, Irland, UK kommt hinzu  1981: Griechenland (In Eurozone von Anfang an dabei)  1986: EG wird Binnenmarkt (Arbeitsrecht in allen L\u00e4ndern)  1992: Maastricht-Vertrag: Wirtschafts- und W\u00e4hrungsunion  EU , Euro-Einf\u00fchrung 2001  1994: Gr\u00fcndung EWR (Binnenmarkt zwischen EU und EFTA)  ohne Schweiz  Wege \"trennen sich\" zwischen CH und EU    1999: Gr\u00fcndung Euro-Zone (im Maastricht Vertrag festgelegt)  Jedes Land hat Vetorecht, Zutritt braucht Einstimmigkeit  T\u00fcrkei will man nicht aufnehmen, u.a. wegen Grenze zu Syrien (EU w\u00fcrde zu Kriegspartei werden)  Kosovo z.B. ist nicht von allen anderen Staaten als Staat annerkannt  Island und Norwegen sind in EWR, aber nicht in EU  Island ist Beitrittskandiat, Norwegen hat \"genug Geld\"", 
+            "title": "Entwicklung"
+        }, 
+        {
+            "location": "/Vwl/15_Europ\u00e4ische_Integration/#europaische-verfassung", 
+            "text": "Ziel: \"Vereinigte Staaten von Europa\"  Problem: Demokratisches Eintreten (Volksabstimmung), danach aber fast nur noch parlamentarische Entscheidungen  2005: Versuch, Verfassung einzuf\u00fchren, von Frankreich und NL je von einer Volksabstimmung abgelehnt (Parlamente haben angenommen)  2009: Vertrag von Lissabon - Verfassungstext weitgehend \u00fcbernommen, wurde von allen Parlamenten angenommen", 
+            "title": "Europ\u00e4ische Verfassung"
+        }, 
+        {
+            "location": "/Vwl/15_Europ\u00e4ische_Integration/#krise", 
+            "text": "2011: Eurokrise  2012: Europ\u00e4ischer Fiskalpakt: L\u00e4nder m\u00fcssen Budgets der EU vorlegen  2012: Friedensnobelpreis", 
+            "title": "Krise"
+        }, 
+        {
+            "location": "/Vwl/15_Europ\u00e4ische_Integration/#verhaltnis-schweiz-zu-europa", 
+            "text": "Verhandlungen nicht auf Augenh\u00f6he, Schweiz ist viel zu klein  1992: EWG ganz knapp abgelehnt (78% Wahlbeteiligung!)  1997: \"Beitrittsverhandlungen\" mit 74% abgelehnt\n    \u207b Innerhalb 5 Jahren starke Ver\u00e4nderung durch SVP, AUNS, etc.  2001 nochmals Abstimmung \u00fcber Beitritt, wieder klar abgelehnt  2000 und 2005: Bilateralen I und II, mit 67% und 54% angenommen  Schweiz kann \"cherry-picken\"  Personenfreiz\u00fcgigkeit in I und Schengen-Abkommen in II    2005: Bilateralen mit neu eingetretenen EU-Mitglieder  Schweiz musste als \"Strafe\" Erweiterungsbeitrag und Osthilfe bezahlen    2014: Masseneinwanderungsinitive ganz knapp angenommen (gleich wie 1992!)  Widerspruch zur Bilateralen I  EU verbietet Mitgliedsstaaten, direkt mit der Schweiz zu verhandeln  Kroatien ist beigetreten, Schweiz kann wegen MEI keine neue Bilateralen mehr verhandeln    Verhandlungsangebot EU: Automatische \u00dcbernahme des EU-Rechts (kann Schweiz nicht annehmen)  Ventilklausel Rum\u00e4nien und Bulgarien - Maximale Zuwanderung (Provokation an EU)", 
+            "title": "Verh\u00e4ltnis Schweiz zu Europa"
+        }, 
+        {
+            "location": "/Vwl/15_Europ\u00e4ische_Integration/#bilaterale-vertrage-sepparates-pdf", 
+            "text": "1972 - 1990: Freihandelsabkommen f\u00fcr Industrieprodukte, Versicherungen und Zollerleichterungen\n- 1999: Bilateralen I\n    - Personenfreiz\u00fcgigkeit\n    - Handelshemnisse, Landwirtschaft, Forschung, Luftverkehr, Landverkehr\n        - \"Cherry-picking\"\n- 2004: Bilateralen II\n    - Schengen-Dublin: Aufhebung Personenkontrolle (ohne UK)\n    - Dublin: Nationale Zust\u00e4ndigkeit f\u00fcr Asyl-Verfahren\n    - Filmf\u00f6rderungsprogramm MEDIA\n    - Teilnahme an Eu. Umweltagentur\n    - Erasmus: Gek\u00fcndigt von EU 2014, \u00dcbergangsl\u00f6sung bis Ende 2017\n- Europol: EU-Strafverfolgungsbeh\u00f6rde\n- EVA: Europ\u00e4ische Verteidugunsagentur (R\u00fcstungsabkommen)\n- Zusammenarbeit Wettbewerbsbeh\u00f6rden\n- Satellitennavigation: GPS-Konkurrenz Galileo", 
+            "title": "Bilaterale Vertr\u00e4ge (sepparates PDF)"
+        }, 
+        {
+            "location": "/Vwl/15_Europ\u00e4ische_Integration/#wie-geht-es-weiter", 
+            "text": "", 
+            "title": "Wie geht es weiter?"
         }, 
         {
             "location": "/Vwl/1_Exam/", 
