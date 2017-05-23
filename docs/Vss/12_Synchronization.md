@@ -48,3 +48,18 @@
 - Each process maintains an internal counter for all events occuring in its process
 - The current value of the counter is sent with each message
 - The receiver updates its counter to the max of the sender and receiver-counter (respectively) and increments it
+- Not totally ordered: There are identical counters on different processes, we can't define a "linked-list" order
+    - If we use the process id, we can order these concurrent events -> total order
+    - Use lexicographical ordering over `(eventid, processid)`
+- Lamport's Clock implementation is usually embedded in the middleware and provided by a library
+- see also Lamport's paper: <http://lamport.azurewebsites.net/pubs/time-clocks.pdf>
+- Problem: Not fault tolerant, a failure of a node would halt the distributed system
+
+### Vector Clocks
+- Track causality exactly: \(a \rightarrow b = V(a) < V(b)\)
+- Lamports clock only works in one direction, Vector clocks in both
+- Each process maintains an internal Vector \(V_i\) with the length = number of processes
+- The dimensions correspond to the processes, first = P1, second = P2, etc.
+- Update vector: When receiving a message, set each index to the max of the sender and receiver
+- comparison: each index is equal or less than the other, and at least one is less than the other
+- Problem: What if number of nodes in system changes? Vector dimension is the size of the network
