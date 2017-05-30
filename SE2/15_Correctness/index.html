@@ -17,7 +17,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.3">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.4">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
+      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/application-e2807e330f.css">
@@ -970,6 +970,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../ParProg/14_Software_Transactional_Memory/" title="14 Software Transactional Memory" class="md-nav__link">
+      14 Software Transactional Memory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../ParProg/1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
@@ -1267,6 +1279,47 @@
         <li class="md-nav__item">
   <a href="#inference-rules" title="Inference Rules" class="md-nav__link">
     Inference Rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatisierung" title="Automatisierung" class="md-nav__link">
+    Automatisierung
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proof-mit-if-und-while" title="Proof mit If und While" class="md-nav__link">
+    Proof mit If und While
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if" title="If" class="md-nav__link">
+    If
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#while" title="While" class="md-nav__link">
+    While
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dafny" title="Dafny" class="md-nav__link">
+    Dafny
   </a>
   
 </li>
@@ -1842,6 +1895,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#automatisierung" title="Automatisierung" class="md-nav__link">
+    Automatisierung
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proof-mit-if-und-while" title="Proof mit If und While" class="md-nav__link">
+    Proof mit If und While
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if" title="If" class="md-nav__link">
+    If
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#while" title="While" class="md-nav__link">
+    While
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dafny" title="Dafny" class="md-nav__link">
+    Dafny
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -1882,7 +1976,49 @@
 <h2 id="inference-rules">Inference Rules</h2>
 <ul>
 <li>
-<script type="math/tex">[x := E</script> -&gt; <script type="math/tex">x</script> wird durch <script type="math/tex">E</script> ersetzt</li>
+<script type="math/tex">[x := E]</script> -&gt; <script type="math/tex">x</script> wird durch <script type="math/tex">E</script> ersetzt</li>
+</ul>
+<h2 id="automatisierung">Automatisierung</h2>
+<ul>
+<li>Allgemeiner Fall ist unentscheidbar</li>
+<li>Einfache logiken können aber meist automatisch bewiesen werden</li>
+<li>Workflow: Aus <script type="math/tex">P C Q</script> Verification Conditions erstellen, die dann bewiesen werden (oder nicht)</li>
+</ul>
+<h2 id="proof-mit-if-und-while">Proof mit If und While</h2>
+<h3 id="if">If</h3>
+<ul>
+<li>Wieder von unten nach oben, aber Verzweigung beachten</li>
+<li>Vorbedingung über ganzes <code>if</code>: Entweder ist es true, dann hat man eine Vorbedingung, oder es ist falsch, dann die andere Vorbedingung</li>
+<li>Mit If-Bedingung P: <script type="math/tex">(P => \text{Vorb. true}) \and (\not P => \text{Vorb. else})</script>
+</li>
+</ul>
+<h3 id="while">While</h3>
+<ul>
+<li>Keine 100%-ige Lösung (Turing-Completeness - nicht entscheidbar)</li>
+<li>Loop-Invariant: Eigenschaft, die sowohl zu Beginn als auch zum Ende des Loops wahr sein muss (nicht veränderbar)</li>
+<li>Schwierigkeit: Loop Invariant finden</li>
+<li>Vorgehen<ul>
+<li>Loop Invariant I annehmen</li>
+<li>Vorbedingung des Loop-Bodies ist <script type="math/tex">I \and P</script> mit <script type="math/tex">P</script> = Loop-Condition</li>
+<li>Mit I das Hoar-Triple im <code>while</code> beweisen (mit P=I und Q=I)</li>
+<li>Wenn dieser Beweis geht, ist die Invariante korrekt</li>
+<li>I als Vor- und Nachbedingung des Loops nehmen<ul>
+<li>Nachbedingung erfüllt Loop-Condition <em>nicht</em> (AND verknüpfen)</li>
+<li>while-loop ist jetzt "subroutine", die bewiesen ist</li>
+</ul>
+</li>
+<li>nachbedingung =&gt; Q beweisen</li>
+<li>Vorbedingungen vor der Schleife wie gewöhnlich nach oben beweisen</li>
+</ul>
+</li>
+<li>Loop Invariant <strong>für Prüfung vorgegeben!</strong></li>
+</ul>
+<h2 id="dafny">Dafny</h2>
+<ul>
+<li>Neben formaler Korrektheit wie hier besprochen wird auch Terminierung überprüft<ul>
+<li>z.B., ob in while counter hinuntergezählt wird, dass die Schleife terminiert wird</li>
+</ul>
+</li>
 </ul>
                 
                   
@@ -1957,7 +2093,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application-6b4ff16fa7.js"></script>
+      <script src="../../assets/javascripts/application-06a3e72efd.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>

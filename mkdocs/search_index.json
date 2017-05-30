@@ -382,8 +382,48 @@
         }, 
         {
             "location": "/Dbs2/1_Exam/", 
-            "text": "Some exam notes...", 
+            "text": "Exam Notes\n\n\nUmfang\n\n\nFokus\n\n\n\n\nOR-Mapping\n\n\nStored Procedures, Cursors, Triggers\n\n\nInterne Ebene\n\n\nVerteilte DB / Replikation\n\n\n\n\nInhalt\n\n\nJPA\n\n\n\n\nQueries schreiben\n\n\nReferentielle Integrit\u00e4t (selbst programmieren!)\n\n\n\n\nStored Procedures\n\n\n\n\nNachteil: Nicht portabel\n\n\nCursors!\n\n\n\n\nTriggers\n\n\n\n\nRow- vs Statement-Trigger\n\n\nStatement triggert per Statement\n\n\nRow-Trigger triggert per ver\u00e4nderte Row (auch in einem Statement)\n\n\n\n\n\n\nZugriff in SP mit \nOLD\n und \nNEW\n\n\nConcatinate mit \n||\n\n\nRETURN NULL\n bei After-Trigger (Return wird ignoriert)\n\n\n\n\nArrays Graph Trees\n\n\n\n\nArrays in PostgreSQL\n\n\nTrees\n\n\nAdjadenzliste\n\n\nNested Set\n\n\nBeim Absteigen im Baum die linked Indices vergeben, beim Zur\u00fcckgehen die rechten", 
             "title": "1 Exam"
+        }, 
+        {
+            "location": "/Dbs2/1_Exam/#exam-notes", 
+            "text": "", 
+            "title": "Exam Notes"
+        }, 
+        {
+            "location": "/Dbs2/1_Exam/#umfang", 
+            "text": "", 
+            "title": "Umfang"
+        }, 
+        {
+            "location": "/Dbs2/1_Exam/#fokus", 
+            "text": "OR-Mapping  Stored Procedures, Cursors, Triggers  Interne Ebene  Verteilte DB / Replikation", 
+            "title": "Fokus"
+        }, 
+        {
+            "location": "/Dbs2/1_Exam/#inhalt", 
+            "text": "", 
+            "title": "Inhalt"
+        }, 
+        {
+            "location": "/Dbs2/1_Exam/#jpa", 
+            "text": "Queries schreiben  Referentielle Integrit\u00e4t (selbst programmieren!)", 
+            "title": "JPA"
+        }, 
+        {
+            "location": "/Dbs2/1_Exam/#stored-procedures", 
+            "text": "Nachteil: Nicht portabel  Cursors!", 
+            "title": "Stored Procedures"
+        }, 
+        {
+            "location": "/Dbs2/1_Exam/#triggers", 
+            "text": "Row- vs Statement-Trigger  Statement triggert per Statement  Row-Trigger triggert per ver\u00e4nderte Row (auch in einem Statement)    Zugriff in SP mit  OLD  und  NEW  Concatinate mit  ||  RETURN NULL  bei After-Trigger (Return wird ignoriert)", 
+            "title": "Triggers"
+        }, 
+        {
+            "location": "/Dbs2/1_Exam/#arrays-graph-trees", 
+            "text": "Arrays in PostgreSQL  Trees  Adjadenzliste  Nested Set  Beim Absteigen im Baum die linked Indices vergeben, beim Zur\u00fcckgehen die rechten", 
+            "title": "Arrays Graph Trees"
         }, 
         {
             "location": "/Dbs2/2_OR-Mapping/", 
@@ -1162,12 +1202,12 @@
         }, 
         {
             "location": "/InfSi3/1_Exam/", 
-            "text": "Exam\n\n\n\n\nPr\u00fcfung ohne Unterlagen\n\n\nSelbststudium ist Pr\u00fcfungsstoff!", 
+            "text": "Exam\n\n\n\n\nPr\u00fcfung ohne Unterlagen\n\n\nSelbststudium ist Pr\u00fcfungsstoff!\n\n\n\"Nasty Question\" Dokument anschauen, um die richtigen Fragen zu lernen", 
             "title": "1 Exam"
         }, 
         {
             "location": "/InfSi3/1_Exam/#exam", 
-            "text": "Pr\u00fcfung ohne Unterlagen  Selbststudium ist Pr\u00fcfungsstoff!", 
+            "text": "Pr\u00fcfung ohne Unterlagen  Selbststudium ist Pr\u00fcfungsstoff!  \"Nasty Question\" Dokument anschauen, um die richtigen Fragen zu lernen", 
             "title": "Exam"
         }, 
         {
@@ -1756,8 +1796,53 @@
             "title": "Concurrency Fehler"
         }, 
         {
+            "location": "/ParProg/14_Software_Transactional_Memory/", 
+            "text": "Software Transactional Memory\n\n\n\n\nProblem: Shared Mutable Memory\n\n\nRace Conditions m\u00f6glich, explizite Synchronisation n\u00f6tig\n\n\nVerantwortlichkeit des Entwicklers\n\n\n\n\n\n\nSoftware Transactional Memory (STM) ist deklarativ\n\n\nKeine Data Races, keine Deadlocks (Race Conditions noch m\u00f6glich)\n\n\nIn HW oder SW implementierbar\n\n\nHW-Support von Intel schon drin\n\n\nFrameworks f\u00fcr Java, Scala, .NET, ...\n\n\n\n\n\n\n\n\nSoftware Transactions\n\n\n\n\nKritische Sektionen identifizieren\n\n\nDrum herum \natomic {...}\n (konzeptionell) schreiben\n\n\nR/W auf Speicher sind atomar\n\n\nErf\u00fcllt ACI-Kriterien\n\n\nKein \"Durable\" / Persistenz\n\n\n\n\n\n\nIsolations-Mechanismus wird System \u00fcbergeben\n\n\nSeiteneffekte sind nicht isoliert (z.B. I/O)\n\n\nImplementiert meist mit Optimistic Concurency\n\n\nUnsynchronisiert ausf\u00fchren, bei Konflikte Rollback und (automatic) Retry\n\n\nPesimistic Concurrecy w\u00e4re wieder Deadlock-Gefahr\n\n\n\n\n\n\n\n\nSTM vs. Locking\n\n\n\n\nUnterschied zu Monitor Lock: Deskriptiv, es wird nicht gesagt, wie es isoliert werden soll\n\n\nGeschachtelte Transactions: Locking ist nicht deadlock-frei\n\n\n\n\nProbleme\n\n\n\n\nSeiteneffekte sind immer sichtbar\n\n\nWenn z.B. Netzwerkstream-losgeschickt wird, kann er schlecht \"rollbacked\" werden\n\n\n\n\n\n\nStarvation-Gefahr, wenn optimistic concurrency st\u00e4ndig retries macht\n\n\nMuss dann evtl. komplett seriell ausgef\u00fchrt werden\n\n\n\n\n\n\nBei Konflikten soll Transaktion direkt abgebrochen werden, sonst kann z.B. ein Runtimeerror (z.B. Division by 0) auftreten, weil die Transaktion optimistisch ausgef\u00fchrt wird\n\n\n\n\nWarten auf Bedingungen\n\n\n\n\nretry\n im \natomic\n-Block, um die Pr\u00fcfung der Bedinung zu wiederholen\n\n\natomic\n-Blocks k\u00f6nnten geschachtelt werden, um nur bestimmte Teile des Programms zu \"retryen\". Ist aber kontrovers\n\n\n\n\nSTM auf Java\n\n\n\n\nBietet einen Wrapper f\u00fcr Transaktionen\n\n\nSonst m\u00fcssten Speicherzugriffe auf JVM-Ebene detektiert werden\n\n\n\n\n\n\nVariablen m\u00fcssen eingepackt werden\n\n\n\n\nfinal\n \nRef\n.\nView\nInteger\n \nbalance\n \n=\n \nSTM\n.\nnewRef\n(\n0\n);\n\n\n\n\n\n\n\n\nDatentyp muss immutable sein!\n\n\nIndirekte Strukturen (Collections) sind nicht transaktionell\n\n\nExplixit \nSTM.newMap()\n etc. verwenden\n\n\n\n\n\n\nIn Scala einfacher zu handhaben\n\n\n\n\nvoid\n \nwithdraw\n(\nint\n \namount\n)\n \n{\n\n    \nSTM\n.\natomic\n(()\n \n-\n \n{\n\n        \nif\n \n(\nbalance\n.\nget\n()\n \n \namount\n)\n \n{\n\n            \nSTM\n.\nretry\n();\n\n        \n}\n\n        \nbalance\n.\nset\n(\nbalance\n.\nget\n()\n \n-\n \namount\n);\n\n        \nlastUpdate\n.\nset\n(\nLocalDate\n.\nnow\n());\n\n    \n});\n\n\n}\n\n\n\n\n\n\n\n\natomic\n kann auch geschachtelt werden\n\n\nWenn im Atomic-Block eine Exception geworfen wird, wird die Transaktion rollbacked und die Exception heraus geworfen\n\n\n\n\nWrite Skew Problem\n\n\n\n\nProblem bei \"Snapshot Isolation\": Anhand des Anfangsstatus werden Entscheidungen getroffen, so k\u00f6nnen Fehler auftreten (siehe Bsp. Folie)\n\n\nDarf in STM nicht passieren\n\n\nIn Scala STM korrekt implementiert\n\n\nBei anderen Systemen (z.B. auch Datenbanken), die einfache Snapshot Isolation verwenden\n\n\n\n\nStarvation Problem\n\n\n\n\nWenn Transaktionen st\u00e4ndig abgebrochen werden\n\n\nIn Scala STM ist beliebige Wiederholung m\u00f6glich", 
+            "title": "14 Software Transactional Memory"
+        }, 
+        {
+            "location": "/ParProg/14_Software_Transactional_Memory/#software-transactional-memory", 
+            "text": "Problem: Shared Mutable Memory  Race Conditions m\u00f6glich, explizite Synchronisation n\u00f6tig  Verantwortlichkeit des Entwicklers    Software Transactional Memory (STM) ist deklarativ  Keine Data Races, keine Deadlocks (Race Conditions noch m\u00f6glich)  In HW oder SW implementierbar  HW-Support von Intel schon drin  Frameworks f\u00fcr Java, Scala, .NET, ...", 
+            "title": "Software Transactional Memory"
+        }, 
+        {
+            "location": "/ParProg/14_Software_Transactional_Memory/#software-transactions", 
+            "text": "Kritische Sektionen identifizieren  Drum herum  atomic {...}  (konzeptionell) schreiben  R/W auf Speicher sind atomar  Erf\u00fcllt ACI-Kriterien  Kein \"Durable\" / Persistenz    Isolations-Mechanismus wird System \u00fcbergeben  Seiteneffekte sind nicht isoliert (z.B. I/O)  Implementiert meist mit Optimistic Concurency  Unsynchronisiert ausf\u00fchren, bei Konflikte Rollback und (automatic) Retry  Pesimistic Concurrecy w\u00e4re wieder Deadlock-Gefahr", 
+            "title": "Software Transactions"
+        }, 
+        {
+            "location": "/ParProg/14_Software_Transactional_Memory/#stm-vs-locking", 
+            "text": "Unterschied zu Monitor Lock: Deskriptiv, es wird nicht gesagt, wie es isoliert werden soll  Geschachtelte Transactions: Locking ist nicht deadlock-frei", 
+            "title": "STM vs. Locking"
+        }, 
+        {
+            "location": "/ParProg/14_Software_Transactional_Memory/#probleme", 
+            "text": "Seiteneffekte sind immer sichtbar  Wenn z.B. Netzwerkstream-losgeschickt wird, kann er schlecht \"rollbacked\" werden    Starvation-Gefahr, wenn optimistic concurrency st\u00e4ndig retries macht  Muss dann evtl. komplett seriell ausgef\u00fchrt werden    Bei Konflikten soll Transaktion direkt abgebrochen werden, sonst kann z.B. ein Runtimeerror (z.B. Division by 0) auftreten, weil die Transaktion optimistisch ausgef\u00fchrt wird", 
+            "title": "Probleme"
+        }, 
+        {
+            "location": "/ParProg/14_Software_Transactional_Memory/#warten-auf-bedingungen", 
+            "text": "retry  im  atomic -Block, um die Pr\u00fcfung der Bedinung zu wiederholen  atomic -Blocks k\u00f6nnten geschachtelt werden, um nur bestimmte Teile des Programms zu \"retryen\". Ist aber kontrovers", 
+            "title": "Warten auf Bedingungen"
+        }, 
+        {
+            "location": "/ParProg/14_Software_Transactional_Memory/#stm-auf-java", 
+            "text": "Bietet einen Wrapper f\u00fcr Transaktionen  Sonst m\u00fcssten Speicherzugriffe auf JVM-Ebene detektiert werden    Variablen m\u00fcssen eingepackt werden   final   Ref . View Integer   balance   =   STM . newRef ( 0 );    Datentyp muss immutable sein!  Indirekte Strukturen (Collections) sind nicht transaktionell  Explixit  STM.newMap()  etc. verwenden    In Scala einfacher zu handhaben   void   withdraw ( int   amount )   { \n     STM . atomic (()   -   { \n         if   ( balance . get ()     amount )   { \n             STM . retry (); \n         } \n         balance . set ( balance . get ()   -   amount ); \n         lastUpdate . set ( LocalDate . now ()); \n     });  }    atomic  kann auch geschachtelt werden  Wenn im Atomic-Block eine Exception geworfen wird, wird die Transaktion rollbacked und die Exception heraus geworfen", 
+            "title": "STM auf Java"
+        }, 
+        {
+            "location": "/ParProg/14_Software_Transactional_Memory/#write-skew-problem", 
+            "text": "Problem bei \"Snapshot Isolation\": Anhand des Anfangsstatus werden Entscheidungen getroffen, so k\u00f6nnen Fehler auftreten (siehe Bsp. Folie)  Darf in STM nicht passieren  In Scala STM korrekt implementiert  Bei anderen Systemen (z.B. auch Datenbanken), die einfache Snapshot Isolation verwenden", 
+            "title": "Write Skew Problem"
+        }, 
+        {
+            "location": "/ParProg/14_Software_Transactional_Memory/#starvation-problem", 
+            "text": "Wenn Transaktionen st\u00e4ndig abgebrochen werden  In Scala STM ist beliebige Wiederholung m\u00f6glich", 
+            "title": "Starvation Problem"
+        }, 
+        {
             "location": "/ParProg/1_Exam/", 
-            "text": "Exam\n\n\nHilfsmittel\n\n\n\n\n1 A4 beidseitig", 
+            "text": "Exam\n\n\nHilfsmittel\n\n\n\n\n1 A4 beidseitig\n\n\n\n\nUmfang\n\n\n\n\n2/3 Schwerpunkt auf Woche 1 bis 8\n\n\nKonzeptionelle Fragen\n\n\n\n\nProgrammieraufgaben in Java\n\n\n\n\n\n\nFortgeschrittene Themen\n\n\n\n\nEssentielle konzeptionelle Fragen\n\n\nProgramme verstehen und skizieren\n\n\nkeine Technologie-Details (keine API auswendig)", 
             "title": "1 Exam"
         }, 
         {
@@ -1769,6 +1854,11 @@
             "location": "/ParProg/1_Exam/#hilfsmittel", 
             "text": "1 A4 beidseitig", 
             "title": "Hilfsmittel"
+        }, 
+        {
+            "location": "/ParProg/1_Exam/#umfang", 
+            "text": "2/3 Schwerpunkt auf Woche 1 bis 8  Konzeptionelle Fragen   Programmieraufgaben in Java    Fortgeschrittene Themen   Essentielle konzeptionelle Fragen  Programme verstehen und skizieren  keine Technologie-Details (keine API auswendig)", 
+            "title": "Umfang"
         }, 
         {
             "location": "/ParProg/2_Multi-Threading_Grundlagen/", 
@@ -2307,7 +2397,7 @@
         }, 
         {
             "location": "/SE2/15_Correctness/", 
-            "text": "Proving Programs Correct\n\n\n\n\nBis jetzt: Unit testing, um Korrektheit zu pr\u00fcfen\n\n\nKann nicht alle Bugs finden: Wie weiss man, welche Tests \"gut genug\" sind?\n\n\nZiel: Programm wie eine mathematische Formel formell beweisen\n\n\nScope dieser Vorlesung: Imperative single-thread Programme\n\n\nAnsatz in Dafny: \"Desing-by-Contract\", man definiert Post-conditions, die vom Compiler \u00fcberpr\u00fcft werden\n\n\n\n\nHoare Triples\n\n\n\n\n\n\n{P} C {Q}\n\n\n\n\n\n\nP\n ist Precondition, \nC\n Programm / Command, \nQ\n ist Postcondition\n\n\nCorrectness-Aussage: Wenn \nP\n erf\u00fcllt ist, wird durch \nC\n die Postcondition \nQ\n erf\u00fcllt\n\n\n\n\nDiese Aussage ist selbst ein \"boolean\" (Predicate): Kann wahr oder falsch sein\n\n\n\n\n\n\nInference Rules\n\n\n\n\n\n\n[x := E\n -\n \nx\n wird durch \nE\n ersetzt", 
+            "text": "Proving Programs Correct\n\n\n\n\nBis jetzt: Unit testing, um Korrektheit zu pr\u00fcfen\n\n\nKann nicht alle Bugs finden: Wie weiss man, welche Tests \"gut genug\" sind?\n\n\nZiel: Programm wie eine mathematische Formel formell beweisen\n\n\nScope dieser Vorlesung: Imperative single-thread Programme\n\n\nAnsatz in Dafny: \"Desing-by-Contract\", man definiert Post-conditions, die vom Compiler \u00fcberpr\u00fcft werden\n\n\n\n\nHoare Triples\n\n\n\n\n\n\n{P} C {Q}\n\n\n\n\n\n\nP\n ist Precondition, \nC\n Programm / Command, \nQ\n ist Postcondition\n\n\nCorrectness-Aussage: Wenn \nP\n erf\u00fcllt ist, wird durch \nC\n die Postcondition \nQ\n erf\u00fcllt\n\n\n\n\nDiese Aussage ist selbst ein \"boolean\" (Predicate): Kann wahr oder falsch sein\n\n\n\n\n\n\nInference Rules\n\n\n\n\n\n\n[x := E]\n -\n \nx\n wird durch \nE\n ersetzt\n\n\n\n\nAutomatisierung\n\n\n\n\nAllgemeiner Fall ist unentscheidbar\n\n\nEinfache logiken k\u00f6nnen aber meist automatisch bewiesen werden\n\n\nWorkflow: Aus \nP C Q\n Verification Conditions erstellen, die dann bewiesen werden (oder nicht)\n\n\n\n\nProof mit If und While\n\n\nIf\n\n\n\n\nWieder von unten nach oben, aber Verzweigung beachten\n\n\nVorbedingung \u00fcber ganzes \nif\n: Entweder ist es true, dann hat man eine Vorbedingung, oder es ist falsch, dann die andere Vorbedingung\n\n\nMit If-Bedingung P: \n(P => \\text{Vorb. true}) \\and (\\not P => \\text{Vorb. else})\n\n\n\n\n\n\nWhile\n\n\n\n\nKeine 100%-ige L\u00f6sung (Turing-Completeness - nicht entscheidbar)\n\n\nLoop-Invariant: Eigenschaft, die sowohl zu Beginn als auch zum Ende des Loops wahr sein muss (nicht ver\u00e4nderbar)\n\n\nSchwierigkeit: Loop Invariant finden\n\n\nVorgehen\n\n\nLoop Invariant I annehmen\n\n\nVorbedingung des Loop-Bodies ist \nI \\and P\n mit \nP\n = Loop-Condition\n\n\nMit I das Hoar-Triple im \nwhile\n beweisen (mit P=I und Q=I)\n\n\nWenn dieser Beweis geht, ist die Invariante korrekt\n\n\nI als Vor- und Nachbedingung des Loops nehmen\n\n\nNachbedingung erf\u00fcllt Loop-Condition \nnicht\n (AND verkn\u00fcpfen)\n\n\nwhile-loop ist jetzt \"subroutine\", die bewiesen ist\n\n\n\n\n\n\nnachbedingung =\n Q beweisen\n\n\nVorbedingungen vor der Schleife wie gew\u00f6hnlich nach oben beweisen\n\n\n\n\n\n\nLoop Invariant \nf\u00fcr Pr\u00fcfung vorgegeben!\n\n\n\n\nDafny\n\n\n\n\nNeben formaler Korrektheit wie hier besprochen wird auch Terminierung \u00fcberpr\u00fcft\n\n\nz.B., ob in while counter hinuntergez\u00e4hlt wird, dass die Schleife terminiert wird", 
             "title": "15 Correctness"
         }, 
         {
@@ -2327,8 +2417,33 @@
         }, 
         {
             "location": "/SE2/15_Correctness/#inference-rules", 
-            "text": "[x := E  -   x  wird durch  E  ersetzt", 
+            "text": "[x := E]  -   x  wird durch  E  ersetzt", 
             "title": "Inference Rules"
+        }, 
+        {
+            "location": "/SE2/15_Correctness/#automatisierung", 
+            "text": "Allgemeiner Fall ist unentscheidbar  Einfache logiken k\u00f6nnen aber meist automatisch bewiesen werden  Workflow: Aus  P C Q  Verification Conditions erstellen, die dann bewiesen werden (oder nicht)", 
+            "title": "Automatisierung"
+        }, 
+        {
+            "location": "/SE2/15_Correctness/#proof-mit-if-und-while", 
+            "text": "", 
+            "title": "Proof mit If und While"
+        }, 
+        {
+            "location": "/SE2/15_Correctness/#if", 
+            "text": "Wieder von unten nach oben, aber Verzweigung beachten  Vorbedingung \u00fcber ganzes  if : Entweder ist es true, dann hat man eine Vorbedingung, oder es ist falsch, dann die andere Vorbedingung  Mit If-Bedingung P:  (P => \\text{Vorb. true}) \\and (\\not P => \\text{Vorb. else})", 
+            "title": "If"
+        }, 
+        {
+            "location": "/SE2/15_Correctness/#while", 
+            "text": "Keine 100%-ige L\u00f6sung (Turing-Completeness - nicht entscheidbar)  Loop-Invariant: Eigenschaft, die sowohl zu Beginn als auch zum Ende des Loops wahr sein muss (nicht ver\u00e4nderbar)  Schwierigkeit: Loop Invariant finden  Vorgehen  Loop Invariant I annehmen  Vorbedingung des Loop-Bodies ist  I \\and P  mit  P  = Loop-Condition  Mit I das Hoar-Triple im  while  beweisen (mit P=I und Q=I)  Wenn dieser Beweis geht, ist die Invariante korrekt  I als Vor- und Nachbedingung des Loops nehmen  Nachbedingung erf\u00fcllt Loop-Condition  nicht  (AND verkn\u00fcpfen)  while-loop ist jetzt \"subroutine\", die bewiesen ist    nachbedingung =  Q beweisen  Vorbedingungen vor der Schleife wie gew\u00f6hnlich nach oben beweisen    Loop Invariant  f\u00fcr Pr\u00fcfung vorgegeben!", 
+            "title": "While"
+        }, 
+        {
+            "location": "/SE2/15_Correctness/#dafny", 
+            "text": "Neben formaler Korrektheit wie hier besprochen wird auch Terminierung \u00fcberpr\u00fcft  z.B., ob in while counter hinuntergez\u00e4hlt wird, dass die Schleife terminiert wird", 
+            "title": "Dafny"
         }, 
         {
             "location": "/SE2/1_Exam/", 
@@ -2837,7 +2952,7 @@
         }, 
         {
             "location": "/Vss/13_Bitcoin/", 
-            "text": "Consesus with the Bitcoin system\n\n\n\n\nProperties of money: Trust, store of value, acceptance\n\n\nrequirement: all computers must have the same \"table\" of who owns what\n\n\nDouble-spending attack: attacker sends two transactions to two different people to different nodes. if they just replicate, there is no way of knowing what the correct \"state\" of the network is\n\n\nWe need a Consesus Protocol\n\n\n\n\nConensus Protocol\n\n\n\n\nMain idea: Agree on the majority\n\n\nBut most participants would need to be \"friendly\"\n\n\n\n\n\n\n\n\napproach: use a random hash function, where it is extremely hard to find a collision", 
+            "text": "Consesus with the Bitcoin system\n\n\n\n\nProperties of money: Trust, store of value, acceptance\n\n\nrequirement: all computers must have the same \"table\" of who owns what\n\n\nDouble-spending attack: attacker sends two transactions to two different people to different nodes. if they just replicate, there is no way of knowing what the correct \"state\" of the network is\n\n\nWe need a Consesus Protocol\n\n\n\n\nConsensus Protocol\n\n\n\n\nMain idea: Agree on the majority\n\n\nBut most participants would need to be \"friendly\"\n\n\n\n\n\n\napproach: use a random hash function, where it is extremely hard to find a collision\n\n\nthe longest chain is valid", 
             "title": "13 Bitcoin"
         }, 
         {
@@ -2846,14 +2961,9 @@
             "title": "Consesus with the Bitcoin system"
         }, 
         {
-            "location": "/Vss/13_Bitcoin/#conensus-protocol", 
-            "text": "Main idea: Agree on the majority  But most participants would need to be \"friendly\"", 
-            "title": "Conensus Protocol"
-        }, 
-        {
-            "location": "/Vss/13_Bitcoin/#approach-use-a-random-hash-function-where-it-is-extremely-hard-to-find-a-collision", 
-            "text": "", 
-            "title": "approach: use a random hash function, where it is extremely hard to find a collision"
+            "location": "/Vss/13_Bitcoin/#consensus-protocol", 
+            "text": "Main idea: Agree on the majority  But most participants would need to be \"friendly\"    approach: use a random hash function, where it is extremely hard to find a collision  the longest chain is valid", 
+            "title": "Consensus Protocol"
         }, 
         {
             "location": "/Vss/1_Exam/", 
