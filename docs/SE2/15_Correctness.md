@@ -13,4 +13,36 @@
 - Diese Aussage ist selbst ein "boolean" (Predicate): Kann wahr oder falsch sein
 -
 ## Inference Rules
-- \([x := E\) -> \(x\) wird durch \(E\) ersetzt
+- \([x := E]\) -> \(x\) wird durch \(E\) ersetzt
+
+## Automatisierung
+- Allgemeiner Fall ist unentscheidbar
+- Einfache logiken können aber meist automatisch bewiesen werden
+- Workflow: Aus \(P C Q\) Verification Conditions erstellen, die dann bewiesen werden (oder nicht)
+
+## Proof mit If und While
+### If
+- Wieder von unten nach oben, aber Verzweigung beachten
+- Vorbedingung über ganzes `if`: Entweder ist es true, dann hat man eine Vorbedingung, oder es ist falsch, dann die andere Vorbedingung
+- Mit If-Bedingung P: \((P => \text{Vorb. true}) \and (\not P => \text{Vorb. else})\)
+
+### While
+- Keine 100%-ige Lösung (Turing-Completeness - nicht entscheidbar)
+- Loop-Invariant: Eigenschaft, die sowohl zu Beginn als auch zum Ende des Loops wahr sein muss (nicht veränderbar)
+- Schwierigkeit: Loop Invariant finden
+- Vorgehen
+    - Loop Invariant I annehmen
+    - Vorbedingung des Loop-Bodies ist \(I \and P\) mit \(P\) = Loop-Condition
+    - Mit I das Hoar-Triple im `while` beweisen (mit P=I und Q=I)
+    - Wenn dieser Beweis geht, ist die Invariante korrekt
+    - I als Vor- und Nachbedingung des Loops nehmen
+        - Nachbedingung erfüllt Loop-Condition *nicht* (AND verknüpfen)
+        - while-loop ist jetzt "subroutine", die bewiesen ist
+    - nachbedingung => Q beweisen
+    - Vorbedingungen vor der Schleife wie gewöhnlich nach oben beweisen
+- Loop Invariant **für Prüfung vorgegeben!**
+
+## Dafny
+- Neben formaler Korrektheit wie hier besprochen wird auch Terminierung überprüft
+    - z.B., ob in while counter hinuntergezählt wird, dass die Schleife terminiert wird
+
