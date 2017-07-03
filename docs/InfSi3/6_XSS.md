@@ -30,3 +30,5 @@
 - HTML-Characters escapen
     - `<` in `&lt;` usw. umwandeln
     - In Praxis schwierig, das nicht gültige Zeichen wie `'` escaped werden
+- Filter in WAF
+- [Content Security Policy](8_CSP.md), damit nicht ein fremdes Script mit `<script src="..." />` eingefügt werden kann

@@ -18,15 +18,23 @@
     - Body: Wird lokal im Filecache gespeichert, ebenfalls anfällig
 - Ob Cookie Session-Cookie ist (nicht persistent), wird mit `ìsSession` gesteuert (default true)
 - `Path` und `Domain` geben an, zu welcher Domain und Pfad das Cookie vom Browser gesendet wird
-- HPKP: HTTP Public Key Pinning
-    - Beim ersten Response des Servers wird ein Hash des Public Keys (=Pin) des Certs im HPKP-Header mitgesendet
-    - Der Client rechnet ebenfalls einen Hash des Public-Keys
-    - Bei zukünftigen Verbindungen prüft der Client, ob der Hash noch derselbe ist wie der gespeicherte. Wenn nicht, wird die Verbindung rejected
-    - Problem, wenn Certs ausgetauscht werden
-        - Lösung: Mehr als einen PIN angeben
-        - Zertifikate werden auf Vorrat erstellt
-        - Es werden mehrere PINS mitgeschickt, auch solche von zukünftigen Certs
-        - Oder: Eigenes Intermediate CA Pinnen und von diesem aus die richtigen Server-Certs ausstellen
+
+## Cookies
+- Felder: `Content`, `Path`, `Domain`, `Expires`, `HttpOnly`, `Secure`
+- Syntax: `Set-Cookie: <attribute>=<value>`
+- Für Authentication Token `Domain`, `Path` und `Expire` weglassen
+- Ohne `Expire` läuft das Cookie nach der Browser-Session ab
+
+
+## HTTP Public Key Pinning
+- Beim ersten Response des Servers wird ein Hash des Public Keys (=Pin) des Certs im HPKP-Header mitgesendet
+- Der Client rechnet ebenfalls einen Hash des Public-Keys
+- Bei zukünftigen Verbindungen prüft der Client, ob der Hash noch derselbe ist wie der gespeicherte. Wenn nicht, wird die Verbindung rejected
+- Problem, wenn Certs ausgetauscht werden
+    - Lösung: Mehr als einen PIN angeben
+    - Zertifikate werden auf Vorrat erstellt
+    - Es werden mehrere PINS mitgeschickt, auch solche von zukünftigen Certs
+    - Oder: Eigenes Intermediate CA Pinnen und von diesem aus die richtigen Server-Certs ausstellen
 
 ## 302 Redirect nach Login
 - Wenn der Server vertrauliche Daten per POST erhält (Login), sollte er mit 302 Redirect antworten

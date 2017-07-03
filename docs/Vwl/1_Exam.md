@@ -1,1 +1,3 @@
-Some exam notes...
+# Exam
+- Open Book
+- Ohne elektronische Hilfsmittel

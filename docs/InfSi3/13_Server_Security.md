@@ -9,3 +9,10 @@
 
 ## TLS
 - `SSLHonorCipherOrder on` setzen, damit der Server die akzeptierten Ciphers erzwingt
+
+## Apache Hardening
+- Core-Prozess muss unter root laufen, worker-Prozesse unter apache-User (`wwwrun`)
+- Workers haben keine Rechte auf Config und Log-Files und SSL, nur Read-Rechte auf `htdocs` (owner alle auf root)
+- Saubere Trennung der Usergruppen vom Rest der System-User
+- Kein World-Readable / Writeable!
+- HTTPS: Geeignete Ciphers enforcen
