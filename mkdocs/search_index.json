@@ -32,12 +32,12 @@
         }, 
         {
             "location": "/Dbs2/0_Index/", 
-            "text": "Datenbanksysteme 2\n\n\n\n\nExam Notes\n\n\nOR-Mapping\n\n\nStored Procedures\n\n\nTriggers\n\n\nViews\n\n\nDatenstrukturen\n\n\nInterne Ebene\n\n\nOptimierung\n\n\nVerteilte Datenbanken\n\n\nReplikation\n\n\nNoSQL", 
+            "text": "Datenbanksysteme 2\n\n\n\n\nExam Notes\n\n\nOR-Mapping\n\n\nStored Procedures\n\n\nTriggers\n\n\nViews\n\n\nDatenstrukturen\n\n\nInterne Ebene\n\n\nOptimierung\n\n\nVerteilte Datenbanken\n\n\nReplikation\n\n\nNoSQL\n\n\nObjectDBMS\n\n\nOR-DBMS\n\n\nColumn-Store DBMS", 
             "title": "0 Index"
         }, 
         {
             "location": "/Dbs2/0_Index/#datenbanksysteme-2", 
-            "text": "Exam Notes  OR-Mapping  Stored Procedures  Triggers  Views  Datenstrukturen  Interne Ebene  Optimierung  Verteilte Datenbanken  Replikation  NoSQL", 
+            "text": "Exam Notes  OR-Mapping  Stored Procedures  Triggers  Views  Datenstrukturen  Interne Ebene  Optimierung  Verteilte Datenbanken  Replikation  NoSQL  ObjectDBMS  OR-DBMS  Column-Store DBMS", 
             "title": "Datenbanksysteme 2"
         }, 
         {
@@ -967,12 +967,12 @@
         }, 
         {
             "location": "/InfSi3/0_Index/", 
-            "text": "Informationssicherheit 3\n\n\n\n\nExam Notes\n\n\nOverview\n\n\nSoftware Security\n\n\nApplication Security Basics", 
+            "text": "Informationssicherheit 3\n\n\n\n\nExam Notes\n\n\nOverview\n\n\nSoftware Security\n\n\nApplication Security Basics\n\n\nSQL Injection\n\n\nXSS\n\n\nCORS\n\n\nContent Security Policy\n\n\nJSON Hijacking\n\n\nCSRF\n\n\nMobile Security\n\n\nWeb App Firewall\n\n\nServer Security\n\n\nFraud Detection\n\n\nSecurity Testing\n\n\nIdentity Access Management", 
             "title": "0 Index"
         }, 
         {
             "location": "/InfSi3/0_Index/#informationssicherheit-3", 
-            "text": "Exam Notes  Overview  Software Security  Application Security Basics", 
+            "text": "Exam Notes  Overview  Software Security  Application Security Basics  SQL Injection  XSS  CORS  Content Security Policy  JSON Hijacking  CSRF  Mobile Security  Web App Firewall  Server Security  Fraud Detection  Security Testing  Identity Access Management", 
             "title": "Informationssicherheit 3"
         }, 
         {
@@ -1607,12 +1607,12 @@
         }, 
         {
             "location": "/ParProg/0_Index/", 
-            "text": "Parallele Programmierung\n\n\n\n\nExam Notes\n\n\nMulti-Threading Grundlagen\n\n\nThread Synchronisation\n\n\nSynchronisationsprimitiven\n\n\nGefahren der Nebenl\u00e4ufigket\n\n\nThread Pools\n\n\nTask Parallel Library\n\n\nGUI Threading\n\n\nMemory Models\n\n\nActor Model\n\n\nGPU Parallelisierung", 
+            "text": "Parallele Programmierung\n\n\n\n\nExam Notes\n\n\nMulti-Threading Grundlagen\n\n\nThread Synchronisation\n\n\nSynchronisationsprimitiven\n\n\nGefahren der Nebenl\u00e4ufigket\n\n\nThread Pools\n\n\nTask Parallel Library\n\n\nGUI Threading\n\n\nMemory Models\n\n\nActor Model\n\n\nGPU Parallelisierung\n\n\nCluster Parallelisierung\n\n\nReactive Programming\n\n\nSoftware Transactional Memory", 
             "title": "0 Index"
         }, 
         {
             "location": "/ParProg/0_Index/#parallele-programmierung", 
-            "text": "Exam Notes  Multi-Threading Grundlagen  Thread Synchronisation  Synchronisationsprimitiven  Gefahren der Nebenl\u00e4ufigket  Thread Pools  Task Parallel Library  GUI Threading  Memory Models  Actor Model  GPU Parallelisierung", 
+            "text": "Exam Notes  Multi-Threading Grundlagen  Thread Synchronisation  Synchronisationsprimitiven  Gefahren der Nebenl\u00e4ufigket  Thread Pools  Task Parallel Library  GUI Threading  Memory Models  Actor Model  GPU Parallelisierung  Cluster Parallelisierung  Reactive Programming  Software Transactional Memory", 
             "title": "Parallele Programmierung"
         }, 
         {
@@ -2322,12 +2322,12 @@
         }, 
         {
             "location": "/SE2/0_Index/", 
-            "text": "Software Engineering 2\n\n\n\n\nExam Notes\n\n\nProject Automation\n\n\nSoftware Engineering Practises\n\n\nError Handling Design\n\n\nDesign by Contract\n\n\nStory Splitting\n\n\nTesting\n\n\nMetriken", 
+            "text": "Software Engineering 2\n\n\n\n\nExam Notes\n\n\nProject Automation\n\n\nSoftware Engineering Practises\n\n\nError Handling Design\n\n\nDesign by Contract\n\n\nStory Splitting\n\n\nTesting\n\n\nMetriken\n\n\nCode Reviews\n\n\nPerformance-Messungen\n\n\nUsability Testing\n\n\nSoftware Architecture\n\n\nScrum II\n\n\nProjektmanagement II\n\n\nCorrectness", 
             "title": "0 Index"
         }, 
         {
             "location": "/SE2/0_Index/#software-engineering-2", 
-            "text": "Exam Notes  Project Automation  Software Engineering Practises  Error Handling Design  Design by Contract  Story Splitting  Testing  Metriken", 
+            "text": "Exam Notes  Project Automation  Software Engineering Practises  Error Handling Design  Design by Contract  Story Splitting  Testing  Metriken  Code Reviews  Performance-Messungen  Usability Testing  Software Architecture  Scrum II  Projektmanagement II  Correctness", 
             "title": "Software Engineering 2"
         }, 
         {
@@ -2742,12 +2742,12 @@
         }, 
         {
             "location": "/Vss/0_Index/", 
-            "text": "Verteilte Software-Systeme\n\n\n\n\nExam Notes\n\n\nIntroduction\n\n\nSocket Programmierung\n\n\nAsynchronous Messaging\n\n\nRMI and Web-Services\n\n\nDesign for Performance\n\n\nScalability and Availability\n\n\nVSS Management\n\n\nCFIA\n\n\nNaming", 
+            "text": "Verteilte Software-Systeme\n\n\n\n\nExam Notes\n\n\nIntroduction\n\n\nSocket Programmierung\n\n\nAsynchronous Messaging\n\n\nRMI and Web-Services\n\n\nDesign for Performance\n\n\nScalability and Availability\n\n\nVSS Management\n\n\nCFIA\n\n\nNaming\n\n\nDistributed Hash Tables\n\n\nSynchronization\n\n\nBitcoin", 
             "title": "0 Index"
         }, 
         {
             "location": "/Vss/0_Index/#verteilte-software-systeme", 
-            "text": "Exam Notes  Introduction  Socket Programmierung  Asynchronous Messaging  RMI and Web-Services  Design for Performance  Scalability and Availability  VSS Management  CFIA  Naming", 
+            "text": "Exam Notes  Introduction  Socket Programmierung  Asynchronous Messaging  RMI and Web-Services  Design for Performance  Scalability and Availability  VSS Management  CFIA  Naming  Distributed Hash Tables  Synchronization  Bitcoin", 
             "title": "Verteilte Software-Systeme"
         }, 
         {
@@ -3352,12 +3352,12 @@
         }, 
         {
             "location": "/Vwl/0_Index/", 
-            "text": "Volkswirtschaft\n\n\n\n\nExam Notes\n\n\nWohlstand\n\n\nEinkommensverteilung und Sozialwerke\n\n\nWachstum\n\n\nArbeitsmarkt\n\n\nKonjuktur\n\n\nPreisstabilit\u00e4t\n\n\nGeld\n\n\nWechselkurse\n\n\nStaatsfinanzen", 
+            "text": "Volkswirtschaft\n\n\n\n\nExam Notes\n\n\nWohlstand\n\n\nEinkommensverteilung und Sozialwerke\n\n\nWachstum\n\n\nArbeitsmarkt\n\n\nKonjuktur\n\n\nPreisstabilit\u00e4t\n\n\nGeld\n\n\nWechselkurse\n\n\nStaatsfinanzen\n\n\nBanken\n\n\nFinanzkrise\n\n\nMarkt und Preise\n\n\nArbeitsteilung\n\n\nEurop\u00e4ische Integration", 
             "title": "0 Index"
         }, 
         {
             "location": "/Vwl/0_Index/#volkswirtschaft", 
-            "text": "Exam Notes  Wohlstand  Einkommensverteilung und Sozialwerke  Wachstum  Arbeitsmarkt  Konjuktur  Preisstabilit\u00e4t  Geld  Wechselkurse  Staatsfinanzen", 
+            "text": "Exam Notes  Wohlstand  Einkommensverteilung und Sozialwerke  Wachstum  Arbeitsmarkt  Konjuktur  Preisstabilit\u00e4t  Geld  Wechselkurse  Staatsfinanzen  Banken  Finanzkrise  Markt und Preise  Arbeitsteilung  Europ\u00e4ische Integration", 
             "title": "Volkswirtschaft"
         }, 
         {
@@ -3576,42 +3576,42 @@
             "title": "G20"
         }, 
         {
-            "location": "/Vwl/15_Europ\u00e4ische_Integration/", 
+            "location": "/Vwl/15_Europaeische_Integration/", 
             "text": "Europ\u00e4ische Integration\n\n\nEntwicklung\n\n\n\n\nNeuordnung der Weltwirtschaft nach 2. WK (Bretton Woods-Konferenz)\n\n\nAmerikanisch orientiert\n\n\n\n\n\n\nIdee: Krieg-Ausl\u00f6ser von Europa aus verhindern\n\n\nGr\u00fcndung 1951 von Be, De, F, I, Lu, NL\n\n\nEGKS: Zollunion f\u00fcr Kohle und Stahl\n\n\n1957 Zollunion EWG und Abkommen f\u00fcr Atomenergie, etc.\n\n\n\n\n\n\n1959: EFTA Freihandelsabkommen, Schweiz dabei\n\n\n1973: D\u00e4nemark, Irland, UK kommt hinzu\n\n\n1981: Griechenland (In Eurozone von Anfang an dabei)\n\n\n1986: EG wird Binnenmarkt (Arbeitsrecht in allen L\u00e4ndern)\n\n\n1992: Maastricht-Vertrag: Wirtschafts- und W\u00e4hrungsunion \nEU\n, Euro-Einf\u00fchrung 2001\n\n\n1994: Gr\u00fcndung EWR (Binnenmarkt zwischen EU und EFTA) \nohne Schweiz\n\n\nWege \"trennen sich\" zwischen CH und EU\n\n\n\n\n\n\n1999: Gr\u00fcndung Euro-Zone (im Maastricht Vertrag festgelegt)\n\n\nJedes Land hat Vetorecht, Zutritt braucht Einstimmigkeit\n\n\nT\u00fcrkei will man nicht aufnehmen, u.a. wegen Grenze zu Syrien (EU w\u00fcrde zu Kriegspartei werden)\n\n\nKosovo z.B. ist nicht von allen anderen Staaten als Staat annerkannt\n\n\nIsland und Norwegen sind in EWR, aber nicht in EU\n\n\nIsland ist Beitrittskandiat, Norwegen hat \"genug Geld\"\n\n\n\n\n\n\n\n\nEurop\u00e4ische Verfassung\n\n\n\n\nZiel: \"Vereinigte Staaten von Europa\"\n\n\nProblem: Demokratisches Eintreten (Volksabstimmung), danach aber fast nur noch parlamentarische Entscheidungen\n\n\n2005: Versuch, Verfassung einzuf\u00fchren, von Frankreich und NL je von einer Volksabstimmung abgelehnt (Parlamente haben angenommen)\n\n\n2009: Vertrag von Lissabon - Verfassungstext weitgehend \u00fcbernommen, wurde von allen Parlamenten angenommen\n\n\n\n\nKrise\n\n\n\n\n2011: Eurokrise\n\n\n2012: Europ\u00e4ischer Fiskalpakt: L\u00e4nder m\u00fcssen Budgets der EU vorlegen\n\n\n2012: Friedensnobelpreis\n\n\n\n\nVerh\u00e4ltnis Schweiz zu Europa\n\n\n\n\nVerhandlungen nicht auf Augenh\u00f6he, Schweiz ist viel zu klein\n\n\n1992: EWG ganz knapp abgelehnt (78% Wahlbeteiligung!)\n\n\n1997: \"Beitrittsverhandlungen\" mit 74% abgelehnt\n    \u207b Innerhalb 5 Jahren starke Ver\u00e4nderung durch SVP, AUNS, etc.\n\n\n2001 nochmals Abstimmung \u00fcber Beitritt, wieder klar abgelehnt\n\n\n2000 und 2005: Bilateralen I und II, mit 67% und 54% angenommen\n\n\nSchweiz kann \"cherry-picken\"\n\n\nPersonenfreiz\u00fcgigkeit in I und Schengen-Abkommen in II\n\n\n\n\n\n\n2005: Bilateralen mit neu eingetretenen EU-Mitglieder\n\n\nSchweiz musste als \"Strafe\" Erweiterungsbeitrag und Osthilfe bezahlen\n\n\n\n\n\n\n2014: Masseneinwanderungsinitive ganz knapp angenommen (gleich wie 1992!)\n\n\nWiderspruch zur Bilateralen I\n\n\nEU verbietet Mitgliedsstaaten, direkt mit der Schweiz zu verhandeln\n\n\nKroatien ist beigetreten, Schweiz kann wegen MEI keine neue Bilateralen mehr verhandeln\n\n\n\n\n\n\nVerhandlungsangebot EU: Automatische \u00dcbernahme des EU-Rechts (kann Schweiz nicht annehmen)\n\n\nVentilklausel Rum\u00e4nien und Bulgarien - Maximale Zuwanderung (Provokation an EU)\n\n\n\n\nBilaterale Vertr\u00e4ge (sepparates PDF)\n\n\n1972 - 1990: Freihandelsabkommen f\u00fcr Industrieprodukte, Versicherungen und Zollerleichterungen\n- 1999: Bilateralen I\n    - Personenfreiz\u00fcgigkeit\n    - Handelshemnisse, Landwirtschaft, Forschung, Luftverkehr, Landverkehr\n        - \"Cherry-picking\"\n- 2004: Bilateralen II\n    - Schengen-Dublin: Aufhebung Personenkontrolle (ohne UK)\n    - Dublin: Nationale Zust\u00e4ndigkeit f\u00fcr Asyl-Verfahren\n    - Filmf\u00f6rderungsprogramm MEDIA\n    - Teilnahme an Eu. Umweltagentur\n    - Erasmus: Gek\u00fcndigt von EU 2014, \u00dcbergangsl\u00f6sung bis Ende 2017\n- Europol: EU-Strafverfolgungsbeh\u00f6rde\n- EVA: Europ\u00e4ische Verteidugunsagentur (R\u00fcstungsabkommen)\n- Zusammenarbeit Wettbewerbsbeh\u00f6rden\n- Satellitennavigation: GPS-Konkurrenz Galileo\n\n\nWie geht es weiter?", 
-            "title": "15 Europ\u00e4ische Integration"
+            "title": "15 Europaeische Integration"
         }, 
         {
-            "location": "/Vwl/15_Europ\u00e4ische_Integration/#europaische-integration", 
+            "location": "/Vwl/15_Europaeische_Integration/#europaische-integration", 
             "text": "", 
             "title": "Europ\u00e4ische Integration"
         }, 
         {
-            "location": "/Vwl/15_Europ\u00e4ische_Integration/#entwicklung", 
+            "location": "/Vwl/15_Europaeische_Integration/#entwicklung", 
             "text": "Neuordnung der Weltwirtschaft nach 2. WK (Bretton Woods-Konferenz)  Amerikanisch orientiert    Idee: Krieg-Ausl\u00f6ser von Europa aus verhindern  Gr\u00fcndung 1951 von Be, De, F, I, Lu, NL  EGKS: Zollunion f\u00fcr Kohle und Stahl  1957 Zollunion EWG und Abkommen f\u00fcr Atomenergie, etc.    1959: EFTA Freihandelsabkommen, Schweiz dabei  1973: D\u00e4nemark, Irland, UK kommt hinzu  1981: Griechenland (In Eurozone von Anfang an dabei)  1986: EG wird Binnenmarkt (Arbeitsrecht in allen L\u00e4ndern)  1992: Maastricht-Vertrag: Wirtschafts- und W\u00e4hrungsunion  EU , Euro-Einf\u00fchrung 2001  1994: Gr\u00fcndung EWR (Binnenmarkt zwischen EU und EFTA)  ohne Schweiz  Wege \"trennen sich\" zwischen CH und EU    1999: Gr\u00fcndung Euro-Zone (im Maastricht Vertrag festgelegt)  Jedes Land hat Vetorecht, Zutritt braucht Einstimmigkeit  T\u00fcrkei will man nicht aufnehmen, u.a. wegen Grenze zu Syrien (EU w\u00fcrde zu Kriegspartei werden)  Kosovo z.B. ist nicht von allen anderen Staaten als Staat annerkannt  Island und Norwegen sind in EWR, aber nicht in EU  Island ist Beitrittskandiat, Norwegen hat \"genug Geld\"", 
             "title": "Entwicklung"
         }, 
         {
-            "location": "/Vwl/15_Europ\u00e4ische_Integration/#europaische-verfassung", 
+            "location": "/Vwl/15_Europaeische_Integration/#europaische-verfassung", 
             "text": "Ziel: \"Vereinigte Staaten von Europa\"  Problem: Demokratisches Eintreten (Volksabstimmung), danach aber fast nur noch parlamentarische Entscheidungen  2005: Versuch, Verfassung einzuf\u00fchren, von Frankreich und NL je von einer Volksabstimmung abgelehnt (Parlamente haben angenommen)  2009: Vertrag von Lissabon - Verfassungstext weitgehend \u00fcbernommen, wurde von allen Parlamenten angenommen", 
             "title": "Europ\u00e4ische Verfassung"
         }, 
         {
-            "location": "/Vwl/15_Europ\u00e4ische_Integration/#krise", 
+            "location": "/Vwl/15_Europaeische_Integration/#krise", 
             "text": "2011: Eurokrise  2012: Europ\u00e4ischer Fiskalpakt: L\u00e4nder m\u00fcssen Budgets der EU vorlegen  2012: Friedensnobelpreis", 
             "title": "Krise"
         }, 
         {
-            "location": "/Vwl/15_Europ\u00e4ische_Integration/#verhaltnis-schweiz-zu-europa", 
+            "location": "/Vwl/15_Europaeische_Integration/#verhaltnis-schweiz-zu-europa", 
             "text": "Verhandlungen nicht auf Augenh\u00f6he, Schweiz ist viel zu klein  1992: EWG ganz knapp abgelehnt (78% Wahlbeteiligung!)  1997: \"Beitrittsverhandlungen\" mit 74% abgelehnt\n    \u207b Innerhalb 5 Jahren starke Ver\u00e4nderung durch SVP, AUNS, etc.  2001 nochmals Abstimmung \u00fcber Beitritt, wieder klar abgelehnt  2000 und 2005: Bilateralen I und II, mit 67% und 54% angenommen  Schweiz kann \"cherry-picken\"  Personenfreiz\u00fcgigkeit in I und Schengen-Abkommen in II    2005: Bilateralen mit neu eingetretenen EU-Mitglieder  Schweiz musste als \"Strafe\" Erweiterungsbeitrag und Osthilfe bezahlen    2014: Masseneinwanderungsinitive ganz knapp angenommen (gleich wie 1992!)  Widerspruch zur Bilateralen I  EU verbietet Mitgliedsstaaten, direkt mit der Schweiz zu verhandeln  Kroatien ist beigetreten, Schweiz kann wegen MEI keine neue Bilateralen mehr verhandeln    Verhandlungsangebot EU: Automatische \u00dcbernahme des EU-Rechts (kann Schweiz nicht annehmen)  Ventilklausel Rum\u00e4nien und Bulgarien - Maximale Zuwanderung (Provokation an EU)", 
             "title": "Verh\u00e4ltnis Schweiz zu Europa"
         }, 
         {
-            "location": "/Vwl/15_Europ\u00e4ische_Integration/#bilaterale-vertrage-sepparates-pdf", 
+            "location": "/Vwl/15_Europaeische_Integration/#bilaterale-vertrage-sepparates-pdf", 
             "text": "1972 - 1990: Freihandelsabkommen f\u00fcr Industrieprodukte, Versicherungen und Zollerleichterungen\n- 1999: Bilateralen I\n    - Personenfreiz\u00fcgigkeit\n    - Handelshemnisse, Landwirtschaft, Forschung, Luftverkehr, Landverkehr\n        - \"Cherry-picking\"\n- 2004: Bilateralen II\n    - Schengen-Dublin: Aufhebung Personenkontrolle (ohne UK)\n    - Dublin: Nationale Zust\u00e4ndigkeit f\u00fcr Asyl-Verfahren\n    - Filmf\u00f6rderungsprogramm MEDIA\n    - Teilnahme an Eu. Umweltagentur\n    - Erasmus: Gek\u00fcndigt von EU 2014, \u00dcbergangsl\u00f6sung bis Ende 2017\n- Europol: EU-Strafverfolgungsbeh\u00f6rde\n- EVA: Europ\u00e4ische Verteidugunsagentur (R\u00fcstungsabkommen)\n- Zusammenarbeit Wettbewerbsbeh\u00f6rden\n- Satellitennavigation: GPS-Konkurrenz Galileo", 
             "title": "Bilaterale Vertr\u00e4ge (sepparates PDF)"
         }, 
         {
-            "location": "/Vwl/15_Europ\u00e4ische_Integration/#wie-geht-es-weiter", 
+            "location": "/Vwl/15_Europaeische_Integration/#wie-geht-es-weiter", 
             "text": "", 
             "title": "Wie geht es weiter?"
         }, 
