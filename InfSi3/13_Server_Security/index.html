@@ -641,6 +641,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#apache-hardening" title="Apache Hardening" class="md-nav__link">
+    Apache Hardening
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -1841,6 +1848,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#apache-hardening" title="Apache Hardening" class="md-nav__link">
+    Apache Hardening
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -1870,6 +1884,14 @@
 <h2 id="tls">TLS</h2>
 <ul>
 <li><code>SSLHonorCipherOrder on</code> setzen, damit der Server die akzeptierten Ciphers erzwingt</li>
+</ul>
+<h2 id="apache-hardening">Apache Hardening</h2>
+<ul>
+<li>Core-Prozess muss unter root laufen, worker-Prozesse unter apache-User (<code>wwwrun</code>)</li>
+<li>Workers haben keine Rechte auf Config und Log-Files und SSL, nur Read-Rechte auf <code>htdocs</code> (owner alle auf root)</li>
+<li>Saubere Trennung der Usergruppen vom Rest der System-User</li>
+<li>Kein World-Readable / Writeable!</li>
+<li>HTTPS: Geeignete Ciphers enforcen</li>
 </ul>
                 
                   

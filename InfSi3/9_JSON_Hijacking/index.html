@@ -779,6 +779,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#jsonp" title="JSONP" class="md-nav__link">
+    JSONP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#voraussetzungen" title="Voraussetzungen" class="md-nav__link">
     Voraussetzungen
   </a>
@@ -1842,6 +1849,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#jsonp" title="JSONP" class="md-nav__link">
+    JSONP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#voraussetzungen" title="Voraussetzungen" class="md-nav__link">
     Voraussetzungen
   </a>
@@ -1891,6 +1905,14 @@
 <li>Google gibt Daten als JSON zurück</li>
 <li>Im JSON ist ein Array-Konstruktor hinterlegt</li>
 <li>Hacker hat diese Funktion überschrieben, um das JSON zu ihm zu schicken</li>
+</ul>
+<h2 id="jsonp">JSONP</h2>
+<ul>
+<li>"JSON with Padding"</li>
+<li>Der Webserver gibt statt reines JSON ein Javascript Function Call mit dem JSON als Argument mit</li>
+<li>Function Call ist das "Padding"</li>
+<li>Wenn nun ein Request so mit <code>&lt;script src=".." /&gt;</code> eingebunden wird, führt der Browser das Javascript mit dem JSON drin aus</li>
+<li>Dadurch wird SOP umgangen, ist aber von CORS abgelöst woren</li>
 </ul>
 <h2 id="voraussetzungen">Voraussetzungen</h2>
 <ul>

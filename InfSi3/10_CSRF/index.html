@@ -1877,13 +1877,13 @@
 <ul>
 <li>Die meisten Router-Admin-Interfaces laufen auf den gleichen IPs</li>
 <li>Router haben oft Default Passwords</li>
-<li>Infiszierter PC sendet Request an Router, loggt sich ein und ändert den DNS-Server (den des Hackers)</li>
+<li>Infizierter PC sendet Request an Router, loggt sich ein und ändert den DNS-Server (zu dem des Hackers)</li>
 </ul>
 <h2 id="attack">Attack</h2>
 <ul>
 <li>Opfer authentisiert sich bei E-Banking</li>
 <li>Nutzt dabei ein Session-Cookie aus<ul>
-<li>Geht nicht mit URL-Based Session handling!</li>
+<li>Geht nicht mit URL-Based Session handling, weil dann die URL nicht voraussehbar ist (angenommen die Session ID ist zufällig)</li>
 </ul>
 </li>
 <li>Opfer geht auf Hacker-Seite</li>
@@ -1899,6 +1899,7 @@
 <li>Grundsätzlich: Aktion darf nicht mit einem voraussehbaren Request ausführbar sein</li>
 <li>In Formular zufälliges XSRF-Token als hidden field einbinden</li>
 <li>Client muss im Request dieses Token wieder mitschicken</li>
+<li>Darf keine XSS-Lücken haben! Sonst nützt CSRF-Token auch nichts mehr</li>
 </ul>
                 
                   

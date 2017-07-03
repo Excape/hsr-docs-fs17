@@ -719,6 +719,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cookies" title="Cookies" class="md-nav__link">
+    Cookies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-public-key-pinning" title="HTTP Public Key Pinning" class="md-nav__link">
+    HTTP Public Key Pinning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#302-redirect-nach-login" title="302 Redirect nach Login" class="md-nav__link">
     302 Redirect nach Login
   </a>
@@ -1862,6 +1876,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cookies" title="Cookies" class="md-nav__link">
+    Cookies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-public-key-pinning" title="HTTP Public Key Pinning" class="md-nav__link">
+    HTTP Public Key Pinning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#302-redirect-nach-login" title="302 Redirect nach Login" class="md-nav__link">
     302 Redirect nach Login
   </a>
@@ -1942,7 +1970,16 @@
 </li>
 <li>Ob Cookie Session-Cookie ist (nicht persistent), wird mit <code>ìsSession</code> gesteuert (default true)</li>
 <li><code>Path</code> und <code>Domain</code> geben an, zu welcher Domain und Pfad das Cookie vom Browser gesendet wird</li>
-<li>HPKP: HTTP Public Key Pinning<ul>
+</ul>
+<h2 id="cookies">Cookies</h2>
+<ul>
+<li>Felder: <code>Content</code>, <code>Path</code>, <code>Domain</code>, <code>Expires</code>, <code>HttpOnly</code>, <code>Secure</code></li>
+<li>Syntax: <code>Set-Cookie: &lt;attribute&gt;=&lt;value&gt;</code></li>
+<li>Für Authentication Token <code>Domain</code>, <code>Path</code> und <code>Expire</code> weglassen</li>
+<li>Ohne <code>Expire</code> läuft das Cookie nach der Browser-Session ab</li>
+</ul>
+<h2 id="http-public-key-pinning">HTTP Public Key Pinning</h2>
+<ul>
 <li>Beim ersten Response des Servers wird ein Hash des Public Keys (=Pin) des Certs im HPKP-Header mitgesendet</li>
 <li>Der Client rechnet ebenfalls einen Hash des Public-Keys</li>
 <li>Bei zukünftigen Verbindungen prüft der Client, ob der Hash noch derselbe ist wie der gespeicherte. Wenn nicht, wird die Verbindung rejected</li>
@@ -1951,8 +1988,6 @@
 <li>Zertifikate werden auf Vorrat erstellt</li>
 <li>Es werden mehrere PINS mitgeschickt, auch solche von zukünftigen Certs</li>
 <li>Oder: Eigenes Intermediate CA Pinnen und von diesem aus die richtigen Server-Certs ausstellen</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>

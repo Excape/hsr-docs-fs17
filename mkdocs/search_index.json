@@ -977,7 +977,7 @@
         }, 
         {
             "location": "/InfSi3/10_CSRF/", 
-            "text": "Cross Site Request Forgery\n\n\nUrsprung\n\n\n\n\nDie meisten Router-Admin-Interfaces laufen auf den gleichen IPs\n\n\nRouter haben oft Default Passwords\n\n\nInfiszierter PC sendet Request an Router, loggt sich ein und \u00e4ndert den DNS-Server (den des Hackers)\n\n\n\n\nAttack\n\n\n\n\nOpfer authentisiert sich bei E-Banking\n\n\nNutzt dabei ein Session-Cookie aus\n\n\nGeht nicht mit URL-Based Session handling!\n\n\n\n\n\n\nOpfer geht auf Hacker-Seite\n\n\nIm Browser wird einen Request (nicht ajax) an die Bank geschickt mit einer bestimmtem Transaktion\n\n\nz.B. \u00fcber ein Bild\n\n\nschickt dabei Session-Cookie mit\n\n\n\n\n\n\n\n\nRemediation\n\n\n\n\nE-Banking verlangen SMS-Best\u00e4tigung\n\n\nGrunds\u00e4tzlich: Aktion darf nicht mit einem voraussehbaren Request ausf\u00fchrbar sein\n\n\nIn Formular zuf\u00e4lliges XSRF-Token als hidden field einbinden\n\n\nClient muss im Request dieses Token wieder mitschicken", 
+            "text": "Cross Site Request Forgery\n\n\nUrsprung\n\n\n\n\nDie meisten Router-Admin-Interfaces laufen auf den gleichen IPs\n\n\nRouter haben oft Default Passwords\n\n\nInfizierter PC sendet Request an Router, loggt sich ein und \u00e4ndert den DNS-Server (zu dem des Hackers)\n\n\n\n\nAttack\n\n\n\n\nOpfer authentisiert sich bei E-Banking\n\n\nNutzt dabei ein Session-Cookie aus\n\n\nGeht nicht mit URL-Based Session handling, weil dann die URL nicht voraussehbar ist (angenommen die Session ID ist zuf\u00e4llig)\n\n\n\n\n\n\nOpfer geht auf Hacker-Seite\n\n\nIm Browser wird einen Request (nicht ajax) an die Bank geschickt mit einer bestimmtem Transaktion\n\n\nz.B. \u00fcber ein Bild\n\n\nschickt dabei Session-Cookie mit\n\n\n\n\n\n\n\n\nRemediation\n\n\n\n\nE-Banking verlangen SMS-Best\u00e4tigung\n\n\nGrunds\u00e4tzlich: Aktion darf nicht mit einem voraussehbaren Request ausf\u00fchrbar sein\n\n\nIn Formular zuf\u00e4lliges XSRF-Token als hidden field einbinden\n\n\nClient muss im Request dieses Token wieder mitschicken\n\n\nDarf keine XSS-L\u00fccken haben! Sonst n\u00fctzt CSRF-Token auch nichts mehr", 
             "title": "10 CSRF"
         }, 
         {
@@ -987,17 +987,17 @@
         }, 
         {
             "location": "/InfSi3/10_CSRF/#ursprung", 
-            "text": "Die meisten Router-Admin-Interfaces laufen auf den gleichen IPs  Router haben oft Default Passwords  Infiszierter PC sendet Request an Router, loggt sich ein und \u00e4ndert den DNS-Server (den des Hackers)", 
+            "text": "Die meisten Router-Admin-Interfaces laufen auf den gleichen IPs  Router haben oft Default Passwords  Infizierter PC sendet Request an Router, loggt sich ein und \u00e4ndert den DNS-Server (zu dem des Hackers)", 
             "title": "Ursprung"
         }, 
         {
             "location": "/InfSi3/10_CSRF/#attack", 
-            "text": "Opfer authentisiert sich bei E-Banking  Nutzt dabei ein Session-Cookie aus  Geht nicht mit URL-Based Session handling!    Opfer geht auf Hacker-Seite  Im Browser wird einen Request (nicht ajax) an die Bank geschickt mit einer bestimmtem Transaktion  z.B. \u00fcber ein Bild  schickt dabei Session-Cookie mit", 
+            "text": "Opfer authentisiert sich bei E-Banking  Nutzt dabei ein Session-Cookie aus  Geht nicht mit URL-Based Session handling, weil dann die URL nicht voraussehbar ist (angenommen die Session ID ist zuf\u00e4llig)    Opfer geht auf Hacker-Seite  Im Browser wird einen Request (nicht ajax) an die Bank geschickt mit einer bestimmtem Transaktion  z.B. \u00fcber ein Bild  schickt dabei Session-Cookie mit", 
             "title": "Attack"
         }, 
         {
             "location": "/InfSi3/10_CSRF/#remediation", 
-            "text": "E-Banking verlangen SMS-Best\u00e4tigung  Grunds\u00e4tzlich: Aktion darf nicht mit einem voraussehbaren Request ausf\u00fchrbar sein  In Formular zuf\u00e4lliges XSRF-Token als hidden field einbinden  Client muss im Request dieses Token wieder mitschicken", 
+            "text": "E-Banking verlangen SMS-Best\u00e4tigung  Grunds\u00e4tzlich: Aktion darf nicht mit einem voraussehbaren Request ausf\u00fchrbar sein  In Formular zuf\u00e4lliges XSRF-Token als hidden field einbinden  Client muss im Request dieses Token wieder mitschicken  Darf keine XSS-L\u00fccken haben! Sonst n\u00fctzt CSRF-Token auch nichts mehr", 
             "title": "Remediation"
         }, 
         {
@@ -1092,7 +1092,7 @@
         }, 
         {
             "location": "/InfSi3/13_Server_Security/", 
-            "text": "Server Security\n\n\nSUID Flag\n\n\n\n\nNormalerweise hat ein Prozess, der von einem Binary erstellt wird, die Rechte des Aufrufers\n\n\nWenn auf dem Binary das Suid-Flag gesetzt wurde, werden Prozesse immer mit Recht des File-Owners erstellt, egal wer sie aufruft\n\n\nSetzen mit owner Rechten: \nchmod +s /usr/bin/passwd\n\n\nsiehe z.B. \nls -la /usr/bin/passwd\n\n\nMit der Shell k\u00f6nnen keine Scripts mit suid-Flag mit owner-Rechten ausgef\u00fchrt werden! Es braucht ein Binary (z.B. C-File compilen)\n\n\n\n\nTLS\n\n\n\n\nSSLHonorCipherOrder on\n setzen, damit der Server die akzeptierten Ciphers erzwingt", 
+            "text": "Server Security\n\n\nSUID Flag\n\n\n\n\nNormalerweise hat ein Prozess, der von einem Binary erstellt wird, die Rechte des Aufrufers\n\n\nWenn auf dem Binary das Suid-Flag gesetzt wurde, werden Prozesse immer mit Recht des File-Owners erstellt, egal wer sie aufruft\n\n\nSetzen mit owner Rechten: \nchmod +s /usr/bin/passwd\n\n\nsiehe z.B. \nls -la /usr/bin/passwd\n\n\nMit der Shell k\u00f6nnen keine Scripts mit suid-Flag mit owner-Rechten ausgef\u00fchrt werden! Es braucht ein Binary (z.B. C-File compilen)\n\n\n\n\nTLS\n\n\n\n\nSSLHonorCipherOrder on\n setzen, damit der Server die akzeptierten Ciphers erzwingt\n\n\n\n\nApache Hardening\n\n\n\n\nCore-Prozess muss unter root laufen, worker-Prozesse unter apache-User (\nwwwrun\n)\n\n\nWorkers haben keine Rechte auf Config und Log-Files und SSL, nur Read-Rechte auf \nhtdocs\n (owner alle auf root)\n\n\nSaubere Trennung der Usergruppen vom Rest der System-User\n\n\nKein World-Readable / Writeable!\n\n\nHTTPS: Geeignete Ciphers enforcen", 
             "title": "13 Server Security"
         }, 
         {
@@ -1109,6 +1109,11 @@
             "location": "/InfSi3/13_Server_Security/#tls", 
             "text": "SSLHonorCipherOrder on  setzen, damit der Server die akzeptierten Ciphers erzwingt", 
             "title": "TLS"
+        }, 
+        {
+            "location": "/InfSi3/13_Server_Security/#apache-hardening", 
+            "text": "Core-Prozess muss unter root laufen, worker-Prozesse unter apache-User ( wwwrun )  Workers haben keine Rechte auf Config und Log-Files und SSL, nur Read-Rechte auf  htdocs  (owner alle auf root)  Saubere Trennung der Usergruppen vom Rest der System-User  Kein World-Readable / Writeable!  HTTPS: Geeignete Ciphers enforcen", 
+            "title": "Apache Hardening"
         }, 
         {
             "location": "/InfSi3/14_Fraud_Detection/", 
@@ -1272,7 +1277,7 @@
         }, 
         {
             "location": "/InfSi3/4_Application_Security_Basics/", 
-            "text": "Application Security Basics\n\n\nWeb Basics\n\n\n\n\nInterception Proxy\n\n\nProxy zum Abfangen und Analysieren von Traffic\n\n\nz.B. ZAP und Burp (auf LiveCD)\n\n\n\n\n\n\nHTTP ist zustandslos\n\n\n\n\n\n\n\n\nZust\u00e4nde werden mit Cookies ausgetauscht\n\n\nServer erzeugt ID (=Referenz auf serverseitigen Speicher), die er dem Client im Response-Header \u00fcbertr\u00e4gt\n\n\n\n\n\n\nStatt mit einem Cookie kann eine ID auch im Body als hidden field \u00fcbertragen werden\n\n\nClient schickt Session-ID an Server zur\u00fcck\n\n\nGeht im Request als Query-parameter\n\n\nOder im Header (z.B. Cookie)\n\n\nOder im Body (POST)\n\n\n\n\n\n\nAustausch \u00fcber Cookies im Header ist die sicherste Variante!\n\n\nRequest-Queries werden im Access Log und History Cache (lokal) gespeichert -\n Anf\u00e4llig auf Session Hijacking!\n\n\nBody: Wird lokal im Filecache gespeichert, ebenfalls anf\u00e4llig\n\n\n\n\n\n\nOb Cookie Session-Cookie ist (nicht persistent), wird mit \n\u00ecsSession\n gesteuert (default true)\n\n\nPath\n und \nDomain\n geben an, zu welcher Domain und Pfad das Cookie vom Browser gesendet wird\n\n\nHPKP: HTTP Public Key Pinning\n\n\nBeim ersten Response des Servers wird ein Hash des Public Keys (=Pin) des Certs im HPKP-Header mitgesendet\n\n\nDer Client rechnet ebenfalls einen Hash des Public-Keys\n\n\nBei zuk\u00fcnftigen Verbindungen pr\u00fcft der Client, ob der Hash noch derselbe ist wie der gespeicherte. Wenn nicht, wird die Verbindung rejected\n\n\nProblem, wenn Certs ausgetauscht werden\n\n\nL\u00f6sung: Mehr als einen PIN angeben\n\n\nZertifikate werden auf Vorrat erstellt\n\n\nEs werden mehrere PINS mitgeschickt, auch solche von zuk\u00fcnftigen Certs\n\n\nOder: Eigenes Intermediate CA Pinnen und von diesem aus die richtigen Server-Certs ausstellen\n\n\n\n\n\n\n\n\n\n\n\n\n302 Redirect nach Login\n\n\n\n\nWenn der Server vertrauliche Daten per POST erh\u00e4lt (Login), sollte er mit 302 Redirect antworten\n\n\nBei 200 Returncode w\u00fcrde der Browser die gesendeten Daten cachen (und k\u00f6nnen erneut gesendet werden bei back-button)\n\n\nBei 302 Redirect cached der Browser die Daten nicht\n\n\n\n\nSession Fixation Attack\n\n\n\n\nAngreifer erstellt Session auf Webapp (noch ohne Login)\n\n\nAngreifer schickt seine Session zum Opfer und bringt es dazu, diese Session zu verwenden\n\n\nOpfer loggt sich ein, Session ist nun authentifiziert\n\n\n\n\nAngreifer kann diese Session verwenden\n\n\n\n\n\n\nDas \"unterjubeln\" von Sessions geht nur schwer \u00fcber Cookies, betroffen sind prim\u00e4r Server, die Session-Handling \u00fcber URL-Requests machen\n\n\n\n\n\n\nRemedies\n\n\n\n\nBeim Login soll der Server eine neue Session erstellen (mit Kopie des Inhalts der alten Session) und die alte invalidieren\n\n\n\n\nSame Origin Policy\n\n\n\n\nSame Origin wird definiert auf Protokoll, Host und Port\n\n\nVerboten also auch von HTTP zu HTTPS und umgekehrt!\n\n\nSOP kann umgehen werden, indem JS auf Third-party-seite liegt und mit \nscript src=\"..\"\n eingebunden wird\n\n\nSauber geht es \u00fcber CORS (sp\u00e4ter)", 
+            "text": "Application Security Basics\n\n\nWeb Basics\n\n\n\n\nInterception Proxy\n\n\nProxy zum Abfangen und Analysieren von Traffic\n\n\nz.B. ZAP und Burp (auf LiveCD)\n\n\n\n\n\n\nHTTP ist zustandslos\n\n\n\n\n\n\n\n\nZust\u00e4nde werden mit Cookies ausgetauscht\n\n\nServer erzeugt ID (=Referenz auf serverseitigen Speicher), die er dem Client im Response-Header \u00fcbertr\u00e4gt\n\n\n\n\n\n\nStatt mit einem Cookie kann eine ID auch im Body als hidden field \u00fcbertragen werden\n\n\nClient schickt Session-ID an Server zur\u00fcck\n\n\nGeht im Request als Query-parameter\n\n\nOder im Header (z.B. Cookie)\n\n\nOder im Body (POST)\n\n\n\n\n\n\nAustausch \u00fcber Cookies im Header ist die sicherste Variante!\n\n\nRequest-Queries werden im Access Log und History Cache (lokal) gespeichert -\n Anf\u00e4llig auf Session Hijacking!\n\n\nBody: Wird lokal im Filecache gespeichert, ebenfalls anf\u00e4llig\n\n\n\n\n\n\nOb Cookie Session-Cookie ist (nicht persistent), wird mit \n\u00ecsSession\n gesteuert (default true)\n\n\nPath\n und \nDomain\n geben an, zu welcher Domain und Pfad das Cookie vom Browser gesendet wird\n\n\n\n\nCookies\n\n\n\n\nFelder: \nContent\n, \nPath\n, \nDomain\n, \nExpires\n, \nHttpOnly\n, \nSecure\n\n\nSyntax: \nSet-Cookie: \nattribute\n=\nvalue\n\n\nF\u00fcr Authentication Token \nDomain\n, \nPath\n und \nExpire\n weglassen\n\n\nOhne \nExpire\n l\u00e4uft das Cookie nach der Browser-Session ab\n\n\n\n\nHTTP Public Key Pinning\n\n\n\n\nBeim ersten Response des Servers wird ein Hash des Public Keys (=Pin) des Certs im HPKP-Header mitgesendet\n\n\nDer Client rechnet ebenfalls einen Hash des Public-Keys\n\n\nBei zuk\u00fcnftigen Verbindungen pr\u00fcft der Client, ob der Hash noch derselbe ist wie der gespeicherte. Wenn nicht, wird die Verbindung rejected\n\n\nProblem, wenn Certs ausgetauscht werden\n\n\nL\u00f6sung: Mehr als einen PIN angeben\n\n\nZertifikate werden auf Vorrat erstellt\n\n\nEs werden mehrere PINS mitgeschickt, auch solche von zuk\u00fcnftigen Certs\n\n\nOder: Eigenes Intermediate CA Pinnen und von diesem aus die richtigen Server-Certs ausstellen\n\n\n\n\n\n\n\n\n302 Redirect nach Login\n\n\n\n\nWenn der Server vertrauliche Daten per POST erh\u00e4lt (Login), sollte er mit 302 Redirect antworten\n\n\nBei 200 Returncode w\u00fcrde der Browser die gesendeten Daten cachen (und k\u00f6nnen erneut gesendet werden bei back-button)\n\n\nBei 302 Redirect cached der Browser die Daten nicht\n\n\n\n\nSession Fixation Attack\n\n\n\n\nAngreifer erstellt Session auf Webapp (noch ohne Login)\n\n\nAngreifer schickt seine Session zum Opfer und bringt es dazu, diese Session zu verwenden\n\n\nOpfer loggt sich ein, Session ist nun authentifiziert\n\n\n\n\nAngreifer kann diese Session verwenden\n\n\n\n\n\n\nDas \"unterjubeln\" von Sessions geht nur schwer \u00fcber Cookies, betroffen sind prim\u00e4r Server, die Session-Handling \u00fcber URL-Requests machen\n\n\n\n\n\n\nRemedies\n\n\n\n\nBeim Login soll der Server eine neue Session erstellen (mit Kopie des Inhalts der alten Session) und die alte invalidieren\n\n\n\n\nSame Origin Policy\n\n\n\n\nSame Origin wird definiert auf Protokoll, Host und Port\n\n\nVerboten also auch von HTTP zu HTTPS und umgekehrt!\n\n\nSOP kann umgehen werden, indem JS auf Third-party-seite liegt und mit \nscript src=\"..\"\n eingebunden wird\n\n\nSauber geht es \u00fcber CORS (sp\u00e4ter)", 
             "title": "4 Application Security Basics"
         }, 
         {
@@ -1282,8 +1287,18 @@
         }, 
         {
             "location": "/InfSi3/4_Application_Security_Basics/#web-basics", 
-            "text": "Interception Proxy  Proxy zum Abfangen und Analysieren von Traffic  z.B. ZAP und Burp (auf LiveCD)    HTTP ist zustandslos     Zust\u00e4nde werden mit Cookies ausgetauscht  Server erzeugt ID (=Referenz auf serverseitigen Speicher), die er dem Client im Response-Header \u00fcbertr\u00e4gt    Statt mit einem Cookie kann eine ID auch im Body als hidden field \u00fcbertragen werden  Client schickt Session-ID an Server zur\u00fcck  Geht im Request als Query-parameter  Oder im Header (z.B. Cookie)  Oder im Body (POST)    Austausch \u00fcber Cookies im Header ist die sicherste Variante!  Request-Queries werden im Access Log und History Cache (lokal) gespeichert -  Anf\u00e4llig auf Session Hijacking!  Body: Wird lokal im Filecache gespeichert, ebenfalls anf\u00e4llig    Ob Cookie Session-Cookie ist (nicht persistent), wird mit  \u00ecsSession  gesteuert (default true)  Path  und  Domain  geben an, zu welcher Domain und Pfad das Cookie vom Browser gesendet wird  HPKP: HTTP Public Key Pinning  Beim ersten Response des Servers wird ein Hash des Public Keys (=Pin) des Certs im HPKP-Header mitgesendet  Der Client rechnet ebenfalls einen Hash des Public-Keys  Bei zuk\u00fcnftigen Verbindungen pr\u00fcft der Client, ob der Hash noch derselbe ist wie der gespeicherte. Wenn nicht, wird die Verbindung rejected  Problem, wenn Certs ausgetauscht werden  L\u00f6sung: Mehr als einen PIN angeben  Zertifikate werden auf Vorrat erstellt  Es werden mehrere PINS mitgeschickt, auch solche von zuk\u00fcnftigen Certs  Oder: Eigenes Intermediate CA Pinnen und von diesem aus die richtigen Server-Certs ausstellen", 
+            "text": "Interception Proxy  Proxy zum Abfangen und Analysieren von Traffic  z.B. ZAP und Burp (auf LiveCD)    HTTP ist zustandslos     Zust\u00e4nde werden mit Cookies ausgetauscht  Server erzeugt ID (=Referenz auf serverseitigen Speicher), die er dem Client im Response-Header \u00fcbertr\u00e4gt    Statt mit einem Cookie kann eine ID auch im Body als hidden field \u00fcbertragen werden  Client schickt Session-ID an Server zur\u00fcck  Geht im Request als Query-parameter  Oder im Header (z.B. Cookie)  Oder im Body (POST)    Austausch \u00fcber Cookies im Header ist die sicherste Variante!  Request-Queries werden im Access Log und History Cache (lokal) gespeichert -  Anf\u00e4llig auf Session Hijacking!  Body: Wird lokal im Filecache gespeichert, ebenfalls anf\u00e4llig    Ob Cookie Session-Cookie ist (nicht persistent), wird mit  \u00ecsSession  gesteuert (default true)  Path  und  Domain  geben an, zu welcher Domain und Pfad das Cookie vom Browser gesendet wird", 
             "title": "Web Basics"
+        }, 
+        {
+            "location": "/InfSi3/4_Application_Security_Basics/#cookies", 
+            "text": "Felder:  Content ,  Path ,  Domain ,  Expires ,  HttpOnly ,  Secure  Syntax:  Set-Cookie:  attribute = value  F\u00fcr Authentication Token  Domain ,  Path  und  Expire  weglassen  Ohne  Expire  l\u00e4uft das Cookie nach der Browser-Session ab", 
+            "title": "Cookies"
+        }, 
+        {
+            "location": "/InfSi3/4_Application_Security_Basics/#http-public-key-pinning", 
+            "text": "Beim ersten Response des Servers wird ein Hash des Public Keys (=Pin) des Certs im HPKP-Header mitgesendet  Der Client rechnet ebenfalls einen Hash des Public-Keys  Bei zuk\u00fcnftigen Verbindungen pr\u00fcft der Client, ob der Hash noch derselbe ist wie der gespeicherte. Wenn nicht, wird die Verbindung rejected  Problem, wenn Certs ausgetauscht werden  L\u00f6sung: Mehr als einen PIN angeben  Zertifikate werden auf Vorrat erstellt  Es werden mehrere PINS mitgeschickt, auch solche von zuk\u00fcnftigen Certs  Oder: Eigenes Intermediate CA Pinnen und von diesem aus die richtigen Server-Certs ausstellen", 
+            "title": "HTTP Public Key Pinning"
         }, 
         {
             "location": "/InfSi3/4_Application_Security_Basics/#302-redirect-nach-login", 
@@ -1327,7 +1342,7 @@
         }, 
         {
             "location": "/InfSi3/6_XSS/", 
-            "text": "Cross-Site Scripting (XSS)\n\n\nStored XSS\n\n\n\n\nAngreifer kann auf Website Code platzieren, dass vom Victim bei Besuch ausgef\u00fchrt wird\n\n\nMit dem JS wird das Victim dazu gebracht, dem Angreifer die Session zu schicken\n\n\nSOP verhindert das Senden per JS aber\n\n\nEs wird aber z.B. ein Bild eingebunden mit dem Cookie im Parameter\n\n\nDas Cookie landet im Access-Log des Angreifers\n\n\n\n\n\n\nAngreifer braucht Session selber (Session-Hijacking)\n\n\n\n\nReflected XSS\n\n\n\n\nAngreifer schickt GET-Request mit JS in Query-Parameter\n\n\nServer sendet 404 mit Fehlermeldung, dass es die Seite nicht gibt, und reflektiert das JS zur\u00fcck\n\n\n\n\nWenn diese Anfrage vom Opfer ausgef\u00fchrt wird, kann so beliebigs JS zur Ausf\u00fchrung gebracht werden\n\n\n\n\n\n\nModerne Browser merken das JS in der URL und verhindern das Ausf\u00fchren beim Reply (XSS-Filter)\n\n\n\n\nServer kann XSS-Filter auch enforcen (bei neuen Browsern) mit Header \nX-XSS-Protection\n\n\n\n\nDOM-Based XSS\n\n\n\n\nXSS im lokalen DOM ohne Server-Request\n\n\nJS-code wird im Anchor nach dem \n#\n angeh\u00e4ngt, so wird sie nie dem Server \u00fcbermittelt\n\n\n\n\nXSS Shell\n\n\n\n\nAngreifer injected \nscript src=\"attacker-site/script.js\"/\n auf Webapp\n\n\nOpfer f\u00fchrt Attacker-JS aus und pollt regelm\u00e4ssig den Attacker-Server\n\n\nSo kann die Shell Befehle schicken, die vom Opfer abgeholt werden\n\n\n\n\nMitigation\n\n\n\n\nHTML-Characters escapen\n\n\n in \nlt;\n usw. umwandeln\n\n\nIn Praxis schwierig, das nicht g\u00fcltige Zeichen wie \n'\n escaped werden", 
+            "text": "Cross-Site Scripting (XSS)\n\n\nStored XSS\n\n\n\n\nAngreifer kann auf Website Code platzieren, dass vom Victim bei Besuch ausgef\u00fchrt wird\n\n\nMit dem JS wird das Victim dazu gebracht, dem Angreifer die Session zu schicken\n\n\nSOP verhindert das Senden per JS aber\n\n\nEs wird aber z.B. ein Bild eingebunden mit dem Cookie im Parameter\n\n\nDas Cookie landet im Access-Log des Angreifers\n\n\n\n\n\n\nAngreifer braucht Session selber (Session-Hijacking)\n\n\n\n\nReflected XSS\n\n\n\n\nAngreifer schickt GET-Request mit JS in Query-Parameter\n\n\nServer sendet 404 mit Fehlermeldung, dass es die Seite nicht gibt, und reflektiert das JS zur\u00fcck\n\n\n\n\nWenn diese Anfrage vom Opfer ausgef\u00fchrt wird, kann so beliebigs JS zur Ausf\u00fchrung gebracht werden\n\n\n\n\n\n\nModerne Browser merken das JS in der URL und verhindern das Ausf\u00fchren beim Reply (XSS-Filter)\n\n\n\n\nServer kann XSS-Filter auch enforcen (bei neuen Browsern) mit Header \nX-XSS-Protection\n\n\n\n\nDOM-Based XSS\n\n\n\n\nXSS im lokalen DOM ohne Server-Request\n\n\nJS-code wird im Anchor nach dem \n#\n angeh\u00e4ngt, so wird sie nie dem Server \u00fcbermittelt\n\n\n\n\nXSS Shell\n\n\n\n\nAngreifer injected \nscript src=\"attacker-site/script.js\"/\n auf Webapp\n\n\nOpfer f\u00fchrt Attacker-JS aus und pollt regelm\u00e4ssig den Attacker-Server\n\n\nSo kann die Shell Befehle schicken, die vom Opfer abgeholt werden\n\n\n\n\nMitigation\n\n\n\n\nHTML-Characters escapen\n\n\n in \nlt;\n usw. umwandeln\n\n\nIn Praxis schwierig, das nicht g\u00fcltige Zeichen wie \n'\n escaped werden\n\n\n\n\n\n\nFilter in WAF\n\n\nContent Security Policy\n, damit nicht ein fremdes Script mit \nscript src=\"...\" /\n eingef\u00fcgt werden kann", 
             "title": "6 XSS"
         }, 
         {
@@ -1357,7 +1372,7 @@
         }, 
         {
             "location": "/InfSi3/6_XSS/#mitigation", 
-            "text": "HTML-Characters escapen   in  lt;  usw. umwandeln  In Praxis schwierig, das nicht g\u00fcltige Zeichen wie  '  escaped werden", 
+            "text": "HTML-Characters escapen   in  lt;  usw. umwandeln  In Praxis schwierig, das nicht g\u00fcltige Zeichen wie  '  escaped werden    Filter in WAF  Content Security Policy , damit nicht ein fremdes Script mit  script src=\"...\" /  eingef\u00fcgt werden kann", 
             "title": "Mitigation"
         }, 
         {
@@ -1392,7 +1407,7 @@
         }, 
         {
             "location": "/InfSi3/9_JSON_Hijacking/", 
-            "text": "JSON Hijacking\n\n\n\n\nBekannt geworden durch Google\n\n\nProfildaten wurden \u00fcber AJAX nachgeladen (per JSON und ins DOM eingef\u00fcgt)\n\n\n\n\n\n\n\n\nSzenario\n\n\n\n\nOpfer ist authentisiert mit Google\n\n\nOpfer greift auf Website des Hackers zu\n\n\nDarauf ist ein Script von Google eingebunden\n\n\nscript src=\"google.com/profile\" /\n z.B.\n\n\n\n\n\n\nDadurch schickt Opfer-Browser XHR-Request an Google (mit Access Token)\n\n\nGoogle gibt Daten als JSON zur\u00fcck\n\n\nIm JSON ist ein Array-Konstruktor hinterlegt\n\n\nHacker hat diese Funktion \u00fcberschrieben, um das JSON zu ihm zu schicken\n\n\n\n\nVoraussetzungen\n\n\n\n\nOpfer muss authentisiert sein\n\n\nJSONP oder allgemein Array-Konstruktor im JSON\n\n\nKeine vertraulichen Inhalte \u00fcber JSONP \u00fcbertragen!\n\n\n\n\n\n\n\n\nRemediation\n\n\n\n\nCORS einsetzen, um Zugriff einzuschr\u00e4nken\n\n\nGoogle hat zu Beginn des JSON eine Endlosschleife eingebaut, quick / dirty!", 
+            "text": "JSON Hijacking\n\n\n\n\nBekannt geworden durch Google\n\n\nProfildaten wurden \u00fcber AJAX nachgeladen (per JSON und ins DOM eingef\u00fcgt)\n\n\n\n\n\n\n\n\nSzenario\n\n\n\n\nOpfer ist authentisiert mit Google\n\n\nOpfer greift auf Website des Hackers zu\n\n\nDarauf ist ein Script von Google eingebunden\n\n\nscript src=\"google.com/profile\" /\n z.B.\n\n\n\n\n\n\nDadurch schickt Opfer-Browser XHR-Request an Google (mit Access Token)\n\n\nGoogle gibt Daten als JSON zur\u00fcck\n\n\nIm JSON ist ein Array-Konstruktor hinterlegt\n\n\nHacker hat diese Funktion \u00fcberschrieben, um das JSON zu ihm zu schicken\n\n\n\n\nJSONP\n\n\n\n\n\"JSON with Padding\"\n\n\nDer Webserver gibt statt reines JSON ein Javascript Function Call mit dem JSON als Argument mit\n\n\nFunction Call ist das \"Padding\"\n\n\nWenn nun ein Request so mit \nscript src=\"..\" /\n eingebunden wird, f\u00fchrt der Browser das Javascript mit dem JSON drin aus\n\n\nDadurch wird SOP umgangen, ist aber von CORS abgel\u00f6st woren\n\n\n\n\nVoraussetzungen\n\n\n\n\nOpfer muss authentisiert sein\n\n\nJSONP oder allgemein Array-Konstruktor im JSON\n\n\nKeine vertraulichen Inhalte \u00fcber JSONP \u00fcbertragen!\n\n\n\n\n\n\n\n\nRemediation\n\n\n\n\nCORS einsetzen, um Zugriff einzuschr\u00e4nken\n\n\nGoogle hat zu Beginn des JSON eine Endlosschleife eingebaut, quick / dirty!", 
             "title": "9 JSON Hijacking"
         }, 
         {
@@ -1404,6 +1419,11 @@
             "location": "/InfSi3/9_JSON_Hijacking/#szenario", 
             "text": "Opfer ist authentisiert mit Google  Opfer greift auf Website des Hackers zu  Darauf ist ein Script von Google eingebunden  script src=\"google.com/profile\" /  z.B.    Dadurch schickt Opfer-Browser XHR-Request an Google (mit Access Token)  Google gibt Daten als JSON zur\u00fcck  Im JSON ist ein Array-Konstruktor hinterlegt  Hacker hat diese Funktion \u00fcberschrieben, um das JSON zu ihm zu schicken", 
             "title": "Szenario"
+        }, 
+        {
+            "location": "/InfSi3/9_JSON_Hijacking/#jsonp", 
+            "text": "\"JSON with Padding\"  Der Webserver gibt statt reines JSON ein Javascript Function Call mit dem JSON als Argument mit  Function Call ist das \"Padding\"  Wenn nun ein Request so mit  script src=\"..\" /  eingebunden wird, f\u00fchrt der Browser das Javascript mit dem JSON drin aus  Dadurch wird SOP umgangen, ist aber von CORS abgel\u00f6st woren", 
+            "title": "JSONP"
         }, 
         {
             "location": "/InfSi3/9_JSON_Hijacking/#voraussetzungen", 
@@ -3617,8 +3637,13 @@
         }, 
         {
             "location": "/Vwl/1_Exam/", 
-            "text": "Some exam notes...", 
+            "text": "Exam\n\n\n\n\nOpen Book\n\n\nOhne elektronische Hilfsmittel", 
             "title": "1 Exam"
+        }, 
+        {
+            "location": "/Vwl/1_Exam/#exam", 
+            "text": "Open Book  Ohne elektronische Hilfsmittel", 
+            "title": "Exam"
         }, 
         {
             "location": "/Vwl/2_Wohlstand/", 
