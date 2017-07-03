@@ -10,3 +10,6 @@
 9. [Memory Models](9_Memory_Models.md)
 10. [Actor Model](10_Actor_Model.md)
 11. [GPU Parallelisierung](11_GPU_Parallelisierung.md)
+12. [Cluster Parallelisierung](12_Cluster_Parallelisierung.md)
+13. [Reactive Programming](13_Reactive_Programming.md)
+14. [Software Transactional Memory](14_Software_Transactional_Memory.md)

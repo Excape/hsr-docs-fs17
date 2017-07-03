@@ -6,3 +6,8 @@ These are my notes for the spring semester 2017. They are all written in markdow
 Deployed with travis to http://doc.robinsuter.ch
 
 Notes are my own, code samples are sometimes from lectures. No guarantee of correctness.
+
+## Requirements
+- [mkdocs](http://www.mkdocs.org/)
+- [mkdocs-material](https://squidfunk.github.io/mkdocs-material/)
+- python-markdown-math

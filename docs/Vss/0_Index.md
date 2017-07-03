@@ -9,3 +9,6 @@
 8. [VSS Management](8_Vss_Management.md)
 9. [CFIA](9_CFIA.md)
 10. [Naming](10_Naming.md)
+11. [Distributed Hash Tables](11_Distributed_Hash_Tables.md)
+12. [Synchronization](12_Synchronization.md)
+13. [Bitcoin](13_Bitcoin.md)
