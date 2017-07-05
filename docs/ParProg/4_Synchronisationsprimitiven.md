@@ -2,7 +2,7 @@
 !!! note
     Quiz letzte Vorlesung: `notify()` reicht, da nur auf eine Bedingung gewartet wird, und nur ein einziger Thread darf weiter machen (One-In/One-Out)
 
-## Symaphor
+## Semaphore
 - Von Dijkstra, kommt von Eisenbahn-Signalen
 - Ist ein Zähler mit der Anzahl noch freier Ressourcen
 - `acquire()`: Beziehe freie Ressource oder warte, Zähler dekrementieren

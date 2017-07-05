@@ -128,6 +128,6 @@ int result = task.Result;
 - Multi-Continuation
     - `Task.WhenAll(task1, task2).ContinueWith(task3)`
 
-#### Asynchronität in C#
+#### Asynchronität in C&#35;
 - Sprachkonstrukt in C# für asynchrone Ausführung
 - Thema nächste Woche
