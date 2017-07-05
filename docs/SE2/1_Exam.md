@@ -1,1 +1,2 @@
-Some exam notes...
+# Exam
+- Hilfsmittel: 1 Blatt A4 (beidseitig)
