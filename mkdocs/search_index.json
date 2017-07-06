@@ -2387,8 +2387,28 @@
         }, 
         {
             "location": "/PhAI/1_Exam/", 
-            "text": "Some exam notes...", 
+            "text": "Exam\n\n\nHilfsmittel\n\n\n\n\nTaschenrechner\n\n\nFormelsammlung mit eigenen Erg\u00e4nzungen\n\n\nLehrbuch\n\n\nbis 14 A4 Seiten Notizen\n\n\n\n\nTODO\n\n\n- Umrechnungstabellen einheiten (ps, psi, etc.)", 
             "title": "1 Exam"
+        }, 
+        {
+            "location": "/PhAI/1_Exam/#exam", 
+            "text": "", 
+            "title": "Exam"
+        }, 
+        {
+            "location": "/PhAI/1_Exam/#hilfsmittel", 
+            "text": "Taschenrechner  Formelsammlung mit eigenen Erg\u00e4nzungen  Lehrbuch  bis 14 A4 Seiten Notizen", 
+            "title": "Hilfsmittel"
+        }, 
+        {
+            "location": "/PhAI/1_Exam/#todo", 
+            "text": "", 
+            "title": "TODO"
+        }, 
+        {
+            "location": "/PhAI/1_Exam/#-umrechnungstabellen-einheiten-ps-psi-etc", 
+            "text": "", 
+            "title": "- Umrechnungstabellen einheiten (ps, psi, etc.)"
         }, 
         {
             "location": "/SE2/0_Index/", 
@@ -3167,18 +3187,68 @@
         }, 
         {
             "location": "/Vss/1_Exam/", 
-            "text": "Exam\n\n\nHilfsmittel\n\n\n\n\n2 A4-Seiten Zusammenfassung", 
+            "text": "Exam\n\n\nGrobe Aufteilung der beiden Pr\u00fcfungsteile: 75 Punkte SLM, 45 -Punkte MFA = 120 Punkte total\n- Teil 1 (MeF):\n    - Die Fragen werden auf English gestellt. Antworten auf Englisch \n Deutsch m\u00f6glich.\n- Teil 2 (SLM): \n    - Fragen werden auf Deutsch gestellt.\n- Erlaubte Unterlagen: \n    - 1 A4 Zusammenfassung (Beidseitig) f\u00fcr die Gesamtpr\u00fcfung. Andere Kombinationen (z.B. 2 A4 Bl\u00e4tter einseitig, 2 A5 Bl\u00e4tter beidseitig, usw.) nicht erlaubt. Die Zusammenfassung darf keine L\u00f6sungen zu \u00dcbungsaufgaben und Pr\u00fcfungsaufgaben beinhalten. Sonst \"Closed Book\".\n\n\nVSS Architectural Styles\n\n\n\n\nFowlers Fallacies\n\n\n\n\nThe network is reliable.\n\n\nLatency is zero.\n\n\nBandwidth is infinite.\n\n\nThe network is secure.\n\n\nTopology doesn't change.\n\n\nThere is one administrator.\n\n\nTransport cost is zero.\n\n\nThe network is homogeneous.\n\n\n\n\nSockets\n\n\n\n\nMessaging Patterns\n\n\n\n\nBasic Pattern\n: Analog zu einem Brief, der von einem Message Endpoint zum anderen gesendet wird\n\n\nBlocking Receiver Message Pattern\n: Synchrone \u00dcbertragung, Server und Client warten auf die Antwort\n\n\nPolling Receiver Message Pattern\n: Der Receiver macht Anfragen zum Empfangen der Nachricht (Polling)\n\n\nService Activator Message Pattern\n: Auf einen Request ruft der \"Replier\" mit dem \"Service Activator\" die richtige Service-Funktion auf (RPC-style)\n\n\n\n\nMessage Reliability Levels\n\n\n\n\nBest effort nonpersistent\n\n\nMessages are discarded when a messaging engine stops or fails. Messages might also be discarded if a connection used to send them becomes unavailable or as a result of constrained system resources. \n\n\n\n\n\n\nExpress nonpersistent\n\n\nMessages are discarded when a messaging engine stops or fails. Messages might also be discarded if a connection used to send them becomes unavailable. \n\n\n\n\n\n\nReliable nonpersistent\n\n\nMessages are discarded when a messaging engine stops or fails. \n\n\n\n\n\n\nReliable persistent\n\n\nMessages might be discarded when a messaging engine fails. \n\n\n\n\n\n\nAssured persistent\n\n\nMessages are not discarded. \n\n\n\n\nEnterprise Integration Patterns\n\n\nPoint-to-Point Messaging Pattern\n\n\n\n\nSimpelste Form, ein Sender schickt einem Receiver \u00fcber einen beliebigen Channel eine Message\n\n\nMeist wird eine \nMessage Expiration\n gesetzt. Ist diese abgelaufen, wenn der Receiver die Message erh\u00e4lt, wird sie verworfen oder an einen \"Dead Letter Channel\" geschickt\n\n\nCommand Message Pattern\n: Message, die dem Receiver mitteilt, etwas auszuf\u00fchren\n\n\nDocument Message Pattern\n: Reine Daten-\u00dcbertragung\n\n\n\n\nPublic-Subscribe Pattern\n\n\n\n\nDer Publisher (Sender) schickt die Messages an einen \nPublish-Subscribe-Channel\n\n\nDer Channel schickt eine Kopie der Message an einen Output Channel\n\n\nJeder Output-Channel hat genau 1 Subscriber\n\n\n\n\nJeder Subscriber erh\u00e4lt die Nachricht 1 Mal\n\n\n\n\n\n\nTopic-based\n: Subscriber melden sich an verschiedenen \"topics\" an (logische Channels) und erhalten nur die Nachrichten, die zu diesen Topics geschickt werden\n\n\n\n\n\n\nContent-based\n: Der Subscriber definiert Eigenschaften der Messages, die er bekommen m\u00f6chte. Er erh\u00e4lt dann nur die Nachrichten, die dem entspechen\n\n\n\n\n\n\nMeistens gibt es zwischen Publisher und Subscriber einen Message Broker, der die Messages entgegennimmt und Subscribers verwaltet\n\n\n\n\n\n\nReceiving Message Endpoint Pattern\n\n\n\n\nCompeting Customers\n: Mehrere Receiver verarbeiten messages gleichzeitig\n\n\nSelective Customer\n: Der Receiver entscheided beim Ankommen der Message anhand von Kriterien, ob die Message verarbeitet werden soll\n\n\n\n\nRPC\n\n\n\n\nBegriffe\n\n\n\n\nMean Time to Recover (MTTR)\n: Durschnittliche Zeit zwischen dem Ausfall und der Wiederaufnahme\n\n\nMean Time to Failure (MTTF)\n: Durchschnittliche Zeit zwischen zwei Ausf\u00e4llen\n\n\nMean Time between Failure (MTBF)\n: Durchschnittliche Zeit zwischen zweil Ausf\u00e4llen, \nrecovery time eingerechnet\n. (MTTF + MTTR)\n\n\nRecovery Time Objective (RTO)\n: Zeit, in der das System wiederhergestellt werden \nmuss\n (NFR-Requirement)\n\n\nRecovery Point Objective (RPO)\n: Maximal tolerierbare Zeitspanne, in der Daten nach einem Ausfall verloren sein k\u00f6nnten (NFR-Requirement)\n\n\nWarm Backup\n: Zwei Server laufen parallel mit einem als Master und der andere passiv\n\n\nHot Backup\n: Master- und Backup-Server arbeiten parallel, Backup muss immer den gleichen Stand haben wie Master (synchronisiert)", 
             "title": "1 Exam"
         }, 
         {
             "location": "/Vss/1_Exam/#exam", 
-            "text": "", 
+            "text": "Grobe Aufteilung der beiden Pr\u00fcfungsteile: 75 Punkte SLM, 45 -Punkte MFA = 120 Punkte total\n- Teil 1 (MeF):\n    - Die Fragen werden auf English gestellt. Antworten auf Englisch   Deutsch m\u00f6glich.\n- Teil 2 (SLM): \n    - Fragen werden auf Deutsch gestellt.\n- Erlaubte Unterlagen: \n    - 1 A4 Zusammenfassung (Beidseitig) f\u00fcr die Gesamtpr\u00fcfung. Andere Kombinationen (z.B. 2 A4 Bl\u00e4tter einseitig, 2 A5 Bl\u00e4tter beidseitig, usw.) nicht erlaubt. Die Zusammenfassung darf keine L\u00f6sungen zu \u00dcbungsaufgaben und Pr\u00fcfungsaufgaben beinhalten. Sonst \"Closed Book\".", 
             "title": "Exam"
         }, 
         {
-            "location": "/Vss/1_Exam/#hilfsmittel", 
-            "text": "2 A4-Seiten Zusammenfassung", 
-            "title": "Hilfsmittel"
+            "location": "/Vss/1_Exam/#vss-architectural-styles", 
+            "text": "", 
+            "title": "VSS Architectural Styles"
+        }, 
+        {
+            "location": "/Vss/1_Exam/#fowlers-fallacies", 
+            "text": "The network is reliable.  Latency is zero.  Bandwidth is infinite.  The network is secure.  Topology doesn't change.  There is one administrator.  Transport cost is zero.  The network is homogeneous.", 
+            "title": "Fowlers Fallacies"
+        }, 
+        {
+            "location": "/Vss/1_Exam/#sockets", 
+            "text": "", 
+            "title": "Sockets"
+        }, 
+        {
+            "location": "/Vss/1_Exam/#messaging-patterns", 
+            "text": "Basic Pattern : Analog zu einem Brief, der von einem Message Endpoint zum anderen gesendet wird  Blocking Receiver Message Pattern : Synchrone \u00dcbertragung, Server und Client warten auf die Antwort  Polling Receiver Message Pattern : Der Receiver macht Anfragen zum Empfangen der Nachricht (Polling)  Service Activator Message Pattern : Auf einen Request ruft der \"Replier\" mit dem \"Service Activator\" die richtige Service-Funktion auf (RPC-style)", 
+            "title": "Messaging Patterns"
+        }, 
+        {
+            "location": "/Vss/1_Exam/#message-reliability-levels", 
+            "text": "Best effort nonpersistent  Messages are discarded when a messaging engine stops or fails. Messages might also be discarded if a connection used to send them becomes unavailable or as a result of constrained system resources.     Express nonpersistent  Messages are discarded when a messaging engine stops or fails. Messages might also be discarded if a connection used to send them becomes unavailable.     Reliable nonpersistent  Messages are discarded when a messaging engine stops or fails.     Reliable persistent  Messages might be discarded when a messaging engine fails.     Assured persistent  Messages are not discarded.", 
+            "title": "Message Reliability Levels"
+        }, 
+        {
+            "location": "/Vss/1_Exam/#enterprise-integration-patterns", 
+            "text": "", 
+            "title": "Enterprise Integration Patterns"
+        }, 
+        {
+            "location": "/Vss/1_Exam/#point-to-point-messaging-pattern", 
+            "text": "Simpelste Form, ein Sender schickt einem Receiver \u00fcber einen beliebigen Channel eine Message  Meist wird eine  Message Expiration  gesetzt. Ist diese abgelaufen, wenn der Receiver die Message erh\u00e4lt, wird sie verworfen oder an einen \"Dead Letter Channel\" geschickt  Command Message Pattern : Message, die dem Receiver mitteilt, etwas auszuf\u00fchren  Document Message Pattern : Reine Daten-\u00dcbertragung", 
+            "title": "Point-to-Point Messaging Pattern"
+        }, 
+        {
+            "location": "/Vss/1_Exam/#public-subscribe-pattern", 
+            "text": "Der Publisher (Sender) schickt die Messages an einen  Publish-Subscribe-Channel  Der Channel schickt eine Kopie der Message an einen Output Channel  Jeder Output-Channel hat genau 1 Subscriber   Jeder Subscriber erh\u00e4lt die Nachricht 1 Mal    Topic-based : Subscriber melden sich an verschiedenen \"topics\" an (logische Channels) und erhalten nur die Nachrichten, die zu diesen Topics geschickt werden    Content-based : Der Subscriber definiert Eigenschaften der Messages, die er bekommen m\u00f6chte. Er erh\u00e4lt dann nur die Nachrichten, die dem entspechen    Meistens gibt es zwischen Publisher und Subscriber einen Message Broker, der die Messages entgegennimmt und Subscribers verwaltet", 
+            "title": "Public-Subscribe Pattern"
+        }, 
+        {
+            "location": "/Vss/1_Exam/#receiving-message-endpoint-pattern", 
+            "text": "Competing Customers : Mehrere Receiver verarbeiten messages gleichzeitig  Selective Customer : Der Receiver entscheided beim Ankommen der Message anhand von Kriterien, ob die Message verarbeitet werden soll", 
+            "title": "Receiving Message Endpoint Pattern"
+        }, 
+        {
+            "location": "/Vss/1_Exam/#rpc", 
+            "text": "", 
+            "title": "RPC"
+        }, 
+        {
+            "location": "/Vss/1_Exam/#begriffe", 
+            "text": "Mean Time to Recover (MTTR) : Durschnittliche Zeit zwischen dem Ausfall und der Wiederaufnahme  Mean Time to Failure (MTTF) : Durchschnittliche Zeit zwischen zwei Ausf\u00e4llen  Mean Time between Failure (MTBF) : Durchschnittliche Zeit zwischen zweil Ausf\u00e4llen,  recovery time eingerechnet . (MTTF + MTTR)  Recovery Time Objective (RTO) : Zeit, in der das System wiederhergestellt werden  muss  (NFR-Requirement)  Recovery Point Objective (RPO) : Maximal tolerierbare Zeitspanne, in der Daten nach einem Ausfall verloren sein k\u00f6nnten (NFR-Requirement)  Warm Backup : Zwei Server laufen parallel mit einem als Master und der andere passiv  Hot Backup : Master- und Backup-Server arbeiten parallel, Backup muss immer den gleichen Stand haben wie Master (synchronisiert)", 
+            "title": "Begriffe"
         }, 
         {
             "location": "/Vss/2_Introduction/", 
