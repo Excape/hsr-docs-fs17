@@ -21,4 +21,3 @@
 ## Functional / Operational Model
 - Functional Model: Die funktionalen Komponenten eines Systems
 - Operational Model: Das System, auf das die Komponenten deployed werden (Infrastruktur)
-- 
