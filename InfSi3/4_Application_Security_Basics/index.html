@@ -649,6 +649,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../17_Mass_Assigment/" title="17 Mass Assigment" class="md-nav__link">
+      17 Mass Assigment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
@@ -842,13 +854,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-18" type="checkbox" id="nav-6-18">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-19" type="checkbox" id="nav-6-19">
     
-    <label class="md-nav__link" for="nav-6-18">
+    <label class="md-nav__link" for="nav-6-19">
       Hacking lab
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-18">
+      <label class="md-nav__title" for="nav-6-19">
         Hacking lab
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2055,6 +2067,13 @@
 <li>Beim ersten Response des Servers wird ein Hash des Public Keys (=Pin) des Certs im HPKP-Header mitgesendet</li>
 <li>Der Client rechnet ebenfalls einen Hash des Public-Keys</li>
 <li>Bei zukünftigen Verbindungen prüft der Client, ob der Hash noch derselbe ist wie der gespeicherte. Wenn nicht, wird die Verbindung rejected</li>
+<li>Bsp. hacking-lab</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="nt">Public-Key-Pins</span><span class="o">:</span> <span class="nt">pin-sha256</span><span class="o">=</span><span class="s2">&quot;47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=&quot;</span><span class="o">;</span> <span class="nt">pin-sha256</span><span class="o">=</span><span class="s2">&quot;AhuXBColU8UUONYxQgEzTDu3L5vwoXvDQvxMFOY9AtA=&quot;</span><span class="o">;</span> <span class="nt">max-age</span><span class="o">=</span><span class="nt">28800</span>
+</pre></div>
+
+
+<ul>
 <li>Problem, wenn Certs ausgetauscht werden<ul>
 <li>Lösung: Mehr als einen PIN angeben</li>
 <li>Zertifikate werden auf Vorrat erstellt</li>

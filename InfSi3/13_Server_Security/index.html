@@ -628,6 +628,47 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#hardening" title="Hardening" class="md-nav__link">
+    Hardening
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-the-system" title="Installing the System" class="md-nav__link">
+    Installing the System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-security" title="Network Security" class="md-nav__link">
+    Network Security
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication" title="Authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-auditing" title="Monitoring / Auditing" class="md-nav__link">
+    Monitoring / Auditing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#suid-flag" title="SUID Flag" class="md-nav__link">
     SUID Flag
   </a>
@@ -689,6 +730,18 @@
   <li class="md-nav__item">
     <a href="../16_IAM/" title="16 IAM" class="md-nav__link">
       16 IAM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../17_Mass_Assigment/" title="17 Mass Assigment" class="md-nav__link">
+      17 Mass Assigment
     </a>
   </li>
 
@@ -808,13 +861,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-18" type="checkbox" id="nav-6-18">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-19" type="checkbox" id="nav-6-19">
     
-    <label class="md-nav__link" for="nav-6-18">
+    <label class="md-nav__link" for="nav-6-19">
       Hacking lab
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-18">
+      <label class="md-nav__title" for="nav-6-19">
         Hacking lab
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1907,6 +1960,47 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#hardening" title="Hardening" class="md-nav__link">
+    Hardening
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-the-system" title="Installing the System" class="md-nav__link">
+    Installing the System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-security" title="Network Security" class="md-nav__link">
+    Network Security
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication" title="Authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-auditing" title="Monitoring / Auditing" class="md-nav__link">
+    Monitoring / Auditing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#suid-flag" title="SUID Flag" class="md-nav__link">
     SUID Flag
   </a>
@@ -1945,13 +2039,44 @@
                 
                 
                 <h1 id="server-security">Server Security</h1>
+<h2 id="hardening">Hardening</h2>
+<h3 id="installing-the-system">Installing the System</h3>
+<ul>
+<li>Minimal System</li>
+<li>Sepparate Partition for Logs</li>
+<li>Automatic Updates</li>
+<li>Strong defaults (<code>umask</code>, <code>PATH</code>, ...)</li>
+</ul>
+<h3 id="network-security">Network Security</h3>
+<ul>
+<li>Start only required Services</li>
+<li>Least File permission</li>
+<li>Least execution privileges</li>
+<li>Error Handling</li>
+<li>Disable direct internet access (anti covert channel)</li>
+</ul>
+<h3 id="authentication">Authentication</h3>
+<ul>
+<li>Strong Authentication (time-based lockouts)</li>
+<li>Monitor password-guessing (fail2ban)</li>
+<li>Login as user, root via <code>sudo</code></li>
+</ul>
+<h3 id="monitoring-auditing">Monitoring / Auditing</h3>
+<ul>
+<li>Time Synchronization</li>
+<li>Integrity Checking</li>
+<li>Forensic Readiness (see <a href="../12_Web_App_Firewall/">WAF</a>)</li>
+<li>Remote Logging</li>
+</ul>
 <h2 id="suid-flag">SUID Flag</h2>
 <ul>
 <li>Normalerweise hat ein Prozess, der von einem Binary erstellt wird, die Rechte des Aufrufers</li>
 <li>Wenn auf dem Binary das Suid-Flag gesetzt wurde, werden Prozesse immer mit Recht des File-Owners erstellt, egal wer sie aufruft</li>
 <li>Setzen mit owner Rechten: <code>chmod +s /usr/bin/passwd</code></li>
-<li>siehe z.B. <code>ls -la /usr/bin/passwd</code></li>
+<li>siehe z.B. <code>ls -la /usr/bin/passwd</code><ul>
 <li>Mit der Shell können keine Scripts mit suid-Flag mit owner-Rechten ausgeführt werden! Es braucht ein Binary (z.B. C-File compilen)</li>
+</ul>
+</li>
 </ul>
 <h2 id="tls">TLS</h2>
 <ul>

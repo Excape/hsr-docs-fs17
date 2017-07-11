@@ -649,6 +649,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../17_Mass_Assigment/" title="17 Mass Assigment" class="md-nav__link">
+      17 Mass Assigment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
@@ -801,13 +813,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-18" type="checkbox" id="nav-6-18">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-19" type="checkbox" id="nav-6-19">
     
-    <label class="md-nav__link" for="nav-6-18">
+    <label class="md-nav__link" for="nav-6-19">
       Hacking lab
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-18">
+      <label class="md-nav__title" for="nav-6-19">
         Hacking lab
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1948,14 +1960,13 @@
 <li>Der Server der API, auf die zugegriffen werden möchte, setzt den Header <code>Access-Control-Allow-Origin: mySite</code> bei der Antwort</li>
 </ul>
 <h2 id="pre-flight-request">Pre-flight request</h2>
-<ul>
-<li>Problem: Bei der Antwort des Server weiss der Client noch nicht, ob er Cross-Domain damit kommunizieren kann</li>
-<li>Der Client schickt vor dem ersten eigentlichen Request einen <code>OPTIONS</code>-Request an den Server</li>
-<li>Der Server antwortet mit den verfügbaren HTTP-Methoden <em>und</em> dem <code>Access-Control-Allow-Origin</code>-Header</li>
-<li>Nun weiss der Browser, ob er mit dem Server kommunizieren kann</li>
-<li>Nicht alle CORS-Requests brauchen einen Pre-flight-Request, es ist standardisiert welche (z.B. Multipart form und alle Methoden ausser GET, POST und HEAD)</li>
-<li>Wird vom Browser automatisch gemacht</li>
-</ul>
+<p><img alt="" src="../img/cors_preflight.png" />
+- Problem: Bei der Antwort des Server weiss der Client noch nicht, ob er Cross-Domain damit kommunizieren kann
+- Der Client schickt vor dem ersten eigentlichen Request einen <code>OPTIONS</code>-Request an den Server
+- Der Server antwortet mit den verfügbaren HTTP-Methoden <em>und</em> dem <code>Access-Control-Allow-Origin</code>-Header
+- Nun weiss der Browser, ob er mit dem Server kommunizieren kann
+- Nicht alle CORS-Requests brauchen einen Pre-flight-Request, es ist standardisiert welche (z.B. Multipart form und alle Methoden ausser GET, POST und HEAD)
+- Wird vom Browser automatisch gemacht</p>
 <h2 id="angriffsvektor">Angriffsvektor</h2>
 <ul>
 <li>Wenn der Angreifer den Browser kontrolliert, kann er den <code>origin</code>-Header manipulieren. Der Server könnte das aber irgendwann merken</li>

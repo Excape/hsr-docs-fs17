@@ -649,6 +649,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../17_Mass_Assigment/" title="17 Mass Assigment" class="md-nav__link">
+      17 Mass Assigment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
@@ -767,13 +779,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-18" type="checkbox" id="nav-6-18">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-19" type="checkbox" id="nav-6-19">
     
-    <label class="md-nav__link" for="nav-6-18">
+    <label class="md-nav__link" for="nav-6-19">
       Hacking lab
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-18">
+      <label class="md-nav__title" for="nav-6-19">
         Hacking lab
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1892,6 +1904,7 @@
 <li>XHRs werden über <code>connect-src</code> gesteuert!</li>
 </ul>
 </li>
+<li><code>self</code> erlaubt Requests auf den eigenen Host (wie standard Cross-Origin-Policy)</li>
 <li><code>default-src: 'none'</code> als ersten Wert fungiert als "Deny all", nachher können Ausnahmen definiert werden</li>
 <li>HXR-requests gehen über <code>connect-src</code></li>
 <li>Für Debugging kann mit <code>report-uri</code> und dem Header <code>Content-Security-Policy-Report-Only</code> eine uri angegeben werden<ul>
@@ -1899,6 +1912,7 @@
 <li>Angreifer kann das ausnutzen, wenn er CSP verändern kann - die Violations zu sich schicken lassen und so URLs herausfinden</li>
 </ul>
 </li>
+<li>Es können jeweils mehrere Werte mit Space getrennt angegeben werden, z.B. um Google Analytics einzubinden: <code>script-src 'self'; www.google-analythics.com</code></li>
 </ul>
                 
                   

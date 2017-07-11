@@ -616,6 +616,20 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pre-authentication" title="Pre-Authentication" class="md-nav__link">
+    Pre-Authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#airlock-waf" title="Airlock WAF" class="md-nav__link">
+    Airlock WAF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#forensic-readiness" title="Forensic Readiness" class="md-nav__link">
     Forensic Readiness
   </a>
@@ -682,6 +696,18 @@
   <li class="md-nav__item">
     <a href="../16_IAM/" title="16 IAM" class="md-nav__link">
       16 IAM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../17_Mass_Assigment/" title="17 Mass Assigment" class="md-nav__link">
+      17 Mass Assigment
     </a>
   </li>
 
@@ -801,13 +827,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-18" type="checkbox" id="nav-6-18">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-19" type="checkbox" id="nav-6-19">
     
-    <label class="md-nav__link" for="nav-6-18">
+    <label class="md-nav__link" for="nav-6-19">
       Hacking lab
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-18">
+      <label class="md-nav__title" for="nav-6-19">
         Hacking lab
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1900,6 +1926,20 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pre-authentication" title="Pre-Authentication" class="md-nav__link">
+    Pre-Authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#airlock-waf" title="Airlock WAF" class="md-nav__link">
+    Airlock WAF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#forensic-readiness" title="Forensic Readiness" class="md-nav__link">
     Forensic Readiness
   </a>
@@ -1938,6 +1978,22 @@
 <li>Verwaltet die Sessions mit den Clients und den Applications hinter der WAF</li>
 <li>WAF basiert auf einem Reverse-Proxy</li>
 </ul>
+<h2 id="pre-authentication">Pre-Authentication</h2>
+<ul>
+<li>Hinter der WAF ist ein "public" Login-Service und eine "private" Web-App</li>
+<li>Die WAF schickt Requests an den Login-Server</li>
+<li>Zwischen Login-Server und WAF / Zwischen WAF und Client gibt es jeweils ein eigenes Cookie</li>
+<li>Die WAF baut mit der Webapp "im Namen des Benutzers" eine Session auf, die vom Login-Server authentisiert wurde</li>
+</ul>
+<h2 id="airlock-waf">Airlock WAF</h2>
+<ul>
+<li>Kommerzielles Produkt</li>
+<li>Viele der Features lassen sich nachbilden mit FOSS-Software (z.B. mod_security, nginx) <ul>
+<li>Ausser URL-Encryption und "Form Protection"</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../img/airlock_features.png" /></p>
 <h2 id="forensic-readiness">Forensic Readiness</h2>
 <ul>
 <li>WAF erzeugt für einen Request eine ID</li>

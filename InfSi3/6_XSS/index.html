@@ -649,6 +649,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../17_Mass_Assigment/" title="17 Mass Assigment" class="md-nav__link">
+      17 Mass Assigment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../1_Exam/" title="1 Exam" class="md-nav__link">
       1 Exam
     </a>
@@ -822,13 +834,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-18" type="checkbox" id="nav-6-18">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-19" type="checkbox" id="nav-6-19">
     
-    <label class="md-nav__link" for="nav-6-18">
+    <label class="md-nav__link" for="nav-6-19">
       Hacking lab
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-18">
+      <label class="md-nav__title" for="nav-6-19">
         Hacking lab
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2011,9 +2023,16 @@
 <ul>
 <li>HTML-Characters escapen<ul>
 <li><code>&lt;</code> in <code>&amp;lt;</code> usw. umwandeln</li>
-<li>In Praxis schwierig, das nicht gültige Zeichen wie <code>'</code> escaped werden</li>
+<li>In Praxis schwierig, das nicht gültige Zeichen wie <code>'</code> escaped werden<ul>
+<li>Keine HTML-Entities im Backend abspeichern!</li>
 </ul>
 </li>
+<li>Besser: Script-Tags serverseitig bereits beim Input rausfiltern</li>
+</ul>
+</li>
+<li>NoScript o.ä. im Browser</li>
+<li><code>X-XSS-Protection: 1; mode=block</code> HTTP-Header, zwingt den Browser zur "XSS-Protection"</li>
+<li>Cookies mit "HTTP-Only" zur Session Hijacking Mitigation</li>
 <li>Filter in WAF</li>
 <li><a href="../8_CSP/">Content Security Policy</a>, damit nicht ein fremdes Script mit <code>&lt;script src="..." /&gt;</code> eingefügt werden kann</li>
 </ul>
