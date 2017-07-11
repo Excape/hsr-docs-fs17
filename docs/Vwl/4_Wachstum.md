@@ -22,6 +22,8 @@
 - Aber insgesamt sinkendes Wachstum
 
 ### Gründe
+![](img/quellen_wachstum.png)
+
 - Exogene Faktoren
     - Kein Seezugang ist ein Nachteil
     - Sozialkapital, Klima, Rohstoffe hier kein Problem
@@ -34,6 +36,7 @@
 - Technischer Fortschritt
     - Schweiz einer der innovativsten Standorte weltweit
     - Patentschutz (20 J.) fördert Innovation
+    - "unendliche" Ressource
 - **Arbeitsproduktivität**
     - Schweiz international schlecht aufgestellt, hinter FR, DE, USA
     - 1970 war Schweiz das produktivste Land

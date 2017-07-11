@@ -1,7 +1,6 @@
 # CORS
 > Cross Origin Resource Sharing
 
-
 - Ziel: Cross-Site-Requests erlauben, um z.B. per AJAX von einem anderen Server Daten zu laden
 - Alternative mit `<script src=".." />`, ist aber gefährlich, weil es in der gleichen Security Domain wie unsere App ausgeführt wird!
 
@@ -13,6 +12,7 @@
 - Der Server der API, auf die zugegriffen werden möchte, setzt den Header `Access-Control-Allow-Origin: mySite` bei der Antwort
 
 ## Pre-flight request
+![](img/cors_preflight.png)
 - Problem: Bei der Antwort des Server weiss der Client noch nicht, ob er Cross-Domain damit kommunizieren kann
 - Der Client schickt vor dem ersten eigentlichen Request einen `OPTIONS`-Request an den Server
 - Der Server antwortet mit den verfügbaren HTTP-Methoden *und* dem `Access-Control-Allow-Origin`-Header

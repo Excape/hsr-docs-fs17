@@ -5,6 +5,19 @@
 - Verwaltet die Sessions mit den Clients und den Applications hinter der WAF
 - WAF basiert auf einem Reverse-Proxy
 
+## Pre-Authentication
+- Hinter der WAF ist ein "public" Login-Service und eine "private" Web-App
+- Die WAF schickt Requests an den Login-Server
+- Zwischen Login-Server und WAF / Zwischen WAF und Client gibt es jeweils ein eigenes Cookie
+- Die WAF baut mit der Webapp "im Namen des Benutzers" eine Session auf, die vom Login-Server authentisiert wurde
+
+## Airlock WAF
+- Kommerzielles Produkt
+- Viele der Features lassen sich nachbilden mit FOSS-Software (z.B. mod_security, nginx) 
+    - Ausser URL-Encryption und "Form Protection"
+
+![](img/airlock_features.png)
+
 ## Forensic Readiness
 - WAF erzeugt für einen Request eine ID
 - Die Request ID wird jeweils an den nächsten Layer / Tier übertragen, aber immer mit ins Log file geschrieben

@@ -45,6 +45,9 @@
 
 - Es gibt viele Arbeitsstellen für Umverteilung in der Schweiz
 ## Die drei Säulen der Schweizer Altersvorsorge
+
+![](img/altersvorsorge_schweiz.png)
+
 ### AHV (1. Säule)
 - Pflicht für ganze Bevölkerung (mit Aufenthaltsbewilligung)
 - Ziel: Reine Existenzsicherung
@@ -72,7 +75,7 @@
 ### Lösungsmöglichkeiten
 - Direkt einflussbare Parameter
     - Höhere Beiträge
-    - Tiefere Renten (ausgeschlossen!1!!!)
+    - Tiefere Renten ("ausgeschlossen!1!!!")
     - Rentenalter erhöhen
 - Indirekt beeinflussbar (keine Lösungen)
     - Immigration
@@ -103,7 +106,7 @@
     - Definiert mit u.a. "Kein Auto, kein Farbfernseher"
     - Wenn drei von neun Kategorien erfüllt
 
-## Bedinungsloses Grundeinkommen
+## Bedingungsloses Grundeinkommen
 - Theoretisch 80-90% finanzierbar
     - Kürzen von vielen Sozialleistungen, weil sie jetzt durch BGE gedeckt wären
     - Mehr als die Hälfte durch Rückzahlungen von Arbeitgeber

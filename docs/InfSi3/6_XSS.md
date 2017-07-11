@@ -30,5 +30,10 @@
 - HTML-Characters escapen
     - `<` in `&lt;` usw. umwandeln
     - In Praxis schwierig, das nicht gültige Zeichen wie `'` escaped werden
+        - Keine HTML-Entities im Backend abspeichern!
+    - Besser: Script-Tags serverseitig bereits beim Input rausfiltern
+- NoScript o.ä. im Browser
+- `X-XSS-Protection: 1; mode=block` HTTP-Header, zwingt den Browser zur "XSS-Protection"
+- Cookies mit "HTTP-Only" zur Session Hijacking Mitigation
 - Filter in WAF
 - [Content Security Policy](8_CSP.md), damit nicht ein fremdes Script mit `<script src="..." />` eingefügt werden kann

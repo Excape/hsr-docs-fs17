@@ -18,7 +18,7 @@
 
 ## Reales BIP
 - BIP: Alle Güter und Dienstleistungen, die in einem Jahr in einem Land hergestellt werden
-- Reales BIP: Nominales BIP - Inflation
+- Reales BIP: `Nominales BIP - Inflation`
     - heisst: Alles zu festgelegten Standardpreisen
 - Hier immer das reale BIP gemeint!
 - 2009 Finanzkriese: Platzen der Immobilienblase in den USA + Eurokrise (unabhängig)
@@ -38,6 +38,7 @@
 
 ## AAk-Kurve (kurzfristig aggregiertes Angebot)
 - Je höher die Preise, desto mehr wollen die Produzenten herstellen
+- Wenn \(AA_k\) knapp vor Kapazitätsgrenze ist, verlangen die Produzenten einen höheren Preis, weil die Produktion schon fast ausgelastest ist. Wenn das BIP tief ist, sind sie bereit, mehr zu produzieren (weil weniger Auslastung). Darum ist \(AA_k\) eine "exponentielle" Kurve
 - Kann theoretisch über Kapazitätsgrenze, dann arbeiten Menschen überstunden
     - "überhitzte" Wirtschaft
     - Führt zu explodierenden Preisen

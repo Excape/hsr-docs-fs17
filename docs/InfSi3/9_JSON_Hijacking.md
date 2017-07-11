@@ -1,5 +1,7 @@
 # JSON Hijacking
 
+![](img/json_hijacking.png)
+
 - Bekannt geworden durch Google
     - Profildaten wurden über AJAX nachgeladen (per JSON und ins DOM eingefügt)
 ## Szenario

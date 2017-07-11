@@ -30,6 +30,12 @@
 - Beim ersten Response des Servers wird ein Hash des Public Keys (=Pin) des Certs im HPKP-Header mitgesendet
 - Der Client rechnet ebenfalls einen Hash des Public-Keys
 - Bei zukünftigen Verbindungen prüft der Client, ob der Hash noch derselbe ist wie der gespeicherte. Wenn nicht, wird die Verbindung rejected
+- Bsp. hacking-lab
+
+```
+Public-Key-Pins: pin-sha256="47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="; pin-sha256="AhuXBColU8UUONYxQgEzTDu3L5vwoXvDQvxMFOY9AtA="; max-age=28800
+```
+
 - Problem, wenn Certs ausgetauscht werden
     - Lösung: Mehr als einen PIN angeben
     - Zertifikate werden auf Vorrat erstellt
