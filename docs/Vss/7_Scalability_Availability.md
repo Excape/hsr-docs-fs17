@@ -13,7 +13,7 @@
 
 ## Availability
 ### Ursachen von Fehlern
-- Architektur / Umwelt
+- Architektur (Systems Architecture) / Umwelt
     - Kommunikationskanäle
     - Strom
     - Höhere Gewalt
@@ -34,7 +34,7 @@
 
 ## Begriffe
 - *Mean Time to Recover (MTTR)*: Durschnittliche Zeit zwischen dem Ausfall und der Wiederaufnahme
-- *Mean Time to Failure (MTTF)*: Durchschnittliche Zeit zwischen zwei Ausfällen
+- *Mean Time to Failure (MTTF)*: Durchschnittliche Zeit zwischen zwei Ausfällen ohne Recovery Time, also vom Zeitpunkt der Recovery bis zum nächsten Ausfall
 - *Mean Time between Failure (MTBF)*: Durchschnittliche Zeit zwischen zweil Ausfällen, *recovery time eingerechnet*. (MTTF + MTTR)
 
 - *Recovery Time Objective (RTO)*: Zeit, in der das System wiederhergestellt werden *muss* (NFR-Requirement)
@@ -42,7 +42,7 @@
 
 ## Kosten
 - Kosten wachsen nach 95% 1Availability sehr schnell, 100% ist fast unmöglich
-- Gesucht wird das Minimum der Funktionen Cost of Downtime + Costs of Availability
+- Gesucht wird das Minimum der Funktion `Cost of Downtime + Costs of Availability`
 
 ![](img/availability_cost.png)
 

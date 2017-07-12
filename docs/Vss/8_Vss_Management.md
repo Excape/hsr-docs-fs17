@@ -11,7 +11,7 @@
 - Ein Service Management Framework ist z.B. *ITIL*
 
 
-### Patterns für message-basierte Software
+### System-Management Patterns für message-basierte Software
 #### Wiretap
 Einen Message-Channel "abhören", indem die Messages neben dem Ziel auch an einen zweiten Channel zur Inspektion gesendet werden
 
@@ -37,7 +37,7 @@ Ein Filter, der gewisse "verbliebene" Messages verwirft, damit das System wieder
 
 ## Java Management Extensions (JMX)
 - Java Technologie, um Applikationen, System-Objekte und Devices zu managen
-- Jedes Objekt ist ein *MBean* (Managed Bean)
+- Jedes Objekt ist ein *MBean* (Managed Bean), das ein Interface implementiert
 - Der Standard JMX-Client ist `jconsole`
 
 ## Logging

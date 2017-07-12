@@ -26,3 +26,10 @@
     - Wie kann ein Ausfall entdeckt werden?
     - Was sind Recovery Procedures?
 - Sind die Prozesse dokumentiert? Können sie verbessert werden?
+
+## Häufige Bereiche für Verbesserung
+- SPOFs
+- Ungenügende Dokumentation der IT-Services und Infrastruktur
+- Ungenügends Monitoring
+- Schwächen im Backup und Restore
+- "Key Person" Dependencies: wenn nur einzelne Personen für kritische Services verantwortlich sind

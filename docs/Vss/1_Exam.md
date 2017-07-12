@@ -1,5 +1,6 @@
 # Exam
 Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 -Punkte MFA = 120 Punkte total
+
 - Teil 1 (MeF):
     - Die Fragen werden auf English gestellt. Antworten auf Englisch & Deutsch möglich.
 - Teil 2 (SLM): 
@@ -70,11 +71,40 @@ Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 -Punkte MFA = 120 
 
 ## Begriffe
 - *Mean Time to Recover (MTTR)*: Durschnittliche Zeit zwischen dem Ausfall und der Wiederaufnahme
-- *Mean Time to Failure (MTTF)*: Durchschnittliche Zeit zwischen zwei Ausfällen
+- *Mean Time to Failure (MTTF)*: Durchschnittliche Zeit zwischen zwei Ausfällen ohne Recovery Time, also vom Zeitpunkt der Recovery bis zum nächsten Ausfall
 - *Mean Time between Failure (MTBF)*: Durchschnittliche Zeit zwischen zweil Ausfällen, *recovery time eingerechnet*. (MTTF + MTTR)
 - *Recovery Time Objective (RTO)*: Zeit, in der das System wiederhergestellt werden *muss* (NFR-Requirement)
 - *Recovery Point Objective (RPO)*: Maximal tolerierbare Zeitspanne, in der Daten nach einem Ausfall verloren sein könnten (NFR-Requirement)
 - *Warm Backup*: Zwei Server laufen parallel mit einem als Master und der andere passiv
 - *Hot Backup*: Master- und Backup-Server arbeiten parallel, Backup muss immer den gleichen Stand haben wie Master (synchronisiert)
 
+## Availability
 ![](img/availability_cost.png)
+
+- Serielle, abhängige Komponenten: \(A = A_1 \cdot A_2 \cdot A_3\)
+- Parallele Komponenten: \(1 - [ (1 - A_1) \cdot (1 - A_2) \cdot (1 - A_3) ]\)
+
+## System Management Patterns
+- **Wire-Tap**: Einen Message-Channel "abhören", indem die Messages neben dem Ziel auch an einen zweiten Channel zur Inspektion gesendet werden
+- **Detour**: Nicht alle Messages werden direkt ans Ziel gesendet, sondern an eine Zwischenstelle, die Validierung, Debugging o.ä. vornimmt. Ein Router entscheidet, welche Messages über diese "Detour" und welche direkt an das Ziel gesendet werden
+- **Test Message**: Eine Art Black-Box-Test, in dem Test Messages ins System gefüttert werden, und hinterher geschaut, welche Messages raus kommen. So können interne Verarbeitungs-Fehler erkannt werden
+- **Smart Proxy**: Analog zu einem Web-Proxy: Er ändert die Returnadresse zu sich selbst, und leitet die Antwort schliesslich zum originalen Absender wieder (Message-"Intercept")
+- **Message Store**: Für jede Message wird jeweils eine Kopie an einen zentralen Message Store gesendet
+- **Message History**: Die Message trägt eine History auf sich (im Header), von welchen Applikationen sie bereits vearbeitet wurde. Dies erleichtert debugging, da man den Weg der Message verfolgen kann.
+- **Channel Purger**: Ein Filter, der gewisse "verbliebene" oder fehlerhafte Messages verwirft, damit das System wieder in einen konsistenten Zustand versetzt wird.
+
+## CFIA-Matrix
+- "Configuration Items" in vertikale Spalte (OS, Server, Datenbank, Middleware, Prozesse, Disks, etc.)
+- Kritische Servives in horizontale Spalte
+- Ausfälle von CIs bewerten
+- `X`: Service nicht mehr verfügbar, `A`: Alternatives CI bietet den Dienst, `M`: Alternatives CI, aber manueller Eingriff nötig
+
+## Naming Terminology
+- *Name*: String to identify an entity
+- *Entity*: Physical or logical object
+- *Access Point*: Entity that is used to access another entity
+    - Often given through physical connection, e.g. a customers owns his phone
+- *Address*: Name of an Access Point
+    - often defined at another level, e.g. a MAC-Adress to a NIC
+
+![](img/naming_table.png)

@@ -1,6 +1,15 @@
 # Distributed Hash Tables
+## Goals
+- e.g. Distributed File Storage
+- Each node holds some part of the information, e.g. files
+- How do you find the node with the given name?
+
 ## Chord
-- Each node is responsible for nodes with values less or equal to itself
+- Hash-Tables: e.g. Key = Hash(fileURL), value = id of responsible node
+- Fixed namespace size (e.g. \(2^m = 2^{128}\) with 128-bit identifier)
+- Logical Ring has \(2^m\) nodes (even if not all occupied)
+- Each node is responsible for nodes with values less or equal to itself, but smaller than its predecessor's id
+- Node-Number \(p = \text{hash(ip)}\)
 - Each node has a link to its successor node (first node clockwise from p)
 - Goal: \(O(log(n))\) search
 
@@ -9,13 +18,17 @@
 - every finger table has \(2^m\) rows
 
 ### Lookup
+- With node \(p\) and key \(k\)
+    - Am I responsible for \(k\)? -> Respond
+    - Otherwise, if my successor is responsible (\(p \lt k \le p\)), forward the request to them
+    - Otherwise, forward the request to the *nearest predecessor* node in my finger table, such that \(\text{finger[i]} \le k\)
 - "nearest predecessor": Why not nearest successor?
     - successor would possibly be too far, since only powers of 2 nodes are stored in the finger table
     - it's better to send it to p's vicinity, since it knows more about closer nodes than nodes far away
     - if the looked up key = p in finger table, the target node could be unavailable, so it is safer to send it *near* this node
 
 ### Correctness
-- If successor pointers are correct, lookup wil always yield the correct result
+- If successor pointers are correct, lookup wil always yield the correct result with \(O(\log n)\)
     - even if not all finger tables are correct, lookup will never fail, it is just more inefficient
     - intiuitive, because the worst case is linear search through each node
 - Each node periodically runs a stabilization procedure
