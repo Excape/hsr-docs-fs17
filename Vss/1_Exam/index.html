@@ -1640,6 +1640,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#availability" title="Availability" class="md-nav__link">
+    Availability
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-management-patterns" title="System Management Patterns" class="md-nav__link">
+    System Management Patterns
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cfia-matrix" title="CFIA-Matrix" class="md-nav__link">
+    CFIA-Matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-terminology" title="Naming Terminology" class="md-nav__link">
+    Naming Terminology
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -2075,6 +2103,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#availability" title="Availability" class="md-nav__link">
+    Availability
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-management-patterns" title="System Management Patterns" class="md-nav__link">
+    System Management Patterns
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cfia-matrix" title="CFIA-Matrix" class="md-nav__link">
+    CFIA-Matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-terminology" title="Naming Terminology" class="md-nav__link">
+    Naming Terminology
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -2093,13 +2149,21 @@
                 
                 
                 <h1 id="exam">Exam</h1>
-<p>Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 -Punkte MFA = 120 Punkte total
-- Teil 1 (MeF):
-    - Die Fragen werden auf English gestellt. Antworten auf Englisch &amp; Deutsch möglich.
-- Teil 2 (SLM): 
-    - Fragen werden auf Deutsch gestellt.
-- Erlaubte Unterlagen: 
-    - 1 A4 Zusammenfassung (Beidseitig) für die Gesamtprüfung. Andere Kombinationen (z.B. 2 A4 Blätter einseitig, 2 A5 Blätter beidseitig, usw.) nicht erlaubt. Die Zusammenfassung darf keine Lösungen zu Übungsaufgaben und Prüfungsaufgaben beinhalten. Sonst "Closed Book".</p>
+<p>Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 -Punkte MFA = 120 Punkte total</p>
+<ul>
+<li>Teil 1 (MeF):<ul>
+<li>Die Fragen werden auf English gestellt. Antworten auf Englisch &amp; Deutsch möglich.</li>
+</ul>
+</li>
+<li>Teil 2 (SLM): <ul>
+<li>Fragen werden auf Deutsch gestellt.</li>
+</ul>
+</li>
+<li>Erlaubte Unterlagen: <ul>
+<li>1 A4 Zusammenfassung (Beidseitig) für die Gesamtprüfung. Andere Kombinationen (z.B. 2 A4 Blätter einseitig, 2 A5 Blätter beidseitig, usw.) nicht erlaubt. Die Zusammenfassung darf keine Lösungen zu Übungsaufgaben und Prüfungsaufgaben beinhalten. Sonst "Closed Book".</li>
+</ul>
+</li>
+</ul>
 <h2 id="vss-architectural-styles">VSS Architectural Styles</h2>
 <p><img alt="" src="../img/architecture_styles.png" /></p>
 <h2 id="fowlers-fallacies">Fowlers Fallacies</h2>
@@ -2179,14 +2243,52 @@
 <h2 id="begriffe">Begriffe</h2>
 <ul>
 <li><em>Mean Time to Recover (MTTR)</em>: Durschnittliche Zeit zwischen dem Ausfall und der Wiederaufnahme</li>
-<li><em>Mean Time to Failure (MTTF)</em>: Durchschnittliche Zeit zwischen zwei Ausfällen</li>
+<li><em>Mean Time to Failure (MTTF)</em>: Durchschnittliche Zeit zwischen zwei Ausfällen ohne Recovery Time, also vom Zeitpunkt der Recovery bis zum nächsten Ausfall</li>
 <li><em>Mean Time between Failure (MTBF)</em>: Durchschnittliche Zeit zwischen zweil Ausfällen, <em>recovery time eingerechnet</em>. (MTTF + MTTR)</li>
 <li><em>Recovery Time Objective (RTO)</em>: Zeit, in der das System wiederhergestellt werden <em>muss</em> (NFR-Requirement)</li>
 <li><em>Recovery Point Objective (RPO)</em>: Maximal tolerierbare Zeitspanne, in der Daten nach einem Ausfall verloren sein könnten (NFR-Requirement)</li>
 <li><em>Warm Backup</em>: Zwei Server laufen parallel mit einem als Master und der andere passiv</li>
 <li><em>Hot Backup</em>: Master- und Backup-Server arbeiten parallel, Backup muss immer den gleichen Stand haben wie Master (synchronisiert)</li>
 </ul>
+<h2 id="availability">Availability</h2>
 <p><img alt="" src="../img/availability_cost.png" /></p>
+<ul>
+<li>Serielle, abhängige Komponenten: <script type="math/tex">A = A_1 \cdot A_2 \cdot A_3</script>
+</li>
+<li>Parallele Komponenten: <script type="math/tex">1 - [ (1 - A_1) \cdot (1 - A_2) \cdot (1 - A_3) ]</script>
+</li>
+</ul>
+<h2 id="system-management-patterns">System Management Patterns</h2>
+<ul>
+<li><strong>Wire-Tap</strong>: Einen Message-Channel "abhören", indem die Messages neben dem Ziel auch an einen zweiten Channel zur Inspektion gesendet werden</li>
+<li><strong>Detour</strong>: Nicht alle Messages werden direkt ans Ziel gesendet, sondern an eine Zwischenstelle, die Validierung, Debugging o.ä. vornimmt. Ein Router entscheidet, welche Messages über diese "Detour" und welche direkt an das Ziel gesendet werden</li>
+<li><strong>Test Message</strong>: Eine Art Black-Box-Test, in dem Test Messages ins System gefüttert werden, und hinterher geschaut, welche Messages raus kommen. So können interne Verarbeitungs-Fehler erkannt werden</li>
+<li><strong>Smart Proxy</strong>: Analog zu einem Web-Proxy: Er ändert die Returnadresse zu sich selbst, und leitet die Antwort schliesslich zum originalen Absender wieder (Message-"Intercept")</li>
+<li><strong>Message Store</strong>: Für jede Message wird jeweils eine Kopie an einen zentralen Message Store gesendet</li>
+<li><strong>Message History</strong>: Die Message trägt eine History auf sich (im Header), von welchen Applikationen sie bereits vearbeitet wurde. Dies erleichtert debugging, da man den Weg der Message verfolgen kann.</li>
+<li><strong>Channel Purger</strong>: Ein Filter, der gewisse "verbliebene" oder fehlerhafte Messages verwirft, damit das System wieder in einen konsistenten Zustand versetzt wird.</li>
+</ul>
+<h2 id="cfia-matrix">CFIA-Matrix</h2>
+<ul>
+<li>"Configuration Items" in vertikale Spalte (OS, Server, Datenbank, Middleware, Prozesse, Disks, etc.)</li>
+<li>Kritische Servives in horizontale Spalte</li>
+<li>Ausfälle von CIs bewerten</li>
+<li><code>X</code>: Service nicht mehr verfügbar, <code>A</code>: Alternatives CI bietet den Dienst, <code>M</code>: Alternatives CI, aber manueller Eingriff nötig</li>
+</ul>
+<h2 id="naming-terminology">Naming Terminology</h2>
+<ul>
+<li><em>Name</em>: String to identify an entity</li>
+<li><em>Entity</em>: Physical or logical object</li>
+<li><em>Access Point</em>: Entity that is used to access another entity<ul>
+<li>Often given through physical connection, e.g. a customers owns his phone</li>
+</ul>
+</li>
+<li><em>Address</em>: Name of an Access Point<ul>
+<li>often defined at another level, e.g. a MAC-Adress to a NIC</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../img/naming_table.png" /></p>
                 
                   
                 

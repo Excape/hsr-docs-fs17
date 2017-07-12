@@ -2100,7 +2100,7 @@
 <h2 id="availability">Availability</h2>
 <h3 id="ursachen-von-fehlern">Ursachen von Fehlern</h3>
 <ul>
-<li>Architektur / Umwelt<ul>
+<li>Architektur (Systems Architecture) / Umwelt<ul>
 <li>Kommunikationskanäle</li>
 <li>Strom</li>
 <li>Höhere Gewalt</li>
@@ -2131,7 +2131,7 @@
 <h2 id="begriffe">Begriffe</h2>
 <ul>
 <li><em>Mean Time to Recover (MTTR)</em>: Durschnittliche Zeit zwischen dem Ausfall und der Wiederaufnahme</li>
-<li><em>Mean Time to Failure (MTTF)</em>: Durchschnittliche Zeit zwischen zwei Ausfällen</li>
+<li><em>Mean Time to Failure (MTTF)</em>: Durchschnittliche Zeit zwischen zwei Ausfällen ohne Recovery Time, also vom Zeitpunkt der Recovery bis zum nächsten Ausfall</li>
 <li>
 <p><em>Mean Time between Failure (MTBF)</em>: Durchschnittliche Zeit zwischen zweil Ausfällen, <em>recovery time eingerechnet</em>. (MTTF + MTTR)</p>
 </li>
@@ -2143,7 +2143,7 @@
 <h2 id="kosten">Kosten</h2>
 <ul>
 <li>Kosten wachsen nach 95% 1Availability sehr schnell, 100% ist fast unmöglich</li>
-<li>Gesucht wird das Minimum der Funktionen Cost of Downtime + Costs of Availability</li>
+<li>Gesucht wird das Minimum der Funktion <code>Cost of Downtime + Costs of Availability</code></li>
 </ul>
 <p><img alt="" src="../img/availability_cost.png" /></p>
 <ul>

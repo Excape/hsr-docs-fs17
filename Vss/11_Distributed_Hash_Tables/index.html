@@ -1516,6 +1516,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#goals" title="Goals" class="md-nav__link">
+    Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#chord" title="Chord" class="md-nav__link">
     Chord
   </a>
@@ -2000,6 +2007,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#goals" title="Goals" class="md-nav__link">
+    Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#chord" title="Chord" class="md-nav__link">
     Chord
   </a>
@@ -2119,9 +2133,20 @@
                 
                 
                 <h1 id="distributed-hash-tables">Distributed Hash Tables</h1>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>e.g. Distributed File Storage</li>
+<li>Each node holds some part of the information, e.g. files</li>
+<li>How do you find the node with the given name?</li>
+</ul>
 <h2 id="chord">Chord</h2>
 <ul>
-<li>Each node is responsible for nodes with values less or equal to itself</li>
+<li>Hash-Tables: e.g. Key = Hash(fileURL), value = id of responsible node</li>
+<li>Fixed namespace size (e.g. <script type="math/tex">2^m = 2^{128}</script> with 128-bit identifier)</li>
+<li>Logical Ring has <script type="math/tex">2^m</script> nodes (even if not all occupied)</li>
+<li>Each node is responsible for nodes with values less or equal to itself, but smaller than its predecessor's id</li>
+<li>Node-Number <script type="math/tex">p = \text{hash(ip)}</script>
+</li>
 <li>Each node has a link to its successor node (first node clockwise from p)</li>
 <li>Goal: <script type="math/tex">O(log(n))</script> search</li>
 </ul>
@@ -2132,6 +2157,14 @@
 </ul>
 <h3 id="lookup">Lookup</h3>
 <ul>
+<li>With node <script type="math/tex">p</script> and key <script type="math/tex">k</script>
+<ul>
+<li>Am I responsible for <script type="math/tex">k</script>? -&gt; Respond</li>
+<li>Otherwise, if my successor is responsible (<script type="math/tex">p \lt k \le p</script>), forward the request to them</li>
+<li>Otherwise, forward the request to the <em>nearest predecessor</em> node in my finger table, such that <script type="math/tex">\text{finger[i]} \le k</script>
+</li>
+</ul>
+</li>
 <li>"nearest predecessor": Why not nearest successor?<ul>
 <li>successor would possibly be too far, since only powers of 2 nodes are stored in the finger table</li>
 <li>it's better to send it to p's vicinity, since it knows more about closer nodes than nodes far away</li>
@@ -2141,7 +2174,8 @@
 </ul>
 <h3 id="correctness">Correctness</h3>
 <ul>
-<li>If successor pointers are correct, lookup wil always yield the correct result<ul>
+<li>If successor pointers are correct, lookup wil always yield the correct result with <script type="math/tex">O(\log n)</script>
+<ul>
 <li>even if not all finger tables are correct, lookup will never fail, it is just more inefficient</li>
 <li>intiuitive, because the worst case is linear search through each node</li>
 </ul>
