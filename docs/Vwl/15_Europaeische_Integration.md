@@ -50,7 +50,7 @@
 - Ventilklausel Rumänien und Bulgarien - Maximale Zuwanderung (Provokation an EU)
 
 ## Bilaterale Verträge (sepparates PDF)
-1972 - 1990: Freihandelsabkommen für Industrieprodukte, Versicherungen und Zollerleichterungen
+- 1972 - 1990: Freihandelsabkommen für Industrieprodukte, Versicherungen und Zollerleichterungen
 - 1999: Bilateralen I
     - Personenfreizügigkeit
     - Handelshemnisse, Landwirtschaft, Forschung, Luftverkehr, Landverkehr
@@ -65,5 +65,3 @@
 - EVA: Europäische Verteidugunsagentur (Rüstungsabkommen)
 - Zusammenarbeit Wettbewerbsbehörden
 - Satellitennavigation: GPS-Konkurrenz Galileo
-
-## Wie geht es weiter?

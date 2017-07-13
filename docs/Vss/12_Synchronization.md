@@ -21,7 +21,7 @@
 - Server sends back original request (`Cs`)
 - Compute RTT with (Cr - Cs) - (Ss - Sr), client knows all of these
 - Client can either update its time immediately or adjust the speed to gradually adjust to the correct time
-    - NTP adjusts gradually. Immediate update would lead to a "jump", mayble a scheduled task is in the gap and wouldn't be executed. (Time must be continous)
+    - NTP adjusts gradually. Immediate update would lead to a "jump", mayble a scheduled task is in the gap and wouldn't be executed. (*Time must be continous*)
 
 ## Logical Clocks
 ### Database Replication Example

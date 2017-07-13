@@ -1,5 +1,5 @@
 # Exam
-Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 -Punkte MFA = 120 Punkte total
+Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 Punkte MFA = 120 Punkte total
 
 - Teil 1 (MeF):
     - Die Fragen werden auf English gestellt. Antworten auf Englisch & Deutsch möglich.
@@ -9,7 +9,7 @@ Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 -Punkte MFA = 120 
     - 1 A4 Zusammenfassung (Beidseitig) für die Gesamtprüfung. Andere Kombinationen (z.B. 2 A4 Blätter einseitig, 2 A5 Blätter beidseitig, usw.) nicht erlaubt. Die Zusammenfassung darf keine Lösungen zu Übungsaufgaben und Prüfungsaufgaben beinhalten. Sonst "Closed Book".
 
 ## VSS Architectural Styles
-![](img/architecture_styles.png)
+<img src="img/architecture_styles.png" style="max-width: 80%"/>
 
 ## Fowlers Fallacies
 - The network is reliable.
@@ -22,7 +22,7 @@ Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 -Punkte MFA = 120 
 - The network is homogeneous.
 
 ## Sockets
-![](img/socket_pattern.png)
+<img src="img/socket_pattern.png" style="max-width: 60%"/>
 
 ## Messaging Patterns
 - **Basic Pattern**: Analog zu einem Brief, der von einem Message Endpoint zum anderen gesendet wird
@@ -67,7 +67,7 @@ Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 -Punkte MFA = 120 
 - *Selective Customer*: Der Receiver entscheided beim Ankommen der Message anhand von Kriterien, ob die Message verarbeitet werden soll
 
 ## RPC
-![](img/rpc_pattern.png)
+<img src="img/rpc_pattern.png" style="max-width: 70%"/>
 
 ## Begriffe
 - *Mean Time to Recover (MTTR)*: Durschnittliche Zeit zwischen dem Ausfall und der Wiederaufnahme
@@ -79,7 +79,7 @@ Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 -Punkte MFA = 120 
 - *Hot Backup*: Master- und Backup-Server arbeiten parallel, Backup muss immer den gleichen Stand haben wie Master (synchronisiert)
 
 ## Availability
-![](img/availability_cost.png)
+<img src="img/availability_cost.png" style="max-width: 50%"/>
 
 - Serielle, abhängige Komponenten: \(A = A_1 \cdot A_2 \cdot A_3\)
 - Parallele Komponenten: \(1 - [ (1 - A_1) \cdot (1 - A_2) \cdot (1 - A_3) ]\)
@@ -107,4 +107,49 @@ Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 -Punkte MFA = 120 
 - *Address*: Name of an Access Point
     - often defined at another level, e.g. a MAC-Adress to a NIC
 
-![](img/naming_table.png)
+<img src="img/naming_table.png" style="max-width: 60%"/>
+
+## CHORD
+### Lookup
+- With node \(p\) and key \(k\)
+    - Am I responsible for \(k\)? \(\rightarrow\) Respond
+    - Otherwise, if my successor is responsible (\(p \lt k \le \text{p.successor}\)), forward the request to them
+    - Otherwise, forward the request to the *nearest predecessor* node in my finger table, such that \(\text{finger[i]} \le k\)
+
+### Stabilization
+- Update node p's successor: If the predecessor of it's current successor is between `p` and `p.successor`, this is the new successor of `p`
+    - Repeat this procedure while condition is true
+- Update predecessor: Each node `o` notifies `p` of its existence. if `o` is between `p` and `p.predecessor`, `o` is the actual new predecessor
+- update finger table: take a random entry in the finger table, and update its value (= \(succ(n+2^{i-1})\))
+
+!!! note "ToDo"
+    Leaving / Joining Node, Fault Tolerance
+
+## Logical Clocks
+
+### Causality
+- Irreflexive: \(a \not\rightarrow a\)
+- Transitive: \((a \rightarrow b \land b \rightarrow c) \Rightarrow a \rightarrow c\)
+- Asymmetric: \(a \rightarrow b \Rightarrow b \not \rightarrow a\)
+- *Concurrent Relation*: \(a || b \)
+    - \(\Rightarrow a\) and \(b\) are **not** causally related
+    - i.e.:  \(a || b \Leftrightarrow (a \not \rightarrow b \land b \not \rightarrow a)\)
+
+### Lamport's Clock
+- To also order the concurrent events, we need a *strict total ordering*. Lamport's clock is an example of such. 
+- Each process maintains an internal counter for all events occuring in its process
+- The current value of the counter is sent with each message
+- The receiver updates its counter to the max of the sender and receiver-counter (respectively) and increments it
+- Problem: Not fault tolerant \(\rightarrow\) vector clocks
+
+<img src="img/lamport_clock.png" style="max-width: 30%"/>
+
+### Vector Clocks
+- Each process maintains an internal Vector \(V_i\) with the length = number of processes
+- The dimensions correspond to the processes, first = P1, second = P2, etc.
+- Update \(V_i[i]\) with each new event at \(P_i\)
+- When receiving a message from \(P_j\), update each entry to the max of \(V_i\) and \(V_j\)
+    - *also* increment its own counter!
+- comparison: each index is equal or less than the other, and at least one is less than the other
+
+<img src="img/vector_clock.png" style="max-width: 60%"/>

@@ -1,5 +1,9 @@
 # Exam Notes
 
+## ToDo
+- Stored Procedures schreiben können
+- Datenstrukturen abbilden können
+
 ## Umfang
 ### Fokus
 - OR-Mapping
