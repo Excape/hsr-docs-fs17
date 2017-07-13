@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="HSR Study Documentation FS16">
+        <meta name="description" content="HSR Study Documentation FS17">
       
       
         <link rel="canonical" href="https://doc.robinsuter.ch/Vss/1_Exam/">
@@ -1368,6 +1368,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#chord" title="CHORD" class="md-nav__link">
+    CHORD
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lookup" title="Lookup" class="md-nav__link">
+    Lookup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stabilization" title="Stabilization" class="md-nav__link">
+    Stabilization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logical-clocks" title="Logical Clocks" class="md-nav__link">
+    Logical Clocks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#causality" title="Causality" class="md-nav__link">
+    Causality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lamports-clock" title="Lamport's Clock" class="md-nav__link">
+    Lamport's Clock
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-clocks" title="Vector Clocks" class="md-nav__link">
+    Vector Clocks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
     </ul>
@@ -1742,6 +1803,18 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../playground/" title="Playground" class="md-nav__link">
+      Playground
+    </a>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -1879,6 +1952,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#chord" title="CHORD" class="md-nav__link">
+    CHORD
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lookup" title="Lookup" class="md-nav__link">
+    Lookup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stabilization" title="Stabilization" class="md-nav__link">
+    Stabilization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logical-clocks" title="Logical Clocks" class="md-nav__link">
+    Logical Clocks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#causality" title="Causality" class="md-nav__link">
+    Causality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lamports-clock" title="Lamport's Clock" class="md-nav__link">
+    Lamport's Clock
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-clocks" title="Vector Clocks" class="md-nav__link">
+    Vector Clocks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
     </ul>
@@ -1897,7 +2031,7 @@
                 
                 
                 <h1 id="exam">Exam</h1>
-<p>Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 -Punkte MFA = 120 Punkte total</p>
+<p>Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 Punkte MFA = 120 Punkte total</p>
 <ul>
 <li>Teil 1 (MeF):<ul>
 <li>Die Fragen werden auf English gestellt. Antworten auf Englisch &amp; Deutsch möglich.</li>
@@ -1913,7 +2047,7 @@
 </li>
 </ul>
 <h2 id="vss-architectural-styles">VSS Architectural Styles</h2>
-<p><img alt="" src="../img/architecture_styles.png" /></p>
+<p><img src="img/architecture_styles.png" style="max-width: 80%"/></p>
 <h2 id="fowlers-fallacies">Fowlers Fallacies</h2>
 <ul>
 <li>The network is reliable.</li>
@@ -1926,7 +2060,7 @@
 <li>The network is homogeneous.</li>
 </ul>
 <h2 id="sockets">Sockets</h2>
-<p><img alt="" src="../img/socket_pattern.png" /></p>
+<p><img src="img/socket_pattern.png" style="max-width: 60%"/></p>
 <h2 id="messaging-patterns">Messaging Patterns</h2>
 <ul>
 <li><strong>Basic Pattern</strong>: Analog zu einem Brief, der von einem Message Endpoint zum anderen gesendet wird</li>
@@ -1987,7 +2121,7 @@
 <li><em>Selective Customer</em>: Der Receiver entscheided beim Ankommen der Message anhand von Kriterien, ob die Message verarbeitet werden soll</li>
 </ul>
 <h2 id="rpc">RPC</h2>
-<p><img alt="" src="../img/rpc_pattern.png" /></p>
+<p><img src="img/rpc_pattern.png" style="max-width: 70%"/></p>
 <h2 id="begriffe">Begriffe</h2>
 <ul>
 <li><em>Mean Time to Recover (MTTR)</em>: Durschnittliche Zeit zwischen dem Ausfall und der Wiederaufnahme</li>
@@ -1999,7 +2133,7 @@
 <li><em>Hot Backup</em>: Master- und Backup-Server arbeiten parallel, Backup muss immer den gleichen Stand haben wie Master (synchronisiert)</li>
 </ul>
 <h2 id="availability">Availability</h2>
-<p><img alt="" src="../img/availability_cost.png" /></p>
+<p><img src="img/availability_cost.png" style="max-width: 50%"/></p>
 <ul>
 <li>Serielle, abhängige Komponenten: <script type="math/tex">A = A_1 \cdot A_2 \cdot A_3</script>
 </li>
@@ -2036,7 +2170,73 @@
 </ul>
 </li>
 </ul>
-<p><img alt="" src="../img/naming_table.png" /></p>
+<p><img src="img/naming_table.png" style="max-width: 60%"/></p>
+<h2 id="chord">CHORD</h2>
+<h3 id="lookup">Lookup</h3>
+<ul>
+<li>With node <script type="math/tex">p</script> and key <script type="math/tex">k</script>
+<ul>
+<li>Am I responsible for <script type="math/tex">k</script>? <script type="math/tex">\rightarrow</script> Respond</li>
+<li>Otherwise, if my successor is responsible (<script type="math/tex">p \lt k \le \text{p.successor}</script>), forward the request to them</li>
+<li>Otherwise, forward the request to the <em>nearest predecessor</em> node in my finger table, such that <script type="math/tex">\text{finger[i]} \le k</script>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="stabilization">Stabilization</h3>
+<ul>
+<li>Update node p's successor: If the predecessor of it's current successor is between <code>p</code> and <code>p.successor</code>, this is the new successor of <code>p</code><ul>
+<li>Repeat this procedure while condition is true</li>
+</ul>
+</li>
+<li>Update predecessor: Each node <code>o</code> notifies <code>p</code> of its existence. if <code>o</code> is between <code>p</code> and <code>p.predecessor</code>, <code>o</code> is the actual new predecessor</li>
+<li>update finger table: take a random entry in the finger table, and update its value (= <script type="math/tex">succ(n+2^{i-1})</script>)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">ToDo</p>
+<p>Leaving / Joining Node, Fault Tolerance</p>
+</div>
+<h2 id="logical-clocks">Logical Clocks</h2>
+<h3 id="causality">Causality</h3>
+<ul>
+<li>Irreflexive: <script type="math/tex">a \not\rightarrow a</script>
+</li>
+<li>Transitive: <script type="math/tex">(a \rightarrow b \land b \rightarrow c) \Rightarrow a \rightarrow c</script>
+</li>
+<li>Asymmetric: <script type="math/tex">a \rightarrow b \Rightarrow b \not \rightarrow a</script>
+</li>
+<li><em>Concurrent Relation</em>: <script type="math/tex">a || b </script>
+<ul>
+<li>
+<script type="math/tex">\Rightarrow a</script> and <script type="math/tex">b</script> are <strong>not</strong> causally related</li>
+<li>i.e.:  <script type="math/tex">a || b \Leftrightarrow (a \not \rightarrow b \land b \not \rightarrow a)</script>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="lamports-clock">Lamport's Clock</h3>
+<ul>
+<li>To also order the concurrent events, we need a <em>strict total ordering</em>. Lamport's clock is an example of such. </li>
+<li>Each process maintains an internal counter for all events occuring in its process</li>
+<li>The current value of the counter is sent with each message</li>
+<li>The receiver updates its counter to the max of the sender and receiver-counter (respectively) and increments it</li>
+<li>Problem: Not fault tolerant <script type="math/tex">\rightarrow</script> vector clocks</li>
+</ul>
+<p><img src="img/lamport_clock.png" style="max-width: 30%"/></p>
+<h3 id="vector-clocks">Vector Clocks</h3>
+<ul>
+<li>Each process maintains an internal Vector <script type="math/tex">V_i</script> with the length = number of processes</li>
+<li>The dimensions correspond to the processes, first = P1, second = P2, etc.</li>
+<li>Update <script type="math/tex">V_i[i]</script> with each new event at <script type="math/tex">P_i</script>
+</li>
+<li>When receiving a message from <script type="math/tex">P_j</script>, update each entry to the max of <script type="math/tex">V_i</script> and <script type="math/tex">V_j</script>
+<ul>
+<li><em>also</em> increment its own counter!</li>
+</ul>
+</li>
+<li>comparison: each index is equal or less than the other, and at least one is less than the other</li>
+</ul>
+<p><img src="img/vector_clock.png" style="max-width: 60%"/></p>
                 
                   
                 

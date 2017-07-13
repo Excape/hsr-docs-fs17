@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="HSR Study Documentation FS16">
+        <meta name="description" content="HSR Study Documentation FS17">
       
       
         <link rel="canonical" href="https://doc.robinsuter.ch/Vss/11_Distributed_Hash_Tables/">
@@ -1740,6 +1740,18 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../playground/" title="Playground" class="md-nav__link">
+      Playground
+    </a>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -1945,11 +1957,11 @@
 </ul>
 <h3 id="stabilization">Stabilization</h3>
 <ul>
-<li>Update node p's successor: If the predecessor of it's current successor is between p and p.successor, this is the new successor of p<ul>
+<li>Update node p's successor: If the predecessor of it's current successor is between <code>p</code> and <code>p.successor</code>, this is the new successor of <code>p</code><ul>
 <li>Repeat this procedure while condition is true</li>
 </ul>
 </li>
-<li>Update predecessor: Each node o notifies p of its existence. if o is between p and p.predecessor, o is the actual new predecessor</li>
+<li>Update predecessor: Each node <code>o</code> notifies <code>p</code> of its existence. if <code>o</code> is between <code>p</code> and <code>p.predecessor</code>, <code>o</code> is the actual new predecessor</li>
 <li>update finger table: take a random entry in the finger table, and update its value (= <script type="math/tex">succ(n+2^{i-1})</script>
 <ul>
 <li>can't be calculated directly, because <code>succ()</code> is a global function</li>
