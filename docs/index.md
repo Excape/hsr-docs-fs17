@@ -3,7 +3,6 @@
 ## Spring Semester '17
 
 * [Datenbanksysteme 2](Dbs2/0_Index)
-* [Engineering-Projekt](EPJ/0_Index)
 * [Informationssicherheit 3](InfSi3/0_Index)
 * [Wirtschaftsinformatik 1 - IT im Business](ITBus/0_Index)
 * [Parallele Programmierung](ParProg/0_Index)
@@ -11,6 +10,9 @@
 * [Software-Engineering 2](SE2/0_Index)
 * [Verteilte SW-Systeme](Vss/0_Index)
 * [Volkswirtschaft](Vwl/0_Index)
+
+
+* [Engineering-Projekt](https://gitlab.com/engineering-projekt/examibur)
 
 ## Links
 

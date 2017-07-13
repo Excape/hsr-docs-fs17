@@ -4,7 +4,7 @@
 - Ausgangslage: Land A ist effizienter in der Produktion gleicher Güter
 - Trotzdem lohnt es sich, gegenseitig Handel zu treiben
 - Wenn Insel A auf Insel B Bananen produzieren, bekommt sie 4 Bananen (=Opportunitätskosten Insel B), aber hat nur "Kosten" von 3.3 Bananen
-- Es kommt auf das Verhältnis an: \(\frac{3.3}{0.3} \notequals \frac{4}{0.25}\)
+- Es kommt auf das Verhältnis an: \(\frac{3.3}{0.3} \ne \frac{4}{0.25}\)
 
 - Wenn Weltmarktpreis höher ist als Inlandpreis:
     - Es wird nun mehr produziert als angefragt

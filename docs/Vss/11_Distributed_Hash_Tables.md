@@ -38,7 +38,7 @@
 - Update node p's successor: If the predecessor of it's current successor is between p and p.successor, this is the new successor of p
     - Repeat this procedure while condition is true
 - Update predecessor: Each node o notifies p of its existence. if o is between p and p.predecessor, o is the actual new predecessor
-- update finger table: take a random entry in the finger table, and update its value (= \(succ(n+2^{i-1}\)
+- update finger table: take a random entry in the finger table, and update its value (= \(succ(n+2^{i-1})\)
     - can't be calculated directly, because `succ()` is a global function
     - done with lookup: `successor.lookup(n + 2^(i-1), p)`
 
@@ -53,7 +53,7 @@
 - Store resources on multiple nodes (uniformly distributed)
 - uniform distribution is easy, because hash functions are random
 
-## Examples
+#### Examples
 - memcached: Cache frequently used database queries
 - DynamoDB
 

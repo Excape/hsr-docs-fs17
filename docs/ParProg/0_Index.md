@@ -13,3 +13,4 @@
 12. [Cluster Parallelisierung](12_Cluster_Parallelisierung.md)
 13. [Reactive Programming](13_Reactive_Programming.md)
 14. [Software Transactional Memory](14_Software_Transactional_Memory.md)
+15. [Summary](15_Summary.md)

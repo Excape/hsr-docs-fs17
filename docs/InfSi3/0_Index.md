@@ -15,3 +15,4 @@
 14. [Fraud Detection](14_Fraud_Detection.md)
 15. [Security Testing](15_Security-Testing.md)
 16. [Identity Access Management](16_IAM.md)
+17. [Mass Assignment](17_Mass_Assigment.md)

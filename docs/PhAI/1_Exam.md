@@ -5,6 +5,5 @@
 - Lehrbuch
 - bis 14 A4 Seiten Notizen
 
-## TODO
+## Todo
 - Umrechnungstabellen einheiten (ps, psi, etc.)
-- 
