@@ -32,7 +32,7 @@
         }, 
         {
             "location": "/Dbs2/1_Exam/", 
-            "text": "Exam Notes\n\n\nToDo\n\n\n\n\nStored Procedures schreiben k\u00f6nnen\n\n\nDatenstrukturen abbilden k\u00f6nnen\n\n\n\n\nUmfang\n\n\nFokus\n\n\n\n\nOR-Mapping\n\n\nStored Procedures, Cursors, Triggers\n\n\nInterne Ebene\n\n\nVerteilte DB / Replikation\n\n\n\n\nInhalt\n\n\nJPA\n\n\n\n\nQueries schreiben\n\n\nReferentielle Integrit\u00e4t (selbst programmieren!)\n\n\n\n\nStored Procedures\n\n\n\n\nNachteil: Nicht portabel\n\n\nCursors!\n\n\n\n\nTriggers\n\n\n\n\nRow- vs Statement-Trigger\n\n\nStatement triggert per Statement\n\n\nRow-Trigger triggert per ver\u00e4nderte Row (auch in einem Statement)\n\n\n\n\n\n\nZugriff in SP mit \nOLD\n und \nNEW\n\n\nConcatinate mit \n||\n\n\nRETURN NULL\n bei After-Trigger (Return wird ignoriert)\n\n\n\n\nArrays Graph Trees\n\n\n\n\nArrays in PostgreSQL\n\n\nTrees\n\n\nAdjadenzliste\n\n\nNested Set\n\n\nBeim Absteigen im Baum die linked Indices vergeben, beim Zur\u00fcckgehen die rechten", 
+            "text": "Exam Notes\n\n\nToDo\n\n\n\n\nStored Procedures schreiben k\u00f6nnen\n\n\ninkl. explizite cursor\n\n\n\n\n\n\nDatenstrukturen abbilden k\u00f6nnen\n\n\nMongoDB Queries schreiben k\u00f6nnen\n\n\nI/O Kosten berechnen\n\n\n\n\nUmfang\n\n\nFokus\n\n\n\n\nOR-Mapping\n\n\nStored Procedures, Cursors, Triggers\n\n\nInterne Ebene\n\n\nVerteilte DB / Replikation\n\n\n\n\nInhalt\n\n\nJPA\n\n\n\n\nQueries schreiben\n\n\nReferentielle Integrit\u00e4t (selbst programmieren!)\n\n\n\n\nStored Procedures\n\n\n\n\nNachteil: Nicht portabel\n\n\nCursors!\n\n\n\n\nTriggers\n\n\n\n\nRow- vs Statement-Trigger\n\n\nStatement triggert per Statement\n\n\nRow-Trigger triggert per ver\u00e4nderte Row (auch in einem Statement)\n\n\n\n\n\n\nZugriff in SP mit \nOLD\n und \nNEW\n\n\nConcatinate mit \n||\n\n\nRETURN NULL\n bei After-Trigger (Return wird ignoriert)\n\n\n\n\nArrays Graph Trees\n\n\n\n\nArrays in PostgreSQL\n\n\nTrees\n\n\nAdjadenzliste\n\n\nNested Set\n\n\nBeim Absteigen im Baum die linked Indices vergeben, beim Zur\u00fcckgehen die rechten", 
             "title": "1 Exam Notes"
         }, 
         {
@@ -42,7 +42,7 @@
         }, 
         {
             "location": "/Dbs2/1_Exam/#todo", 
-            "text": "Stored Procedures schreiben k\u00f6nnen  Datenstrukturen abbilden k\u00f6nnen", 
+            "text": "Stored Procedures schreiben k\u00f6nnen  inkl. explizite cursor    Datenstrukturen abbilden k\u00f6nnen  MongoDB Queries schreiben k\u00f6nnen  I/O Kosten berechnen", 
             "title": "ToDo"
         }, 
         {
@@ -2229,6 +2229,131 @@
             "location": "/PhAI/1_Exam/#todo", 
             "text": "Umrechnungstabellen einheiten (ps, psi, etc.)", 
             "title": "Todo"
+        }, 
+        {
+            "location": "/SE2/e-learning/code_smells/", 
+            "text": "Code Smells\n\n\nOddball Solutions\n\n\n\n\nTwo or more working solution for the same problem\n\n\n\"inconsistent solution\"\n\n\nUse the best solution everywhere, even if it's the \"minority\" solution\n\n\n\n\nPrimitive Obsession\n\n\n\n\nPrimitive Obsession exists when code solves a problem\nin a primitive way using low-level instructions\n\n\nPrimitive Principles like \nsubstring() == -1\n\n\nExample: Don't use a StringBuilder to build XML, but a dedicated XML-Builder (higher abstraction!)\n\n\n\n\nSwitch statements\n\n\n\n\nOften it's useful to turn switch-statements (or long \nif... else if...\n) into polymorphic solutions (class-hierarchy)\n\n\nNot useful when the switch \"branches\" contain very little code\n\n\nConsider a map instead of a switch statement\n\n\n\n\nSpeculative Generality\n\n\n\n\nWriting code that isn't actually needed today\n\n\n\"I think we will need the ability to do that someday\"\n\n\n\n\nCombinatorial Explosion\n\n\n\n\nWhen new combinations of data or behavior further bloat an already bloated design, you've got a Combinatorial Explosion smell.\n\n\n\n\nInappropriate Intimacy\n\n\n\n\n\"Sometimes classes become far too intimate and spend too much time delving in each others' private parts.\" - Fowler and Beck\n\n\nWhen internals of a class are exposed, high coupling with clients can be a result\n\n\nUse \"Tell, don't ask\"\n\n\nSimilar to \"Indecent Exposure\", where classes are public that ought not to be\n\n\n\n\nRefused Bequest\n\n\n\n\nOccurs when a subclass doesn't support the interface of it's superclass\n\n\ne.g. overriding a method from the superclass interface and provide a \"do-nothing\" implementation, \"refusing\" what it has inherited\n\n\n\"Bequest\" = \"Erbschaftsgut\"\n\n\n\n\nBlack Sheep\n\n\n\n\nA subclass or a method doesn't fit in well with its family\n\n\nConsider moving it to a more appropriate place\n\n\n\n\nData Class\n\n\n\n\nData Classes that have no own functionality may or may not be code smells\n\n\n\n\nSolution Sprawl\n\n\n\n\nCode or data used to perform the responsibility are sprawled across numerous classes\n\n\nSolution could be to create a factory that handles a certain complex responsibility, instead of the client directly communication with multiple, \"sprawled-out\" classes\n\n\n\n\nFeature Envy\n\n\n\n\n\u201cA classic smell is a method that seems more interested\nin a class other than the one it actually is in.\u201d\n\n\ne.g. a method that relies too much on other objects\n\n\nDelegate these responsibilities to the other class - \"tell, don't ask\"\n\n\n\n\nTemporary Field\n\n\n\n\nAn object's field should have meaning during the full lifetime of the object\n\n\ne.g. a method sets a field (as a side effect), that is later used in another method\n\n\n\n\nSide effect\n\n\n\n\n\"A method with a side effect is like an airplane's exhaust: a possibly harmful pollutant.\"\n\n\nGive methods single responsibilities and avoid side effects that are not obvious to the client", 
+            "title": "Code Smells"
+        }, 
+        {
+            "location": "/SE2/e-learning/code_smells/#code-smells", 
+            "text": "", 
+            "title": "Code Smells"
+        }, 
+        {
+            "location": "/SE2/e-learning/code_smells/#oddball-solutions", 
+            "text": "Two or more working solution for the same problem  \"inconsistent solution\"  Use the best solution everywhere, even if it's the \"minority\" solution", 
+            "title": "Oddball Solutions"
+        }, 
+        {
+            "location": "/SE2/e-learning/code_smells/#primitive-obsession", 
+            "text": "Primitive Obsession exists when code solves a problem\nin a primitive way using low-level instructions  Primitive Principles like  substring() == -1  Example: Don't use a StringBuilder to build XML, but a dedicated XML-Builder (higher abstraction!)", 
+            "title": "Primitive Obsession"
+        }, 
+        {
+            "location": "/SE2/e-learning/code_smells/#switch-statements", 
+            "text": "Often it's useful to turn switch-statements (or long  if... else if... ) into polymorphic solutions (class-hierarchy)  Not useful when the switch \"branches\" contain very little code  Consider a map instead of a switch statement", 
+            "title": "Switch statements"
+        }, 
+        {
+            "location": "/SE2/e-learning/code_smells/#speculative-generality", 
+            "text": "Writing code that isn't actually needed today  \"I think we will need the ability to do that someday\"", 
+            "title": "Speculative Generality"
+        }, 
+        {
+            "location": "/SE2/e-learning/code_smells/#combinatorial-explosion", 
+            "text": "When new combinations of data or behavior further bloat an already bloated design, you've got a Combinatorial Explosion smell.", 
+            "title": "Combinatorial Explosion"
+        }, 
+        {
+            "location": "/SE2/e-learning/code_smells/#inappropriate-intimacy", 
+            "text": "\"Sometimes classes become far too intimate and spend too much time delving in each others' private parts.\" - Fowler and Beck  When internals of a class are exposed, high coupling with clients can be a result  Use \"Tell, don't ask\"  Similar to \"Indecent Exposure\", where classes are public that ought not to be", 
+            "title": "Inappropriate Intimacy"
+        }, 
+        {
+            "location": "/SE2/e-learning/code_smells/#refused-bequest", 
+            "text": "Occurs when a subclass doesn't support the interface of it's superclass  e.g. overriding a method from the superclass interface and provide a \"do-nothing\" implementation, \"refusing\" what it has inherited  \"Bequest\" = \"Erbschaftsgut\"", 
+            "title": "Refused Bequest"
+        }, 
+        {
+            "location": "/SE2/e-learning/code_smells/#black-sheep", 
+            "text": "A subclass or a method doesn't fit in well with its family  Consider moving it to a more appropriate place", 
+            "title": "Black Sheep"
+        }, 
+        {
+            "location": "/SE2/e-learning/code_smells/#data-class", 
+            "text": "Data Classes that have no own functionality may or may not be code smells", 
+            "title": "Data Class"
+        }, 
+        {
+            "location": "/SE2/e-learning/code_smells/#solution-sprawl", 
+            "text": "Code or data used to perform the responsibility are sprawled across numerous classes  Solution could be to create a factory that handles a certain complex responsibility, instead of the client directly communication with multiple, \"sprawled-out\" classes", 
+            "title": "Solution Sprawl"
+        }, 
+        {
+            "location": "/SE2/e-learning/code_smells/#feature-envy", 
+            "text": "\u201cA classic smell is a method that seems more interested\nin a class other than the one it actually is in.\u201d  e.g. a method that relies too much on other objects  Delegate these responsibilities to the other class - \"tell, don't ask\"", 
+            "title": "Feature Envy"
+        }, 
+        {
+            "location": "/SE2/e-learning/code_smells/#temporary-field", 
+            "text": "An object's field should have meaning during the full lifetime of the object  e.g. a method sets a field (as a side effect), that is later used in another method", 
+            "title": "Temporary Field"
+        }, 
+        {
+            "location": "/SE2/e-learning/code_smells/#side-effect", 
+            "text": "\"A method with a side effect is like an airplane's exhaust: a possibly harmful pollutant.\"  Give methods single responsibilities and avoid side effects that are not obvious to the client", 
+            "title": "Side effect"
+        }, 
+        {
+            "location": "/SE2/e-learning/refactoring/", 
+            "text": "Refactoring", 
+            "title": "Refactoring"
+        }, 
+        {
+            "location": "/SE2/e-learning/refactoring/#refactoring", 
+            "text": "", 
+            "title": "Refactoring"
+        }, 
+        {
+            "location": "/SE2/e-learning/TDD/", 
+            "text": "Test-Driven Development\n\n\nTDD Cycle\n\n\n\n\n\n\nRED\n: Make a failing microtest for the change\n\n\nGREEN\n: Make the change pass the test\n\n\nRefactor\n: Make the design excellent (test and code!)\n\n\nIntegrate\n: Make the test and the change permanent\n\n\nBack to RED!\n\n\n\n\nRED\n\n\n\n\nWrite a microtest that \nfails\n\n\nNew functions and classes can have placeholder code, such that the test still compiles\n\n\n\n\nWriting a test\n\n\n\n\nWrite an \nassert\n statement \n\n\nGenerate all necessary code to make the test compile\n\n\nWrite the dumbest, most simplistic solution (= test passes) first, then break it with a test\n\n\n\n\nGREEN\n\n\n\n\nMake the test pass with simple code\n\n\nRefactor later\n\n\nThe code \nonly\n covers the functionality that the test covers\n\n\nAll \nexisting\n tests must still pass\n\n\n\n\nRefactor\n\n\n\n\nRefactor \ncontinuously\n and \nmercilessly\n\n\nRefactor both \ntest\n and \nproduction\n code\n\n\n\n\nIntegrate\n\n\n\n\nCheck in your code, even small steps!\n\n\nOften avoids merge conflicts", 
+            "title": "TDD"
+        }, 
+        {
+            "location": "/SE2/e-learning/TDD/#test-driven-development", 
+            "text": "", 
+            "title": "Test-Driven Development"
+        }, 
+        {
+            "location": "/SE2/e-learning/TDD/#tdd-cycle", 
+            "text": "RED : Make a failing microtest for the change  GREEN : Make the change pass the test  Refactor : Make the design excellent (test and code!)  Integrate : Make the test and the change permanent  Back to RED!", 
+            "title": "TDD Cycle"
+        }, 
+        {
+            "location": "/SE2/e-learning/TDD/#red", 
+            "text": "Write a microtest that  fails  New functions and classes can have placeholder code, such that the test still compiles", 
+            "title": "RED"
+        }, 
+        {
+            "location": "/SE2/e-learning/TDD/#writing-a-test", 
+            "text": "Write an  assert  statement   Generate all necessary code to make the test compile  Write the dumbest, most simplistic solution (= test passes) first, then break it with a test", 
+            "title": "Writing a test"
+        }, 
+        {
+            "location": "/SE2/e-learning/TDD/#green", 
+            "text": "Make the test pass with simple code  Refactor later  The code  only  covers the functionality that the test covers  All  existing  tests must still pass", 
+            "title": "GREEN"
+        }, 
+        {
+            "location": "/SE2/e-learning/TDD/#refactor", 
+            "text": "Refactor  continuously  and  mercilessly  Refactor both  test  and  production  code", 
+            "title": "Refactor"
+        }, 
+        {
+            "location": "/SE2/e-learning/TDD/#integrate", 
+            "text": "Check in your code, even small steps!  Often avoids merge conflicts", 
+            "title": "Integrate"
         }, 
         {
             "location": "/SE2/0_Index/", 
