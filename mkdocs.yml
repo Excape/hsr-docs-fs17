@@ -69,6 +69,10 @@ pages:
         - 0 Index: 'PhAI/0_Index.md'
         - 1 Exam: 'PhAI/1_Exam.md'
     - SE2:
+        - E-Learning:
+            - Code Smells: 'SE2/e-learning/code_smells.md'
+            - Refactoring: 'SE2/e-learning/refactoring.md'
+            - TDD: 'SE2/e-learning/TDD.md'
         - 0 Index: 'SE2/0_Index.md'
         - 1 Exam Notes: 'SE2/1_Exam.md'
         - 2 Project Automation: 'SE2/2_Project_Automation.md'

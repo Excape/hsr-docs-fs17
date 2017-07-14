@@ -2,8 +2,10 @@
 
 ## ToDo
 - Stored Procedures schreiben können
+    - inkl. explizite cursor
 - Datenstrukturen abbilden können
-
+- MongoDB Queries schreiben können
+- I/O Kosten berechnen
 ## Umfang
 ### Fokus
 - OR-Mapping
