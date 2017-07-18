@@ -116,14 +116,27 @@ Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 Punkte MFA = 120 P
     - Otherwise, if my successor is responsible (\(p \lt k \le \text{p.successor}\)), forward the request to them
     - Otherwise, forward the request to the *nearest predecessor* node in my finger table, such that \(\text{finger[i]} \le k\)
 
+## Joining
+- New node \(n\) looks up its succesor (=\(s\)) and joins the ring
+- Predecessor of \(s\) needs to update its successor to \(n\) (via stabilization)
+- All resources at \(s\) with keys \(k\) such that \(succ(k) = n\) are moved to \(n\)
+
+## Leaving (planned)
+- All resources from the leaving node \(n\) are sent to `n.successor`
+- The predecessor of \(n\) is advised to change its successor to `n.successor`
+
 ### Stabilization
 - Update node p's successor: If the predecessor of it's current successor is between `p` and `p.successor`, this is the new successor of `p`
     - Repeat this procedure while condition is true
 - Update predecessor: Each node `o` notifies `p` of its existence. if `o` is between `p` and `p.predecessor`, `o` is the actual new predecessor
 - update finger table: take a random entry in the finger table, and update its value (= \(succ(n+2^{i-1})\))
 
-!!! note "ToDo"
-    Leaving / Joining Node, Fault Tolerance
+
+## Fault Tolerance
+- when a node fails, all data would be lost and the ring broken
+- solution: 
+    - Replicate files (uniformly distribute on the ring)
+    - Keep track of first `n` successors to keep the ring intact
 
 ## Logical Clocks
 
