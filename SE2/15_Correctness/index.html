@@ -1271,13 +1271,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#diese-aussage-ist-selbst-ein-boolean-predicate-kann-wahr-oder-falsch-sein" title="Diese Aussage ist selbst ein "boolean" (Predicate): Kann wahr oder falsch sein" class="md-nav__link">
-    Diese Aussage ist selbst ein "boolean" (Predicate): Kann wahr oder falsch sein
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#inference-rules" title="Inference Rules" class="md-nav__link">
     Inference Rules
   </a>
@@ -1787,13 +1780,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#diese-aussage-ist-selbst-ein-boolean-predicate-kann-wahr-oder-falsch-sein" title="Diese Aussage ist selbst ein "boolean" (Predicate): Kann wahr oder falsch sein" class="md-nav__link">
-    Diese Aussage ist selbst ein "boolean" (Predicate): Kann wahr oder falsch sein
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#inference-rules" title="Inference Rules" class="md-nav__link">
     Inference Rules
   </a>
@@ -1874,9 +1860,7 @@
 <li>
 <script type="math/tex">P</script> ist Precondition, <script type="math/tex">C</script> Programm / Command, <script type="math/tex">Q</script> ist Postcondition</li>
 <li>Correctness-Aussage: Wenn <script type="math/tex">P</script> erfüllt ist, wird durch <script type="math/tex">C</script> die Postcondition <script type="math/tex">Q</script> erfüllt</li>
-<li>
-<h2 id="diese-aussage-ist-selbst-ein-boolean-predicate-kann-wahr-oder-falsch-sein">Diese Aussage ist selbst ein "boolean" (Predicate): Kann wahr oder falsch sein</h2>
-</li>
+<li>Diese Aussage ist selbst ein "boolean" (Predicate): Kann wahr oder falsch sein</li>
 </ul>
 <h2 id="inference-rules">Inference Rules</h2>
 <ul>
@@ -1894,30 +1878,45 @@
 <ul>
 <li>Wieder von unten nach oben, aber Verzweigung beachten</li>
 <li>Vorbedingung über ganzes <code>if</code>: Entweder ist es true, dann hat man eine Vorbedingung, oder es ist falsch, dann die andere Vorbedingung</li>
-<li>Mit If-Bedingung P: <script type="math/tex">(P => \text{Vorb. true}) \and (\not P => \text{Vorb. else})</script>
+<li>Mit If-Bedingung P: <script type="math/tex">(P => \text{Vorb. true}) \land (\lnot P => \text{Vorb. else})</script>
 </li>
 </ul>
+<p><img alt="" src="../img/correctness_if_proof.png" /></p>
 <h3 id="while">While</h3>
 <ul>
 <li>Keine 100%-ige Lösung (Turing-Completeness - nicht entscheidbar)</li>
 <li>Loop-Invariant: Eigenschaft, die sowohl zu Beginn als auch zum Ende des Loops wahr sein muss (nicht veränderbar)</li>
 <li>Schwierigkeit: Loop Invariant finden</li>
 <li>Vorgehen<ul>
-<li>Loop Invariant I annehmen</li>
-<li>Vorbedingung des Loop-Bodies ist <script type="math/tex">I \and P</script> mit <script type="math/tex">P</script> = Loop-Condition</li>
-<li>Mit I das Hoar-Triple im <code>while</code> beweisen (mit P=I und Q=I)</li>
+<li>Loop Invariant <script type="math/tex">I</script> annehmen</li>
+<li>Vorbedingung des Loop-Bodies ist <script type="math/tex">I \land P</script> mit <script type="math/tex">P</script> = Loop-Condition</li>
+<li>Mit <script type="math/tex">I</script> das Hoar-Triple im <code>while</code> beweisen (mit <script type="math/tex">P = I</script> und <script type="math/tex">Q=I</script>)</li>
 <li>Wenn dieser Beweis geht, ist die Invariante korrekt</li>
 <li>I als Vor- und Nachbedingung des Loops nehmen<ul>
-<li>Nachbedingung erfüllt Loop-Condition <em>nicht</em> (AND verknüpfen)</li>
+<li>Nachbedingung erfüllt Loop-Condition <em>nicht</em> (AND verknüpfen): <script type="math/tex">I \land \lnot B</script>
+</li>
 <li>while-loop ist jetzt "subroutine", die bewiesen ist</li>
 </ul>
 </li>
 <li>nachbedingung =&gt; Q beweisen</li>
 <li>Vorbedingungen vor der Schleife wie gewöhnlich nach oben beweisen</li>
+<li>Verification Conditions<ul>
+<li>
+<script type="math/tex">P \Rightarrow \text{result pre-while}</script>
+</li>
+<li>
+<script type="math/tex">I \land B \Rightarrow \text{result while-body}</script>
+</li>
+<li>
+<script type="math/tex">I \land \lnot B \Rightarrow Q</script>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>Loop Invariant <strong>für Prüfung vorgegeben!</strong></li>
 </ul>
+<p><img alt="" src="../img/correctness_while_proof.png" /></p>
 <h2 id="dafny">Dafny</h2>
 <ul>
 <li>Neben formaler Korrektheit wie hier besprochen wird auch Terminierung überprüft<ul>
