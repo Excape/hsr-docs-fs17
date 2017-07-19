@@ -133,8 +133,8 @@ markdown_extensions:
 
 extra:
     palette:
-        primary: 'red'
-        accent: 'amber'
+        primary: 'amber'
+        accent: 'orange'
     font:
         text: 'Roboto'
         code: 'Roboto Mono'
