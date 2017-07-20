@@ -53,7 +53,7 @@
   
   
   
-    <body data-md-color-primary="amber" data-md-color-accent="orange">
+    <body data-md-color-primary="teal" data-md-color-accent="orange">
   
     <svg class="md-svg">
       <defs>
@@ -960,6 +960,19 @@
   <a href="#net" title=".NET" class="md-nav__link">
     .NET
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#volatile-read-write" title="Volatile Read / Write" class="md-nav__link">
+    Volatile Read / Write
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1907,6 +1920,19 @@
     .NET
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#volatile-read-write" title="Volatile Read / Write" class="md-nav__link">
+    Volatile Read / Write
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -1935,7 +1961,7 @@
 <h2 id="ziel">Ziel</h2>
 <ul>
 <li>Korrekte nebenläufige Interaktion</li>
-<li>Garantien ds Speichermodell nutzen</li>
+<li>Garantien des Speichermodell nutzen</li>
 <li>Effiziente Synchronisation, skalierbar</li>
 </ul>
 <h2 id="probleme">Probleme</h2>
@@ -2003,9 +2029,12 @@
 <li>Concurrent Lockfreie Datenstrukturen sind meistens so implementiert</li>
 </ul>
 <h2 id="net">.NET</h2>
-<blockquote>
-<p>TODO</p>
-</blockquote>
+<h3 id="volatile-read-write">Volatile Read / Write</h3>
+<ul>
+<li>Volatile Read: Bleibt garantiert <strong>vor</strong> den nachfolgenden Zugriffen</li>
+<li>Volatile Write: Bleibt garantiert <strong>nach</strong> den vorherigen Zugriffen</li>
+<li><code>Thread.MemoryBarrier()</code> verhindert umordnung</li>
+</ul>
                 
                   
                 
