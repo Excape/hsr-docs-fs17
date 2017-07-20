@@ -34,8 +34,7 @@
     - **Preemptive**: Scheduler unterbricht den Thread *asynchron* in gewissen Zeitintervallen
     - Heute in der Regel immer *preemptive*!
 
-!!! note
-    Todo: Bild Folie 30
+![](img/thread_states.png)
     
 ## Grundlagen Java Threads
 - JVM ist ein Single Process System

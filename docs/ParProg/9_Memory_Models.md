@@ -5,7 +5,7 @@
 
 ## Ziel
 - Korrekte nebenläufige Interaktion
-- Garantien ds Speichermodell nutzen
+- Garantien des Speichermodell nutzen
 - Effiziente Synchronisation, skalierbar
 
 ## Probleme
@@ -58,4 +58,7 @@
 - Concurrent Lockfreie Datenstrukturen sind meistens so implementiert
 
 ## .NET
-> TODO
+### Volatile Read / Write
+- Volatile Read: Bleibt garantiert **vor** den nachfolgenden Zugriffen
+- Volatile Write: Bleibt garantiert **nach** den vorherigen Zugriffen
+- `Thread.MemoryBarrier()` verhindert umordnung

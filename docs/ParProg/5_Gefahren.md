@@ -12,7 +12,7 @@
 ### Data Race
 - Mehrere Threads greifen auf selben Speicher (Var, Array, ...) zu
 - Mindestens ein Write-Zugriff von einem Thread ist involviert
-- Ist ein formaler Fehler: Einfacher zu erkennen als generelle Race Condition
+- Ist ein formaler Fehler: Einfacher zu erkennen als generelle Race Condition (z.B. nicht-atomare Operationen)
 
 ## Synchronisation
 ### Verzichtbare Fälle
@@ -55,6 +55,7 @@ new Thread(() -> {
 ## Deadlocks
 > Gegenseitiges Aussperren von Threads
 - Einige Threads sperren sich gegenseitig so, dass keiner von denen weitermachen kann
+- Vorsicht vor impliziten nested Locks! Wenn z.B. eine synchronisierte Methode eine andere synchronisierte Methode aufruft
 - Programm mit potentiellem Deadlock ist inkorrekt
 - *Livelocks*: Deadlocks, die ständig eine Bedingung prüfen, also weiterhin CPU verbrauchen
 

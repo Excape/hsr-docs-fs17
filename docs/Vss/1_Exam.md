@@ -51,7 +51,7 @@ Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 Punkte MFA = 120 P
 - *Command Message Pattern*: Message, die dem Receiver mitteilt, etwas auszuführen
 - *Document Message Pattern*: Reine Daten-Übertragung
  
-## Public-Subscribe Pattern
+### Publish-Subscribe Pattern
 - Der Publisher (Sender) schickt die Messages an einen *Publish-Subscribe-Channel*
 - Der Channel schickt eine Kopie der Message an einen Output Channel
 - Jeder Output-Channel hat genau 1 Subscriber

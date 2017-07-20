@@ -34,7 +34,7 @@ button.addActionListener(event -> {
 ```
 - Besser Thread Pool statt `Thread.start()` benutzen
 
-## .NET UI-Thread MOdell
+## .NET UI-Thread Modell
 - Gleich wie in Java Single-UI-Thread
 - Der Thread, der das Window startet, wird zum UI-Thread
 ```csharp
