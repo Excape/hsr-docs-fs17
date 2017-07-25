@@ -19,7 +19,7 @@
 ```cs
 using (new MPI.Environment(ref args)) {
     int rank = Communicator.world.Rank;
-    Console.WriteLine("MPI process {0} ", rank);
+    Console.WriteLine("MPI process {0}", rank);
 }
 ```
 - Ausführung mit `mpiexec -n <nof processes> <executable>`

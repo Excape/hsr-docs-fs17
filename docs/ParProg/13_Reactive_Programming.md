@@ -17,6 +17,7 @@ from entry in
     Union(salesAsia.AsParallel()).
     Union(salesAmerica.AsParallel())
 // group ... select ...
+;
 ```
 - Evaluation ersten bei Iteration
 - Vorraussetzung: Daten müssen vollständig vorliegen (passiv)

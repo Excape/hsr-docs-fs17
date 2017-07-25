@@ -1,14 +1,4 @@
 # Summary
-## TODO
-- Java Synchronisationsprimitiven
-    - Lock & Condition
-    - Count Down Latch
-    - Cyclic Barrier / Phaser / Exchanger
-- Unterschied TPL / Java Thread Pool
-- Syntax MPI
-- CUDA Code-Struktur
-- Korrektheit (Wann Data Race, Starvation, etc.)
-- Vergleich STM / Reactive / Actor
 
 ## Java Monitor
 ```java
@@ -201,7 +191,7 @@ int result = await task;
 - `async`-Methode muss `await` enthalten (gibt Kette)
 - Bis zu `await` wird alles synchron, nacher asynchron (beliebiger Thread, ausser wenn Aufrufer UI-Thread ist)
 
-![](img/async_await_gui.png)
+<img src="img/async_await_gui.png" style="max-width: 60%" />
 
 ## Memory Models
 - Optimizer kann Code-Ablauf nicht-deterministisch ändern, wenn zwei Statements unabhängig voneinander sind ("Weak Consistency")
@@ -237,3 +227,75 @@ for (int i = 0; i < 100; i++) {
 }
 system.shutdown();
 ```
+
+## CUDA
+```c
+void CudaVectorAdd(float* A, float* B, float* C, int N) {
+    size_t size = N * sizeof(float);
+    float *d_A, *d_B, *d_C;
+    
+    cudaMalloc(&d_A, size);
+    cudaMalloc(&d_B, size);
+    cudaMalloc(&d_C, size);
+    
+    cudaMemcpy(d_A, A, size, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_B, B, size, cudaMemcpyHostToDevice);
+    
+    int blockSize = 512; // multiple of 32!
+    int gridSize = (N + blockSize - 1) / blockSize;
+    VectorAddKernel<<<gridSize, blockSize>>>(d_A, d_B, d_C, N);
+    
+    cudaMemcpy(C, d_C, size, cudaMemcpyDeviceToHost);
+    cudaFree(d_A); cudaFree(d_B); cudaFree(d_C);
+}
+```
+
+- `__syncthreads()` dient als Barriere, aber **nur innerhalb eines Blocks!**
+
+<img src="img/cuda_3d_grid.png" style="max-width: 60%" />
+
+- Ein Block wird intern zu Warps (zu je 32 Threads) zerlegt
+- Alle Threads in einem Warp führen gleiche Instruktionen aus (SIMD)
+- Ein Block läuft immer auf einem Streaming Prozessor
+- Falls ein Warp auf Speicher wartet, führt Streaming Multiprocessor einen anderen Warp aus
+- **Coalescing**: Memory-Zugriffe werden in Memory-Bursts ausgeführt. Daher immer möglichst Speicher am gleichen Ort zusammen abrufen
+
+## Cluster Parallelisierung
+- Starten: `mpiexec -n <nOfNodes> program`
+- Alle Prozesse starten und terminieren synchron
+- Prozesse können mit `Communicator` messages senden und empfangen mit einer Nummer als "tag"
+- `Send()` und `Receive()` sind blocking!
+- `Allreduce()` ist eine Barriere und gibt jedem Prozess das Gesamtergebnis zurück
+- `Reduce()`: Nur ein Prozess sieht das Gesamtresultat (per Parameter angegeben)
+
+## Reactive Programming
+<img src="img/react_stream.png" style="max-width: 60%" />
+
+- Im Gegensatz zu "normalem" (P)LINQ (Pull) sind die Datenquellen aktiv und "Pushen" die Daten durch die Pipeline
+- Jedes Subject (ausser Anfang und Ende) ist *Observer* des Vorgängers und *Observable* des Nachfolgers
+
+<img src="img/react_buffers.png" style="max-width: 60%" />
+
+- Parallel ausführen:
+```csharp
+collection.ToObservable().ObserveOn(TaskPoolScheduler.Default);
+```
+- Für GUI-Thread `DispatcherScheduler.Current` verwenden
+
+- *Hot* Observables: Notifizieren spontan auch ohne Observers, z.B. `Timer`, `Intervall`
+- *Cold* Observables: Notifizieren on request und erst bei Anmeldung des Observers, z.B. `Range`, `Generate`
+
+!!! warning
+    Vorsicht bei Seiteneffekten und Warteabhängigkeiten in Observer (Race Conditions / Deadlocks)!
+
+## Software Transactional Memory
+- Unterschied zu Monitor Lock
+    - Deskriptiv - es wird nur beschrieben, was atomar ist
+    - Keine Deadlocks, keine Race-Conditions (Starvation noch möglich!)
+- Transaktionen können verschachtelt werden ohne Deadlock-Gefahr (Commit erst bei Top-Level-Transaktion)
+- Optimistic Concurrency: Transaktion wird bei Konflikten (oder Exceptions) abgebrochen
+- Wird Hardwareseitig von Intel unterstützt
+- Wenn gewartet werden muss, `STM.retry()` aufrufen
+- Generell wird kein IO unterstützt
+- *Write Skew*: Anhand des Anfangsstatus werden Entscheidungen getroffen, während ein anderer Thread dies ändert (Isolationsfehler)
+    - in Scala STM korrekt gelöst, in anderen Systemen mit einfacher *Snapshot-Isolation* aber nicht!

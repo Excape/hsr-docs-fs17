@@ -1,4 +1,4 @@
-# GPU Parallelisierung
+    # GPU Parallelisierung
 
 ## Vorteile Actor Model
 - Kein Shared Memory
@@ -49,8 +49,8 @@ void VectorAddKernel(float *A, float *B, float *C) {
 - Thread-Blöcke müssen unabhängig sein
 - Blöcke werden mit Thread-Pool auf die verschiedenen Streaming-Prozessoren verteilt
     - Ein Block ist quasi ein "Task"
-- Ein Grid ist eine Gruppe von Block, meist ein Programm
-- Aufteilung in Blocks und Threads wird vom Programmiere modelliert
+- Ein Grid ist eine Gruppe von Blocks, meist ein Programm
+- Aufteilung in Blocks und Threads wird vom Programmierer modelliert
     - z.B. globalen Index ermittel mit `i = threadIdx.x + blockDim.x * blockIdx.x`
     - Im Aufruf des Kernels angeben, wie es ausgeführt werden soll. `<<<4, 512>>>>` heisst 4 Blöcke zu je 512 Threads
 
@@ -92,4 +92,4 @@ void VectorAddKernel(float *A, float *B, float *C) {
 - Zugriff auf aufeinanderfolgende Daten im Memory werden in einer Transaktion ausgeführt (Memory Burst)
 - Ein Memory Burst kann auch von mehreren Threads benutzt werden
 - Anwendung: Zugriffe möglichst im Speicher nacheinander ausführen (achten bei Matrix-Multiplikation: Nach Zeilen oder Spalten berechnen)
-    - Als Offset möglichst den Thread-Index verwenden-
+    - Als Offset möglichst den Thread-Index verwenden
