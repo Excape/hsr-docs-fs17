@@ -870,8 +870,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="toc">
         11 GPU Parallelisierung
@@ -884,8 +882,6 @@
       
 <nav class="md-nav md-nav--secondary">
   
-  
-    
   
   
     <label class="md-nav__title" for="toc">Table of contents</label>
@@ -1820,8 +1816,6 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -1952,7 +1946,12 @@
                   <a href="https://github.com/Excape/hsr-docs-fs17/edit/master/docs/ParProg/11_GPU_Parallelisierung.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <h1 id="gpu-parallelisierung">GPU Parallelisierung</h1>
+                  <h1>11 GPU Parallelisierung</h1>
+                
+                <div class="codehilite"><pre><span></span># GPU Parallelisierung
+</pre></div>
+
+
 <h2 id="vorteile-actor-model">Vorteile Actor Model</h2>
 <ul>
 <li>Kein Shared Memory</li>
@@ -2020,8 +2019,8 @@
 <li>Ein Block ist quasi ein "Task"</li>
 </ul>
 </li>
-<li>Ein Grid ist eine Gruppe von Block, meist ein Programm</li>
-<li>Aufteilung in Blocks und Threads wird vom Programmiere modelliert<ul>
+<li>Ein Grid ist eine Gruppe von Blocks, meist ein Programm</li>
+<li>Aufteilung in Blocks und Threads wird vom Programmierer modelliert<ul>
 <li>z.B. globalen Index ermittel mit <code>i = threadIdx.x + blockDim.x * blockIdx.x</code></li>
 <li>Im Aufruf des Kernels angeben, wie es ausgeführt werden soll. <code>&lt;&lt;&lt;4, 512&gt;&gt;&gt;&gt;</code> heisst 4 Blöcke zu je 512 Threads</li>
 </ul>
@@ -2078,7 +2077,7 @@
 <li>Zugriff auf aufeinanderfolgende Daten im Memory werden in einer Transaktion ausgeführt (Memory Burst)</li>
 <li>Ein Memory Burst kann auch von mehreren Threads benutzt werden</li>
 <li>Anwendung: Zugriffe möglichst im Speicher nacheinander ausführen (achten bei Matrix-Multiplikation: Nach Zeilen oder Spalten berechnen)<ul>
-<li>Als Offset möglichst den Thread-Index verwenden-</li>
+<li>Als Offset möglichst den Thread-Index verwenden</li>
 </ul>
 </li>
 </ul>

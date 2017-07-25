@@ -940,13 +940,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#todo" title="TODO" class="md-nav__link">
-    TODO
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#java-monitor" title="Java Monitor" class="md-nav__link">
     Java Monitor
   </a>
@@ -1117,6 +1110,34 @@
         <li class="md-nav__item">
   <a href="#actor-model" title="Actor Model" class="md-nav__link">
     Actor Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cuda" title="CUDA" class="md-nav__link">
+    CUDA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cluster-parallelisierung" title="Cluster Parallelisierung" class="md-nav__link">
+    Cluster Parallelisierung
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reactive-programming" title="Reactive Programming" class="md-nav__link">
+    Reactive Programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-transactional-memory" title="Software Transactional Memory" class="md-nav__link">
+    Software Transactional Memory
   </a>
   
 </li>
@@ -1900,13 +1921,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#todo" title="TODO" class="md-nav__link">
-    TODO
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#java-monitor" title="Java Monitor" class="md-nav__link">
     Java Monitor
   </a>
@@ -2081,6 +2095,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#cuda" title="CUDA" class="md-nav__link">
+    CUDA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cluster-parallelisierung" title="Cluster Parallelisierung" class="md-nav__link">
+    Cluster Parallelisierung
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reactive-programming" title="Reactive Programming" class="md-nav__link">
+    Reactive Programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-transactional-memory" title="Software Transactional Memory" class="md-nav__link">
+    Software Transactional Memory
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -2099,20 +2141,6 @@
                 
                 
                 <h1 id="summary">Summary</h1>
-<h2 id="todo">TODO</h2>
-<ul>
-<li>Java Synchronisationsprimitiven<ul>
-<li>Lock &amp; Condition</li>
-<li>Count Down Latch</li>
-<li>Cyclic Barrier / Phaser / Exchanger</li>
-</ul>
-</li>
-<li>Unterschied TPL / Java Thread Pool</li>
-<li>Syntax MPI</li>
-<li>CUDA Code-Struktur</li>
-<li>Korrektheit (Wann Data Race, Starvation, etc.)</li>
-<li>Vergleich STM / Reactive / Actor</li>
-</ul>
 <h2 id="java-monitor">Java Monitor</h2>
 <div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">withdraw</span><span class="o">(</span><span class="kt">int</span> <span class="n">amount</span><span class="o">)</span>
     <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
@@ -2317,7 +2345,7 @@
 <li><code>async</code>-Methode muss <code>await</code> enthalten (gibt Kette)</li>
 <li>Bis zu <code>await</code> wird alles synchron, nacher asynchron (beliebiger Thread, ausser wenn Aufrufer UI-Thread ist)</li>
 </ul>
-<p><img alt="" src="../img/async_await_gui.png" /></p>
+<p><img src="img/async_await_gui.png" style="max-width: 60%" /></p>
 <h2 id="memory-models">Memory Models</h2>
 <ul>
 <li>Optimizer kann Code-Ablauf nicht-deterministisch ändern, wenn zwei Statements unabhängig voneinander sind ("Weak Consistency")</li>
@@ -2358,6 +2386,94 @@
 <span class="o">}</span>
 <span class="n">system</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
 </pre></div>
+
+
+<h2 id="cuda">CUDA</h2>
+<div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">CudaVectorAdd</span><span class="p">(</span><span class="kt">float</span><span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">B</span><span class="p">,</span> <span class="kt">float</span><span class="o">*</span> <span class="n">C</span><span class="p">,</span> <span class="kt">int</span> <span class="n">N</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">size_t</span> <span class="n">size</span> <span class="o">=</span> <span class="n">N</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">);</span>
+    <span class="kt">float</span> <span class="o">*</span><span class="n">d_A</span><span class="p">,</span> <span class="o">*</span><span class="n">d_B</span><span class="p">,</span> <span class="o">*</span><span class="n">d_C</span><span class="p">;</span>
+
+    <span class="n">cudaMalloc</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d_A</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+    <span class="n">cudaMalloc</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d_B</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+    <span class="n">cudaMalloc</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d_C</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+
+    <span class="n">cudaMemcpy</span><span class="p">(</span><span class="n">d_A</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">cudaMemcpyHostToDevice</span><span class="p">);</span>
+    <span class="n">cudaMemcpy</span><span class="p">(</span><span class="n">d_B</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">cudaMemcpyHostToDevice</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">blockSize</span> <span class="o">=</span> <span class="mi">512</span><span class="p">;</span> <span class="c1">// multiple of 32!</span>
+    <span class="kt">int</span> <span class="n">gridSize</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="n">blockSize</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">blockSize</span><span class="p">;</span>
+    <span class="n">VectorAddKernel</span><span class="o">&lt;&lt;&lt;</span><span class="n">gridSize</span><span class="p">,</span> <span class="n">blockSize</span><span class="o">&gt;&gt;&gt;</span><span class="p">(</span><span class="n">d_A</span><span class="p">,</span> <span class="n">d_B</span><span class="p">,</span> <span class="n">d_C</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span>
+
+    <span class="n">cudaMemcpy</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">d_C</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">cudaMemcpyDeviceToHost</span><span class="p">);</span>
+    <span class="n">cudaFree</span><span class="p">(</span><span class="n">d_A</span><span class="p">);</span> <span class="n">cudaFree</span><span class="p">(</span><span class="n">d_B</span><span class="p">);</span> <span class="n">cudaFree</span><span class="p">(</span><span class="n">d_C</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li><code>__syncthreads()</code> dient als Barriere, aber <strong>nur innerhalb eines Blocks!</strong></li>
+</ul>
+<p><img src="img/cuda_3d_grid.png" style="max-width: 60%" /></p>
+<ul>
+<li>Ein Block wird intern zu Warps (zu je 32 Threads) zerlegt</li>
+<li>Alle Threads in einem Warp führen gleiche Instruktionen aus (SIMD)</li>
+<li>Ein Block läuft immer auf einem Streaming Prozessor</li>
+<li>Falls ein Warp auf Speicher wartet, führt Streaming Multiprocessor einen anderen Warp aus</li>
+<li><strong>Coalescing</strong>: Memory-Zugriffe werden in Memory-Bursts ausgeführt. Daher immer möglichst Speicher am gleichen Ort zusammen abrufen</li>
+</ul>
+<h2 id="cluster-parallelisierung">Cluster Parallelisierung</h2>
+<ul>
+<li>Starten: <code>mpiexec -n &lt;nOfNodes&gt; program</code></li>
+<li>Alle Prozesse starten und terminieren synchron</li>
+<li>Prozesse können mit <code>Communicator</code> messages senden und empfangen mit einer Nummer als "tag"</li>
+<li><code>Send()</code> und <code>Receive()</code> sind blocking!</li>
+<li><code>Allreduce()</code> ist eine Barriere und gibt jedem Prozess das Gesamtergebnis zurück</li>
+<li><code>Reduce()</code>: Nur ein Prozess sieht das Gesamtresultat (per Parameter angegeben)</li>
+</ul>
+<h2 id="reactive-programming">Reactive Programming</h2>
+<p><img src="img/react_stream.png" style="max-width: 60%" /></p>
+<ul>
+<li>Im Gegensatz zu "normalem" (P)LINQ (Pull) sind die Datenquellen aktiv und "Pushen" die Daten durch die Pipeline</li>
+<li>Jedes Subject (ausser Anfang und Ende) ist <em>Observer</em> des Vorgängers und <em>Observable</em> des Nachfolgers</li>
+</ul>
+<p><img src="img/react_buffers.png" style="max-width: 60%" /></p>
+<ul>
+<li>Parallel ausführen:</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">.</span><span class="n">ToObservable</span><span class="p">().</span><span class="n">ObserveOn</span><span class="p">(</span><span class="n">TaskPoolScheduler</span><span class="p">.</span><span class="n">Default</span><span class="p">);</span>
+</pre></div>
+
+
+<ul>
+<li>
+<p>Für GUI-Thread <code>DispatcherScheduler.Current</code> verwenden</p>
+</li>
+<li>
+<p><em>Hot</em> Observables: Notifizieren spontan auch ohne Observers, z.B. <code>Timer</code>, <code>Intervall</code></p>
+</li>
+<li><em>Cold</em> Observables: Notifizieren on request und erst bei Anmeldung des Observers, z.B. <code>Range</code>, <code>Generate</code></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Vorsicht bei Seiteneffekten und Warteabhängigkeiten in Observer (Race Conditions / Deadlocks)!</p>
+</div>
+<h2 id="software-transactional-memory">Software Transactional Memory</h2>
+<ul>
+<li>Unterschied zu Monitor Lock<ul>
+<li>Deskriptiv - es wird nur beschrieben, was atomar ist</li>
+<li>Keine Deadlocks, keine Race-Conditions (Starvation noch möglich!)</li>
+</ul>
+</li>
+<li>Transaktionen können verschachtelt werden ohne Deadlock-Gefahr (Commit erst bei Top-Level-Transaktion)</li>
+<li>Optimistic Concurrency: Transaktion wird bei Konflikten (oder Exceptions) abgebrochen</li>
+<li>Wird Hardwareseitig von Intel unterstützt</li>
+<li>Wenn gewartet werden muss, <code>STM.retry()</code> aufrufen</li>
+<li>Generell wird kein IO unterstützt</li>
+<li><em>Write Skew</em>: Anhand des Anfangsstatus werden Entscheidungen getroffen, während ein anderer Thread dies ändert (Isolationsfehler)<ul>
+<li>in Scala STM korrekt gelöst, in anderen Systemen mit einfacher <em>Snapshot-Isolation</em> aber nicht!</li>
+</ul>
+</li>
+</ul>
                 
                   
                 
