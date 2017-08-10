@@ -5,8 +5,13 @@ Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 Punkte MFA = 120 P
     - Die Fragen werden auf English gestellt. Antworten auf Englisch & Deutsch möglich.
 - Teil 2 (SLM): 
     - Fragen werden auf Deutsch gestellt.
+    - Übungen:
+        - TCP/UDP-API von Java
+        - Kein Code schreiben
+        - Ansonsten: Konzepte kennen!
 - Erlaubte Unterlagen: 
-    - 1 A4 Zusammenfassung (Beidseitig) für die Gesamtprüfung. Andere Kombinationen (z.B. 2 A4 Blätter einseitig, 2 A5 Blätter beidseitig, usw.) nicht erlaubt. Die Zusammenfassung darf keine Lösungen zu Übungsaufgaben und Prüfungsaufgaben beinhalten. Sonst "Closed Book".
+    - 2 A4 Zusammenfassung (1 Zusammenfassungsblatt pro Teil des Moduls) (Beidseitig) für die Gesamtprüfung. Andere Kombinationen (z.B. 4 A4 Blätter einseitig, 4 A5 Blätter beidseitig, usw.) nicht erlaubt. Die Zusammenfassung darf keine Lösungen zu Übungsaufgaben und Prüfungsaufgaben beinhalten. Sonst "Closed Book". Die mitgebrachte Zusammenfassungen werden stichprobenartig kontrolliert. Zusammenfassungen die nicht erlaubt sind, können zum Ausschluss der Prüfung wegen unerlaubte Hilfsmittel (Note 1.0) fuhren.
+    - **Taschenrechner**
 
 ## VSS Architectural Styles
 <img src="img/architecture_styles.png" style="max-width: 80%"/>
@@ -24,7 +29,50 @@ Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 Punkte MFA = 120 P
 ## Sockets
 <img src="img/socket_pattern.png" style="max-width: 60%"/>
 
-## Messaging Patterns
+### API
+ Method | Meaning
+--------|----------
+ Socket |  New Socket
+ Bind |  Attach local address
+ Listen | Start accepting connections
+ Accept | Block until connection request arrives
+ Connect | Establish connection
+ Send | Send data
+ Receive | Receive Data (Blocking)
+ Close | Release Connection
+ 
+### Examples
+#### TCP
+
+```java
+try(Socket server = new Socket()) {
+	server.connect(new InetSocketAddress("localhost", TimeServer.PORT), 1000);
+	server.setSoTimeout(2000);
+	BufferedReader reader = new BufferedReader(new InputStreamReader(server.getInputStream()));
+    String msg = reader.readLine();
+	System.out.println(msg);
+}
+```
+
+#### UDP
+```java
+try (DatagramSocket socket = new DatagramSocket()) {
+	socket.setSoTimeout(2000);
+	InetSocketAddress serverAddr = new InetSocketAddress("localhost", TimeServer.PORT);
+	DatagramPacket initPacket = new DatagramPacket(new byte[] { 0, 1, 2 }, 3, serverAddr);
+	System.out.println("client> send initial packet to " + serverAddr);
+	socket.send(initPacket);
+
+	byte[] responseBuffer = new byte[256];
+	DatagramPacket response = new DatagramPacket(responseBuffer, responseBuffer.length);
+	System.out.println("client> waiting for response");
+	socket.receive(response);
+
+	System.out.println("client> " + new String(responseBuffer, 0, response.getLength()));
+}
+```
+
+## Messaging Exchange Patterns
 - **Basic Pattern**: Analog zu einem Brief, der von einem Message Endpoint zum anderen gesendet wird
 - **Blocking Receiver Message Pattern**: Synchrone Übertragung, Server und Client warten auf die Antwort
 - **Polling Receiver Message Pattern**: Der Receiver macht Anfragen zum Empfangen der Nachricht (Polling)
@@ -99,6 +147,13 @@ Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 Punkte MFA = 120 P
 - Ausfälle von CIs bewerten
 - `X`: Service nicht mehr verfügbar, `A`: Alternatives CI bietet den Dienst, `M`: Alternatives CI, aber manueller Eingriff nötig
 
+### Häufige Bereiche für Verbesserung
+- SPOFs
+- Ungenügende Dokumentation der IT-Services und Infrastruktur
+- Ungenügends Monitoring
+- Schwächen im Backup und Restore
+- "Key Person" Dependencies: wenn nur einzelne Personen für kritische Services verantwortlich sind
+
 ## Naming Terminology
 - *Name*: String to identify an entity
 - *Entity*: Physical or logical object
@@ -116,12 +171,12 @@ Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 Punkte MFA = 120 P
     - Otherwise, if my successor is responsible (\(p \lt k \le \text{p.successor}\)), forward the request to them
     - Otherwise, forward the request to the *nearest predecessor* node in my finger table, such that \(\text{finger[i]} \le k\)
 
-## Joining
+### Joining
 - New node \(n\) looks up its succesor (=\(s\)) and joins the ring
 - Predecessor of \(s\) needs to update its successor to \(n\) (via stabilization)
 - All resources at \(s\) with keys \(k\) such that \(succ(k) = n\) are moved to \(n\)
 
-## Leaving (planned)
+### Leaving (planned)
 - All resources from the leaving node \(n\) are sent to `n.successor`
 - The predecessor of \(n\) is advised to change its successor to `n.successor`
 
@@ -132,13 +187,15 @@ Grobe Aufteilung der beiden Prüfungsteile: 75 Punkte SLM, 45 Punkte MFA = 120 P
 - update finger table: take a random entry in the finger table, and update its value (= \(succ(n+2^{i-1})\))
 
 
-## Fault Tolerance
+### Fault Tolerance
 - when a node fails, all data would be lost and the ring broken
 - solution: 
     - Replicate files (uniformly distribute on the ring)
     - Keep track of first `n` successors to keep the ring intact
 
 ## Logical Clocks
+- Causal Order (Partial Order): Events are causally ordered, but can have no relation (unlike physical time)
+- Total Order: Every event can be ordered (physical time, vector clocks)
 
 ### Causality
 - Irreflexive: \(a \not\rightarrow a\)

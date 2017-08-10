@@ -24,6 +24,9 @@
     - NTP adjusts gradually. Immediate update would lead to a "jump", mayble a scheduled task is in the gap and wouldn't be executed. (*Time must be continous*)
 
 ## Logical Clocks
+- Causal Order (Partial Order): Events are causally ordered, but can have no relation (unlike physical time)
+- Total Order: Every event can be ordered (physical time, vector clocks)
+
 ### Database Replication Example
 - Problem: Lost updates
 - Solution: Nodes must acknowledge updates, only perform update if it is acknowledged by all nodes
@@ -38,6 +41,7 @@
 - Physical clocks have a limited, arbitrary resolution (accuracy)
 
 ### Causality
+
 - Event a happens before b - \(a \rightarrow b\)
 - Can be reflexive (think DAG) - \(a \rightarrow x \rightarrow b\)
 - Concurrent Relation: \(a || b \)

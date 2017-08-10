@@ -33,7 +33,7 @@ Für jede Message wird jeweils eine Kopie an einen zentralen Message Store gesen
 Die Message trägt eine History auf sich (im Header), von welchen Applikationen sie bereits vearbeitet wurde. Dies erleichtert debugging, da man den Weg der Message verfolgen kann.
 
 #### Channel Purger
-Ein Filter, der gewisse "verbliebene" Messages verwirft, damit das System wieder in einen konsitenten Zustand versetzt wird.
+Ein Filter, der gewisse "verbliebene" Messages verwirft, damit das System wieder in einen konsistenten Zustand versetzt wird.
 
 ## Java Management Extensions (JMX)
 - Java Technologie, um Applikationen, System-Objekte und Devices zu managen

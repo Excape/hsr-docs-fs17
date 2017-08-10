@@ -16,8 +16,8 @@
 - Nicht immer ist schneller besser, manche Systeme brauchen auch eine sehr konsistente Performance (z.B. real-time)
 
 - Für schnelle Antwortzeiten braucht es genüged Durchsatz (z.B. Transaktionen pro Sekunde)
-- Für genügend Durchsatz braucht es genüged Kapazität (Scalability)
+- Für genügend Durchsatz braucht es genügend Kapazität (Scalability)
 
 ## Functional / Operational Model
 - Functional Model: Die funktionalen Komponenten eines Systems
-- Operational Model: Das System, auf das die Komponenten deployed werden (Infrastruktur)
+- Operational Model: Das System, auf das die Komponenten deployed wird (Infrastruktur)
