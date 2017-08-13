@@ -42,6 +42,9 @@
 - Macht Analysen komplex
 
 ## Konjukturzyklen
+
+![](img/konjuktur_zyklen.png)
+
 - Vor 2. WK war Wirtschaft in "natürlichem" Zyklus im Gegenuhrzeigersinn
 - Nach 2. WK bewegt sich der Zyklus nur noch im inflationären Bereich
 - Zentralbanken wollen Deflation verhindern
@@ -51,14 +54,14 @@
 ## Konjukturpolitik
 - In der Schweiz muss der Bund Konjukturpolitik betreiben (Gegen Marktwirtschaft)
 
-1. Nichts tun: Märkten sollen sich selbst regulieren.
+### Nichts tun: Märkten sollen sich selbst regulieren
 - Nachfrage nach Arbeit sinkt
 - Löhne müssten kleiner werden
 - Davon profitieren Unternehmen, Angebot geht hinauf bis zur Balance
 - Preisniveau ist gesunken, aber Löhne auch -> gleiche Kaufkraft
-- *Problem*: Arbeitsmärkte ist reguliert, Löhne dürfen nicht sinken. Funktioniert in der Praxis also nicht
+- *Problem*: Arbeitsmärkte sind reguliert, Löhne dürfen nicht sinken. Funktioniert in der Praxis also nicht
 
-2. Aktive Konjukturpolitik: Der Staat fördert die Nachfrage
+### Aktive Konjukturpolitik: Der Staat fördert die Nachfrage
 - Arbeitsmärkte sind reguliert
 - Nachfrage-Kurve muss wieder nach rechts verschoben werden
 - Haushalte müssen mehr Konsumieren oder Unternehmen mehr investieren
@@ -67,7 +70,8 @@
 - Wenn es die Zentralbank macht, "Geldpolitik"
 
 
-3. Stärkung der automatischen Stabilisatoren: Staatliche Einnahmen und Ausgaben, damit bei Rückgang der Nachfrage diese automatisch stimuliert wird
+### Stärkung der automatischen Stabilisatoren
+- Staatliche Einnahmen und Ausgaben, damit bei Rückgang der Nachfrage diese automatisch stimuliert wird
 - Bremsung durch progressives Steursystem (Steuereinnahmen steigen exponentiell bei höheren Einkommen)
 
 ### Kritik aktive Konjukturpolitik

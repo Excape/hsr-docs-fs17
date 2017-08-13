@@ -1,5 +1,7 @@
 # Markt und Preise
 
+![](img/wirtschaftskreislauf.png)
+
 ## Axiome der Volkswirtschaft
 - Unbeschränkte Bedürfnisse stehen begrenzen Ressourcen gegenüber
 - Heisst: Man muss ständig entscheiden, was man mit den Ressourcen anstellt
@@ -16,11 +18,14 @@
     - Keine Monopole, Transportkosten, etc.
     - Alle sind über Mengen und Preise vollständig informiert
 - Modell ist also sehr stark vereinfacht
-- Konsumentenrente: Differenz zwischen Zahlungsbereitschaft (würden Konsumenten den Preis nicht kennen) und effektiver Preis (rente = "geschenk")
+- *Konsumentenrente*: Differenz zwischen Zahlungsbereitschaft (würden Konsumenten den Preis nicht kennen) und effektiver Preis (rente = "geschenk")
 - *Produzentenrente*: Gleiches Prinzip für Produzenten, sie würden das Gut für weniger anbieten, als es nötig ist
-- *Wohlfahrt: Gesamtrente. Diese soll maximiert werden
+- *Wohlfahrt*: Gesamtrente. Diese soll maximiert werden
 
 ### Preiseingriffe
+
+![](img/mindestpreis.png)
+
 - Mindestpreis: Konsumentenrente sinkt, Produzentenrente steigt, Anfrage sinkt, Angebot steigt
     - Insgesamt ist Wohlfahrt gesunken
 - Genau gleich, aber umgekehrt beim Höchstpreis

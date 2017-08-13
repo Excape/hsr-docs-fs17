@@ -1,6 +1,6 @@
 # Banken
 ### Rollen der Banken
-- Unternehmen können von der Bank (indirekt) oder durch Aktien und Obligationen finanziert werden
+- Unternehmen können von der Bank (indirekt) oder durch Aktien und Obligationen (direkt) finanziert werden
 - Bank können langfristige Kredite anbieten, im Gegensatz zu Haushalten, die nur für kurze Zeit sparen wollen (Fristentransformation)
 - Mit Finanzierung der Bank wird das Risiko verteilt, Kreditausfälle werden von Banken abgefedert
 - Banken haben wenig Eigenkapital, die meisten Passiven sind Fremdkapital (ca. 98%)
@@ -20,7 +20,7 @@
 
 ## Bankenregulierung
 - Mikroprudentielle Regulierung: Stabilität einzelner Banken
-- Makgroprudentielle Regulierung: Stabilität des ganzen Bankensystems (z.B. SNB)
+- Makroprudentielle Regulierung: Stabilität des ganzen Bankensystems (z.B. SNB)
 - Banken sollen ein bestimmtes Eigenkapital und Liquidität haben
 - Vorschriften zur Konkursabwicklung
 - Momentan ist mit der Regulierung "Basel II" 8% Eigenkapital nach Risiko gewichtet gefordert
@@ -35,4 +35,3 @@
 - "Too big to fail": Banken dürfen nicht konkurs gehen, weil sie sonst grosse Teile der Wirtschaft mit in den Abgrund reissen würden
     - Lösungsansätze: Verhinderhung der Insolvenz mit höheren Eigenkapitalforderungen
     - "Living Will": Organisationsform, welche Erlaubt, einzelne noch funktionsfähige Geschäftsbereiche rasch abzuspalten (siehe UBS, CS)
-

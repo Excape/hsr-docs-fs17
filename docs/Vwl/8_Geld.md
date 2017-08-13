@@ -21,8 +21,8 @@
 ### Geldmenge
 - **M0**: Geld der Notenbank (Bargeld + Girokonten der Geschäftsbanken auf der SNB)
 - **M1**: M0 + Sichteinlagen (privatkonten) + Transaktionskosten
-- **M2**: M1 + Sparkeinlagen
-- **M3**: Gesamtmenge der Schweiz, mit Wertschöpfung
+- **M2**: M1 + Spareinlagen
+- **M3**: M2 + Termineinlagen; Gesamtmenge der Schweiz, mit Wertschöpfung
 
 - Geldmenge M0 ist seit 2011 verzehnfacht worden (von der SNB)
     - Historisch immer etwa 50 Mia., heute über 400 Mia.
@@ -67,7 +67,7 @@
 
 ### Historie der Schweizer Geldpolitik
 - Vor dem 2. WK kaum Einflusss auf heute
-- Fixe Wechselkurse 1944 beim Treffen der Siegermächte
+- Fixe Wechselkurse 1944 beim Treffen der Siegermächte (Bretton-Woods-System)
     - US$ als internationale Leitwährung, auch für Schweiz
 - Bis 1973 funktioniert. Wegen verlorenem Vietnamkrieg mit Frankreich (Kolonialherrschaft), USA hat übernommen, ebenfalls verloren.
     - Inflation des US-Dollars wegen Finanzierung des Vietnamkriegs, hat sich übertragen auf ganzen Westen

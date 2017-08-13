@@ -42,7 +42,7 @@
     - Personenfreizügigkeit in I und Schengen-Abkommen in II
 - 2005: Bilateralen mit neu eingetretenen EU-Mitglieder
     - Schweiz musste als "Strafe" Erweiterungsbeitrag und Osthilfe bezahlen
-- 2014: Masseneinwanderungsinitive ganz knapp angenommen (gleich wie 1992!)
+- 2014: Masseneinwanderungsinitive ganz knapp angenommen (gleich knapp wie 1992!)
     - Widerspruch zur Bilateralen I
     - EU verbietet Mitgliedsstaaten, direkt mit der Schweiz zu verhandeln
     - Kroatien ist beigetreten, Schweiz kann wegen MEI keine neue Bilateralen mehr verhandeln

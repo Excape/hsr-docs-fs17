@@ -23,7 +23,7 @@
 - Preisniveau steigt
 
 ### Lohn-Preis-Spirale
-- Durch erhöhtes Preisnivaeu nimmt Kaufkraft ab
+- Durch erhöhtes Preisniveau nimmt Kaufkraft ab
 - Haushalte wollen Lohnerhöhung ("auf Vorrat" - überkompensation)
 - Höhere Produktionskosten der Unternehmen
 - Dadurch höhere Preise ("wieder auf Vorrat")
@@ -63,8 +63,10 @@
 - In einer Boom-Phase ist die gleiche Erhöhung des Angebots schädlicher, weil das BIP weniger steigt als das Preisniveau
 - Das ist das Problem am Euro: Erhöhung der Geldmenge hat je nach Konjuktur-Lage einen negativen (DE) oder positiven (Griechenland) Einfluss
 
+![](img/expansive_geldpolitik.png)
+
 ### Kosten der Inflation
-- Zinsen werden in Inflationszinsen eher zu hoch angesetzt aus Unsicherheit
+- Zinsen werden in Inflationszeiten eher zu hoch angesetzt aus Unsicherheit
 - Preise werden verzerrt, weil verschiedene Güter unterschiedlich schnell teurer werden, Preisgefühl geht verloren
 
 ### Bekämpfung der Inflation
@@ -72,9 +74,17 @@
 - Preis: Niedrigeres BIP, mehr Arbeitslosigkeit
 
 ## Deflation
+
+![](img/deflation_boom.png)
+
+- Deflationäler Boom ist keine Deflation - Positiv!
+
 - Permanenter Rückgang des Preisniveaus
 - Kann Angebotsorientiert werden: Angebot steigt
 - Oder Nachfrageorientiert: Nachfrage sinkt (weniger konsumiert)
+
+![](img/deflation.png)
+
 - "Depressionsfalle" wie in Japan
     - Preise sinken, Haushalte sparen
     - Immer weniger Bevölkerung (Alterung)

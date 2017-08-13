@@ -16,7 +16,7 @@
 ## Protektionismus
 - Importzölle: Preis im Inland wird erhöht
 - Konsumentenrente wird kleiner, Produzentenrente grösser
-- Inländische Produzenten machen mehr Gewinn, sie können im Rahmen der IMportzölle ihre Preise erhöhen
+- Inländische Produzenten machen mehr Gewinn, sie können im Rahmen der Importzölle ihre Preise erhöhen
 - Erhöht Staatsrenten (Zölle), aber insgesamt geht Wohlfahrt verloren
 - Hersteller haben hohes Interesse an Importzöllen, auch wenn Konsumenten es wenig interessiert (z.B. Bleistife, eine Preiserhöhung von 100% würde nicht viel am Angebot ändern)
 - Heute werden viele "nichttarifäre" Massnahmen getroffen, z.B. Importquoten oder spezielle Regulierungen, um den Handel zu erschweren
