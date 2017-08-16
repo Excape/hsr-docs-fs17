@@ -22,7 +22,7 @@
 - Aber insgesamt sinkendes Wachstum
 
 ### Gründe
-![](img/quellen_wachstum.png)
+<img src="img/quellen_wachstum.png" style="max-width: 60%" />
 
 - Exogene Faktoren
     - Kein Seezugang ist ein Nachteil

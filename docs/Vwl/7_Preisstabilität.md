@@ -63,7 +63,7 @@
 - In einer Boom-Phase ist die gleiche Erhöhung des Angebots schädlicher, weil das BIP weniger steigt als das Preisniveau
 - Das ist das Problem am Euro: Erhöhung der Geldmenge hat je nach Konjuktur-Lage einen negativen (DE) oder positiven (Griechenland) Einfluss
 
-![](img/expansive_geldpolitik.png)
+<img src="img/expansive_geldpolitik.png" style="max-width: 60%" />
 
 ### Kosten der Inflation
 - Zinsen werden in Inflationszeiten eher zu hoch angesetzt aus Unsicherheit
@@ -75,7 +75,7 @@
 
 ## Deflation
 
-![](img/deflation_boom.png)
+<img src="img/deflation_boom.png" style="max-width: 80%" />
 
 - Deflationäler Boom ist keine Deflation - Positiv!
 
@@ -83,7 +83,7 @@
 - Kann Angebotsorientiert werden: Angebot steigt
 - Oder Nachfrageorientiert: Nachfrage sinkt (weniger konsumiert)
 
-![](img/deflation.png)
+<img src="img/deflation.png" style="max-width: 80%" />
 
 - "Depressionsfalle" wie in Japan
     - Preise sinken, Haushalte sparen

@@ -1,6 +1,6 @@
 # Markt und Preise
 
-![](img/wirtschaftskreislauf.png)
+<img src="img/wirtschaftskreislauf.png" style="max-width: 60%" />
 
 ## Axiome der Volkswirtschaft
 - Unbeschränkte Bedürfnisse stehen begrenzen Ressourcen gegenüber
@@ -24,7 +24,7 @@
 
 ### Preiseingriffe
 
-![](img/mindestpreis.png)
+<img src="img/mindestpreis.png" style="max-width: 60%" />
 
 - Mindestpreis: Konsumentenrente sinkt, Produzentenrente steigt, Anfrage sinkt, Angebot steigt
     - Insgesamt ist Wohlfahrt gesunken

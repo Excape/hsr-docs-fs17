@@ -46,7 +46,7 @@
 - Es gibt viele Arbeitsstellen für Umverteilung in der Schweiz
 ## Die drei Säulen der Schweizer Altersvorsorge
 
-![](img/altersvorsorge_schweiz.png)
+<img src="img/altersvorsorge_schweiz.png" style="max-width: 60%" />
 
 ### AHV (1. Säule)
 - Pflicht für ganze Bevölkerung (mit Aufenthaltsbewilligung)

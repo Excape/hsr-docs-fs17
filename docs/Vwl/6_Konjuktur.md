@@ -43,7 +43,7 @@
 
 ## Konjukturzyklen
 
-![](img/konjuktur_zyklen.png)
+<img src="img/konjuktur_zyklen.png" style="max-width: 60%" />
 
 - Vor 2. WK war Wirtschaft in "natürlichem" Zyklus im Gegenuhrzeigersinn
 - Nach 2. WK bewegt sich der Zyklus nur noch im inflationären Bereich
