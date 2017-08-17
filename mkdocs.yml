@@ -26,6 +26,16 @@ pages:
         - 13 OR-DBMS: 'Dbs2/14_OR-DBMS.md'
         - 14 Column-Store DBMS: 'Dbs2/15_Column-Store_DBMS.md'
     - InfSi3:
+        - Hacking-Lab:
+            - XML Path-Traversal: 'InfSi3/hacking-lab/2600_XML-Path-Traversal.md'
+            - CSRF: 'InfSi3/hacking-lab/2651_CSRF.md'
+            - Mobile Highscore Manipulation: 'InfSi3/hacking-lab/4216_Folklore_App.md'
+            - Mobile Insecure Data Storage: 'InfSi3/hacking-lab/4250_M2.md'
+            - Mobile Code Quality: 'InfSi3/hacking-lab/4251_M7.md'
+            - Mobile Data Leakage: 'InfSi3/hacking-lab/4252_M2.md'
+            - Wireshark TLS: 'InfSi3/hacking-lab/5102_Wireshark_SSL.md'
+            - Root Escalation: 'InfSi3/hacking-lab/7002_GotRoot.md'
+            - Linksys SSL Break: 'InfSi3/hacking-lab/7030_LinkSys_SSL_Break.md'
         - 0 Index.md: 'InfSi3/0_Index.md'
         - 1 Exam.md: 'InfSi3/1_Exam.md'
         - 2 Overview.md: 'InfSi3/2_Overview.md'
